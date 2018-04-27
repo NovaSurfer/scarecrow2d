@@ -10,13 +10,25 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${2d_engine_SOURCE_DIR}/cmake/module
 #set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} "${SDL2_SOURCE_DIR}/cmake/configs")
 
 set(SOURCE_FILES
-                src/main.cpp
-                src/game.cpp
-                src/game.h
-                src/textureManager.cpp
-                src/textureManager.h
-                src/gameObject.cpp
-                src/gameObject.h src/levelmap.cpp src/levelmap.h)
+        src/main.cpp
+        src/game.cpp
+        src/game.h
+        src/textureManager.cpp
+        src/textureManager.h
+        src/gameObject.cpp
+        src/gameObject.h
+        src/levelmap.cpp
+        src/levelmap.h
+        src/components/ecs.cpp
+        src/components/ecs.h
+        src/components/components.h
+        src/components/transform.cpp
+        src/components/transform.h
+        src/components/sprite.cpp
+        src/components/sprite.h
+        src/math/vector.h
+        src/math/vector.cpp
+        )
 
 add_executable(2d_engine ${SOURCE_FILES})
 

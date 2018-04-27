@@ -2,6 +2,9 @@
 
 SDL_Renderer* Game::renderer = nullptr;
 
+Manager manager;
+auto& player(manager.add_entity());
+
 void Game::init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen)
 {
 	const unsigned short int flags = fullscreen ? SDL_WINDOW_FULLSCREEN : 0;
@@ -30,7 +33,9 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 		isRunning = false;
 	}
 
-	player = std::make_shared<GameObject>("res/sprites/character/engineer-idle.png", 0, 0);
+	levelMap = std::make_shared<LevelMap>();
+	player.add_component<Transform>(400, 300);
+	player.add_component<Sprite>("res/sprites/character/engineer-idle.png");
 }
 
 void Game::handle_events()
@@ -48,13 +53,17 @@ void Game::handle_events()
 
 void Game::update()
 {
-	player->update();
+	manager.refresh();
+	manager.update();
 }
 
 void Game::render()
 {
 	SDL_RenderClear(renderer);
-	player->render();
+
+	levelMap->draw_map();
+	manager.draw();
+
 	SDL_RenderPresent(renderer);
 }
 

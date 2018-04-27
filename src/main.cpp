@@ -8,16 +8,16 @@ int main() {
 	uint32_t frameStart = 0;
 	int frameTime = 0;
 
-	Game game;
-	game.init("2D Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, false);
+	std::unique_ptr<Game> game = std::make_unique<Game>();
+	game->init("2D Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, false);
 
-	while(game.running())
+	while(game->running())
 	{
 		frameStart = SDL_GetTicks();
 
-		game.handle_events();
-		game.update();
-		game.render();
+		game->handle_events();
+		game->update();
+		game->render();
 
 		frameTime = SDL_GetTicks() - frameStart;
 
@@ -27,6 +27,6 @@ int main() {
 		}
 	}
 
-	game.clean();
+	game->clean();
 	return 0;
 }

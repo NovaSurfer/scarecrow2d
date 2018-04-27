@@ -3,12 +3,15 @@
 
 #include "SDL.h"
 #include "SDL_image.h"
-#include "gameObject.h"
+#include "levelmap.h"
+#include "components/components.h"
+
 #include <iostream>
 #include <memory>
 
 // TODO: Is there is a way to avoid **Cyclic Dependency**
 class GameObject;
+class LevelMap;
 
 class Game
 {
@@ -27,7 +30,7 @@ public:
 private:
 	bool isRunning;
 	SDL_Window *window;
-    std::shared_ptr<GameObject> player;
+	std::shared_ptr<LevelMap> levelMap;
 };
 
 #endif //INC_2D_ENGINE_GAME_H
