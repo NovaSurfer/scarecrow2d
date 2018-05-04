@@ -6,23 +6,21 @@
 #define INC_2D_ENGINE_POSITION_H
 
 #include "components.h"
+#include "../math/vector.h"
 
-class Transform : public Component
+struct Transform : public Component
 {
-private:
-    int xpos = 0;
-    int ypos = 0;
-public:
-    Transform() = default;
-    Transform(int x, int y) : xpos(x), ypos(y) {};
+    math::vec2 position;
+    math::vec2 velocity;
 
-    inline int x() const {return xpos;}
-    inline int y() const {return ypos;}
+    int speed = 3;
+
+    Transform() : position(math::vec2()) {};
+
+    explicit Transform(math::vec2 position) : position(position) {};
 
     void init() override;
     void update() override;
-    void setPos(int x, int y);
-
 };
 
 #endif //INC_2D_ENGINE_POSITION_H

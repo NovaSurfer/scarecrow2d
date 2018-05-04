@@ -4,17 +4,15 @@
 
 #include "transform.h"
 
-void Transform::init() {
-    xpos = 0;
-    ypos = 0;
+void Transform::init()
+{
+    velocity.x = 0;
+    velocity.y = 0;
 }
 
-void Transform::setPos(int x, int y) {
-    xpos = x;
-    ypos = y;
+void Transform::update()
+{
+    position.x += velocity.x * speed;
+    position.y += velocity.y * speed;
 }
 
-void Transform::update() {
-    xpos++;
-    ypos++;
-}
