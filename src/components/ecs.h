@@ -13,13 +13,14 @@
 #include <array>
 
 class Component;
+
 class Entity;
 
 constexpr std::size_t maxComponents = 32;
 using ComponentID = std::size_t;
 using ComponentBitSet = std::bitset<maxComponents>;
 // TODO: make it a unique_pointer
-using ComponentArray = std::array<Component*, maxComponents>;
+using ComponentArray = std::array<Component *, maxComponents>;
 
 inline ComponentID get_component_type_id()
 {
@@ -27,24 +28,27 @@ inline ComponentID get_component_type_id()
     return lastID++;
 }
 
-template <typename T>
+template<typename T>
 inline ComponentID get_component_type_id() noexcept
 {
     static ComponentID typeID = get_component_type_id();
     return typeID;
 }
 
-class Component{
+class Component {
 public:
-    Entity* entity;
-    virtual void init(){}
-    virtual void update(){}
-    virtual void draw(){}
+    Entity *entity;
 
-    virtual ~Component(){};
+    virtual void init() {}
+
+    virtual void update() {}
+
+    virtual void draw() {}
+
+    virtual ~Component() {};
 };
 
-class Entity{
+class Entity {
 private:
     bool active = true;
     std::vector<std::unique_ptr<Component>> components;
@@ -53,25 +57,28 @@ private:
 public:
     void update()
     {
-        for(auto& c: components) c->update();
+        for (auto &c: components) c->update();
     }
+
     void draw()
     {
-        for(auto& c: components) c->draw();
+        for (auto &c: components) c->draw();
     }
+
     void destroy() { active = false; }
+
     bool is_active() const { return active; }
 
-    template <typename T>
+    template<typename T>
     bool has_component() const
     {
         return componentBitSet[get_component_type_id<T>()];
     }
 
-    template <typename T, typename... TArgs>
-    T& add_component(TArgs&&... mArgs)
+    template<typename T, typename... TArgs>
+    T &add_component(TArgs &&... mArgs)
     {
-        T* c(new T(std::forward<TArgs>(mArgs)...));
+        T *c(new T(std::forward<TArgs>(mArgs)...));
         c->entity = this;
         std::unique_ptr<Component> u_ptr{c};
         components.emplace_back(std::move(u_ptr));
@@ -82,26 +89,26 @@ public:
         return *c;
     }
 
-    template <typename T>
-    T& get_component() const
+    template<typename T>
+    T &get_component() const
     {
         auto ptr = (componentArray[get_component_type_id<T>()]);
-        return *static_cast<T*>(ptr);
+        return *static_cast<T *>(ptr);
     }
 };
 
-class Manager{
+class Manager {
 private:
     std::vector<std::unique_ptr<Entity>> entities;
 public:
     void update()
     {
-        for(auto& e : entities) e->update();
+        for (auto &e : entities) e->update();
     }
 
     void draw()
     {
-        for(auto& e : entities) e->draw();
+        for (auto &e : entities) e->draw();
     }
 
     void refresh()
@@ -110,17 +117,17 @@ public:
         entities.erase(std::remove_if(
                 entities.begin(),
                 entities.end(),
-                [](const std::unique_ptr<Entity> &mEntity)
-                {
+                [](const std::unique_ptr<Entity> &mEntity) {
                     return !mEntity->is_active();
                 }),
-                std::end(entities));
+                       std::end(entities));
 
     }
-    Entity& add_entity()
+
+    Entity &add_entity()
     {
-        Entity* e = new Entity();
-        std::unique_ptr<Entity> uPtr {e};
+        Entity *e = new Entity();
+        std::unique_ptr<Entity> uPtr{e};
         entities.emplace_back(std::move(uPtr));
         return *e;
     }
@@ -134,7 +141,6 @@ public:
 
 
 };
-
 
 
 #endif //INC_2D_ENGINE_ECS_H

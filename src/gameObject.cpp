@@ -4,11 +4,13 @@
 
 #include "gameObject.h"
 
-GameObject::GameObject(const char *textureSheet, int x, int y): xpos(x), ypos(y) {
+GameObject::GameObject(const char *textureSheet, int x, int y) : xpos(x), ypos(y)
+{
     objTexture = TextureManager::load_texture(textureSheet);
 }
 
-void GameObject::update() {
+void GameObject::update()
+{
 
     xpos++;
     ypos++;
@@ -24,7 +26,8 @@ void GameObject::update() {
     destRect.h = srcRect.h * 2;
 }
 
-void GameObject::render() {
+void GameObject::render()
+{
     SDL_RenderCopy(Game::renderer, objTexture, &srcRect, &destRect);
 }
 

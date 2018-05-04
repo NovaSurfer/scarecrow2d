@@ -8,5 +8,6 @@
 #include "ecs.h"
 #include "transform.h"
 #include "sprite.h"
+#include "inputController.h"
 
 #endif //INC_2D_ENGINE_COMPONENTS_H

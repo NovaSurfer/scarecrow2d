@@ -11,26 +11,32 @@
 
 // TODO: Is there is a way to avoid **Cyclic Dependency**
 class GameObject;
+
 class LevelMap;
 
-class Game
-{
+class Game {
 public:
-	void init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen);
-	
-	void handle_events();
-	void update();
-	void render();
-	void clean();
+    void init(const char *title, int xpos, int ypos, int width, int height, bool fullscreen);
 
-	bool running() const { return isRunning; }
+    void handle_events();
 
-	static SDL_Renderer *renderer;
+    void update();
+
+    void render();
+
+    void clean();
+
+    bool running() const { return isRunning; }
+
+    static SDL_Window *get_window() { return window; }
+
+    static SDL_Renderer *renderer;
+    static SDL_Event event;
 
 private:
-	bool isRunning;
-	SDL_Window *window;
-	std::shared_ptr<LevelMap> levelMap;
+    bool isRunning;
+    static SDL_Window *window;
+    std::shared_ptr<LevelMap> levelMap;
 };
 
 #endif //INC_2D_ENGINE_GAME_H
