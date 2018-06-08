@@ -82,10 +82,15 @@ namespace math {
             return (vec2(a.x - b.x, a.y - b.y));
         }
 
+        inline friend float dot(const vec2 &a, const vec2 &b)
+        {
+            return (a.x * b.x + a.y * b.y);
+        }
+
         // Pythagorean theorem in 2 dimensions
         inline friend float magnitude(const vec2 &v)
         {
-            return (std::sqrt(v.x * v.x + v.y * v.y));
+            return (std::sqrt(dot(v, v)));
         }
 
         // Returns unit vector

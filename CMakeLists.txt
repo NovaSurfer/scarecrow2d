@@ -32,7 +32,9 @@ set(SOURCE_FILES
         src/components/sprite.h
         src/math/vector.h
         src/components/inputController.cpp
-        src/components/inputController.h)
+        src/components/inputController.h
+        src/utils/ini_io.h
+        src/utils/ini_io.cpp)
 
 
 add_executable(2d_engine ${SOURCE_FILES})

@@ -47,10 +47,10 @@ void InputController::update()
             case SDLK_d:
                 transform->velocity.x = 0;
                 break;
-            case SDLK_ESCAPE:
+        /*    case SDLK_ESCAPE:
                 SDL_Window *window = Game::get_window();
-                uint32_t flags = SDL_GetWindowFlags(window);
-
+                int flags = SDL_GetWindowDisplayIndex(window);
+                std::cout << SDL_WINDOW_FULLSCREEN << std::endl;
                 std::cout << flags << std::endl;
                 if (flags == SDL_WINDOW_FULLSCREEN)
                 {
@@ -58,8 +58,11 @@ void InputController::update()
                 } else if (flags == 0)
                 {
                     SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN);
+                } else
+                {
+                    std::cout << SDL_GetError();
                 }
-                break;
+                break;*/
         }
     }
 }
