@@ -3,17 +3,15 @@ project(2d_engine)
 
 set(CMAKE_CXX_STANDARD 17)
 
-#set(SDL2_PATH "E:\\SDL\\SDL2-devel-2.0.8-mingw.tar\\SDL2-devel-2.0.8-mingw\\SDL2-2.0.8\\x86_64-w64-mingw32")
-
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${2d_engine_SOURCE_DIR}/cmake/modules")
-# create a bin folder
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_HOME_DIRECTORY}/bin)
+
+# create a bin (output) directory
 
 
+#copy game config file
+configure_file(${CMAKE_SOURCE_DIR}/cfg/config.ini ${CMAKE_BINARY_DIR} COPYONLY)
 
-#set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} "${SDL2_SOURCE_DIR}/cmake/configs")
 
-#file(COPY ${2d_engine_SOURCE_DIR}/res DESTINATION ${2d_engine_SOURCE_DIR}/bin)
 set(SOURCE_FILES
         src/main.cpp
         src/game.cpp
@@ -34,7 +32,9 @@ set(SOURCE_FILES
         src/components/inputController.cpp
         src/components/inputController.h
         src/utils/ini_io.h
-        src/utils/ini_io.cpp)
+        src/utils/ini_io.cpp
+        src/inputManager.cpp
+        src/inputManager.h)
 
 
 add_executable(2d_engine ${SOURCE_FILES})
@@ -50,3 +50,9 @@ include_directories(${SDL2_INCLUDE_DIR}
 target_link_libraries(2d_engine ${SDL2_LIBRARY}
                                 ${SDL2_IMAGE_LIBRARIES}
                                 ${SDL2_TTF_LIBRARIES})
+
+# copy game data folder to output path
+add_custom_command(TARGET 2d_engine PRE_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+        ${CMAKE_SOURCE_DIR}/data
+        ${CMAKE_BINARY_DIR}/data)
