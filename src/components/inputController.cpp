@@ -11,42 +11,23 @@ void InputController::init()
 
 void InputController::update()
 {
-    if (Game::event.type == SDL_KEYDOWN)
+    if(Game::input_manager->get_key_down("forward"))
     {
-        switch (Game::event.key.keysym.sym)
-        {
-            case SDLK_w:
-                transform->velocity.y = -1;
-                break;
-            case SDLK_s:
-                transform->velocity.y = 1;
-                break;
-            case SDLK_a:
-                transform->velocity.x = -1;
-                break;
-            case SDLK_d:
-                transform->velocity.x = 1;
-                break;
-            default:
-                break;
-        }
+        transform->velocity.y = -1;
     }
-    if (Game::event.type == SDL_KEYUP)
+    if(Game::input_manager->get_key_down("backward"))
     {
-        switch (Game::event.key.keysym.sym)
-        {
-            case SDLK_w:
-                transform->velocity.y = 0;
-                break;
-            case SDLK_s:
-                transform->velocity.y = 0;
-                break;
-            case SDLK_a:
-                transform->velocity.x = 0;
-                break;
-            case SDLK_d:
-                transform->velocity.x = 0;
-                break;
+        transform->velocity.y = 1;
+    }
+    if(Game::input_manager->get_key_up("forward"))
+    {
+        transform->velocity.y = 0;
+    }
+    if(Game::input_manager->get_key_up("backward"))
+    {
+        transform->velocity.y = 0;
+    }
+
         /*    case SDLK_ESCAPE:
                 SDL_Window *window = Game::get_window();
                 int flags = SDL_GetWindowDisplayIndex(window);
@@ -63,7 +44,5 @@ void InputController::update()
                     std::cout << SDL_GetError();
                 }
                 break;*/
-        }
-    }
 }
 

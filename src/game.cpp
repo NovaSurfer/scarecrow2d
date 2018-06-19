@@ -2,10 +2,10 @@
 
 SDL_Renderer *Game::renderer = nullptr;
 SDL_Window *Game::window = nullptr;
+InputManager *Game::input_manager = nullptr;
 SDL_Event Game::event;
 
 Manager manager;
-auto &player(manager.add_entity());
 
 void Game::init(const char *title, int xpos, int ypos, int width, int height, bool fullscreen)
 {
@@ -28,6 +28,8 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
             std::cout << ":: RENDERER CREATED ::" << std::endl;
         }
 
+        input_manager = new InputManager();
+
         isRunning = true;
     } else
     {
@@ -35,21 +37,19 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
     }
 
     levelMap = std::make_shared<LevelMap>();
+    auto &player(manager.add_entity());
     player.add_component<Transform>();
     player.add_component<InputController>();
-    player.add_component<Sprite>("res/sprites/character/engineer-idle.png");
+    player.add_component<Sprite>("data/sprites/character/engineer-idle.png");
 }
 
 void Game::handle_events()
 {
     SDL_PollEvent(&event);
 
-    switch (event.type)
+    if(event.type == SDL_QUIT)
     {
-        case SDL_QUIT:
-            isRunning = false;
-        default:
-            break;
+        isRunning = false;
     }
 }
 

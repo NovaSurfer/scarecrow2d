@@ -4,8 +4,8 @@
 #include "SDL.h"
 #include "SDL_image.h"
 #include "levelmap.h"
+#include "inputManager.h"
 #include "components/components.h"
-
 #include <iostream>
 #include <memory>
 
@@ -13,6 +13,8 @@
 class GameObject;
 
 class LevelMap;
+
+class InputManager;
 
 class Game {
 public:
@@ -30,6 +32,7 @@ public:
 
     static SDL_Window *get_window() { return window; }
 
+    static InputManager *input_manager;
     static SDL_Renderer *renderer;
     static SDL_Event event;
 
