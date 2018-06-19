@@ -6,9 +6,9 @@
 
 LevelMap::LevelMap()
 {
-    dirt = TextureManager::load_texture("res/sprites/dirt.png");
-    grass = TextureManager::load_texture("res/sprites/grass.png");
-    water = TextureManager::load_texture("res/sprites/water.png");
+    dirt = TextureManager::load_texture("data/sprites/dirt.png");
+    grass = TextureManager::load_texture("data/sprites/grass.png");
+    water = TextureManager::load_texture("data/sprites/water.png");
 
     scrRect.x = scrRect.y = 0;
     destRect.x = destRect.y = 0;
