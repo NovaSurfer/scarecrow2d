@@ -27,6 +27,8 @@ public:
 
     std::string get_value(const std::string &key) const;
 
+    std::vector<std::pair<std::string, std::string>> get_kvps(const std::string &section_name) const;
+
     void set_value(const std::string &section_name, const std::string &key, const std::string &value);
 
 private:

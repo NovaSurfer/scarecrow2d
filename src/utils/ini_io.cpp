@@ -1,6 +1,6 @@
 #include "ini_io.h"
 
-IniIO::IniIO(const std::string &filename) : filename(filename)
+IniIO::IniIO(const std::string &filename)
 {
     // Opening file
     std::ifstream file(filename);
@@ -32,7 +32,7 @@ IniIO::IniIO(const std::string &filename) : filename(filename)
                     }
                 }
             }
-            // Check if current line have a key-value pair
+                // Check if current line have a key-value pair
             else if(is_key_value(line, result))
             {
                 std::pair<std::string, std::string> kvs = split_key_value(line);
@@ -42,12 +42,13 @@ IniIO::IniIO(const std::string &filename) : filename(filename)
         }
         // Push the last section when file ends.
         sections.push_back(unit);
+        this->filename = filename;
     }
     else
     {
-        std::cerr << "Cannot open file " << filename << "\n";
+        throw std::runtime_error("Cannot open config file");
     }
- }
+}
 
 
 std::string IniIO::get_value(const std::string &section_name, const std::string &key) const
@@ -70,6 +71,13 @@ std::string IniIO::get_value(const std::string &key) const
         }
     }
     return {};
+}
+
+std::vector<std::pair<std::string, std::string>> IniIO::get_kvps(const std::string &section_name) const
+{
+    ptrdiff_t pos = get_section_pos(section_name);
+    if(pos < 0) return {};
+    return sections[pos].kv_pairs;
 }
 
 void IniIO::set_value(const std::string &section_name, const std::string &key, const std::string &value)
