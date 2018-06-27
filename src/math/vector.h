@@ -87,16 +87,49 @@ namespace math {
             return (a.x * b.x + a.y * b.y);
         }
 
-        // Pythagorean theorem in 2 dimensions
         inline friend float magnitude(const vec2 &v)
         {
             return (std::sqrt(dot(v, v)));
         }
 
-        // Returns unit vector
+        inline friend float magnitudeSq(const vec2 &v)
+        {
+            return dot(v, v);
+        }
+
+        inline friend float distance(const vec2 &a, const vec2 &b)
+        {
+            vec2 t = a - b;
+            return magnitude(t);
+        }
+
         inline friend vec2 normalize(const vec2 &v)
         {
             return (v / magnitude(v));
+        }
+
+        inline friend float angle(const vec2 &a, const vec2 &b)
+        {
+            float m = std::sqrt(magnitudeSq(a) * magnitudeSq(b));
+            return std::acos(dot(a, b) / m);
+        }
+
+        inline friend vec2 project(const vec2 &len, const vec2 &dir)
+        {
+            float d = dot(len, dir);
+            float magSq = magnitudeSq(dir);
+            return dir * (d / magSq);
+        }
+
+        inline friend vec2 perpendicular(const vec2 &len, const vec2 &dir)
+        {
+            return len - project(len, dir);
+        }
+
+        inline friend vec2 reflection(const vec2 &v, const vec2 &normal)
+        {
+            float d = dot(v, normal);
+            return v - normal * (d * 2.0f);
         }
 
         inline friend std::ostream &operator<<(std::ostream &ostream, const vec2 &v)
