@@ -5,7 +5,7 @@
 #ifndef INC_2D_ENGINE_VECTOR_H
 #define INC_2D_ENGINE_VECTOR_H
 
-#include <cmath>
+#include "utils.h"
 #include <ostream>
 
 namespace math {
@@ -17,24 +17,24 @@ namespace math {
 
         vec2(float x, float y) : x(x), y(y) {}
 
-        float &operator[](int i)
+        float& operator[](int i)
         {
             return ((&x)[i]);
         }
 
-        const float &operator[](int i) const
+        const float& operator[](int i) const
         {
             return ((&x)[i]);
         }
 
-        vec2 &operator*=(float s)
+        vec2& operator*=(float s)
         {
             x *= s;
             y *= s;
             return (*this);
         }
 
-        vec2 &operator/=(float s)
+        vec2& operator/=(float s)
         {
             s = 1.0f / s;
             x *= s;
@@ -42,7 +42,7 @@ namespace math {
             return (*this);
         }
 
-        vec2 &operator+=(const vec2 &v)
+        vec2& operator+=(const vec2 &v)
         {
             x += v.x;
             y += v.y;
@@ -54,6 +54,16 @@ namespace math {
             x -= v.x;
             y -= v.y;
             return (*this);
+        }
+
+        inline friend bool operator==(const vec2 &a, const vec2 &b)
+        {
+            return math::utils::cmp(a.x, b.x) && math::utils::cmp(a.y, b.y);
+        }
+
+        inline friend bool operator !=(const vec2& a, const vec2& b)
+        {
+            return !(a == b);
         }
 
         inline friend vec2 operator*(const vec2 &v, float s)
