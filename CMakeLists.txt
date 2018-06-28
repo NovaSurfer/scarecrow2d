@@ -35,7 +35,8 @@ set(SOURCE_FILES
         src/utils/ini_io.cpp
         src/inputManager.cpp
         src/inputManager.h
-        src/math/utils.h)
+        src/math/utils.h
+        src/math/matrices.h)
 
 
 add_executable(2d_engine ${SOURCE_FILES})
