@@ -70,6 +70,19 @@ namespace math {
             return result;
         }
 
+        inline friend std::ostream &operator<<(std::ostream &ostream, const mat2 &mat)
+        {
+            for(int i = 0; i < 2; i++)
+            {
+                for(int j = 0; j < 2; j++)
+                {
+                    ostream << mat.n[i][j] << ' ';
+                }
+                ostream << '\n';
+            }
+            return ostream;
+        }
+
         mat2 transpose(const mat2& matrix)
         {
             mat2 result;
