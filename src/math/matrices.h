@@ -41,7 +41,7 @@ namespace math {
             return (*reinterpret_cast<const vec2 *>(n[j]));
         }
 
-        mat2 operator*(const mat2& matrix, float scalar)
+        inline friend mat2 operator*(const mat2& matrix, float scalar)
         {
             mat2 result;
             for(int i = 0; i < 2; i++)
@@ -49,6 +49,22 @@ namespace math {
                 for(int j = 0; j < 2; j++)
                 {
                     result.n[i][j] = matrix.n[i][j] * scalar;
+                }
+            }
+            return result;
+        }
+
+        inline friend mat2 operator*(const mat2& mat1, const mat2& mat2)
+        {
+            math::mat2 result;
+            for(int i = 0; i < 2; i++)
+            {
+                for(int j = 0; j < 2; j++)
+                {
+                    for(int k = 0; k < 2; k++)
+                    {
+                        result.n[i][j] += mat1.n[i][k] * mat2.n[k][j];
+                    }
                 }
             }
             return result;
