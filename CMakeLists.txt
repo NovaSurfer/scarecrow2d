@@ -1,19 +1,18 @@
 cmake_minimum_required(VERSION 3.10)
-project(2d_engine)
+project(2d_game)
 
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/modules")
 
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${2d_engine_SOURCE_DIR}/cmake/modules")
+include(CTest)
+include(ParseAndAddCatchTests)
 
-# create a bin (output) directory
-
+add_subdirectory(tests)
 
 #copy game config file
 configure_file(${CMAKE_SOURCE_DIR}/cfg/config.ini ${CMAKE_BINARY_DIR} COPYONLY)
 
-
 set(SOURCE_FILES
-        src/main.cpp
         src/game.cpp
         src/game.h
         src/textureManager.cpp
@@ -38,23 +37,24 @@ set(SOURCE_FILES
         src/math/utils.h
         src/math/matrices.h)
 
-
-add_executable(2d_engine ${SOURCE_FILES})
-
 find_package(SDL2 REQUIRED)
 find_package(SDL2_image REQUIRED)
 find_package(SDL2_ttf REQUIRED)
 
 include_directories(${SDL2_INCLUDE_DIR}
-                    ${SDL2_IMAGE_INCLUDE_DIR}
-                    ${SDL2_TTF_INCLUDE_DIR})
+        ${SDL2_IMAGE_INCLUDE_DIR}
+        ${SDL2_TTF_INCLUDE_DIR})
 
-target_link_libraries(2d_engine ${SDL2_LIBRARY}
-                                ${SDL2_IMAGE_LIBRARIES}
-                                ${SDL2_TTF_LIBRARIES})
+add_library (lib ${SOURCE_FILES})
+add_executable (2d_game src/main.cpp)
+target_link_libraries (2d_game
+        lib
+        ${SDL2_LIBRARY}
+        ${SDL2_IMAGE_LIBRARIES}
+        ${SDL2_TTF_LIBRARIES})
 
 # copy game data folder to output path
-add_custom_command(TARGET 2d_engine PRE_BUILD
+add_custom_command(TARGET 2d_game PRE_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_directory
         ${CMAKE_SOURCE_DIR}/data
         ${CMAKE_BINARY_DIR}/data)
