@@ -11,70 +11,97 @@ namespace math {
     struct mat2 {
         float n[2][2];
 
-        mat2() : n{0, 0, 0, 0} {};
+        inline mat2() : n{0, 0, 0, 0} {};
 
-        mat2(float _11, float _12, float _21, float _22)
-                : n{_11, _12,
-                    _21, _22} {};
+        inline mat2(float _11, float _12,
+                    float _21, float _22) :
+                n{_11, _12,
+                  _21, _22} {};
 
-        mat2(const vec2& a, const vec2& b)
-                : n{a.x, a.y,
-                    b.x, b.y} {};
+        inline mat2(const vec2 &a,
+                    const vec2 &b) :
+                n{a.x, a.y,
+                  b.x, b.y} {};
 
-        float& operator()(int i, int j)
+        inline float &operator()(int i, int j)
         {
             return n[i][j];
         }
 
-        const float& operator()(int i, int j) const
+        inline const float &operator()(int i, int j) const
         {
             return n[j][i];
         }
 
-        vec2& operator[](int j)
+        inline vec2 &operator[](int j)
         {
             return (*reinterpret_cast<vec2 *>(n[j]));
         }
 
-        const vec2& operator[](int j) const
+        inline const vec2 &operator[](int j) const
         {
             return (*reinterpret_cast<const vec2 *>(n[j]));
         }
 
-        inline friend mat2 operator*(const mat2& matrix, float scalar)
+        inline mat2 operator*(float scalar)
         {
             mat2 result;
-            for(int i = 0; i < 2; i++)
+            for (int i = 0; i < 2; i++)
             {
-                for(int j = 0; j < 2; j++)
+                for (int j = 0; j < 2; j++)
                 {
-                    result.n[i][j] = matrix.n[i][j] * scalar;
+                    result.n[i][j] = n[i][j] * scalar;
                 }
             }
             return result;
         }
 
-        inline friend mat2 operator*(const mat2& mat1, const mat2& mat2)
+        inline mat2 operator*(const mat2 &other)
         {
             math::mat2 result;
-            for(int i = 0; i < 2; i++)
+            for (int i = 0; i < 2; i++)
             {
-                for(int j = 0; j < 2; j++)
+                for (int j = 0; j < 2; j++)
                 {
-                    for(int k = 0; k < 2; k++)
+                    for (int k = 0; k < 2; k++)
                     {
-                        result.n[i][j] += mat1.n[i][k] * mat2.n[k][j];
+                        result.n[i][j] += n[i][k] * other.n[k][j];
                     }
                 }
             }
             return result;
         }
 
+        inline mat2 &operator*=(float scalar)
+        {
+            *this = *this * scalar;
+            return *this;
+        }
+
+        inline mat2 &operator*=(const mat2 &other)
+        {
+            *this = *this * other;
+            return *this;
+        }
+
+        inline bool operator==(const mat2 &other) const
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                for (int j = 0; j < 2; j++)
+                {
+                    if (this->n[i][j] != other.n[i][j])
+                        return false;
+                }
+            }
+            return true;
+        }
+
         inline friend std::ostream &operator<<(std::ostream &ostream, const mat2 &mat)
         {
-            for(int i = 0; i < 2; i++)
+            for (int i = 0; i < 2; i++)
             {
-                for(int j = 0; j < 2; j++)
+                for (int j = 0; j < 2; j++)
                 {
                     ostream << mat.n[i][j] << ' ';
                 }
@@ -83,16 +110,48 @@ namespace math {
             return ostream;
         }
 
-        mat2 transpose(const mat2& matrix)
+        inline mat2 transpose(const mat2 &mat) const
         {
             mat2 result;
-            for(int i = 0; i < 2; i++)
+            for (int i = 0; i < 2; i++)
             {
-                for(int j = 0; j < 2; j++)
+                for (int j = 0; j < 2; j++)
                 {
-                    result.n[j][i] = matrix.n[i][j];
+                    result.n[j][i] = mat.n[i][j];
                 }
             }
+        }
+
+        inline float determinant(const mat2 &mat)
+        {
+            return mat.n[0][0] * mat.n[1][1] -
+                   mat.n[0][1] * mat.n[1][0];
+        }
+
+        inline mat2 minor(const mat2 &mat) const
+        {
+            return mat2(mat.n[1][1], mat.n[1][0],
+                        mat.n[0][1], mat.n[0][0]);
+        }
+
+        inline mat2 cofactor(const mat2 &mat) const
+        {
+            mat2 result;
+            mat2 minor_mat = minor(mat);
+
+            for (int i = 0; i < 2; i++)
+            {
+                for (int j = 0; j < 2; j++)
+                {
+                    float sign = powf(-1.0f, i + j);
+                    result[i][j] = sign * minor_mat.n[i][j];
+                }
+            }
+        }
+
+        inline mat2 adjugate(const mat2 &mat) const
+        {
+            return transpose(cofactor(mat));
         }
     };
 }
