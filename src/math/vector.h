@@ -13,28 +13,28 @@ namespace math {
     struct vec2 {
         float x, y;
 
-        vec2() : x(0), y(0) {};
+        inline vec2() : x(0), y(0) {};
 
-        vec2(float x, float y) : x(x), y(y) {}
+        inline vec2(float x, float y) : x(x), y(y) {}
 
-        float& operator[](int i)
+        inline float &operator[](int i)
         {
             return ((&x)[i]);
         }
 
-        const float& operator[](int i) const
+        inline const float &operator[](int i) const
         {
             return ((&x)[i]);
         }
 
-        vec2& operator*=(float s)
+        inline vec2 &operator*=(float s)
         {
             x *= s;
             y *= s;
             return (*this);
         }
 
-        vec2& operator/=(float s)
+        inline vec2 &operator/=(float s)
         {
             s = 1.0f / s;
             x *= s;
@@ -42,14 +42,14 @@ namespace math {
             return (*this);
         }
 
-        vec2& operator+=(const vec2 &v)
+        inline vec2 &operator+=(const vec2 &v)
         {
             x += v.x;
             y += v.y;
             return (*this);
         }
 
-        vec2 operator-=(const vec2 &v)
+        inline vec2 operator-=(const vec2 &v)
         {
             x -= v.x;
             y -= v.y;
@@ -61,7 +61,7 @@ namespace math {
             return math::utils::cmp(a.x, b.x) && math::utils::cmp(a.y, b.y);
         }
 
-        inline friend bool operator !=(const vec2& a, const vec2& b)
+        inline friend bool operator!=(const vec2 &a, const vec2 &b)
         {
             return !(a == b);
         }
