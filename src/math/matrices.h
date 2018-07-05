@@ -43,7 +43,7 @@ namespace math {
             return (*reinterpret_cast<const vec2 *>(n[j]));
         }
 
-        inline mat2 operator*(float scalar)
+        inline mat2 operator*(float scalar) const
         {
             mat2 result;
             for (int i = 0; i < 2; i++)
@@ -56,7 +56,7 @@ namespace math {
             return result;
         }
 
-        inline mat2 operator*(const mat2 &other)
+        inline mat2 operator*(const mat2 &other) const
         {
             math::mat2 result;
             for (int i = 0; i < 2; i++)
@@ -110,34 +110,35 @@ namespace math {
             return ostream;
         }
 
-        inline mat2 transpose(const mat2 &mat) const
+        inline mat2 transpose() const
         {
             mat2 result;
             for (int i = 0; i < 2; i++)
             {
                 for (int j = 0; j < 2; j++)
                 {
-                    result.n[j][i] = mat.n[i][j];
+                    result.n[i][j] = n[j][i];
                 }
             }
+            return result;
         }
 
-        inline float determinant(const mat2 &mat)
+        inline float determinant() const
         {
-            return mat.n[0][0] * mat.n[1][1] -
-                   mat.n[0][1] * mat.n[1][0];
+            return n[0][0] * n[1][1] -
+                   n[0][1] * n[1][0];
         }
 
-        inline mat2 minor(const mat2 &mat) const
+        inline mat2 minor() const
         {
-            return mat2(mat.n[1][1], mat.n[1][0],
-                        mat.n[0][1], mat.n[0][0]);
+            return mat2(n[1][1], n[1][0],
+                        n[0][1], n[0][0]);
         }
 
-        inline mat2 cofactor(const mat2 &mat) const
+        inline mat2 cofactor() const
         {
             mat2 result;
-            mat2 minor_mat = minor(mat);
+            mat2 minor_mat = minor();
 
             for (int i = 0; i < 2; i++)
             {
@@ -147,11 +148,13 @@ namespace math {
                     result[i][j] = sign * minor_mat.n[i][j];
                 }
             }
+            return result;
         }
 
-        inline mat2 adjugate(const mat2 &mat) const
+        inline mat2 adjugate() const
         {
-            return transpose(cofactor(mat));
+            mat2 transposed = transpose();
+            return transposed.cofactor();
         }
     };
 }
