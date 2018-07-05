@@ -70,5 +70,28 @@ TEST_CASE("mat2d-operations", "[math]")
         }
     }
 
-    // TODO: transpose, determinant, minor, cofactor, adjugate
+    SECTION("transpose")
+    {
+        REQUIRE(matrix.transpose() == mat2(1, 3, 2, 4));
+    }
+
+    SECTION("determinant")
+    {
+        REQUIRE(matrix.determinant() == -2);
+    }
+
+    SECTION("minor")
+    {
+        REQUIRE(matrix.minor() == mat2(4, 3, 2, 1));
+    }
+
+    SECTION("cofactor")
+    {
+        REQUIRE(matrix.cofactor() == mat2(4, -3, -2, 1));
+    }
+
+    SECTION("adjugate")
+    {
+        REQUIRE(matrix.adjugate() == mat2(4, -2, -3, 1));
+    }
 }
