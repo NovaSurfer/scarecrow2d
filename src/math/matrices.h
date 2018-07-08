@@ -97,6 +97,11 @@ namespace math {
             return true;
         }
 
+        inline bool operator !=(const mat2 &other) const
+        {
+            return !(*this == other);
+        }
+
         inline friend std::ostream &operator<<(std::ostream &ostream, const mat2 &mat)
         {
             for (int i = 0; i < 2; i++)
