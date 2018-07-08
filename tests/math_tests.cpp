@@ -1,6 +1,7 @@
 //
 // Created by maksim on 6/29/18.
 //
+#include <iostream>
 #include "catch2/catch.hpp"
 #include "../src/math/matrices.h"
 #include "../src/math/vector.h"
@@ -93,5 +94,138 @@ TEST_CASE("mat2d-operations", "[math]")
     SECTION("adjugate")
     {
         REQUIRE(matrix.adjugate() == mat2(4, -2, -3, 1));
+    }
+}
+
+TEST_CASE("vec2d-operations", "[math]")
+{
+    vec2 vector(1, 2);
+
+    SECTION("is equal")
+    {
+        vec2 v(1, 2);
+        REQUIRE(vector == v);
+    }
+
+    SECTION("get element as array")
+    {
+        REQUIRE(vector[0] == 1);
+        REQUIRE(vector[1] == 2);
+
+        SECTION("get element as const")
+        {
+            const vec2 const_v;
+            REQUIRE(std::is_const<std::remove_reference<decltype(const_v[0])>::type>::value);
+        }
+    }
+
+    SECTION("scalar multiplication")
+    {
+        float scalar = 8;
+        vec2 result = vector * 8;
+
+        REQUIRE(result == vec2(8, 16));
+
+        SECTION("*= operator with scalar")
+        {
+            vector *= 8;
+            REQUIRE(vector == vec2(8, 16));
+        }
+    }
+
+    SECTION("scalar division")
+    {
+        float scalar = 2;
+        vec2 result = vector / 2;
+
+        REQUIRE(result == vec2(0.5f, 1.0f));
+
+        SECTION("/= operator with scalar")
+        {
+            vector /= 2;
+            REQUIRE(vector == vec2(0.5f, 1.0f));
+        }
+    }
+
+    SECTION("vector addition")
+    {
+        vec2 v(1, 2);
+        vec2 result = vector + v;
+
+        REQUIRE(result == vec2(2, 4));
+
+        SECTION("+= operator")
+        {
+            vector += v;
+            REQUIRE(vector == vec2(2, 4));
+        }
+    }
+
+    SECTION("vector subtraction")
+    {
+        vec2 v(1, 2);
+        vec2 result = vector - v;
+
+        REQUIRE(result == vec2());
+
+        SECTION("-= operator")
+        {
+            vector -= v;
+            REQUIRE(vector == vec2());
+        }
+    }
+
+    SECTION("dot product")
+    {
+        vec2 v(2, 4);
+        float result = dot(vector, v);
+        REQUIRE(result == 10.0f);
+    };
+
+    SECTION("magnitude")
+    {
+        float result = magnitude(vector);
+        REQUIRE(result == Approx(2.236067f));
+    }
+
+    SECTION("squire magnitude")
+    {
+        REQUIRE(magnitudeSq(vector) == 5.0f);
+    }
+
+    SECTION("distance")
+    {
+        REQUIRE(distance(vec2(4, 6), vector) == 5.0f);
+    }
+
+    SECTION("normalize")
+    {
+        //  FAILED:
+        //  REQUIRE( magnitude(normalize(vector)) == 1.0f )
+        //  with expansion:
+        //  1.0f == 1.0f
+        REQUIRE(magnitude(normalize(vector)) == Approx(1.0f));
+    }
+
+    SECTION("get angle")
+    {
+        REQUIRE(angle(vector, vector) == 0.0f);
+    }
+
+    SECTION("projection")
+    {
+        vec2 v(3, 6);
+        REQUIRE(project(vector, v) == vec2(1, 2));
+    }
+
+    SECTION("perpendicular")
+    {
+        vec2 v(3, 6);
+        REQUIRE(perpendicular(vector, v) == vec2());
+    }
+
+    SECTION("reflection")
+    {
+        REQUIRE(reflection(vector, normalize(vector)) == vec2(-1,-2));
     }
 }

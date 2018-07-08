@@ -15,7 +15,7 @@ namespace math
         /**
          * Comparing floating point numbers
          */
-        constexpr inline static float cmp(const float x, const float y)
+        constexpr inline static bool cmp(const float x, const float y)
         {
             return fabsf(x - y) <=FLT_EPSILON * fmaxf(1.0f, fmaxf(fabsf(x), fabsf(y)));
         }
