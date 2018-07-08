@@ -95,6 +95,11 @@ TEST_CASE("mat2d-operations", "[math]")
     {
         REQUIRE(matrix.adjugate() == mat2(4, -2, -3, 1));
     }
+
+    SECTION("inverse")
+    {
+        REQUIRE(matrix * matrix.inverse() == mat2(1,0,0,1));
+    }
 }
 
 TEST_CASE("vec2d-operations", "[math]")

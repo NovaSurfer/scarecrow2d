@@ -97,7 +97,7 @@ namespace math {
             return true;
         }
 
-        inline bool operator !=(const mat2 &other) const
+        inline bool operator!=(const mat2 &other) const
         {
             return !(*this == other);
         }
@@ -160,6 +160,25 @@ namespace math {
         {
             mat2 transposed = transpose();
             return transposed.cofactor();
+        }
+
+        inline mat2 inverse()
+        {
+            float det = n[0][0] * n[1][1] - n[0][1] * n[1][0];
+
+            if (utils::cmp(det, 0.0f)) return mat2();
+
+            mat2 result;
+
+            // To avoid excessive division
+            float i_det = 1.0f / det;
+
+            // Do reciprocal multiplication
+            result.n[0][0] =  n[1][1] * i_det;
+            result.n[0][1] = -n[0][1] * i_det;
+            result.n[1][0] = -n[1][0] * i_det;
+            result.n[1][1] =  n[0][0] * i_det;
+            return result;
         }
     };
 }
