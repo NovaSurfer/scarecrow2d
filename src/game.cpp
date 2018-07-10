@@ -1,3 +1,4 @@
+#include <SDL_video.h>
 #include "game.h"
 
 SDL_Renderer *Game::renderer = nullptr;
@@ -9,21 +10,22 @@ Manager manager;
 
 void Game::init(const char *title, int xpos, int ypos, int width, int height, bool fullscreen)
 {
-    const unsigned short int flags = fullscreen ? SDL_WINDOW_FULLSCREEN : 0;
+    const unsigned short int flags = fullscreen ? SDL_WINDOW_FULLSCREEN | SDL_WINDOW_RESIZABLE : 0;
 
     if (SDL_Init(SDL_INIT_EVERYTHING) == 0)
     {
         std::cout << ":: SUBSYSTEMS INITIALIZED ::" << std::endl;
-
+        SDL_SetHint (SDL_HINT_RENDER_SCALE_QUALITY, nullptr);
         window = SDL_CreateWindow(title, xpos, ypos, width, height, flags);
         if (window)
         {
             std::cout << ":: WINDOW CREATED ::" << std::endl;
         }
 
-        renderer = SDL_CreateRenderer(window, -1, 0);
+        renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
         if (renderer)
         {
+            SDL_RenderSetLogicalSize(renderer, 640, 480);
             SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
             std::cout << ":: RENDERER CREATED ::" << std::endl;
         }
@@ -47,7 +49,7 @@ void Game::handle_events()
 {
     SDL_PollEvent(&event);
 
-    if(event.type == SDL_QUIT)
+    if (event.type == SDL_QUIT)
     {
         isRunning = false;
     }

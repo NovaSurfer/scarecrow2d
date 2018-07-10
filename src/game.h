@@ -9,7 +9,6 @@
 #include <iostream>
 #include <memory>
 
-// TODO: Is there is a way to avoid **Cyclic Dependency**
 class GameObject;
 
 class LevelMap;

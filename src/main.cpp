@@ -4,7 +4,7 @@
 
 int main()
 {
-
+    // TODO: fix main loop
     constexpr uint32_t FPS = 60;
     constexpr uint32_t frameDelay = 1000 / FPS;
     uint32_t frameStart = 0;
@@ -20,7 +20,6 @@ int main()
         game->handle_events();
         game->update();
         game->render();
-
         frameTime = SDL_GetTicks() - frameStart;
 
         if (frameDelay > frameTime)
