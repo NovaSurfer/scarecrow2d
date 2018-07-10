@@ -15,20 +15,23 @@ class Sprite : public Component {
 private:
     Transform *transform;
     SDL_Texture *texture;
-    SDL_Rect srcRect;
-    SDL_Rect destRect;
+    SDL_Surface *surface;
+    SDL_Rect srcrect;
+    SDL_Rect destrect;
+    SDL_Point center;
+
+    void resize_surface();
+
 public:
     Sprite() = default;
-
-    Sprite(const char *path);
+    Sprite(const char *path, bool resizable = false);
 
     void set_texture(const char *path);
 
     void init() override;
-
     void update() override;
-
     void draw() override;
+
 };
 
 

@@ -13,19 +13,27 @@ void InputController::update()
 {
     if(Game::input_manager->get_key_down("forward"))
     {
-        transform->velocity.y = -1;
+        transform->set_pos_y(-3);
     }
     if(Game::input_manager->get_key_down("backward"))
     {
-        transform->velocity.y = 1;
+        transform->set_pos_y(3);
     }
     if(Game::input_manager->get_key_up("forward"))
     {
-        transform->velocity.y = 0;
+        transform->set_pos_y(0);
     }
     if(Game::input_manager->get_key_up("backward"))
     {
-        transform->velocity.y = 0;
+        transform->set_pos_y(0);
+    }
+    if(Game::input_manager->get_key_down("rotateLeft"))
+    {
+        transform->rotate(-5);
+    }
+    if(Game::input_manager->get_key_down("rotateRight"))
+    {
+        transform->rotate(5);
     }
 
         /*    case SDLK_ESCAPE:

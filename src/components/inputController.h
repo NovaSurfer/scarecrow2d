@@ -10,13 +10,10 @@
 
 class InputController : public Component {
 public:
-    Transform *transform;
-
-    void init() override;
-
     void update() override;
-
+    void init() override;
 private:
+    Transform *transform;
 };
 
 
