@@ -72,6 +72,18 @@ namespace math {
             return result;
         }
 
+        inline mat2 operator+(const mat2 &other) const
+        {
+            math::mat2 result;
+            for(int i = 0; i < 2; i++)
+            {
+                for(int j = 0; j < 2; j++)
+                {
+                    result.n[i][j] = n[i][j] + other[i][j];
+                }
+            }
+        }
+
         inline mat2 &operator*=(float scalar)
         {
             *this = *this * scalar;
@@ -81,6 +93,12 @@ namespace math {
         inline mat2 &operator*=(const mat2 &other)
         {
             *this = *this * other;
+            return *this;
+        }
+
+        inline mat2 &operator+=(const mat2 &other)
+        {
+            *this = *this + other;
             return *this;
         }
 
