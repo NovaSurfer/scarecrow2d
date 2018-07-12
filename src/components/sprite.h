@@ -13,25 +13,23 @@ class Transform;
 
 class Sprite : public Component {
 private:
-    Transform *transform;
-    SDL_Texture *texture;
-    SDL_Surface *surface;
+    Transform *transform = nullptr;
+    SDL_Texture *texture = nullptr;
     SDL_Rect srcrect;
     SDL_Rect destrect;
-    SDL_Point center;
-
-    void resize_surface();
-
+    SDL_Point pivot;
 public:
-    Sprite() = default;
-    Sprite(const char *path, bool resizable = false);
+    explicit Sprite(std::string_view path);
+    void set_texture(std::string_view path);
 
-    void set_texture(const char *path);
+    SDL_Surface *scaled_copy(SDL_Surface *src, SDL_Rect *dstSize);
 
+    void resize(const SDL_Point dest_size);
     void init() override;
     void update() override;
     void draw() override;
 
+    void calc_pivot();
 };
 
 

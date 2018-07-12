@@ -4,11 +4,9 @@
 
 #include "sprite.h"
 
-Sprite::Sprite(const char *path, bool resizable = false)
+Sprite::Sprite(std::string_view path)
 {
-    if(resizable)
-        texture = TextureManager::load_texture(path);
-    else std::tie(texture, surface) = TextureManager::load_texture_resizable(path);
+    set_texture(path);
 }
 
 void Sprite::init()
@@ -16,37 +14,38 @@ void Sprite::init()
     transform = &entity->get_component<Transform>();
 
     srcrect.x = srcrect.y = 0;
-    srcrect.w = srcrect.h = 28;
-    destrect.w = destrect.h = 28;
+    srcrect.w = srcrect.h = 64;
+    destrect.w = destrect.h = 64;
 
-    auto halfWidth = (int)(srcrect.w * 0.5f);
-    center.x = halfWidth;
-    center.y = srcrect.h - halfWidth;
+    calc_pivot();
 };
 
 void Sprite::update()
 {
-    // TODO: check if we have a transform component
     destrect.x = static_cast<int>(transform->get_position().x);
     destrect.y = static_cast<int>(transform->get_position().y);
-    resize_surface();
 }
 
 void Sprite::draw()
 {
-    TextureManager::draw_texture(texture, srcrect, destrect, transform->get_rotation(), center, SDL_FLIP_NONE);
+    TextureManager::draw_texture(texture, srcrect, destrect, transform->get_rotation(), pivot, SDL_FLIP_NONE);
 }
 
-void Sprite::set_texture(const char *path)
+void Sprite::set_texture(std::string_view path)
 {
-    texture = TextureManager::load_texture(path);
+    texture  = TextureManager::load_texture(path);
 }
 
-void Sprite::resize_surface()
+void Sprite::resize(const SDL_Point dest_size)
 {
-    if(surface != nullptr)
-    {
-        SDL_Rect destrect = transform->get_scale();
-        SDL_BlitScaled(surface, nullptr, surface, &destrect);
-    }
+   destrect.w += dest_size.x;
+   destrect.h += dest_size.y;
+   calc_pivot();
+}
+
+void Sprite::calc_pivot()
+{
+    auto halfWidth = (int)(destrect.w * 0.5f);
+    pivot.x = halfWidth;
+    pivot.y = destrect.h - halfWidth;
 }

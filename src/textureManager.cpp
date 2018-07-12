@@ -4,31 +4,17 @@
 
 #include "textureManager.h"
 
-SDL_Texture *TextureManager::load_texture(const char *texFile)
+SDL_Texture *TextureManager::load_texture(std::string_view texFile)
 {
-    SDL_Surface *tmpSurface = IMG_Load(texFile);
+    SDL_Surface *tmpSurface = IMG_Load(texFile.data());
     if (tmpSurface)
     {
         SDL_Texture *tex = SDL_CreateTextureFromSurface(Game::renderer, tmpSurface);
         SDL_FreeSurface(tmpSurface);
         return tex;
     } else {
-        std::cout << " :: ERROR :: TEXTURE_LOADING :: " << IMG_GetError() << std::endl;
+        std::cout << " :: ERROR :: TEXTURE_LOADING :: " << IMG_GetError() << '\n';
         return nullptr;
-    }
-}
-
-std::pair<SDL_Texture*, SDL_Surface*>
-TextureManager::load_texture_resizable(const char *texFile)
-{
-    SDL_Surface *tmpSurface = IMG_Load(texFile);
-    if (tmpSurface)
-    {
-        SDL_Texture *tex = SDL_CreateTextureFromSurface(Game::renderer, tmpSurface);
-        return std::make_pair(tex, tmpSurface);
-    } else {
-        std::cout << " :: ERROR :: TEXTURE_LOADING :: " << IMG_GetError() << std::endl;
-        return {};
     }
 }
 
