@@ -25,7 +25,7 @@ bool InputManager::get_key_down(const std::string &key)
     if(Game::event.type == SDL_KEYDOWN)
     {
         return is_same_key(key);
-    }
+    } else return false;
 }
 
 
@@ -35,10 +35,10 @@ bool InputManager::get_key_up(const std::string &key)
     {
         return is_same_key(key);
     }
+    return false;
 }
 
 bool InputManager::is_same_key(const std::string &key)
 {
-    std::string current_key_name = SDL_GetKeyName(Game::event.key.keysym.sym);
-    return current_key_name == key_names[key];
+    return Game::event.key.keysym.sym == SDL_GetKeyFromName(key_names[key].c_str());
 }
