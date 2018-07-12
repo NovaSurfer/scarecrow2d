@@ -37,6 +37,8 @@ set(SOURCE_FILES
         src/math/utils.h
         src/math/matrices.h)
 
+set(GCC_COMPILE_FLAGS "-Wall -Wextra -Wshadow -Wnon-virtual-dtor -pedantic")
+
 find_package(SDL2 REQUIRED)
 find_package(SDL2_image REQUIRED)
 find_package(SDL2_ttf REQUIRED)
