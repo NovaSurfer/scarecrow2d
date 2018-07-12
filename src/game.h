@@ -31,7 +31,7 @@ public:
 
     static SDL_Window *get_window() { return window; }
 
-    static InputManager *input_manager;
+    static std::unique_ptr<InputManager> input_manager;
     static SDL_Renderer *renderer;
     static SDL_Event event;
 

@@ -3,7 +3,7 @@
 
 SDL_Renderer *Game::renderer = nullptr;
 SDL_Window *Game::window = nullptr;
-InputManager *Game::input_manager = nullptr;
+std::unique_ptr<InputManager> Game::input_manager = nullptr;
 SDL_Event Game::event;
 
 Manager manager;
@@ -14,23 +14,22 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
 
     if (SDL_Init(SDL_INIT_EVERYTHING) == 0)
     {
-        std::cout << ":: SUBSYSTEMS INITIALIZED ::" << std::endl;
+        std::cout << ":: SUBSYSTEMS INITIALIZED ::\n";
         SDL_SetHint (SDL_HINT_RENDER_SCALE_QUALITY, nullptr);
         window = SDL_CreateWindow(title, xpos, ypos, width, height, flags);
         if (window)
         {
-            std::cout << ":: WINDOW CREATED ::" << std::endl;
+            std::cout << ":: WINDOW CREATED ::\n";
         }
 
         renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
         if (renderer)
         {
-            SDL_RenderSetLogicalSize(renderer, 640, 480);
+//            SDL_RenderSetLogicalSize(renderer, 640, 480);
             SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
-            std::cout << ":: RENDERER CREATED ::" << std::endl;
+            std::cout << ":: RENDERER CREATED ::\n";
         }
 
-        input_manager = new InputManager();
 
         isRunning = true;
     } else
@@ -38,11 +37,14 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
         isRunning = false;
     }
 
+    input_manager = std::make_unique<InputManager>();
     levelMap = std::make_shared<LevelMap>();
     auto &player(manager.add_entity());
     player.add_component<Transform>();
+    player.get_component<Transform>().set_pos_y(300);
+    player.get_component<Transform>().set_pos_x(300);
     player.add_component<InputController>();
-    player.add_component<Sprite>("data/sprites/character/engineer-idle.png");
+    player.add_component<Sprite>("data/sprites/ScareCrow.png");
 }
 
 void Game::handle_events()
@@ -77,5 +79,5 @@ void Game::clean()
     SDL_DestroyRenderer(renderer);
     IMG_Quit();
     SDL_Quit();
-    std::cout << ":: GAME CLEANED ::" << std::endl;
+    std::cout << ":: GAME CLEANED ::\n";
 }
