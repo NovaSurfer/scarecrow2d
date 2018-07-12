@@ -35,6 +35,14 @@ void InputController::update()
     {
         transform->rotate(5);
     }
+    if(Game::input_manager->get_key_down("resize+"))
+    {
+        transform->set_scale(SDL_Point{1,1});
+    }
+    if(Game::input_manager->get_key_down("resize-"))
+    {
+        transform->set_scale(SDL_Point{-1,-1});
+    }
 
         /*    case SDLK_ESCAPE:
                 SDL_Window *window = Game::get_window();
