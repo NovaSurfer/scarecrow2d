@@ -82,6 +82,24 @@ namespace math
                 half_extends(half_extends),
                  rotation(rotation) {}
     };
+
+    /***
+     * @details <a href="https://en.wikipedia.org/wiki/Slope#Algebra_and_geometry">Slope-intercept form</a>
+     * @param point
+     * @param line
+     * @return
+     */
+    bool point_on_line(const point2d &point, const line2d &line)
+    {
+        // Find slope
+        float dy = line.end.y - line.start.y;
+        float dx = line.end.x - line.start.x;
+        float m = dy / dx;
+        // Find the Y-Intercept
+        float b = line.start.y - m * line.start.x;
+        // Check line equation
+        return utils::cmp(point.y, m * point.x + b);
+    }
 };
 
 #endif //INC_2D_GAME_GEOMETRY2D_H
