@@ -66,6 +66,22 @@ namespace math
             return rect2d(min, max-min);
         }
     };
+
+    struct orientedRect {
+        point2d positon;
+        vec2 half_extends;
+        float rotation;
+
+        inline orientedRect() : half_extends(vec2(0,0)), rotation(0) {}
+        inline orientedRect(const point2d &positon, const vec2 &half_extends) :
+                positon(positon),
+                half_extends(half_extends),
+                rotation(0) {}
+        inline orientedRect(const point2d &positon, const vec2 &half_extends, float rotation) :
+                positon(positon),
+                half_extends(half_extends),
+                 rotation(rotation) {}
+    };
 };
 
 #endif //INC_2D_GAME_GEOMETRY2D_H
