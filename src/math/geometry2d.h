@@ -102,7 +102,10 @@ namespace math
     }
 
     /***
-     * @details <a href="http://www.ambrsoft.com/TrigoCalc/Circles2/circlrLine_.htm">Slope-intercept form</a>
+     * @details A point is inside a circle if the length of a line from the center of the circle to the point being
+     *          tested is less than the radius of the circle. Finding the length of a line involves a square root
+     *          operation, we can avoid this by checking the square length of the line against the square
+     *          radius of the circle.
      * @param point
      * @param c
      * @return
