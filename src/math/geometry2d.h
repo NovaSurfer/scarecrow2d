@@ -18,12 +18,12 @@ namespace math
         inline line2d() = default;
         inline line2d(const point2d& start, const point2d& end) : start(start), end(end){};
 
-        inline float length(const line2d &line)
+        inline static float length(const line2d &line)
         {
             return math::vec2::magnitude(line.end - line.start);
         }
 
-        inline float lengthSq(const line2d &line)
+        inline static float lengthSq(const line2d &line)
         {
             return math::vec2::magnitudeSq(line.end - line.start);
         }
@@ -99,6 +99,18 @@ namespace math
         float b = line.start.y - m * line.start.x;
         // Check line equation
         return utils::cmp(point.y, m * point.x + b);
+    }
+
+    /***
+     * @details <a href="http://www.ambrsoft.com/TrigoCalc/Circles2/circlrLine_.htm">Slope-intercept form</a>
+     * @param point
+     * @param c
+     * @return
+     */
+    bool point_in_circle(const point2d &point, const circle &c)
+    {
+        line2d line(point, c.position);
+        return line2d::lengthSq(line) >= c.radius * c.radius;
     }
 };
 
