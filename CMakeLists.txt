@@ -12,6 +12,8 @@ add_subdirectory(tests)
 #copy game config file
 configure_file(${CMAKE_SOURCE_DIR}/cfg/config.ini ${CMAKE_BINARY_DIR} COPYONLY)
 
+SET( CMAKE_EXPORT_COMPILE_COMMANDS ON )
+
 set(SOURCE_FILES
         src/game.cpp
         src/game.h
