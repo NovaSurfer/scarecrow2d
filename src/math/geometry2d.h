@@ -45,7 +45,7 @@ namespace math
         inline rect2d() : size(1.0f,1.0f) {}
         inline rect2d(const point2d& origin, const vec2 &size) : origin(origin), size(size) {}
 
-        inline vec2 get_min(const rect2d rect)
+        inline static vec2 get_min(const rect2d rect)
         {
             vec2 p1 = rect.origin;
             vec2 p2 = rect.origin + rect.size;
@@ -53,7 +53,7 @@ namespace math
             return vec2(fminf(p1.x, p2.x), fminf(p1.y, p2.y));
         }
 
-        inline vec2 get_max(const rect2d rect)
+        inline static vec2 get_max(const rect2d rect)
         {
             vec2 p1 = rect.origin;
             vec2 p2 = rect.origin + rect.size;
@@ -114,6 +114,17 @@ namespace math
     {
         line2d line(point, c.position);
         return line2d::lengthSq(line) >= c.radius * c.radius;
+    }
+
+    bool point_in_rect(const point2d &point, const rect2d rect)
+    {
+        vec2 min = rect2d::get_min(rect);
+        vec2 max = rect2d::get_max(rect);
+        
+        return min.x <= point.x && 
+            min.y <= point.y &&
+            point.x <= max.x && 
+            point.y <= max.y;
     }
 };
 
