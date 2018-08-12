@@ -38,7 +38,8 @@ set(SOURCE_FILES
         src/inputManager.h
         src/math/utils.h
         src/math/matrices.h
-        src/math/geometry2d.h)
+        src/math/geometry2d.h
+        src/physics/collision2d.h)
 
 set(GCC_COMPILE_FLAGS "-Wall -Wextra -Wshadow -Wnon-virtual-dtor -pedantic")
 
