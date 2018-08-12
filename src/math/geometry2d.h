@@ -159,6 +159,54 @@ namespace math
             point.x <= max.x && 
             point.y <= max.y;
     }
+
+//    bool point_in_orrect(const point2d &point, const orrect2d rect)
+//    {
+//        vec2 rot_vec = point - rect.positon;
+//        float theta = -utils::deg2rag(rect.rotation);
+//        float z_rot2x2p[] = {
+//                -sinf(theta), cosf(theta)
+//        };
+//    };
+
+    bool line_circle(const line2d &line, const circle &circle)
+    {
+        vec2 ab = line.end - line.start;
+        float t = vec2::dot(circle.position - line.start, ab) / vec2::dot(ab, ab);
+        if(t < 0.0f || t > 1.0f) {
+            return false;
+        }
+        point2d closest_point = line.start + ab * t;
+        line2d circle_to_closest(circle.position, closest_point);
+        return line2d::lengthSq(circle_to_closest) < circle.radius * circle.radius;
+    }
+
+    bool line_rect(const line2d &line, const rect2d &rect)
+    {
+        if(point_in_rect(line.start, rect) || point_in_rect(line.end, rect))
+        {
+            return true;
+        }
+        vec2 norm = vec2::normalize(line.end - line.start);
+        norm.x = (norm.x != 0) ? 1.0f / norm.x : 0;
+        norm.y = (norm.y != 0) ? 1.0f / norm.y : 0;
+        vec2 min = (rect2d::get_min(rect) - line.start) * norm;
+        vec2 max = (rect2d::get_max(rect) - line.end) * norm;
+
+        float tmin = fmaxf(
+                fminf(min.x, max.x),
+                fmaxf(min.y, max.y));
+
+        float tmax = fminf(
+                fmaxf(min.x, max.x),
+                fmaxf(min.y, max.y));
+
+        if(tmax < 0 || tmin > tmax) return false;
+
+        float t = (tmin < 0.0f) ? tmax : tmin;
+        return t > 0.0f && t * t < line2d::lengthSq(line);
+
+    }
 };
 
 #endif //INC_2D_GAME_GEOMETRY2D_H
