@@ -6,6 +6,7 @@
 #define INC_2D_GAME_GEOMETRY2D_H
 
 #include "vector.h"
+#include "utils.h"
 
 namespace math
 {
@@ -67,20 +68,53 @@ namespace math
         }
     };
 
-    struct orientedRect {
+    struct orrect2d {
         point2d positon;
         vec2 half_extends;
         float rotation;
 
-        inline orientedRect() : half_extends(vec2(0,0)), rotation(0) {}
-        inline orientedRect(const point2d &positon, const vec2 &half_extends) :
+        inline orrect2d() : half_extends(vec2(0,0)), rotation(0) {}
+        inline orrect2d(const point2d &positon, const vec2 &half_extends) :
                 positon(positon),
                 half_extends(half_extends),
                 rotation(0) {}
-        inline orientedRect(const point2d &positon, const vec2 &half_extends, float rotation) :
+        inline orrect2d(const point2d &positon, const vec2 &half_extends, float rotation) :
                 positon(positon),
                 half_extends(half_extends),
                  rotation(rotation) {}
+    };
+
+    struct interval2d
+    {
+        float min;
+        float max;
+
+        static interval2d get_interval(const rect2d &rect, const vec2 &axis)
+        {
+            interval2d result;
+            // Find the min and max of the rectangle being tested
+            vec2 min = rect2d::get_min(rect);
+            vec2 max = rect2d::get_max(rect);
+            // building a set of vertices
+            vec2 verts[]{   // get all vertices of rect
+                    vec2(min.x, min.y),
+                    vec2(max.x, max.y)
+            };
+            // Project each vertex onto the axis, store the smallest and largest values
+            result.min = result.max = vec2::dot(axis, verts[0]);
+            for(int i = 0; i < 4; ++i)
+            {
+                float projection = vec2::dot(axis, verts[i]);
+                if(projection < result.min)
+                {
+                    result.min = projection;
+                } if (projection > result.max)
+                {
+                    result.max = projection;
+                }
+            }
+            return result;
+        };
     };
 
     /***
@@ -120,8 +154,7 @@ namespace math
     {
         vec2 min = rect2d::get_min(rect);
         vec2 max = rect2d::get_max(rect);
-        
-        return min.x <= point.x && 
+        return min.x <= point.x &&
             min.y <= point.y &&
             point.x <= max.x && 
             point.y <= max.y;
