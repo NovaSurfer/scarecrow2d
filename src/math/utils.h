@@ -53,6 +53,11 @@ namespace math
         {
             return x * 0.0174533f;
         }
+
+        constexpr inline static void clamp(float number, const float min, const float max)
+        {
+            number = (number < min) ? min : ((number > max) ? max : number);
+        }
     };
 }
 
