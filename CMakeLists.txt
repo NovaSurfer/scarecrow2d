@@ -13,6 +13,10 @@ if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
     set(GCC_COMPILE_FLAGS "-Wall -Wextra -Wshadow -Wnon-virtual-dtor -pedantic")
 endif()
 
+if(MINGW)
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static-libstdc++")
+endif()
+
 set(SOURCE_FILES
         ${SRC_DIR}/oglMain.cpp)
 #        ${SRC_DIR}/game.cpp
