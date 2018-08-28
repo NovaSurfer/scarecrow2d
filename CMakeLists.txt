@@ -102,7 +102,10 @@ target_link_libraries(${PROJECT_NAME} "${GLM_LIBRARIES}")
 
 #copy game config file
 configure_file(${CMAKE_SOURCE_DIR}/cfg/config.ini ${CMAKE_BINARY_DIR} COPYONLY)
-
+if(WIN32)
+    configure_file(${CMAKE_BINARY_DIR}/deps/glad/libglad.dll ${CMAKE_BINARY_DIR} COPYONLY)
+    configure_file(${CMAKE_BINARY_DIR}/deps/glfw/src/glfw3.dll ${CMAKE_BINARY_DIR} COPYONLY)
+endif()
 # copy game data folder to output path
 add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_directory
