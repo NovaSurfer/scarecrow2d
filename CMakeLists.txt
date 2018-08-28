@@ -18,7 +18,9 @@ if(MINGW)
 endif()
 
 set(SOURCE_FILES
-        ${SRC_DIR}/oglMain.cpp)
+        ${SRC_DIR}/oglMain.cpp
+        ${SRC_DIR}/shader.h
+        ${SRC_DIR}/shader.cpp)
 #        ${SRC_DIR}/game.cpp
 #        ${SRC_DIR}/game.h
 #        ${SRC_DIR}/textureManager.cpp
