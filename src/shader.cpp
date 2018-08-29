@@ -4,7 +4,7 @@
 
 #include "shader.h"
 
-const GLuint Shader::get_program() const {
+const GLuint &Shader::get_program() const {
     return program;
 }
 
@@ -46,7 +46,7 @@ void Shader::compile(const GLchar *vert_src, const GLchar *frag_src, const GLcha
 }
 
 void Shader::make_shader(const GLchar *shader_src, GLuint shader_obj, Shader::ShaderType shader_type) {
-    GLuint shader_t = shader_types.at(shader_type);
+    GLenum shader_t = shader_types.at(shader_type);
     shader_obj = glCreateShader(shader_t);
     glShaderSource(shader_obj, 1, &shader_src, nullptr);
     glCompileShader(shader_obj);
@@ -63,14 +63,14 @@ void Shader::error_checking(GLuint object, Shader::ShaderType shader_type) {
         if (!success)
         {
             glGetShaderInfoLog(object, 1024, nullptr, error_log);
-            std::cout << "ERROR:: SHADER :: Compile-time error: " << error_log << '\n';
+            std::cout << "ERROR :: SHADER :: Compile-time error: " << error_log << '\n';
         }
     } else {
         glGetProgramiv(object, GL_LINK_STATUS, &success);
         if (!success)
         {
             glGetProgramInfoLog(object, 1024, nullptr, error_log);
-            std::cout << "ERROR:: SHADER :: Link-time error: " << error_log << '\n';
+            std::cout << "ERROR :: SHADER :: Link-time error: " << error_log << '\n';
         }
     }
 }

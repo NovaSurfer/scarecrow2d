@@ -12,7 +12,7 @@
 
 class Shader {
 public:
-    const GLuint get_program() const;
+    const GLuint &get_program() const;
     Shader &run();
     void compile(const GLchar *vert_src, const GLchar *frag_src, const GLchar *geom_src = nullptr);
 private:
@@ -23,7 +23,7 @@ private:
         NONE
     };
 
-    const std::map<ShaderType, GLushort> shader_types {
+    const std::map<ShaderType, GLenum> shader_types {
         {ShaderType::VERTEX,   GL_VERTEX_SHADER},
         {ShaderType::FRAGMENT, GL_FRAGMENT_SHADER},
         {ShaderType::GEOMETRY, GL_GEOMETRY_SHADER}
