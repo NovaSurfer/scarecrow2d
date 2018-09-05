@@ -9,6 +9,7 @@
 
 class Texture2d {
 public:
+    Texture2d() = default;
     Texture2d(unsigned char* img_data, const GLuint width, const GLuint height);
     Texture2d(unsigned char* img_data, const GLuint width, const GLuint height, const GLuint img_format);
     const GLuint &get_obj_id() const;

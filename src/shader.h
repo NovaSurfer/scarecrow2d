@@ -12,16 +12,16 @@
 
 class Shader {
 public:
-    const GLuint &get_program() const;
-    Shader &run();
-    void compile(const GLchar *vert_src, const GLchar *frag_src, const GLchar *geom_src = nullptr);
-private:
     enum class ShaderType {
         VERTEX,
         FRAGMENT,
         GEOMETRY,
         NONE
     };
+    const GLuint &get_program() const;
+    Shader &run();
+    void compile(const GLchar *vert_src, const GLchar *frag_src, const GLchar *geom_src = nullptr);
+private:
 
     const std::map<ShaderType, GLenum> shader_types {
         {ShaderType::VERTEX,   GL_VERTEX_SHADER},
