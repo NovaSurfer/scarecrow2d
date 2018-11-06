@@ -6,13 +6,14 @@
 #define INC_2D_GAME_TEXTURE_H
 
 #include <glad/glad.h>
+#include <string>
 
 class Texture2d {
 public:
     Texture2d() = default;
-    Texture2d(unsigned char* img_data, const GLuint width, const GLuint height);
-    Texture2d(unsigned char* img_data, const GLuint width, const GLuint height, const GLuint img_format);
-    const GLuint &get_obj_id() const;
+    Texture2d(const std::string& img_data, const GLuint width, const GLuint height);
+    Texture2d(const std::string& img_data, const GLuint width, const GLuint height, const GLuint img_format);
+    const GLuint& get_obj_id() const;
 
 private:
     GLuint obj_id;
@@ -25,7 +26,7 @@ private:
     GLuint filter_min;
     GLuint filter_max;
 
-    unsigned char* data;
+    std::string data;
 
     void generate();
 

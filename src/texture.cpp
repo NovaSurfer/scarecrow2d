@@ -4,7 +4,7 @@
 
 #include "texture.h"
 
-Texture2d::Texture2d(unsigned char* img_data, const GLuint width, const GLuint height) :
+Texture2d::Texture2d(const std::string& img_data, const GLuint width, const GLuint height) :
     data{img_data},
     width{width},
     height{height},
@@ -18,7 +18,7 @@ Texture2d::Texture2d(unsigned char* img_data, const GLuint width, const GLuint h
     generate();
 }
 
-Texture2d::Texture2d(unsigned char* img_data, const GLuint width, const GLuint height, const GLuint img_format) :
+Texture2d::Texture2d(const std::string& img_data, const GLuint width, const GLuint height, const GLuint img_format) :
     data{img_data},
     width{width},
     height{height},
@@ -35,7 +35,7 @@ Texture2d::Texture2d(unsigned char* img_data, const GLuint width, const GLuint h
 void Texture2d::generate() {
     // create texture
     glBindTexture(GL_TEXTURE_2D, obj_id);
-    glTexImage2D(GL_TEXTURE_2D, 0, internal_format, width, height, 0, image_format, GL_UNSIGNED_BYTE, data);
+    glTexImage2D(GL_TEXTURE_2D, 0, internal_format, width, height, 0, image_format, GL_UNSIGNED_BYTE, data.c_str());
     // set wrap mode
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, wrap_s);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, wrap_t);
@@ -46,6 +46,6 @@ void Texture2d::generate() {
     glBindTexture(GL_TEXTURE_2D, 0);
 }
 
-const GLuint &Texture2d::get_obj_id() const {
+ const GLuint& Texture2d::get_obj_id() const {
     return obj_id;
 }
