@@ -17,16 +17,25 @@ if(MINGW)
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static-libstdc++")
 endif()
 
+
 set(SOURCE_FILES
         ${SRC_DIR}/oglMain.cpp
         ${SRC_DIR}/shader.h
         ${SRC_DIR}/shader.cpp
         ${SRC_DIR}/texture.h
         ${SRC_DIR}/texture.cpp
-        ${SRC_DIR}/file_manager.h
-        ${SRC_DIR}/file_manager.cpp)
-#        ${SRC_DIR}/game.cpp
-#        ${SRC_DIR}/game.h
+        ${SRC_DIR}/filesystem/resourceHolder.h
+        ${SRC_DIR}/filesystem/resourceHolder.cpp
+        ${SRC_DIR}/filesystem/configLoader.h
+        ${SRC_DIR}/filesystem/configLoader.cpp
+        ${SRC_DIR}/filesystem/configNames.h
+        ${LIB_DIR}/stb/stb_image.h
+        ${LIB_DIR}/stb/stb_image.c
+        ${LIB_DIR}/nlohmann/json.hpp
+        ${SRC_DIR}/window.cpp
+        ${SRC_DIR}/window.h)
+#        ${SRC_DIR}/game2.cpp
+#        ${SRC_DIR}/game2.h)
 #        ${SRC_DIR}/textureManager.cpp
 #        ${SRC_DIR}/textureManager.h
 #        ${SRC_DIR}/gameObject.cpp
@@ -111,6 +120,11 @@ configure_file(${CMAKE_SOURCE_DIR}/cfg/config.ini ${CMAKE_BINARY_DIR} COPYONLY)
 if(WIN32)
     configure_file(${CMAKE_BINARY_DIR}/deps/glad/libglad.dll ${CMAKE_BINARY_DIR} COPYONLY)
     configure_file(${CMAKE_BINARY_DIR}/deps/glfw/src/glfw3.dll ${CMAKE_BINARY_DIR} COPYONLY)
+endif()
+
+if (UNIX AND NOT APPLE)
+    configure_file(${CMAKE_BINARY_DIR}/deps/glad/libglad.so ${CMAKE_BINARY_DIR} COPYONLY)
+    configure_file(${CMAKE_BINARY_DIR}/deps/glfw/src/glfw3.so ${CMAKE_BINARY_DIR} COPYONLY)
 endif()
 # copy game data folder to output path
 add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD

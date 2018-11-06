@@ -2,10 +2,10 @@
 // Created by Maksim Ruts on 29-Aug-18.
 //
 
-#include "file_manager.h"
+#include "resourceHolder.h"
 
-std::map<std::string, Shader> FileManager::shaders;
-std::map<std::string, Texture2d> FileManager::textures;
+std::unordered_map<string_view, Shader> FileManager::shaders;
+std::unordered_map<string_view, Texture2d> FileManager::textures;
 
 Shader
 FileManager::load_shader_program(const GLchar *vert_file, const GLchar *frag_file, const GLchar *geom_file, std::string name) {
@@ -21,13 +21,13 @@ FileManager::load_shader_program(const GLchar *vert_file, const GLchar *frag_fil
 }
 
 
-Shader FileManager::get_shader(std::string shader_name) {
+const Shader FileManager::get_shader(string_view shader_name) {
     return shaders[shader_name];
 }
 
-Texture2d FileManager::load_texture(const char *img_file, bool alpha, std::string name) {
+Texture2d FileManager::load_texture(const std::string& img_file, bool alpha, std::string name) {
     int width, height, nr_channels;
-    unsigned char* image = stbi_load(img_file, &width, &height, &nr_channels, 0);
+    std::string image = reinterpret_cast<char*>(stbi_load(img_file.c_str(), &width, &height, &nr_channels, 0));
 
     if(alpha)
         textures[name] = Texture2d(image, width, height, GL_RGBA);
@@ -35,7 +35,7 @@ Texture2d FileManager::load_texture(const char *img_file, bool alpha, std::strin
     return textures[name];
 }
 
-Texture2d FileManager::get_texture(std::string texture_name) {
+const Texture2d FileManager::get_texture(string_view texture_name){
     return textures[texture_name];
 }
 
