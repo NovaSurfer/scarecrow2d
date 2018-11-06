@@ -2,81 +2,75 @@
 // Created by Maksim Ruts on 28-Aug-18.
 //
 
-#include <iostream>
-
-// GLAD
 #include <glad/glad.h>
-
-// GLFW
 #include <GLFW/glfw3.h>
+#include <iostream>
+#include "window.h"
+#include "filesystem/configLoader.h"
 
-
-// GLFW function declerations
+std::unique_ptr<Window> window;
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 
-// The Width of the screen
-const GLuint SCREEN_WIDTH = 800;
-// The height of the screen
-const GLuint SCREEN_HEIGHT = 600;
+const WindowData window_data
+{
+    3, 3, GLFW_OPENGL_CORE_PROFILE, 800, 600, "bark", framebuffer_size_callback, key_callback
+};
 
-// The MAIN function, from here we start the application and run the game loop
+void engine_init()
+{
+    //TODO: load resources, load levels
+    bool resources_loaded = Config<ResourcesConfigLoad>::open("sdfsdf");
+    if(!resources_loaded) std::cerr << "Resources not loaded" ;
+}
+
+int init()
+{
+    glfwInit();
+    window = std::make_unique<Window>(window_data, true);
+
+    // Loading engine systems
+    engine_init();
+
+    // Glad loads OpenGL functions pointers
+    if (!gladLoadGLLoader((GLADloadproc) glfwGetProcAddress)) {
+        std::cout << "Failed to initialize GLAD" << std::endl;
+        return -1;
+    }
+
+    return glGetError();
+}
+
+void poll_events()
+{
+    glfwPollEvents();
+}
+
+void draw()
+{
+    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
+    glfwSwapBuffers(window->get_window());
+}
+
+void update()
+{
+
+}
+
 int main()
 {
-    std::cout << "Starting GLFW context, OpenGL 3.3" << std::endl;
-    // Init GLFW
-    glfwInit();
-    // Set all the required options for GLFW
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-//    glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
-
-    GLFWwindow* window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Breakout", nullptr, nullptr);
-    glfwMakeContextCurrent(window);
-    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
-
-
-    // glad: load all OpenGL function pointers
-    // ---------------------------------------
-    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
-    {
-        std::cout << "Failed to initialize GLAD" << std::endl;
+    if(init() != 0)
         return -1;
-    }
-
-
-    glGetError(); // Call it once to catch glewInit() bug, all other errors are now from our application.
-
-    glfwSetKeyCallback(window, key_callback);
-
-    // glad: load all OpenGL function pointers
-    // ---------------------------------------
-    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
-    {
-        std::cout << "Failed to initialize GLAD" << std::endl;
-        return -1;
-    }
-
-    glGetError(); // Call it once to catch glewInit() bug, all other errors are now from our application.
-
 
     // Game loop
-    while (!glfwWindowShouldClose(window))
+    while (!glfwWindowShouldClose(window->get_window()))
     {
-        // Check if any events have been activiated (key pressed, mouse moved etc.) and call corresponding response functions
-        glfwPollEvents();
-
-        // Render
-        // Clear the colorbuffer
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
-
-        // Swap the screen buffers
-        glfwSwapBuffers(window);
+        poll_events();
+        update();
+        draw();
     }
 
-    // Terminate GLFW, clearing any resources allocated by GLFW.
     glfwTerminate();
     return 0;
 }
@@ -89,7 +83,6 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
         glfwSetWindowShouldClose(window, GL_TRUE);
     }
 }
-
 
 // glfw: whenever the window size changed (by OS or user resize) this callback function executes
 // ---------------------------------------------------------------------------------------------
