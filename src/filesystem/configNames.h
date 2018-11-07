@@ -11,7 +11,7 @@ struct ConfigNames
 {
     static const std::string RES_CONFIG_PATH;
     static const std::string RES_SPRITE;
-    static const std::string RES_SHADER ;
+    static const std::string RES_SHADER;
 };
 
 
