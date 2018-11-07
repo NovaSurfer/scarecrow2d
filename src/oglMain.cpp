@@ -17,11 +17,9 @@ const WindowData window_data
     3, 3, GLFW_OPENGL_CORE_PROFILE, 800, 600, "bark", framebuffer_size_callback, key_callback
 };
 
-void engine_init()
+bool engine_init()
 {
-    //TODO: load resources, load levels
-    bool resources_loaded = Config<ResourcesConfigLoad>::open("sdfsdf");
-    if(!resources_loaded) std::cerr << "Resources not loaded" ;
+    return Config<ResourcesConfigLoad>::open("sdfsdf.cv");
 }
 
 int init()
@@ -30,7 +28,7 @@ int init()
     window = std::make_unique<Window>(window_data, true);
 
     // Loading engine systems
-    engine_init();
+    if (!engine_init()) return 0;
 
     // Glad loads OpenGL functions pointers
     if (!gladLoadGLLoader((GLADloadproc) glfwGetProcAddress)) {
