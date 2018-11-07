@@ -29,3 +29,7 @@ void ResourcesConfigLoad::operator()(const json &obj_json) {
 void SceneConfigLoad::operator()(const json &obj_json) {
 
 }
+
+// Explicitly instantiating Config template
+template class Config<ResourcesConfigLoad>;
+template class Config<SceneConfigLoad>;
