@@ -24,8 +24,21 @@ bool Config<T>::open(const std::string &path) {
 }
 
 void ResourcesConfigLoad::operator()(const json &obj_json) {
+    auto sprites_section = obj_json[ConfigNames::RES_SPRITE];
+    auto shaders_section = obj_json[ConfigNames::RES_SHADER];
+
+    for (const auto &s : sprites_section)
+    {
+        std::string s_path = s["file"].get<std::string>();
+        std::string s_name = s["name"].get<std::string>();
+        bool s_alpha = s["alpha"].get<bool>();
+
+        std::clog << "Loading sprite:\t" << s_path << '\n';
+        FileManager::load_texture(s_path, s_alpha, s_name);
+    }
 }
 
+// TODO:
 void SceneConfigLoad::operator()(const json &obj_json) {
 
 }

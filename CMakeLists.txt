@@ -29,6 +29,7 @@ set(SOURCE_FILES
         ${SRC_DIR}/filesystem/configLoader.h
         ${SRC_DIR}/filesystem/configLoader.cpp
         ${SRC_DIR}/filesystem/configNames.h
+        ${SRC_DIR}/filesystem/configNames.cpp
         ${LIB_DIR}/stb/stb_image.h
         ${LIB_DIR}/stb/stb_image.c
         ${LIB_DIR}/nlohmann/json.hpp

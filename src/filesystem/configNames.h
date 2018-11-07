@@ -5,14 +5,13 @@
 #ifndef INC_2D_GAME_CONFIGNAMES_H
 #define INC_2D_GAME_CONFIGNAMES_H
 
-#include <experimental/string_view>
+#include <string>
 
-struct configNames
+struct ConfigNames
 {
-    using string_view = std::experimental::string_view;
-
-    static constexpr string_view RES_SPRITE {"sprites"};
-    static constexpr string_view RES_SHARER {"shaders"};
+    static const std::string RES_CONFIG_PATH;
+    static const std::string RES_SPRITE;
+    static const std::string RES_SHADER ;
 };
 
 
