@@ -5,7 +5,8 @@
 #include "configLoader.h"
 
 template<typename T>
-bool Config<T>::open(const std::string &path) {
+bool Config<T>::open(const std::string &path)
+{
     std::fstream jConfig(path);
 
     // If file can't be open
@@ -23,23 +24,38 @@ bool Config<T>::open(const std::string &path) {
     return true;
 }
 
-void ResourcesConfigLoad::operator()(const json &obj_json) {
+
+void ResourcesConfigLoad::operator()(const json &obj_json)
+{
     auto sprites_section = obj_json[ConfigNames::RES_SPRITE];
     auto shaders_section = obj_json[ConfigNames::RES_SHADER];
 
-    for (const auto &s : sprites_section)
+    for (const auto &sprite : sprites_section)
     {
-        std::string s_path = s["file"].get<std::string>();
-        std::string s_name = s["name"].get<std::string>();
-        bool s_alpha = s["alpha"].get<bool>();
+        std::string s_path = sprite["file"].get<std::string>();
+        std::string s_name = sprite["name"].get<std::string>();
+        bool s_alpha = sprite["alpha"].get<bool>();
 
-        std::clog << "Loading sprite:\t" << s_path << '\n';
+        std::clog << "Loading sprite file:\t" << s_path << '\n';
         FileManager::load_texture(s_path, s_alpha, s_name);
+    }
+
+    for (const auto& shader : shaders_section)
+    {
+        std::string frag_path = shader["frag_file"].get<std::string>();
+        std::string vert_path = shader["vert_file"].get<std::string>();
+        std::string s_name = shader["name"].get<std::string>();
+
+        std::clog << "Loading shader files:\n"
+            << "fragment:\t" << frag_path << "\t"
+            << "vertex:\t" << vert_path;
+        FileManager::load_shader_program(s_name, vert_path.c_str(), frag_path.c_str());
     }
 }
 
 // TODO:
-void SceneConfigLoad::operator()(const json &obj_json) {
+void SceneConfigLoad::operator()(const json &obj_json)
+{
 
 }
 

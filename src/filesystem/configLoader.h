@@ -6,6 +6,7 @@
 #define INC_2D_GAME_CONFIGLOADER_H
 
 #include <fstream>
+#include <array>
 
 #include "../../deps/nlohmann/json.hpp"
 #include "configNames.h"
