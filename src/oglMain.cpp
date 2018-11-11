@@ -14,12 +14,12 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 
 const WindowData window_data
 {
-    3, 3, GLFW_OPENGL_CORE_PROFILE, 800, 600, "bark", framebuffer_size_callback, key_callback
+    3, 3, GLFW_OPENGL_CORE_PROFILE, 800, 600, "scarecrow2d", framebuffer_size_callback, key_callback
 };
 
 bool engine_init()
 {
-    return Config<ResourcesConfigLoad>::open("sdfsdf.cv");
+    return Config<ResourcesConfigLoad>::open("resources.json");
 }
 
 int init()
