@@ -20,9 +20,9 @@ using string_view = std::experimental::string_view;
 
 class FileManager {
 public:
-    static Shader load_shader_program(const GLchar *vert_file, const GLchar *frag_file, const GLchar *geom_file, std::string name);
+    static Shader load_shader_program(string_view name, const GLchar *vert_file, const GLchar *frag_file, const GLchar *geom_file = nullptr);
     static const Shader get_shader(string_view shader_name);
-    static Texture2d load_texture(const std::string& img_file, bool alpha, std::string name);
+    static Texture2d load_texture(const std::string& img_file, bool alpha, string_view name);
     static const Texture2d get_texture(string_view texture_name);
     static void clean();
 

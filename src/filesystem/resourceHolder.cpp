@@ -8,7 +8,7 @@ std::unordered_map<string_view, Shader> FileManager::shaders;
 std::unordered_map<string_view, Texture2d> FileManager::textures;
 
 Shader
-FileManager::load_shader_program(const GLchar *vert_file, const GLchar *frag_file, const GLchar *geom_file, std::string name) {
+FileManager::load_shader_program(string_view name, const GLchar *vert_file, const GLchar *frag_file, const GLchar *geom_file) {
     Shader shader;
     std::string v_shader, f_shader, g_shader;
     v_shader = load_shader(Shader::ShaderType::VERTEX, vert_file);
@@ -25,7 +25,7 @@ const Shader FileManager::get_shader(string_view shader_name) {
     return shaders[shader_name];
 }
 
-Texture2d FileManager::load_texture(const std::string& img_file, bool alpha, std::string name) {
+Texture2d FileManager::load_texture(const std::string& img_file, bool alpha, string_view name) {
     int width, height, nr_channels;
     std::string image = reinterpret_cast<char*>(stbi_load(img_file.c_str(), &width, &height, &nr_channels, 0));
 
