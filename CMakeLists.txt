@@ -1,10 +1,15 @@
+# cmake ../ -DCMAKE_SH="CMAKE_SH-NOT_FOUND" -G "MinGW Makefiles"
 cmake_minimum_required(VERSION 3.8 FATAL_ERROR)
 project(2d_game)
 
 set(CMAKE_CXX_STANDARD 17)
+
+# Set output directories
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+
 # Cmake modules
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/modules")
-set( CMAKE_EXPORT_COMPILE_COMMANDS ON )
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # Bindind sources & dependencies
 set(SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
 set(LIB_DIR ${CMAKE_CURRENT_SOURCE_DIR}/deps)
@@ -16,7 +21,6 @@ endif()
 if(MINGW)
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static-libstdc++")
 endif()
-
 
 set(SOURCE_FILES
         ${SRC_DIR}/oglMain.cpp
@@ -70,25 +74,8 @@ set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 17)
 
 include(CTest)
 include(ParseAndAddCatchTests)
-
 add_subdirectory(tests)
 
-# -------------- WILL BE REMOVED -------------- #
-find_package(SDL2 REQUIRED)
-find_package(SDL2_image REQUIRED)
-find_package(SDL2_ttf REQUIRED)
-
-include_directories(${SDL2_INCLUDE_DIR}
-        ${SDL2_IMAGE_INCLUDE_DIR}
-        ${SDL2_TTF_INCLUDE_DIR})
-
-target_link_libraries (${PROJECT_NAME}
-        ${SDL2_LIBRARY}
-        ${SDL2_IMAGE_LIBRARIES}
-        ${SDL2_TTF_LIBRARIES})
-# -------------- /WILL BE REMOVED -------------- #
-
-# GLFW
 set(GLFW_DIR "${LIB_DIR}/glfw")
 set(BUILD_SHARED_LIBS ON CACHE INTERNAL "Build the GLFW DLL / shared library / dynamic library")
 set(GLFW_BUILD_EXAMPLES OFF CACHE INTERNAL "Build the GLFW example programs")
@@ -97,8 +84,8 @@ set(GLFW_BUILD_DOCS OFF CACHE INTERNAL "Build the GLFW documentation")
 set(GLFW_INSTALL OFF CACHE INTERNAL "Generate installation target")
 add_subdirectory("${GLFW_DIR}")
 target_link_libraries(${PROJECT_NAME} "glfw" "${GLFW_LIBRARIES}")
-target_include_directories(${PROJECT_NAME} PRIVATE "${GLFW_DIR}/include")
-target_compile_definitions(${PROJECT_NAME} PRIVATE "GLFW_INCLUDE_NONE")
+target_include_directories(${PROJECT_NAME} PUBLIC "${GLFW_DIR}/include")
+target_compile_definitions(${PROJECT_NAME} PUBLIC "GLFW_INCLUDE_NONE")
 
 # GLAD
 set(GLAD_DIR "${LIB_DIR}/glad")
@@ -109,24 +96,14 @@ target_include_directories(${PROJECT_NAME} PRIVATE "${GLAD_DIR}/include")
 target_link_libraries(${PROJECT_NAME} "glad" "${CMAKE_DL_LIBS}")
 target_compile_definitions(glad PUBLIC GLAD_GLAPI_EXPORT PRIVATE GLAD_GLAPI_EXPORT_BUILD)
 
+install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION "/")
 
 # GLM
 set(GLM_DIR "${LIB_DIR}/glm")
+set(GLM_TEST_ENABLE OFF CACHE INTERNAL "Build GLM unit tests")
 add_subdirectory("${GLM_DIR}")
 target_link_libraries(${PROJECT_NAME} "${GLM_LIBRARIES}")
 
-
-#copy game config file
-configure_file(${CMAKE_SOURCE_DIR}/cfg/config.ini ${CMAKE_BINARY_DIR} COPYONLY)
-if(WIN32)
-    configure_file(${CMAKE_BINARY_DIR}/deps/glad/libglad.dll ${CMAKE_BINARY_DIR} COPYONLY)
-    configure_file(${CMAKE_BINARY_DIR}/deps/glfw/src/glfw3.dll ${CMAKE_BINARY_DIR} COPYONLY)
-endif()
-
-if (UNIX AND NOT APPLE)
-    configure_file(${CMAKE_BINARY_DIR}/deps/glad/libglad.so ${CMAKE_BINARY_DIR} COPYONLY)
-    configure_file(${CMAKE_BINARY_DIR}/deps/glfw/src/glfw3.so ${CMAKE_BINARY_DIR} COPYONLY)
-endif()
 # copy game data folder to output path
 add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_directory
@@ -135,5 +112,5 @@ add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD
 
 add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_directory
-        ${CMAKE_SOURCE_DIR}/src/shaders
-        ${CMAKE_BINARY_DIR}/data/shaders)
+        ${CMAKE_SOURCE_DIR}/src/shaders/
+        ${CMAKE_BINARY_DIR}/data/shaders/)
