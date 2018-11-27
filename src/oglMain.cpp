@@ -12,11 +12,6 @@ std::unique_ptr<Window> window;
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 
-const WindowData window_data
-{
-    3, 3, GLFW_OPENGL_CORE_PROFILE, 800, 600, "scarecrow2d", framebuffer_size_callback, key_callback
-};
-
 bool engine_init()
 {
     return Config<ResourcesConfigLoad>::open("resources.json");
@@ -25,16 +20,18 @@ bool engine_init()
 int init()
 {
     glfwInit();
-    window = std::make_unique<Window>(window_data, true);
 
-    // Loading engine systems
-    if (!engine_init()) return 0;
+    const WindowData window_data{3, 3, GLFW_OPENGL_CORE_PROFILE, 800, 600, "scarecrow2d", framebuffer_size_callback, key_callback};
+    window = std::make_unique<Window>(window_data, true);
 
     // Glad loads OpenGL functions pointers
     if (!gladLoadGLLoader((GLADloadproc) glfwGetProcAddress)) {
         std::cout << "Failed to initialize GLAD" << std::endl;
         return -1;
     }
+
+    // Loading engine systems
+    if (!engine_init()) return -2;
 
     return glGetError();
 }
