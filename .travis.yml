@@ -7,7 +7,7 @@ addons:
     packages:
       - gcc-7
       - g++-7
-      - libevent-pthreads-2.1-6
+      - libevent-dev
       - doxygen
       - xorg-dev
       - libglu1-mesa-dev
