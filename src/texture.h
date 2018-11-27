@@ -11,8 +11,7 @@
 class Texture2d {
 public:
     Texture2d() = default;
-    Texture2d(const std::string& img_data, const GLuint width, const GLuint height);
-    Texture2d(const std::string& img_data, const GLuint width, const GLuint height, const GLuint img_format);
+    Texture2d(unsigned char *img_data, const GLuint width, const GLuint height, const GLuint img_format);
     const GLuint& get_obj_id() const;
 
 private:
@@ -26,7 +25,7 @@ private:
     GLuint filter_min;
     GLuint filter_max;
 
-    std::string data;
+    unsigned char* data;
 
     void generate();
 
