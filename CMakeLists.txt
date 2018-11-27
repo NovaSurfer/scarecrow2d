@@ -1,4 +1,4 @@
-# cmake ../ -DCMAKE_SH="CMAKE_SH-NOT_FOUND" -G "MinGW Makefiles"
+# cmake ../ -DCMAKE_SH="CMAKE_SH-NOT_FOUND" -DCMAKE_BUILD_TYPE="Debug" -G "MinGW Makefiles"
 cmake_minimum_required(VERSION 3.8 FATAL_ERROR)
 project(2d_game)
 
@@ -90,7 +90,6 @@ target_compile_definitions(${PROJECT_NAME} PUBLIC "GLFW_INCLUDE_NONE")
 # GLAD
 set(GLAD_DIR "${LIB_DIR}/glad")
 add_subdirectory("${GLAD_DIR}")
-#add_library("glad" "${GLAD_DIR}/src/glad.c")
 target_include_directories("glad" PRIVATE "${GLAD_DIR}/include")
 target_include_directories(${PROJECT_NAME} PRIVATE "${GLAD_DIR}/include")
 target_link_libraries(${PROJECT_NAME} "glad" "${CMAKE_DL_LIBS}")
@@ -103,6 +102,10 @@ set(GLM_DIR "${LIB_DIR}/glm")
 set(GLM_TEST_ENABLE OFF CACHE INTERNAL "Build GLM unit tests")
 add_subdirectory("${GLM_DIR}")
 target_link_libraries(${PROJECT_NAME} "${GLM_LIBRARIES}")
+
+#copy game's config & resources files
+configure_file(${CMAKE_SOURCE_DIR}/cfg/config.ini ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file(${CMAKE_SOURCE_DIR}/cfg/resources.json ${CMAKE_BINARY_DIR} COPYONLY)
 
 # copy game data folder to output path
 add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD
