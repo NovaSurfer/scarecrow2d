@@ -7,8 +7,10 @@ addons:
     packages:
       - gcc-7
       - g++-7
-      - libglfw3
-      - libglfw3-dev
+      - libevent-pthreads-2.1-6
+      - doxygen
+      - xorg-dev
+      - libglu1-mesa-dev
 
 script:
   - export CC=gcc-7
