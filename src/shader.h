@@ -31,7 +31,7 @@ private:
 
     GLuint program;
     void error_checking(GLuint object, ShaderType shader_type = ShaderType::NONE);
-    void make_shader(const GLchar *shader_src, GLuint shader_obj, Shader::ShaderType shader_type);
+    void make_shader(const GLchar *shader_src, GLuint &shader_obj, Shader::ShaderType shader_type);
 };
 
 
