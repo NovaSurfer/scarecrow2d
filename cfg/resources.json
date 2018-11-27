@@ -1,0 +1,10 @@
+{
+  "sprites":
+  [
+    {"name": "engineer", "file": "data/sprites/character/engineer-jump.png", "alpha": false}
+  ],
+  "shaders":
+  [
+    {"name": "sprite-default", "vert_file":"data/shaders/sprite-default.vert", "frag_file":"data/shaders/sprite-default.frag"}
+  ]
+}

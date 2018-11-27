@@ -4,6 +4,6 @@ set(TEST_SOURCES
         math_tests.cpp)
 
 add_executable(game_test ${TEST_SOURCES})
-target_link_libraries(game_test lib)
+target_include_directories(game_test PRIVATE ${CMAKE_SOURCE_DIR}/src)
 
 ParseAndAddCatchTests(game_test)
