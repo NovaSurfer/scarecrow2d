@@ -18,7 +18,7 @@
 
 using string_view = std::experimental::string_view;
 
-class FileManager {
+class ResourceHolder {
 public:
     static Shader load_shader_program(string_view name, const GLchar *vert_file, const GLchar *frag_file, const GLchar *geom_file = nullptr);
     static const Shader get_shader(string_view shader_name);
@@ -26,16 +26,16 @@ public:
     static const Texture2d get_texture(string_view texture_name);
     static void clean();
 
-    FileManager() = delete;
-    FileManager(const FileManager& other) = delete;
-    FileManager(FileManager&& other) = delete;
-    FileManager &operator=(const FileManager& other) = delete;
-    FileManager &operator=(FileManager&& other) = delete;
+    ResourceHolder() = delete;
+    ResourceHolder(const ResourceHolder& other) = delete;
+    ResourceHolder(ResourceHolder&& other) = delete;
+    ResourceHolder &operator=(const ResourceHolder& other) = delete;
+    ResourceHolder &operator=(ResourceHolder&& other) = delete;
 
 private:
     static std::unordered_map<string_view, Shader> shaders;
     static std::unordered_map<string_view, Texture2d> textures;
-    static std::string load_shader(Shader::ShaderType shader_type, const GLchar *file_path);
+    static std::string load_shader(const GLchar *file_path);
 };
 
 
