@@ -15,7 +15,7 @@ namespace math
         /**
          * Comparing floating point numbers
          */
-        constexpr inline static bool cmp(const float x, const float y)
+        constexpr static bool cmp(const float x, const float y)
         {
             return fabsf(x - y) <=FLT_EPSILON * fmaxf(1.0f, fmaxf(fabsf(x), fabsf(y)));
         }
@@ -24,7 +24,7 @@ namespace math
          * Absolute tolerance test.
          * Fails when the numbers being compared are large.
          */
-        constexpr inline static float absolute(const float x, const float y)
+        constexpr static float absolute(const float x, const float y)
         {
             return fabsf(x - y) <= FLT_EPSILON;
         }
@@ -33,7 +33,7 @@ namespace math
          * Relative tolerance test.
          * Fails when the numbers being compared are small.
          */
-        constexpr inline static float relative(const float x, const float y)
+        constexpr static float relative(const float x, const float y)
         {
             return fabsf(x - y) <= FLT_EPSILON * fmaxf(fabsf(x), fabsf(y));
         }
@@ -41,7 +41,7 @@ namespace math
         /**
          * Converting radians to degrees
          */
-        constexpr inline static float red2deg (const float x)
+        constexpr static float red2deg (const float x)
         {
             return x * 57.295754f;
         }
@@ -49,12 +49,12 @@ namespace math
         /**
          * Converting degrees to radians
          */
-        constexpr inline static float deg2rag (const float x)
+        constexpr static float deg2rag (const float x)
         {
             return x * 0.0174533f;
         }
 
-        constexpr inline static void clamp(float number, const float min, const float max)
+        constexpr static void clamp(float number, const float min, const float max)
         {
             number = (number < min) ? min : ((number > max) ? max : number);
         }

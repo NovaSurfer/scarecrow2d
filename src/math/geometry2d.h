@@ -16,15 +16,15 @@ namespace math
         point2d start;
         point2d end;
 
-        inline line2d() = default;
-        inline line2d(const point2d& start, const point2d& end) : start(start), end(end){};
+        line2d() = default;
+        line2d(const point2d& start, const point2d& end) : start(start), end(end){};
 
-        inline static float length(const line2d &line)
+        static float length(const line2d &line)
         {
             return math::vec2::magnitude(line.end - line.start);
         }
 
-        inline static float lengthSq(const line2d &line)
+        static float lengthSq(const line2d &line)
         {
             return math::vec2::magnitudeSq(line.end - line.start);
         }
@@ -34,8 +34,8 @@ namespace math
         point2d position;
         float radius;
 
-        inline circle() : radius(1.0f) {}
-        inline circle(const point2d &pos, const float radius) : position(pos), radius(radius) {}
+        circle() : radius(1.0f) {}
+        circle(const point2d &pos, const float radius) : position(pos), radius(radius) {}
 
     };
 
@@ -43,10 +43,10 @@ namespace math
         point2d origin;
         vec2 size;
 
-        inline rect2d() : size(1.0f,1.0f) {}
-        inline rect2d(const point2d& origin, const vec2 &size) : origin(origin), size(size) {}
+        rect2d() : size(1.0f,1.0f) {}
+        rect2d(const point2d& origin, const vec2 &size) : origin(origin), size(size) {}
 
-        inline static vec2 get_min(const rect2d rect)
+        static vec2 get_min(const rect2d rect)
         {
             vec2 p1 = rect.origin;
             vec2 p2 = rect.origin + rect.size;
@@ -54,7 +54,7 @@ namespace math
             return vec2(fminf(p1.x, p2.x), fminf(p1.y, p2.y));
         }
 
-        inline static vec2 get_max(const rect2d rect)
+        static vec2 get_max(const rect2d rect)
         {
             vec2 p1 = rect.origin;
             vec2 p2 = rect.origin + rect.size;
@@ -62,7 +62,7 @@ namespace math
             return vec2(fmaxf(p1.x, p2.x), fmaxf(p1.y, p2.y));
         }
 
-        inline rect2d from_min_max(const vec2 &min, const vec2 &max)
+        rect2d from_min_max(const vec2 &min, const vec2 &max)
         {
             return rect2d(min, max-min);
         }
@@ -73,12 +73,12 @@ namespace math
         vec2 half_extends;
         float rotation;
 
-        inline orrect2d() : half_extends(vec2(0,0)), rotation(0) {}
-        inline orrect2d(const point2d &positon, const vec2 &half_extends) :
+        orrect2d() : half_extends(vec2(0,0)), rotation(0) {}
+        orrect2d(const point2d &positon, const vec2 &half_extends) :
                 positon(positon),
                 half_extends(half_extends),
                 rotation(0) {}
-        inline orrect2d(const point2d &positon, const vec2 &half_extends, float rotation) :
+        orrect2d(const point2d &positon, const vec2 &half_extends, float rotation) :
                 positon(positon),
                 half_extends(half_extends),
                  rotation(rotation) {}
