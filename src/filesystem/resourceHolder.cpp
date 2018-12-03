@@ -26,11 +26,9 @@ const Shader ResourceHolder::get_shader(string_view shader_name) {
 
 Texture2d ResourceHolder::load_texture(const std::string& img_file, bool alpha, string_view name) {
     int width, height, nr_channels;
-    unsigned char *image = stbi_load(img_file.c_str(), &width, &height, &nr_channels, 0);
-    std::cerr << glGetError() << '\n';
+    unsigned char *image = stbi_load(img_file.c_str(), &width, &height, &nr_channels, STBI_rgb_alpha);
 
     textures[name] = Texture2d(image, width, height, alpha ? GL_RGBA : GL_RGB);
-    std::cerr << glGetError() << '\n';
     return textures[name];
 }
 
