@@ -8,7 +8,7 @@ const std::map<LogLevel, std::string> Log::log_levels
         {
                 {LogLevel::INFO, "INFO"},
                 {LogLevel::WARN, "WARN"},
-                {LogLevel::ERROR, "ERROR"}
+                {LogLevel::ERR, "ERROR"}
         };
 
 void LogConsole::log(LogLevel log_level, const char* file, int line, const char* fmt, ...)

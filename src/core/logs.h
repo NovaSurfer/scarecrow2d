@@ -11,11 +11,12 @@
 #include <memory>
 #include <mutex>
 #include <map>
+#include <experimental/source_location>
 
 enum class LogLevel {
     INFO,
     WARN,
-    ERROR
+    ERR
 };
 
 enum class LogType {
@@ -26,19 +27,25 @@ enum class LogType {
 
 class Log {
 public:
+    using SRC_LOC = std::experimental::source_location;
+    // ¯\_(ツ)_/¯
+    // https://stackoverflow.com/questions/52977593/stdexperimentalsource-location-at-compile-time
     template<typename... Args>
-    void info(Args&& ... args) { log(LogLevel::INFO, __FILE__, __LINE__, args...); };
+    void info(Args&& ... args) { log(LogLevel::INFO, SRC_LOC::current().file_name(), SRC_LOC::current().line(), args...); };
     template<typename... Args>
     void warn(Args&& ... args) { log(LogLevel::WARN, __FILE__, __LINE__, args...); };
     template<typename... Args>
-    void error(Args&& ... args) { log(LogLevel::ERROR, __FILE__, __LINE__, args...); };
+    void error(Args&& ... args) { log(LogLevel::ERR, __FILE__, __LINE__, args...); };
 
 protected:
+
     static const std::map<LogLevel, std::string> log_levels;
     virtual void log(LogLevel log_level, const char* file, int line, const char* fmt, ...) = 0;
 };
 
 class LogConsole : public Log {
+public:
+    LogConsole() = default;
 protected:
     void log(LogLevel log_level, const char* file, int line, const char* fmt, ...) override;
 };
