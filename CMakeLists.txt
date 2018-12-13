@@ -32,7 +32,6 @@ set(SOURCE_FILES
         ${LIB_DIR}/stb/stb_image.h              ${LIB_DIR}/stb/stb_image.c
         ${LIB_DIR}/nlohmann/json.hpp
         ${SRC_DIR}/window.h                     ${SRC_DIR}/window.cpp
-        ${SRC_DIR}/sprite.h                     ${SRC_DIR}/sprite.cpp
         ${SRC_DIR}/math/size2d.h
         ${SRC_DIR}/core/logger.h
         ${SRC_DIR}/core/tinyFactory.h
