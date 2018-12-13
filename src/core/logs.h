@@ -25,6 +25,13 @@ enum class LogType {
     CONSOLE_N_FILE
 };
 
+static const std::map<LogLevel, std::string> log_levels = {
+    {LogLevel::INFO, "INFO"},
+    {LogLevel::WARN, "WARN"},
+    {LogLevel::ERR, "ERROR"}
+};
+
+
 class Log {
 public:
     using SRC_LOC = std::experimental::source_location;
@@ -38,8 +45,6 @@ public:
     void error(Args&& ... args) { log(LogLevel::ERR, __FILE__, __LINE__, args...); };
 
 protected:
-
-    static const std::map<LogLevel, std::string> log_levels;
     virtual void log(LogLevel log_level, const char* file, int line, const char* fmt, ...) = 0;
 };
 
