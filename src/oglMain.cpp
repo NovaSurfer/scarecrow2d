@@ -7,6 +7,7 @@
 #include <iostream>
 #include "window.h"
 #include "filesystem/configLoader.h"
+#include "core/logger.h"
 
 std::unique_ptr<Window> window;
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
@@ -48,7 +49,7 @@ void draw()
     glfwSwapBuffers(window->get_window());
 }
 
-void update()
+void update(double dt)
 {
 
 }
@@ -58,12 +59,31 @@ int main()
     if(init() != 0)
         return -1;
 
+    // TODO: Make class for time management
+    double begin_ticks = glfwGetTime();
+    double end_ticks = 0;
+    double delta_time = 1.0 / 60.0;
+
     // Game loop
     while (!glfwWindowShouldClose(window->get_window()))
-    {
+    {   
+        update(delta_time);
         poll_events();
-        update();
         draw();
+        
+        end_ticks = glfwGetTime();
+        delta_time = (begin_ticks - end_ticks) / glfwGetTime();
+
+    #ifdef NDEBUG
+        // If delta_time is too large, we must have resumed from a 
+        // breakpoint -- frame-lock to the target rate this frame.
+        if(delta_time > 1.0)
+        {
+            delta_time = 1.0 / 60.0
+        }
+    #endif
+
+        begin_ticks = end_ticks;
     }
 
     glfwTerminate();
