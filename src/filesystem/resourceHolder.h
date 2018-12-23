@@ -12,8 +12,8 @@
 #include <sstream>
 
 
-#include "shader.h"
-#include "texture.h"
+#include "core/shader.h"
+#include "core/texture.h"
 #include "../../deps/stb/stb_image.h"
 
 using string_view = std::experimental::string_view;

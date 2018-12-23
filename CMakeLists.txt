@@ -23,22 +23,22 @@ if(MINGW)
 endif()
 
 set(SOURCE_FILES
-        ${SRC_DIR}/oglMain.cpp
-        ${SRC_DIR}/shader.h                     ${SRC_DIR}/shader.cpp
-        ${SRC_DIR}/texture.h                    ${SRC_DIR}/texture.cpp
-        ${SRC_DIR}/filesystem/resourceHolder.h  ${SRC_DIR}/filesystem/resourceHolder.cpp
-        ${SRC_DIR}/filesystem/configLoader.h    ${SRC_DIR}/filesystem/configLoader.cpp
-        ${SRC_DIR}/filesystem/configNames.h     ${SRC_DIR}/filesystem/configNames.cpp
-        ${LIB_DIR}/stb/stb_image.h              ${LIB_DIR}/stb/stb_image.c
+        ${SRC_DIR}/main.cpp
+        ${SRC_DIR}/core/shader.h                     ${SRC_DIR}/core/shader.cpp
+        ${SRC_DIR}/core/texture.h                    ${SRC_DIR}/core/texture.cpp
+        ${SRC_DIR}/filesystem/resourceHolder.h       ${SRC_DIR}/filesystem/resourceHolder.cpp
+        ${SRC_DIR}/filesystem/configLoader.h         ${SRC_DIR}/filesystem/configLoader.cpp
+        ${SRC_DIR}/filesystem/configNames.h          ${SRC_DIR}/filesystem/configNames.cpp
+        ${LIB_DIR}/stb/stb_image.h                   ${LIB_DIR}/stb/stb_image.c
         ${LIB_DIR}/nlohmann/json.hpp
-        ${SRC_DIR}/window.h                     ${SRC_DIR}/window.cpp
+        ${SRC_DIR}/core/window.h                     ${SRC_DIR}/core/window.cpp
         ${SRC_DIR}/math/size2d.h
         ${SRC_DIR}/core/logger.h
         ${SRC_DIR}/core/tinyFactory.h
-        ${SRC_DIR}/core/logs.h                  ${SRC_DIR}/core/logs.cpp
-        ${SRC_DIR}/core/sprite.h                ${SRC_DIR}/core/sprite.cpp
+        ${SRC_DIR}/core/logs.h                       ${SRC_DIR}/core/logs.cpp
+        ${SRC_DIR}/core/sprite.h                     ${SRC_DIR}/core/sprite.cpp
         ${SRC_DIR}/core/sc2dTypes.h
-        ${SRC_DIR}/core/spriteTypes.h           ${SRC_DIR}/core/spriteTypes.cpp)
+        ${SRC_DIR}/core/spriteTypes.h                ${SRC_DIR}/core/spriteTypes.cpp)
 #        ${SRC_DIR}/game2.cpp
 #        ${SRC_DIR}/game2.h)
 #        ${SRC_DIR}/textureManager.cpp

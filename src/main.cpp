@@ -5,7 +5,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
-#include "window.h"
+#include "core/window.h"
 #include "filesystem/configLoader.h"
 #include "core/logger.h"
 
