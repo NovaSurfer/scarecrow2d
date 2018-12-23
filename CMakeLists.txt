@@ -35,7 +35,10 @@ set(SOURCE_FILES
         ${SRC_DIR}/math/size2d.h
         ${SRC_DIR}/core/logger.h
         ${SRC_DIR}/core/tinyFactory.h
-        ${SRC_DIR}/core/logs.h                  ${SRC_DIR}/core/logs.cpp)
+        ${SRC_DIR}/core/logs.h                  ${SRC_DIR}/core/logs.cpp
+        ${SRC_DIR}/core/sprite.h                ${SRC_DIR}/core/sprite.cpp
+        ${SRC_DIR}/core/sc2dTypes.h
+        ${SRC_DIR}/core/spriteTypes.h           ${SRC_DIR}/core/spriteTypes.cpp)
 #        ${SRC_DIR}/game2.cpp
 #        ${SRC_DIR}/game2.h)
 #        ${SRC_DIR}/textureManager.cpp
