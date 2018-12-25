@@ -84,11 +84,6 @@ namespace math {
         return (vec2(v.x * s, v.y * s));
     }
 
-    inline vec2 operator-(const vec2 &v)
-    {
-        return (vec2(-v.x, -v.y));
-    }
-
     inline vec2 operator+(const vec2 &a, const vec2 &b)
     {
         return (vec2(a.x + b.x, a.y + b.y));
