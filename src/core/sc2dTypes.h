@@ -5,7 +5,7 @@
 #ifndef INC_2D_GAME_TYPES_H
 #define INC_2D_GAME_TYPES_H
 
-#include "math/vector.h"
+#include "math/vector2.h"
 
 namespace sc2d {
 

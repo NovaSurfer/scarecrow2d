@@ -5,7 +5,7 @@
 #ifndef INC_2D_ENGINE_MATRICES_H
 #define INC_2D_ENGINE_MATRICES_H
 
-#include "vector.h"
+#include "vector2.h"
 
 namespace math {
     struct mat2 {

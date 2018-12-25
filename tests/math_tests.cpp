@@ -4,7 +4,7 @@
 #include <iostream>
 #include "catch2/catch.hpp"
 #include "../src/math/matrices.h"
-#include "../src/math/vector.h"
+#include "../src/math/vector2.h"
 
 using namespace math;
 

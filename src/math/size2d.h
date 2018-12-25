@@ -5,7 +5,7 @@
 #ifndef INC_2D_GAME_SIZE2D_H
 #define INC_2D_GAME_SIZE2D_H
 
-#include "vector.h"
+#include "vector2.h"
 #include "utils.h"
 
 namespace math {

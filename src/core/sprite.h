@@ -8,7 +8,7 @@
 #include "shader.h"
 #include "texture.h"
 #include "spriteTypes.h"
-#include "math/vector.h"
+#include "math/vector2.h"
 #include "math/size2d.h"
 
 namespace sc2d {
