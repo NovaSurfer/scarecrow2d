@@ -22,8 +22,8 @@ int init()
 {
     glfwInit();
 
-    // auto log_console = log_create(LogType::CONSOLE);
-    // log_console->info("Hello %s", "world");
+    auto log_console = log_create(LogType::CONSOLE);
+    log_console()->info();
     
     const WindowData window_data{3, 3, GLFW_OPENGL_CORE_PROFILE, 800, 600, "scarecrow2d", framebuffer_size_callback, key_callback};
     window = std::make_unique<Window>(window_data, true);

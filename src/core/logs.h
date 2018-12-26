@@ -31,28 +31,27 @@ static const std::map<LogLevel, std::string> log_levels = {
     {LogLevel::ERR, "ERROR"}
 };
 
-
 class Log {
 public:
     using SRC_LOC = std::experimental::source_location;
     // ¯\_(ツ)_/¯
     // https://stackoverflow.com/questions/52977593/stdexperimentalsource-location-at-compile-time
-    template<typename... Args>
-    void info(Args&& ... args) { log(LogLevel::INFO, SRC_LOC::current(), args...); };
+    template<typename... Args, typename SOMES = SRC_LOC>
+    void info(Args&& ... args, SOMES s = SRC_LOC::current()) { log(LogLevel::INFO, s.file_name(), s.line(), args...); };
     template<typename... Args>
     void warn(Args&& ... args) { log(LogLevel::WARN, SRC_LOC::current(), args...); };
     template<typename... Args>
     void error(Args&& ... args) { log(LogLevel::ERR, SRC_LOC::current(), args...); };
 
 protected:
-    virtual void log(LogLevel log_level, Log::SRC_LOC src_loc, const char* fmt, ...) = 0;
+    virtual void log(LogLevel log_level, const char* file, int line, ...) = 0;
 };
 
 class LogConsole : public Log {
 public:
     LogConsole() = default;
 protected:
-    void log(LogLevel log_level, Log::SRC_LOC src_loc, const char* fmt, ...) override;
+    void log(LogLevel log_level, const char* file, int line, ...) override;
 };
 
 class LogFile : public Log {
