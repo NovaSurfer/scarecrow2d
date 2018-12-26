@@ -10,7 +10,7 @@
 namespace sc2d {
 
     struct SpriteTypes {
-        static Quad SPRITE_QUAD;
+        static const Quad SPRITE_QUAD;
     };
 }
 
