@@ -4,6 +4,12 @@
 
 #include "shader.h"
 
+const std::map<ShaderType, GLenum> Shader::shader_types {
+    {ShaderType::VERTEX,   GL_VERTEX_SHADER},
+    {ShaderType::FRAGMENT, GL_FRAGMENT_SHADER},
+    {ShaderType::GEOMETRY, GL_GEOMETRY_SHADER}
+};
+
 const GLuint &Shader::get_program() const {
     return program;
 }
@@ -39,7 +45,7 @@ void Shader::compile(const GLchar *vert_src, const GLchar *frag_src, const GLcha
     glDeleteShader(geom_obj);
 }
 
-void Shader::make_shader(const GLchar *shader_src, GLuint &shader_obj, Shader::ShaderType shader_type) {
+void Shader::make_shader(const GLchar *shader_src, GLuint &shader_obj, ShaderType shader_type) {
     GLenum shader_t = shader_types.at(shader_type);
     shader_obj = glCreateShader(shader_t);
     glShaderSource(shader_obj, 1, &shader_src, nullptr);
@@ -47,7 +53,7 @@ void Shader::make_shader(const GLchar *shader_src, GLuint &shader_obj, Shader::S
     error_checking(shader_obj, shader_type);
 }
 
-void Shader::error_checking(GLuint object, Shader::ShaderType shader_type) {
+void Shader::error_checking(GLuint object, ShaderType shader_type) {
     GLint success = 0;
     GLchar error_log[1024];
 
