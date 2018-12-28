@@ -137,15 +137,10 @@ namespace math {
         {
             mat2 result;
             mat2 minor_mat = minor();
-        
-            for (int i = 0; i < 2; i++)
-            {
-                for (int j = 0; j < 2; j++)
-                {
-                    float sign = powf(-1.0f, i + j);
-                    result[i][j] = sign * minor_mat.n[i][j];
-                }
-            }
+            result.n[0][0] = minor_mat.n[0][0];
+            result.n[0][1] = minor_mat.n[0][1] * -1.0f;
+            result.n[1][0] = minor_mat.n[1][0] * -1.0f;
+            result.n[1][1] = minor_mat.n[1][1];
             return result;
         }
 
