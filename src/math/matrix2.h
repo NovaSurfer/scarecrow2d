@@ -56,29 +56,21 @@ namespace math {
         mat2 operator*(const mat2 &other) const
         {
             math::mat2 result;
-            for (int i = 0; i < 2; i++)
-            {
-                for (int j = 0; j < 2; j++)
-                {
-                    for (int k = 0; k < 2; k++)
-                    {
-                        result.n[i][j] += n[i][k] * other.n[k][j];
-                    }
-                }
-            }
+            result.n[0][0] = n[0][0] * other.n[0][0] + n[0][1] * other.n[1][0];
+            result.n[0][1] = n[0][0] * other.n[0][1] + n[0][1] * other.n[1][1];
+            result.n[1][0] = n[1][0] * other.n[0][0] + n[1][1] * other.n[1][0];
+            result.n[1][1] = n[1][0] * other.n[0][1] + n[1][1] * other.n[1][1];
             return result;
         }
 
         mat2 operator+(const mat2 &other) const
         {
             math::mat2 result;
-            for(int i = 0; i < 2; i++)
-            {
-                for(int j = 0; j < 2; j++)
-                {
-                    result.n[i][j] = n[i][j] + other[i][j];
-                }
-            }
+            result.n[0][0] = n[0][0] + other.n[0][0];
+            result.n[0][1] = n[0][1] + other.n[0][1];
+            result.n[1][0] = n[1][0] + other.n[1][0];
+            result.n[1][1] = n[1][1] + other.n[1][1];
+            return result;
         }
 
         mat2 &operator*=(float scalar)
