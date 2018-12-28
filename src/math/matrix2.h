@@ -114,13 +114,10 @@ namespace math {
         mat2 transpose() const
         {
             mat2 result;
-            for (int i = 0; i < 2; i++)
-            {
-                for (int j = 0; j < 2; j++)
-                {
-                    result.n[i][j] = n[j][i];
-                }
-            }
+            result.n[0][0] = n[0][0];
+            result.n[0][1] = n[1][0];
+            result.n[1][0] = n[0][1];
+            result.n[1][1] = n[1][1];
             return result;
         }
 
