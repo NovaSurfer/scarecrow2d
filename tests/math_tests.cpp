@@ -71,6 +71,19 @@ TEST_CASE("mat2d-operations", "[math]")
         }
     }
 
+    SECTION("matrix addition")
+    {
+        mat2 matrix2(1, 2, 3, 4);
+        mat2 result = matrix + matrix2;
+        REQUIRE(result == mat2(2, 4, 6, 8));
+
+        SECTION("+= operator with matrix")
+        {
+            matrix += matrix2;
+            REQUIRE(matrix == mat2(2, 4, 6, 8));
+        }
+    }
+
     SECTION("transpose")
     {
         REQUIRE(matrix.transpose() == mat2(1, 3, 2, 4));
