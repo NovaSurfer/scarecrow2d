@@ -93,15 +93,10 @@ namespace math {
 
         bool operator==(const mat2 &other) const
         {
-            for (int i = 0; i < 2; i++)
-            {
-                for (int j = 0; j < 2; j++)
-                {
-                    if (this->n[i][j] != other.n[i][j])
-                        return false;
-                }
-            }
-            return true;
+            return ( n[0][0] == other.n[0][0] &&
+                     n[0][1] == other.n[0][1] &&
+                     n[1][0] == other.n[1][0] &&
+                     n[1][1] == other.n[1][1] );
         }
 
         bool operator!=(const mat2 &other) const
@@ -111,14 +106,8 @@ namespace math {
 
         friend std::ostream &operator<<(std::ostream &ostream, const mat2 &mat)
         {
-            for (int i = 0; i < 2; i++)
-            {
-                for (int j = 0; j < 2; j++)
-                {
-                    ostream << mat.n[i][j] << ' ';
-                }
-                ostream << '\n';
-            }
+            ostream << mat.n[0][0] << '\t' << mat.n[0][1] << '\n'
+                    << mat.n[1][0] << '\t' << mat.n[1][1] << '\n';
             return ostream;
         }
 
@@ -151,7 +140,7 @@ namespace math {
         {
             mat2 result;
             mat2 minor_mat = minor();
-
+        
             for (int i = 0; i < 2; i++)
             {
                 for (int j = 0; j < 2; j++)
