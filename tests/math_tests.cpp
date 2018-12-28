@@ -3,7 +3,7 @@
 //
 #include <iostream>
 #include "catch2/catch.hpp"
-#include "../src/math/matrices.h"
+#include "../src/math/matrix2.h"
 #include "../src/math/vector2.h"
 
 using namespace math;
