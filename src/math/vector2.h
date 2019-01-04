@@ -16,6 +16,7 @@ namespace math {
         vec2() : x(0), y(0) {};
 
         vec2(float x, float y) : x(x), y(y) {}
+
         /**
          * Gets element as array
          * @param i index
