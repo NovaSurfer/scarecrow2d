@@ -43,27 +43,27 @@ struct size2d {
 
   size2d operator+(const size2d& right) const
   {
-      return size2d(this->width+right.width, this->height+right.height);
+      return size2d(width + right.width, height + right.height);
   }
 
   size2d operator-(const size2d& right) const
   {
-      return size2d(this->width-right.width, this->height-height);
+      return size2d(width - right.width, height - right.height);
   }
 
   size2d operator*(const float value) const
   {
-      return size2d(this->width*value, this->height*value);
+      return size2d(width * value, height * value);
   }
 
   size2d operator/(const float value) const
   {
-      return size2d(this->width*value, this->height*value);
+      return size2d(width * value, height * value);
   }
 
   bool operator==(const size2d other) const
   {
-      return utils::cmp(this->width, other.width) && utils::cmp(this->height, other.height);
+      return utils::cmp(width, other.width) && utils::cmp(height, other.height);
   }
 
   void set_size(float width, float height)
