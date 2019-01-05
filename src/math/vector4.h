@@ -9,7 +9,7 @@
 #include <ostream>
 
 namespace math {
-    /// Three dimensional vector
+    /// Four dimensional vector
     struct vec4 {
         float x, y, z, w;
 
