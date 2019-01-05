@@ -134,7 +134,7 @@ namespace math {
      */
     inline vec3 operator*(const vec3 &v, float s)
     {
-        return (vec3(v.x * s, v.y * s, v.z));
+        return (vec3(v.x * s, v.y * s, v.z * s));
     }
 
     /**
