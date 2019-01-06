@@ -143,6 +143,17 @@ namespace math {
     }
 
     /**
+     * Regular multiplication
+     * @param a
+     * @param b
+     * @return copy of the calculation result
+     */
+    inline vec4 operator*(const vec4 &a, const vec4 &b)
+    {
+        return (vec4(a.x * b.x, a.y * b.y, a.z * b.z, a.w * b.w));
+    }
+
+    /**
      * Division of vector by scalar
      * @param v some vector4
      * @param s some scalar
@@ -280,11 +291,11 @@ namespace math {
     }
 
     /**
-    * Calculates perpendicular vector
-    * @param len
-    * @param dir
-    * @return
-    */
+     * Calculates perpendicular vector
+     * @param len
+     * @param dir
+     * @return
+     */
     inline vec4 perpendicular(const vec4 &len, const vec4 &dir)
     {
         return len - project(len, dir);

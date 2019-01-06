@@ -134,6 +134,17 @@ namespace math {
     }
 
     /**
+     * Regular multiplication
+     * @param a
+     * @param b
+     * @return copy of the calculation result
+     */
+    inline vec2 operator*(const vec2 &a, const vec2 &b)
+    {
+        return (vec2(a.x * b.x, a.y * b.y));
+    }
+
+    /**
      * Division of vector by scalar
      * @param v some vector2
      * @param s some scalar
