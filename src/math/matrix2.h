@@ -14,14 +14,14 @@ namespace math {
         mat2() : n{0, 0, 0, 0} {};
 
         mat2(float _11, float _12,
-                    float _21, float _22) :
-                n{_11, _12,
-                  _21, _22} {};
+             float _21, float _22)
+             : n{_11, _12,
+                 _21, _22} {};
 
         mat2(const vec2 &a,
-                    const vec2 &b) :
-                n{a.x, a.y,
-                  b.x, b.y} {};
+             const vec2 &b)
+             : n{a.x, a.y,
+                 b.x, b.y} {};
 
         float &operator()(int i, int j)
         {
@@ -137,10 +137,10 @@ namespace math {
         {
             mat2 result;
             mat2 minor_mat = minor();
-            result.n[0][0] = minor_mat.n[0][0];
-            result.n[0][1] = minor_mat.n[0][1] * -1.0f;
-            result.n[1][0] = minor_mat.n[1][0] * -1.0f;
-            result.n[1][1] = minor_mat.n[1][1];
+            result.n[0][0] =  minor_mat.n[0][0];
+            result.n[0][1] = -minor_mat.n[0][1];
+            result.n[1][0] = -minor_mat.n[1][0];
+            result.n[1][1] =  minor_mat.n[1][1];
             return result;
         }
 
@@ -152,21 +152,10 @@ namespace math {
 
         mat2 inverse()
         {
-            float det = n[0][0] * n[1][1] - n[0][1] * n[1][0];
-
-            if (utils::cmp(det, 0.0f)) return mat2();
-
-            mat2 result;
-
-            // To avoid excessive division
-            float i_det = 1.0f / det;
-
-            // Do reciprocal multiplication
-            result.n[0][0] =  n[1][1] * i_det;
-            result.n[0][1] = -n[0][1] * i_det;
-            result.n[1][0] = -n[1][0] * i_det;
-            result.n[1][1] =  n[0][0] * i_det;
-            return result;
+            float det = determinant();
+            if (utils::cmp(det, 0.0f))
+                return mat2();
+            return adjugate() * (1.0f / det);
         }
     };
 }
