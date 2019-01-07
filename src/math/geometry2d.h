@@ -5,7 +5,7 @@
 #ifndef INC_2D_GAME_GEOMETRY2D_H
 #define INC_2D_GAME_GEOMETRY2D_H
 
-#include "vector.h"
+#include "vector2.h"
 #include "utils.h"
 
 namespace math
@@ -21,12 +21,12 @@ namespace math
 
         static float length(const line2d &line)
         {
-            return math::vec2::magnitude(line.end - line.start);
+            return math::magnitude(line.end - line.start);
         }
 
         static float lengthSq(const line2d &line)
         {
-            return math::vec2::magnitudeSq(line.end - line.start);
+            return math::magnitudeSq(line.end - line.start);
         }
     };
 
@@ -101,10 +101,10 @@ namespace math
                     vec2(max.x, max.y)
             };
             // Project each vertex onto the axis, store the smallest and largest values
-            result.min = result.max = vec2::dot(axis, verts[0]);
+            result.min = result.max = dot(axis, verts[0]);
             for(int i = 0; i < 4; ++i)
             {
-                float projection = vec2::dot(axis, verts[i]);
+                float projection = dot(axis, verts[i]);
                 if(projection < result.min)
                 {
                     result.min = projection;
@@ -172,7 +172,7 @@ namespace math
     bool line_circle(const line2d &line, const circle &circle)
     {
         vec2 ab = line.end - line.start;
-        float t = vec2::dot(circle.position - line.start, ab) / vec2::dot(ab, ab);
+        float t = dot(circle.position - line.start, ab) / dot(ab, ab);
         if(t < 0.0f || t > 1.0f) {
             return false;
         }
@@ -187,7 +187,7 @@ namespace math
         {
             return true;
         }
-        vec2 norm = vec2::normalize(line.end - line.start);
+        vec2 norm = normalize(line.end - line.start);
         norm.x = (norm.x != 0) ? 1.0f / norm.x : 0;
         norm.y = (norm.y != 0) ? 1.0f / norm.y : 0;
         vec2 min = (rect2d::get_min(rect) - line.start) * norm;
