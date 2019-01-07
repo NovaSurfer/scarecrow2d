@@ -2,8 +2,8 @@
 // Created by maksim on 6/27/18.
 //
 
-#ifndef INC_2D_ENGINE_MATRICES_H
-#define INC_2D_ENGINE_MATRICES_H
+#ifndef INC_2D_ENGINE_MATRIX2_H
+#define INC_2D_ENGINE_MATRIX2_H
 
 #include "vector2.h"
 
@@ -172,4 +172,4 @@ namespace math {
 }
 
 
-#endif //INC_2D_ENGINE_MATRICES_H
+#endif //INC_2D_ENGINE_MATRIX2_H
