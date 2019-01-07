@@ -35,7 +35,9 @@ set(SOURCE_FILES
         ${SRC_DIR}/math/size2d.h
         ${SRC_DIR}/math/vector2.h
         ${SRC_DIR}/math/vector3.h
-        ${SRC_DIR}/math/matrices.h
+        ${SRC_DIR}/math/vector4.h
+        ${SRC_DIR}/math/matrix2.h
+        ${SRC_DIR}/math/matrix3.h
         ${SRC_DIR}/math/geometry2d.h
         ${SRC_DIR}/math/utils.h
         ${SRC_DIR}/core/logger.h
