@@ -22,9 +22,11 @@ namespace math {
                  _31, _32, _33} {};
 
         mat3(const vec3 &a,
-             const vec3 &b)
+             const vec3 &b,
+             const vec3 &c)
              : n{a.x, a.y, a.z,
-                 b.x, b.y, b.z} {};
+                 b.x, b.y, b.z,
+                 c.x, b.y, b.z} {};
         /**
          * Gets element value
          * @param i row number
