@@ -38,6 +38,7 @@ set(SOURCE_FILES
         ${SRC_DIR}/math/vector4.h
         ${SRC_DIR}/math/matrix2.h
         ${SRC_DIR}/math/matrix3.h
+        ${SRC_DIR}/math/matrix4.h
         ${SRC_DIR}/math/geometry2d.h
         ${SRC_DIR}/math/utils.h
         ${SRC_DIR}/core/logger.h
