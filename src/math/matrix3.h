@@ -211,7 +211,7 @@ namespace math {
         {
             ostream << mat.n[0][0] << '\t' << mat.n[0][1] << '\t' << mat.n[0][2] << '\n'
                     << mat.n[1][0] << '\t' << mat.n[1][1] << '\t' << mat.n[1][2] << '\n'
-                    << mat.n[2][0] << '\t' << mat.n[1][2] << '\t' << mat.n[2][2] << '\n';
+                    << mat.n[2][0] << '\t' << mat.n[2][1] << '\t' << mat.n[2][2] << '\n';
             return ostream;
         }
 
@@ -265,7 +265,7 @@ namespace math {
                         n[0][0] * n[2][2] - n[0][2] * n[2][0],
                         n[0][0] * n[2][1] - n[0][1] * n[2][0],
 
-                        n[0][1] * n[1][2] - n[0][2] * n[2][2],
+                        n[0][1] * n[1][2] - n[0][2] * n[1][1],
                         n[0][0] * n[1][2] - n[0][2] * n[1][0],
                         n[0][0] * n[1][1] - n[0][1] * n[1][0]);
         }
@@ -285,7 +285,7 @@ namespace math {
 
             result.n[1][0] = -minor_mat.n[1][0];
             result.n[1][1] =  minor_mat.n[1][1];
-            result.n[1][2] =  minor_mat.n[1][2];
+            result.n[1][2] = -minor_mat.n[1][2];
 
             result.n[2][0] =  minor_mat.n[2][0];
             result.n[2][1] = -minor_mat.n[2][1];
