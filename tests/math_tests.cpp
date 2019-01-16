@@ -4,6 +4,7 @@
 #include <iostream>
 #include "catch2/catch.hpp"
 #include "../src/math/matrix2.h"
+#include "../src/math/matrix3.h"
 #include "../src/math/vector2.h"
 
 using namespace math;
@@ -41,7 +42,6 @@ TEST_CASE("mat2d-operations", "[math]")
             const mat2 const_matrix;
             REQUIRE(std::is_const<std::remove_reference<decltype(const_matrix[0])>::type>::value);
         }
-
     }
 
     SECTION("scalar multiplication")
@@ -113,6 +113,123 @@ TEST_CASE("mat2d-operations", "[math]")
     {
         REQUIRE(matrix * matrix.inverse() == mat2(1,0,0,1));
     }
+}
+
+TEST_CASE("mat3d-operations", "[math]")
+{
+    mat3 matrix(1, 1, 1, 2, 2, 2, 3, 3, 3);
+    mat3 matx3(1, 1, 1, 2, 5, 8, 9, 3, 3);
+    
+    SECTION("is equal")
+    {
+        mat3 m(1, 1, 1, 2, 2, 2, 3, 3, 3);
+        REQUIRE(matrix == m);
+    }
+
+    SECTION("get value at position (i,j)")
+    {
+        REQUIRE(matrix(0, 0) == 1);
+        REQUIRE(matrix(0, 1) == 1);
+        REQUIRE(matrix(0, 2) == 1);
+
+        REQUIRE(matrix(1, 0) == 2);
+        REQUIRE(matrix(1, 1) == 2);
+        REQUIRE(matrix(1, 2) == 2);
+
+        REQUIRE(matrix(2, 0) == 3);
+        REQUIRE(matrix(2, 1) == 3);
+        REQUIRE(matrix(2, 2) == 3);
+
+
+        SECTION("get values at position as const")
+        {
+            const mat3 const_matrix;
+            REQUIRE(std::is_const<std::remove_reference<decltype(const_matrix(0, 0))>::type>::value);
+        }
+    }
+
+    SECTION("get column values in vec3")
+    {
+        REQUIRE(typeid(matrix[0]) == typeid(vec3));
+
+        SECTION("get column values as const")
+        {
+            const mat3 const_matrix;
+            REQUIRE(std::is_const<std::remove_reference<decltype(const_matrix[0])>::type>::value);
+        }
+    }
+
+    SECTION("scalar multiplication")
+    {
+        float scalar = 8;
+        mat3 result = matrix * 8;
+
+        REQUIRE(result == mat3(8, 8, 8, 16, 16, 16, 24, 24, 24));
+
+        SECTION("*= operator with scalar")
+        {
+            matrix *= 8;
+            REQUIRE(matrix == mat3(8, 8, 8, 16, 16, 16, 24, 24, 24));
+        }
+    }
+
+    SECTION("matrix multiplication")
+    {
+        mat3 matrix2(1, 1, 1, 2, 2, 2, 3, 3, 3);
+        mat3 result = matrix * matrix2;
+        REQUIRE(result == mat3(6, 6, 6, 12, 12, 12, 18, 18, 18));
+
+        SECTION("*= operator with matrix")
+        {
+            matrix *= matrix2;
+            REQUIRE(matrix == mat3(6, 6, 6, 12, 12, 12, 18, 18, 18));
+        }
+    }
+
+    SECTION("matrix addition")
+    {
+        mat3 matrix2(1, 1, 1, 2, 2, 2, 3, 3, 3);
+        mat3 result = matrix + matrix2;
+        REQUIRE(result == mat3(2, 2, 2, 4, 4, 4, 6, 6, 6));
+
+        SECTION("+= operator with matrix")
+        {
+            matrix += matrix2;
+            REQUIRE(matrix == mat3(2, 2, 2, 4, 4, 4, 6, 6, 6));
+        }
+    }
+
+    SECTION("transpose")
+    {
+        REQUIRE(matrix.transpose() == mat3(1, 2, 3, 1, 2, 3, 1, 2, 3));
+    }
+
+    SECTION("determinant")
+    {
+        REQUIRE(matx3.determinant() == 18);
+    }
+
+    SECTION("minor")
+    {
+        REQUIRE(matx3.minor() == mat3(-9, -66, -39, 0, -6, -6, 3, 6, 3));
+    }
+
+    SECTION("cofactor")
+    {
+        REQUIRE(matx3.cofactor() == mat3(-9, 66, -39, -0, -6, 6, 3, -6, 3));
+    }
+
+    SECTION("adjugate")
+    {
+        REQUIRE(matx3.adjugate() == mat3(-9, 0, 3, 66, -6, -6, -39, 6, 3));
+    }
+
+    // SECTION("inverse")
+    // {
+    //     mat3 matrix2(1, 1, 1, 2, 5, 8, 9, 3, 3);
+    //     std::cout << matrix2.inverse();
+    //     REQUIRE(matrix2 * matrix2.inverse() == mat3(1, 0, 0, 0, 1, 0, 0, 0, 1));
+    // }
 }
 
 TEST_CASE("vec2d-operations", "[math]")
