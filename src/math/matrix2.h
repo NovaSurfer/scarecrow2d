@@ -148,7 +148,7 @@ namespace math {
         /**
          * Compare current matrix with other
          * @param other some matrix2
-         * @return true if all elments are equal 
+         * @return true if all elements are equal
          */
         bool operator==(const mat2 &other) const
         {
@@ -161,7 +161,7 @@ namespace math {
         /**
          * Compare current matrix with another
          * @param other some matrix2
-         * @return true if one at least one lement differ 
+         * @return true if one at least one element differ
          */
         bool operator!=(const mat2 &other) const
         {
@@ -183,7 +183,7 @@ namespace math {
         }
 
         /**
-         * Transoses matix
+         * Transoses matrix
          * @return transposed matrix
          * @detail https://en.wikipedia.org/wiki/Transpose
          */
@@ -248,7 +248,7 @@ namespace math {
 
         /**
          * Inverses current matrix
-         * @return inversed matix
+         * @return inversed matrix
          * @details https://en.wikipedia.org/wiki/Invertible_matrix
          */
         mat2 inverse()
