@@ -7,7 +7,7 @@
 #include <iostream>
 #include "core/window.h"
 #include "filesystem/configLoader.h"
-#include "core/logger.h"
+#include "core/log2.h"
 
 std::unique_ptr<Window> window;
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
@@ -21,10 +21,9 @@ bool engine_init()
 int init()
 {
     glfwInit();
+    log_info_cmd("Hello %s", "world");
+    log_info_file("Hello %s", "world");
 
-    auto log_console = log_create(LogType::CONSOLE);
-    log_console()->info();
-    
     const WindowData window_data{3, 3, GLFW_OPENGL_CORE_PROFILE, 800, 600, "scarecrow2d", framebuffer_size_callback, key_callback};
     window = std::make_unique<Window>(window_data, true);
 
