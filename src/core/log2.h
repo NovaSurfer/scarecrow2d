@@ -5,6 +5,7 @@
  * variadic arguments with default value for source_location.
  * Details_01: https://stackoverflow.com/questions/52977593/stdexperimentalsource-location-at-compile-time
  * Details_02: https://stackoverflow.com/questions/4196431/passing-the-caller-file-line-to-a-function-without-using-macro/28742116
+ * Modified https://github.com/rxi/log.c
  */
 
 #ifndef INC_2D_GAME_LOG2_H
