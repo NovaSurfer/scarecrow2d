@@ -334,11 +334,11 @@ TEST_CASE("mat4d-operations", "[math]")
     {
         REQUIRE(matrix.transpose() == mat4(1, 2, 3, 9, 1, 2, 3, 4, 1, 2, 5, 4, 1, 2, 8, 4));
     }
-// TODO:
-//    SECTION("determinant")
-//    {
-//        REQUIRE(matx3.determinant() == 188);
-//    }
+    
+    SECTION("determinant")
+    {
+        REQUIRE(matx3.determinant() == 188);
+    }
 
     SECTION("minor")
     {
