@@ -13,9 +13,13 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # Bindind sources & dependencies
 set(SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
 set(LIB_DIR ${CMAKE_CURRENT_SOURCE_DIR}/deps)
-# GCC compilation flags
-if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
-    set(GCC_COMPILE_FLAGS "-Wall -Wextra -Wshadow -Wnon-virtual-dtor -pedantic")
+
+if(MSVC)
+	add_compile_options("/W4" "$<$<CONFIG:RELEASE>:/O2>")
+	add_compile_options("/W4" "$<$<CONFIG:DEBUG>:/O0>")
+else()
+	add_compile_options("-Wall" "-Wextra" "-Wshadow" "-Wnon-virtual-dtor" "-pedantic" "$<$<CONFIG:RELEASE>:-O2>")
+	add_compile_options("-Wall" "-Wextra" "-Wshadow" "-Wnon-virtual-dtor" "-pedantic" "$<$<CONFIG:DEBUG>:-O0>")
 endif()
 
 if(MINGW)
@@ -41,7 +45,7 @@ set(SOURCE_FILES
         ${SRC_DIR}/math/matrix4.h
         ${SRC_DIR}/math/geometry2d.h
         ${SRC_DIR}/math/utils.h
-        ${SRC_DIR}/core/log2.h
+        ${SRC_DIR}/core/log2.h                       ${SRC_DIR}/core/log2.cpp
         ${SRC_DIR}/core/sprite.h                     ${SRC_DIR}/core/sprite.cpp
         ${SRC_DIR}/core/sc2dTypes.h
         ${SRC_DIR}/core/spriteTypes.h                ${SRC_DIR}/core/spriteTypes.cpp )
