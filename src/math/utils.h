@@ -15,7 +15,7 @@ namespace math
         /**
          * Comparing floating point numbers
          */
-        constexpr static bool cmp(const float x, const float y)
+        const static bool cmp(const float x, const float y)
         {
             return fabsf(x - y) <=FLT_EPSILON * fmaxf(1.0f, fmaxf(fabsf(x), fabsf(y)));
         }
@@ -24,7 +24,7 @@ namespace math
          * Absolute tolerance test.
          * Fails when the numbers being compared are large.
          */
-        constexpr static float absolute(const float x, const float y)
+        const static float absolute(const float x, const float y)
         {
             return fabsf(x - y) <= FLT_EPSILON;
         }
@@ -33,7 +33,7 @@ namespace math
          * Relative tolerance test.
          * Fails when the numbers being compared are small.
          */
-        constexpr static float relative(const float x, const float y)
+        const static float relative(const float x, const float y)
         {
             return fabsf(x - y) <= FLT_EPSILON * fmaxf(fabsf(x), fabsf(y));
         }
