@@ -76,12 +76,12 @@ int main()
         end_ticks = glfwGetTime();
         delta_time = (begin_ticks - end_ticks) / glfwGetTime();
 
-    #ifdef NDEBUG
+    #ifndef NDEBUG
         // If delta_time is too large, we must have resumed from a 
         // breakpoint -- frame-lock to the target rate this frame.
         if(delta_time > 1.0)
         {
-            delta_time = 1.0 / 60.0
+            delta_time = 1.0 / 60.0;
         }
     #endif
 
