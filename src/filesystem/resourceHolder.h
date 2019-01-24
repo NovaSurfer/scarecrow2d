@@ -7,16 +7,17 @@
 
 #include <unordered_map>
 #include <string>
-#include <experimental/string_view>
+#include <string_view>
 #include <fstream>
 #include <sstream>
 
 
 #include "core/shader.h"
 #include "core/texture.h"
+#include "core/log2.h"
 #include "../../deps/stb/stb_image.h"
 
-using string_view = std::experimental::string_view;
+using string_view = std::string_view;
 
 class ResourceHolder {
 public:

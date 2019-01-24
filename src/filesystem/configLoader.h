@@ -9,6 +9,7 @@
 #include <array>
 
 #include "../../deps/nlohmann/json.hpp"
+#include "../core/log2.h"
 #include "configNames.h"
 #include "resourceHolder.h"
 

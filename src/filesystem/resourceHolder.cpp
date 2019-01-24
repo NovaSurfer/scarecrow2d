@@ -43,6 +43,7 @@ void ResourceHolder::clean() {
         glDeleteTextures(1, &t.second.get_obj_id());
 }
 
+// TODO: remove C++ streams and exceptions 
 std::string ResourceHolder::load_shader(const GLchar *file_path) {
     try
     {
@@ -54,7 +55,7 @@ std::string ResourceHolder::load_shader(const GLchar *file_path) {
 
     }catch (const std::exception &e)
     {
-        std::cout << "ERROR :: SHADER :: Failed to read shader file" << '\n';
+        log_err_file("Failed to read shader file %s", file_path);
     }
     return{};
 }

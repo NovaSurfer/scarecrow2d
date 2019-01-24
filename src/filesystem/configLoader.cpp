@@ -36,7 +36,7 @@ void ResourcesConfigLoad::operator()(const json &obj_json)
         std::string s_name = sprite["name"].get<std::string>();
         bool s_alpha = sprite["alpha"].get<bool>();
 
-        std::clog << "Loading sprite file:\t" << s_path << '\n';
+        log_info_cmd("Loading sprite file: %s", s_path.c_str());
         ResourceHolder::load_texture(s_path, s_alpha, s_name);
     }
 
@@ -46,9 +46,7 @@ void ResourcesConfigLoad::operator()(const json &obj_json)
         std::string vert_path = shader["vert_file"].get<std::string>();
         std::string s_name = shader["name"].get<std::string>();
 
-        std::clog << "Loading shader files:\n"
-            << "fragment:\t" << frag_path << "\t"
-            << "vertex:\t" << vert_path;
+        log_info_cmd("Loading shader files\nVERTEX: %s\nFRAGMENT: %s", vert_path.c_str(), frag_path.c_str());
         ResourceHolder::load_shader_program(s_name, vert_path.c_str(), frag_path.c_str());
     }
 }
