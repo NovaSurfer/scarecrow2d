@@ -44,6 +44,7 @@ set(SOURCE_FILES
         ${SRC_DIR}/math/matrix3.h
         ${SRC_DIR}/math/matrix4.h
         ${SRC_DIR}/math/geometry2d.h
+        ${SRC_DIR}/math/transform.h                  ${SRC_DIR}/math/transform.cpp
         ${SRC_DIR}/math/utils.h
         ${SRC_DIR}/core/log2.h                       ${SRC_DIR}/core/log2.cpp
         ${SRC_DIR}/core/sprite.h                     ${SRC_DIR}/core/sprite.cpp
