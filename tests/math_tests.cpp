@@ -1,7 +1,6 @@
 //
 // Created by maksim on 6/29/18.
 //
-#include <iostream>
 #include "catch2/catch.hpp"
 #include "../src/math/matrix2.h"
 #include "../src/math/matrix3.h"
@@ -355,12 +354,10 @@ TEST_CASE("mat4d-operations", "[math]")
         REQUIRE(matx3.adjugate() == mat4(-24, -12, -8, 28, -30, 79, -10, -12, 158, -15, -10, -12, -74, -37, 38, 8));
     }
 
-    // SECTION("inverse")
-    // {
-    //     mat3 matrix2(1, 1, 1, 2, 5, 8, 9, 3, 3);
-    //     std::cout << matrix2.inverse();
-    //     REQUIRE(matrix2 * matrix2.inverse() == mat3(1, 0, 0, 0, 1, 0, 0, 0, 1));
-    // }
+//     SECTION("inverse")
+//     {
+//         REQUIRE(matx3 * matx3.inverse() == mat4(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1));
+//     }
 }
 
 

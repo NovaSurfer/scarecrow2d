@@ -163,7 +163,7 @@ namespace math
 //    bool point_in_orrect(const point2d &point, const orrect2d rect)
 //    {
 //        vec2 rot_vec = point - rect.positon;
-//        float theta = -utils::deg2rag(rect.rotation);
+//        float theta = -utils::deg2rad(rect.rotation);
 //        float z_rot2x2p[] = {
 //                -sinf(theta), cosf(theta)
 //        };
