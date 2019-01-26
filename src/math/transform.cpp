@@ -145,4 +145,33 @@ namespace math {
                 t * v.x * v.y - s * v.z, t * (v.y * v.y) + c, t * v.y * v.z + s * v.x,
                 t * v.x * v.z + s * v.y, t * v.y * v.z - s * v.x, t * (v.z * v.z) + c);
     }
+
+    vec3 Transform::multiply_vector(const vec3& vec, const mat3& mat)
+    {
+        vec3 result;
+        result.x = dot(vec, mat[0]);
+        result.y = dot(vec, mat[1]);
+        result.z = dot(vec, mat[2]);
+        return result;
+    }
+
+    vec4 Transform::multiply_vector(const vec4& vec, const mat4& mat)
+    {
+        vec4 result;
+        result.x = dot(vec, mat[0]);
+        result.y = dot(vec, mat[1]);
+        result.z = dot(vec, mat[2]);
+        result.w = dot(vec, mat[3]);
+        return result;
+    }
+
+    mat4 Transform::transform(const vec3& scale, const vec3& euler_rot, const vec3& translate)
+    {
+        return this->scale(scale) * rotation(euler_rot.x, euler_rot.y, euler_rot.z) * translation(translate);
+    }
+
+    mat4 Transform::transform(const vec3& scale, const vec3& rot_axis, float rot_angle, const vec3& translate)
+    {
+        return this->scale(scale) * axis_angle(rot_axis, rot_angle) * translation(translate);
+    }
 }
