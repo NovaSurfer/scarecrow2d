@@ -2,7 +2,6 @@
 // Created by Maksim Ruts on 25-Jan-19.
 //
 
-#include <cmath>
 #include "transform.h"
 #include "utils.h"
 
@@ -57,7 +56,7 @@ namespace math {
 
     mat4 Transform::z_rotation(float angle)
     {
-        angle = utils::deg2rag(angle);
+        angle = utils::deg2rad(angle);
         return mat4(cosf(angle), sinf(angle), 0.0f, 0.0f,
                     -sinf(angle), cosf(angle), 0.0f, 0.0f,
                     0.0f, 0.0f, 1.0f, 0.0f,
@@ -66,7 +65,7 @@ namespace math {
 
     mat3 Transform::z_rotation3x3(float angle)
     {
-        angle = utils::deg2rag(angle);
+        angle = utils::deg2rad(angle);
         return mat3(cosf(angle), sinf(angle), 0.0f,
                     -sinf(angle), cosf(angle), 0.0f,
                     0.0f, 0.0f, 1.0f);
@@ -74,7 +73,7 @@ namespace math {
 
     mat4 Transform::y_rotation(float angle)
     {
-        angle = utils::deg2rag(angle);
+        angle = utils::deg2rad(angle);
         return mat4(cosf(angle), 0.0f, -sinf(angle), 0.0f, 
                     0.0f, 1.0f, 0.0f, 0.0f, 
                     sinf(angle), 0.0f, cosf(angle), 0.0f,      
@@ -83,7 +82,7 @@ namespace math {
 
     mat3 Transform::y_rotation3x3(float angle)
     {
-        angle = utils::deg2rag(angle);
+        angle = utils::deg2rad(angle);
         return mat3(cosf(angle), 0.0f, -sinf(angle), 
                     0.0f, 1.0f, 0.0f,
                     sinf(angle), 0.0f, cosf(angle)); 
@@ -91,7 +90,7 @@ namespace math {
 
     mat4 Transform::x_rotation(float angle)
     {
-        angle = utils::deg2rag(angle);
+        angle = utils::deg2rad(angle);
         return mat4(1.0f, 0.0f, 0.0f, 0.0f,       
                     0.0f, cosf(angle), sinf(angle), 0.0f,       
                     0.0f, -sinf(angle), cos(angle), 0.0f,       
@@ -100,9 +99,50 @@ namespace math {
 
     mat3 Transform::x_rotation3x3(float angle)
     {
-        angle = utils::deg2rag(angle);
+        angle = utils::deg2rad(angle);
         return mat3(1.0f, 0.0f, 0.0f,
                     0.0f, cosf(angle), sinf(angle),
                     0.0f, -sinf(angle), cos(angle)); 
+    }
+
+    mat4 Transform::axis_angle(const vec3& axis, float angle)
+    {
+        angle = utils::deg2rad(angle);
+        float c = cosf(angle);
+        float s = sinf(angle);
+        float t = 1.0f - cosf(angle);
+
+        vec3 v = axis;
+
+        if(!utils::cmp(magnitudeSq(axis), 1.0f))
+        {
+            v = normalize(v);
+        }
+
+        return mat4(
+                t * (v.x * v.x) + c, t * v.x * v.y + s * v.z, t * v.x * v.z - s * v.y, 0.0f,
+                t * v.x * v.y - s * v.z, t * (v.y * v.y) + c, t * v.y * v.z + s * v.x, 0.0f,
+                t * v.x * v.z + s * v.y, t * v.y * v.z - s * v.x, t * (v.z * v.z) + c, 0.0f,
+                0.0f, 0.0f, 0.0f, 1.0f);
+    }
+
+    mat3 Transform::axis_angle3x3(const vec3& axis, float angle)
+    {
+        angle = utils::deg2rad(angle);
+        float c = cosf(angle);
+        float s = sinf(angle);
+        float t = 1.0f - cosf(angle);
+
+        vec3 v = axis;
+
+        if(!utils::cmp(magnitudeSq(axis), 1.0f))
+        {
+            v = normalize(v);
+        }
+
+        return mat3(
+                t * (v.x * v.x) + c, t * v.x * v.y + s * v.z, t * v.x * v.z - s * v.y,
+                t * v.x * v.y - s * v.z, t * (v.y * v.y) + c, t * v.y * v.z + s * v.x,
+                t * v.x * v.z + s * v.y, t * v.y * v.z - s * v.x, t * (v.z * v.z) + c);
     }
 }

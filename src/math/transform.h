@@ -26,6 +26,8 @@ namespace math {
         mat3 y_rotation3x3(float angle);       
         mat4 x_rotation(float angle);
         mat3 x_rotation3x3(float angle);
+        mat4 axis_angle(const vec3& axis, float angle);
+        mat3 axis_angle3x3(const vec3& axis, float angle);
     };
 }
 
