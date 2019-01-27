@@ -33,6 +33,8 @@ namespace math {
         vec4 multiply_vector(const vec4& vec, const mat4& mat);
         mat4 transform(const vec3& scale, const vec3& euler_rot, const vec3& translate);
         mat4 transform(const vec3& scale, const vec3& rot_axis, float rot_angle, const vec3& translate);
+        mat4 look_at(const vec3& pos, const vec3& target, const vec3& up);
+
     };
 }
 

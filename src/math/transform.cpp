@@ -174,4 +174,17 @@ namespace math {
     {
         return this->scale(scale) * axis_angle(rot_axis, rot_angle) * translation(translate);
     }
+
+    mat4 Transform::look_at(const vec3& pos, const vec3& target, const vec3& up)
+    {
+        vec3 forward = normalize(target - pos);
+        vec3 right = normalize(cross(up,forward));
+        vec3 new_up = cross(forward, right);
+
+        return mat4(
+                right.x, new_up.x, forward.x, 0.0f,
+                right.y, new_up.y, forward.y, 0.0f,
+                right.z, new_up.z, forward.z, 0.0f,
+                -dot(right, pos), -dot(new_up, pos), -dot(forward, pos), 1.0f);
+    }
 }
