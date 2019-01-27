@@ -187,4 +187,37 @@ namespace math {
                 right.z, new_up.z, forward.z, 0.0f,
                 -dot(right, pos), -dot(new_up, pos), -dot(forward, pos), 1.0f);
     }
+
+    mat4 Transform::projection(float fov, float aspect, float z_near, float z_far)
+    {
+        float tan_half_fov = tanf(utils::deg2rad((fov * 0.5f)));
+        float fov_y = 1.0f / tan_half_fov; // cot(fov/2)
+        float fov_x= fov_y / aspect;       // cot(fov/2) / aspect
+        mat4 result;
+        result.n[0][0] = fov_x;
+        result.n[1][1] = fov_y;
+        // n[2][2] = far / range
+        result.n[2][2] = z_far / (z_far - z_near);
+        result.n[2][3] = 1.0f;
+        // n[3][2] = - near * (far / range)
+        result.n[3][2] = -z_near * result.n[2][2];
+        result.n[3][3] = 0.0f;
+        return result;
+    }
+
+    mat4 Transform::ortho(float left, float right, float bottom, float top, float z_near, float z_far)
+    {
+        float _11 = 2.0f / (right - left);
+        float _22 = 2.0f / (top - bottom);
+        float _33 = 1.0f / (z_far - z_near);
+        float _41 = (left + right) / (left - right);
+        float _42 = (top + bottom) / (bottom - top);
+        float _43 = (z_near) / (z_near - z_far);
+        return mat4(
+                _11, 0.0f, 0.0f, 0.0f,
+                0.0f, _22, 0.0f, 0.0f,
+                0.0f, 0.0f, _33, 0.0f,
+                _41, _42, _43, 1.0f
+        );
+    }
 }

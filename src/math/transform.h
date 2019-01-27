@@ -34,6 +34,8 @@ namespace math {
         mat4 transform(const vec3& scale, const vec3& euler_rot, const vec3& translate);
         mat4 transform(const vec3& scale, const vec3& rot_axis, float rot_angle, const vec3& translate);
         mat4 look_at(const vec3& pos, const vec3& target, const vec3& up);
+        mat4 projection(float fov, float aspect, float z_near, float z_far);
+        mat4 ortho(float left, float right, float bottom, float top, float z_near, float z_far);
 
     };
 }
