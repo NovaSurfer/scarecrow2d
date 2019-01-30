@@ -11,32 +11,201 @@
 #include "vector4.h"
 
 namespace math {
-
+    /// Matrices transformation operations
     struct Transform {
-        mat4 translation(float x, float y, float z);
-        mat4 translation(const vec3& pos);
-        vec3 get_translation(const mat4& mat);
-        mat4 scale(float x, float y, float z);
-        mat4 scale(const vec3& scale);
-        vec3 get_scale(const mat4& mat);
-        mat4 rotation(float pitch, float yaw, float roll);
-        mat3 rotation3x3(float pitch, float yaw, float roll);
-        mat4 z_rotation(float angle);
-        mat3 z_rotation3x3(float angle);
-        mat4 y_rotation(float angle);
-        mat3 y_rotation3x3(float angle);       
-        mat4 x_rotation(float angle);
-        mat3 x_rotation3x3(float angle);
-        mat4 axis_angle(const vec3& axis, float angle);
-        mat3 axis_angle3x3(const vec3& axis, float angle);
-        vec3 multiply_vector(const vec3& vec, const mat3& mat);
-        vec4 multiply_vector(const vec4& vec, const mat4& mat);
-        mat4 transform(const vec3& scale, const vec3& euler_rot, const vec3& translate);
-        mat4 transform(const vec3& scale, const vec3& rot_axis, float rot_angle, const vec3& translate);
-        mat4 look_at(const vec3& pos, const vec3& target, const vec3& up);
-        mat4 projection(float fov, float aspect, float z_near, float z_far);
-        mat4 ortho(float left, float right, float bottom, float top, float z_near, float z_far);
 
+        /**
+         * Creates translation matrix
+         * @param x component
+         * @param y component
+         * @param z component
+         * @return identity matrix with translation stored in 41, 42, 43 elements (x, y, z)
+         */
+        mat4 translation(float x, float y, float z) const;
+
+        /**
+         * Creates translation matrix
+         * @param pos translation vector3
+         * @return identity matrix with translation stored in 41, 42, 43 elements
+         */
+        mat4 translation(const vec3& pos) const;
+
+        /**
+         * Returns translation vector
+         * @param mat
+         * @return translation vector
+         */
+        vec3 get_translation(const mat4& mat) const;
+
+        /**
+         * Creates scaling matrix
+         * @param x component
+         * @param y component
+         * @param z component
+         * @return identity matrix with translation stored in 11, 22, 33 elements (x, y, z)
+         */
+        mat4 scale(float x, float y, float z) const;
+
+        /**
+         * Creates scaling matrix
+         * @param scale vector
+         * @return identity matrix with translation stored in 11, 22, 33 elements
+         */
+        mat4 scale(const vec3& scale) const;
+
+        /**
+         * Returns scaling vector
+         * @param mat
+         * @return vector with scale for each axis
+         */
+        vec3 get_scale(const mat4& mat) const;
+
+        /**
+         * Combines Euler angles that represent rotation around each matrix
+         * @param pitch object's local Lateral Axis (X-Axis)
+         * @param yaw object's local Perpendicular Axis (Y-Axis)
+         * @param roll object's local Longitudinal Axis (Z-Axis)
+         * @return rotated matrix
+         */
+        mat4 rotation(float pitch, float yaw, float roll) const;
+
+        /**
+         * Combines Euler angles that represent rotation around each matrix
+         * @param pitch object's local Lateral Axis (X-Axis)
+         * @param yaw object's local Perpendicular Axis (Y-Axis)
+         * @param roll object's local Longitudinal Axis (Z-Axis)
+         * @return rotated matrix
+         */
+        mat3 rotation3x3(float pitch, float yaw, float roll) const;
+
+        /**
+         * Rotates Z-basis vector for the matrix by given angle
+         * @param angle rotation
+         * @return identity matrix with rotated Z-basis vector
+         */
+        mat4 z_rotation(float angle) const;
+
+        /**
+         * Rotates Z-basis vector for the matrix by given angle
+         * @param angle rotation
+         * @return identity matrix with rotated Z-basis vector
+         */
+        mat3 z_rotation3x3(float angle) const;
+
+        /**
+         * Rotates Y-basis vector for the matrix by given angle
+         * @param angle rotation
+         * @return identity matrix with rotated Y-basis vector
+         */
+        mat4 y_rotation(float angle) const;
+
+        /**
+         * Rotates Y-basis vector for the matrix by given angle
+         * @param angle rotation
+         * @return identity matrix with rotated Y-basis vector
+         */
+        mat3 y_rotation3x3(float angle) const;
+
+        /**
+         * Rotates X-basis vector for the matrix by given angle
+         * @param angle rotation
+         * @return identity matrix with rotated X-basis vector
+         */
+        mat4 x_rotation(float angle) const;
+
+        /**
+         * Rotates X-basis vector for the matrix by given angle
+         * @param angle rotation
+         * @return identity matrix with rotated X-basis vector
+         */
+        mat3 x_rotation3x3(float angle) const;
+
+        /**
+         * Rotates around given axis
+         * @param axis
+         * @param angle
+         * @return rotated axis
+         * @details https://en.wikipedia.org/wiki/Rotation_matrix#Rotation_matrix_from_axis_and_angle
+         *          https://en.wikipedia.org/wiki/Symmetric_matrix
+         *          https://en.wikipedia.org/wiki/Skew-symmetric_matrix
+         */
+        mat4 axis_angle(const vec3& axis, float angle) const;
+
+        /**
+         * Rotates around given axis
+         * @param axis
+         * @param angle
+         * @return rotates matrix
+         * @details https://en.wikipedia.org/wiki/Rotation_matrix#Rotation_matrix_from_axis_and_angle
+         *          https://en.wikipedia.org/wiki/Symmetric_matrix
+         *          https://en.wikipedia.org/wiki/Skew-symmetric_matrix
+         */
+        mat3 axis_angle3x3(const vec3& axis, float angle) const;
+
+        /**
+         * Pre multiplication (left to right) [vector * matrix]
+         * @param vec
+         * @param mat
+         * @return multiplication result for each row stored in each axis of vector
+         */
+        vec3 multiply_vector(const vec3& vec, const mat3& mat) const;
+
+        /**
+         * Pre multiplication (left to right) [vector * matrix]
+         * @param vec
+         * @param mat
+         * @return multiplication result for each row stored in each axis of vector
+         */
+        vec4 multiply_vector(const vec4& vec, const mat4& mat) const;
+
+        /**
+         * Creates World Transform Matrix (Scale-Rotate-Translate)
+         * @param scale
+         * @param euler_rot
+         * @param translate
+         * @return transformed matrix
+         */
+        mat4 transform(const vec3& scale, const vec3& euler_rot, const vec3& translate) const;
+
+        /**
+         * Creates World Transform Matrix (Scale-Rotate-Translate)
+         * @param scale
+         * @param euler_rot
+         * @param translate
+         * @return transformed matrix
+         */
+        mat4 transform(const vec3& scale, const vec3& rot_axis, float rot_angle, const vec3& translate) const;
+
+        /**
+         * Creates rotation basis
+         * @param pos
+         * @param target
+         * @param up
+         * @return
+         */
+        mat4 look_at(const vec3& pos, const vec3& target, const vec3& up) const;
+
+        /**
+         *
+         * @param fov
+         * @param aspect
+         * @param z_near
+         * @param z_far
+         * @return
+         */
+        mat4 projection(float fov, float aspect, float z_near, float z_far) const;
+
+        /**
+         *
+         * @param left
+         * @param right
+         * @param bottom
+         * @param top
+         * @param z_near
+         * @param z_far
+         * @return
+         */
+        mat4 ortho(float left, float right, float bottom, float top, float z_near, float z_far) const;
     };
 }
 
