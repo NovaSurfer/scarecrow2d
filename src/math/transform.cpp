@@ -193,7 +193,7 @@ namespace math {
                 -dot(right, pos), -dot(new_up, pos), -dot(forward, pos), 1.0f);
     }
 
-    mat4 Transform::projection(float fov, float aspect, float z_near, float z_far) const
+    mat4 Transform::perspective(float fov, float aspect, float z_near, float z_far) const
     {
         float tan_half_fov = tanf(utils::deg2rad((fov * 0.5f)));
         float fov_y = 1.0f / tan_half_fov; // cot(fov/2)

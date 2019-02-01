@@ -178,32 +178,35 @@ namespace math {
 
         /**
          * Creates rotation basis
-         * @param pos
-         * @param target
-         * @param up
-         * @return
+         * @param pos object's position
+         * @param target position where the object is looking at
+         * @param up world up
+         * @return View Transform Matrix
+         * @details http://www.songho.ca/opengl/gl_camera.html#lookat
          */
         mat4 look_at(const vec3& pos, const vec3& target, const vec3& up) const;
 
         /**
-         *
-         * @param fov
-         * @param aspect
-         * @param z_near
-         * @param z_far
-         * @return
+         * Creates Perspective projection matrix
+         * @param fov field of view
+         * @param aspect proportional relationship between view volume's width and height
+         * @param z_near near clipping plane. All coordinates that are in front of the near plane will not be drawn
+         * @param z_far far clipping plane. All coordinates behind far plane will not be drawn
+         * @return projection matrix
+         * @details https://www.codeguru.com/cpp/misc/misc/graphics/article.php/c10123/Deriving-Projection-Matrices.htm
          */
-        mat4 projection(float fov, float aspect, float z_near, float z_far) const;
+        mat4 perspective(float fov, float aspect, float z_near, float z_far) const;
 
         /**
-         *
-         * @param left
-         * @param right
-         * @param bottom
-         * @param top
-         * @param z_near
-         * @param z_far
-         * @return
+         * Creates Orthographic projection matrix
+         * @param left coordinate of the ortho frustum
+         * @param right coordinate of the ortho frustum
+         * @param bottom coordinate of the ortho frustum
+         * @param top coordinate of the ortho frustum
+         * @param z_near near clipping plane. All coordinates that are in front of the near plane will not be drawn
+         * @param z_far far clipping plane. All coordinates behind far plane will not be drawn
+         * @return projection matrix
+         * @details https://www.codeguru.com/cpp/misc/misc/graphics/article.php/c10123/Deriving-Projection-Matrices.htm
          */
         mat4 ortho(float left, float right, float bottom, float top, float z_near, float z_far) const;
     };
