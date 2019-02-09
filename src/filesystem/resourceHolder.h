@@ -21,10 +21,10 @@ using string_view = std::string_view;
 
 class ResourceHolder {
 public:
-    static Shader load_shader_program(string_view name, const GLchar *vert_file, const GLchar *frag_file, const GLchar *geom_file = nullptr);
-    static const Shader get_shader(string_view shader_name);
-    static Texture2d load_texture(const std::string& img_file, bool alpha, string_view name);
-    static const Texture2d get_texture(string_view texture_name);
+    static Shader load_shader_program(std::string name, const GLchar *vert_file, const GLchar *frag_file, const GLchar *geom_file = nullptr);
+    static const Shader& get_shader(std::string shader_name);
+    static Texture2d load_texture(const std::string& img_file, bool alpha, std::string name);
+    static const Texture2d& get_texture(std::string texture_name);
     static void clean();
 
     ResourceHolder() = delete;
@@ -34,8 +34,8 @@ public:
     ResourceHolder &operator=(ResourceHolder&& other) = delete;
 
 private:
-    static std::unordered_map<string_view, Shader> shaders;
-    static std::unordered_map<string_view, Texture2d> textures;
+    static std::unordered_map<std::string, Shader> shaders;
+    static std::unordered_map<std::string, Texture2d> textures;
     static std::string load_shader(const GLchar *file_path);
 };
 

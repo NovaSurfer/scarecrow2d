@@ -4,12 +4,12 @@
 
 #include "resourceHolder.h"
 
-std::unordered_map<string_view, Shader> ResourceHolder::shaders;
-std::unordered_map<string_view, Texture2d> ResourceHolder::textures;
+std::unordered_map<std::string, Shader> ResourceHolder::shaders;
+std::unordered_map<std::string, Texture2d> ResourceHolder::textures;
 
-Shader
-ResourceHolder::load_shader_program(string_view name, const GLchar *vert_file, const GLchar *frag_file, const GLchar *geom_file) {
-    Shader shader;
+Shader ResourceHolder::load_shader_program(std::string name, const GLchar *vert_file,
+        const GLchar *frag_file, const GLchar *geom_file) {
+    Shader shader{};
     std::string v_shader, f_shader, g_shader;
     v_shader = load_shader(vert_file);
     f_shader = load_shader(frag_file);
@@ -20,11 +20,11 @@ ResourceHolder::load_shader_program(string_view name, const GLchar *vert_file, c
 }
 
 
-const Shader ResourceHolder::get_shader(string_view shader_name) {
+const Shader& ResourceHolder::get_shader(std::string shader_name) {
     return shaders[shader_name];
 }
 
-Texture2d ResourceHolder::load_texture(const std::string& img_file, bool alpha, string_view name) {
+Texture2d ResourceHolder::load_texture(const std::string& img_file, bool alpha, std::string name) {
     int width, height, nr_channels;
     unsigned char *image = stbi_load(img_file.c_str(), &width, &height, &nr_channels, STBI_rgb_alpha);
 
@@ -32,7 +32,7 @@ Texture2d ResourceHolder::load_texture(const std::string& img_file, bool alpha, 
     return textures[name];
 }
 
-const Texture2d ResourceHolder::get_texture(string_view texture_name){
+const Texture2d& ResourceHolder::get_texture(std::string texture_name){
     return textures[texture_name];
 }
 
