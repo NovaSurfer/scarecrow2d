@@ -21,7 +21,7 @@ enum class ShaderType
 class Shader {
 public:
     const GLuint &get_program() const;
-    Shader &run();
+    const Shader &run() const;
     void compile(const GLchar *vert_src, const GLchar *frag_src, const GLchar *geom_src = nullptr);
 
     void set_mat4(const GLchar *name, const math::mat4 &matrix) const;
@@ -31,8 +31,8 @@ private:
     static const std::map<ShaderType, GLenum> shader_types;
     GLuint program;
     
-    void error_checking(GLuint object, ShaderType shader_type = ShaderType::NONE);
-    void make_shader(const GLchar *shader_src, GLuint &shader_obj, ShaderType shader_type);
+    void error_checking(GLuint object, ShaderType shader_type = ShaderType::NONE) const;
+    void make_shader(const GLchar *shader_src, GLuint &shader_obj, ShaderType shader_type) const;
 };
 
 

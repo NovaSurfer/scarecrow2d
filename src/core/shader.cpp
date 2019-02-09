@@ -11,11 +11,11 @@ const std::map<ShaderType, GLenum> Shader::shader_types {
     {ShaderType::GEOMETRY, GL_GEOMETRY_SHADER}
 };
 
-const GLuint &Shader::get_program() const {
+const GLuint& Shader::get_program() const {
     return program;
 }
 
-Shader &Shader::run() {
+const Shader &Shader::run() const {
     glUseProgram(program);
     return *this;
 }
@@ -46,7 +46,7 @@ void Shader::compile(const GLchar *vert_src, const GLchar *frag_src, const GLcha
     glDeleteShader(geom_obj);
 }
 
-void Shader::make_shader(const GLchar *shader_src, GLuint &shader_obj, ShaderType shader_type) {
+void Shader::make_shader(const GLchar *shader_src, GLuint &shader_obj, ShaderType shader_type) const {
     GLenum shader_t = shader_types.at(shader_type);
     shader_obj = glCreateShader(shader_t);
     glShaderSource(shader_obj, 1, &shader_src, nullptr);
@@ -54,7 +54,7 @@ void Shader::make_shader(const GLchar *shader_src, GLuint &shader_obj, ShaderTyp
     error_checking(shader_obj, shader_type);
 }
 
-void Shader::error_checking(GLuint object, ShaderType shader_type) {
+void Shader::error_checking(GLuint object, ShaderType shader_type) const{
     GLint success = 0;
     GLchar error_log[1024];
 
