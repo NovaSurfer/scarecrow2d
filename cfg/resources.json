@@ -1,7 +1,7 @@
 {
   "sprites":
   [
-    {"name": "engineer", "file": "data/sprites/scarecrow2d.png", "alpha": false}
+    {"name": "logo", "file": "data/sprites/sc2d.png", "alpha":true}
   ],
   "shaders":
   [
