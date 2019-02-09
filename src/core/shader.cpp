@@ -3,6 +3,7 @@
 //
 
 #include "shader.h"
+#include "log2.h"
 
 const std::map<ShaderType, GLenum> Shader::shader_types {
     {ShaderType::VERTEX,   GL_VERTEX_SHADER},
@@ -64,7 +65,7 @@ void Shader::error_checking(GLuint object, ShaderType shader_type) {
         if (!success)
         {
             glGetShaderInfoLog(object, 1024, nullptr, error_log);
-            std::cout << "ERROR :: SHADER :: Compile-time error: " << error_log << '\n';
+            log_err_cmd("SHADER :: Compile-time error: %s ", error_log);
         }
     } else {
         // Check shader program for link time errors
@@ -72,7 +73,7 @@ void Shader::error_checking(GLuint object, ShaderType shader_type) {
         if (!success)
         {
             glGetProgramInfoLog(object, 1024, nullptr, error_log);
-            std::cout << "ERROR :: SHADER :: Link-time error: " << error_log << '\n';
+            log_err_cmd("SHADER :: Link-time error: %s", error_log);
         }
     }
 }
