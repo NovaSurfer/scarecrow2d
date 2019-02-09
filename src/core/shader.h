@@ -5,11 +5,12 @@
 #ifndef INC_2D_GAME_SHADER_H
 #define INC_2D_GAME_SHADER_H
 
-#include <iostream>
 #include <map>
 #include <glad/glad.h>
+#include "math/matrix4.h"
+#include "math/vector3.h"
 
-enum class ShaderType 
+enum class ShaderType
 {
     VERTEX,
     FRAGMENT,
@@ -22,6 +23,10 @@ public:
     const GLuint &get_program() const;
     Shader &run();
     void compile(const GLchar *vert_src, const GLchar *frag_src, const GLchar *geom_src = nullptr);
+
+    void set_mat4(const GLchar *name, const math::mat4 &matrix) const;
+    void set_vec3(const GLchar *name, const math::vec3 &value) const;
+    void set_int(const GLchar *name, GLint value) const;
 private:
     static const std::map<ShaderType, GLenum> shader_types;
     GLuint program;

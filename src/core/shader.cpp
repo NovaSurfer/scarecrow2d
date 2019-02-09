@@ -77,3 +77,23 @@ void Shader::error_checking(GLuint object, ShaderType shader_type) {
         }
     }
 }
+
+void Shader::set_mat4(const GLchar* name, const math::mat4& matrix) const
+{
+    log_warn_cmd("%d", glGetUniformLocation(program, name));
+    glUniformMatrix4fv(glGetUniformLocation(program, name), 1, GL_FALSE, (GLfloat*)&matrix.n[0][0]);
+}
+
+void Shader::set_vec3(const GLchar* name, const math::vec3& value) const
+{
+    log_warn_cmd("%d", glGetUniformLocation(program, name));
+    glUniform3f(glGetUniformLocation(program, name), value.x, value.y, value.z);
+}
+
+void Shader::set_int(const GLchar* name, GLint value) const
+{
+    log_warn_cmd("%d", glGetUniformLocation(program, name));
+    glUniform1i(glGetUniformLocation(program, name), value);
+}
+
+
