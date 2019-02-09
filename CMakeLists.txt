@@ -47,9 +47,7 @@ set(SOURCE_FILES
         ${SRC_DIR}/math/transform.h                  ${SRC_DIR}/math/transform.cpp
         ${SRC_DIR}/math/utils.h
         ${SRC_DIR}/core/log2.h                       ${SRC_DIR}/core/log2.cpp
-        ${SRC_DIR}/core/sprite.h                     ${SRC_DIR}/core/sprite.cpp
-        ${SRC_DIR}/core/sc2dTypes.h
-        ${SRC_DIR}/core/spriteTypes.h                ${SRC_DIR}/core/spriteTypes.cpp )
+        ${SRC_DIR}/core/sprite.h                     ${SRC_DIR}/core/sprite.cpp)
 #        ${SRC_DIR}/game2.cpp
 #        ${SRC_DIR}/game2.h)
 #        ${SRC_DIR}/textureManager.cpp
