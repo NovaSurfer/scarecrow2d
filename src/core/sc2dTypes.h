@@ -27,7 +27,7 @@ namespace sc2d {
     struct Vertex {
         math::vec2 pos;
         math::vec2 uv;
-        Color color;
+//        Color color;
     };
 
     struct Quad {
@@ -40,6 +40,17 @@ namespace sc2d {
         // Top left
         Vertex tl;
     };
+
+
+    const Quad SPRITE_QUAD
+            {
+                    //positions      //tex coords  //colors (RGBA)
+                    {{ 0.5f,  0.5f}, {1.0f, 1.0f}, /*{1.0f, 0.0f, 0.0f, 1.0}*/},  // top right
+                    {{ 0.5f, -0.5f}, {1.0f, 0.0f}, /*{0.0f, 1.0f, 0.0f, 1.0}*/},  // bottom right
+                    {{-0.5f, -0.5f}, {0.0f, 0.0f}, /*{0.0f, 0.0f, 1.0f, 1.0}*/},  // bottom left
+                    {{-0.5f,  0.5f}, {0.0f, 1.0f}, /*{1.0f, 1.0f, 0.0f, 1.0}*/},  // top left
+            };
+
 }
 
 #endif //INC_2D_GAME_TYPES_H
