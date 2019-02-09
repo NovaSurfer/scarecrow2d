@@ -8,8 +8,11 @@
 #include "core/window.h"
 #include "filesystem/configLoader.h"
 #include "core/log2.h"
+#include "core/sprite.h"
+#include "math/transform.h"
 
 std::unique_ptr<Window> window;
+std::unique_ptr<sc2d::Sprite> sprite;
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 
@@ -36,6 +39,22 @@ int init()
     // Loading engine systems
     if (!engine_init()) return -2;
 
+
+    glViewport(0, 0, window_data.screen_width, window_data.screen_height);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glEnable(GL_CULL_FACE);
+//    glFrontFace(GL_CCW);
+    glEnable(GL_BLEND);
+    glDisable(GL_DEPTH_TEST);
+    glDisable(GL_SCISSOR_TEST);
+
+    math::mat4 proj = math::ortho(0.0f, static_cast<GLfloat>(window_data.screen_width), static_cast<GLfloat>(window_data.screen_height), 0.0f, -1.0f, 1.0f);
+    ResourceHolder::get_shader("sprite-default").set_int("image", ResourceHolder::get_texture("engineer").get_obj_id());
+    ResourceHolder::get_shader("sprite-default").run().set_mat4("projection", proj);
+    log_err_cmd("0x%x", glGetError());
+    sprite = std::make_unique<sc2d::Sprite>(ResourceHolder::get_shader("sprite-default"));
+
+    log_err_cmd("0x%x", glGetError());
     return glGetError();
 }
 
@@ -46,8 +65,9 @@ void poll_events()
 
 void draw()
 {
-    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+    glClearColor(0.0f, 0.3f, 0.3f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
+    sprite->draw(ResourceHolder::get_texture("logo"), math::vec2(0, 0), math::size2d(111, 148), 0);
     glfwSwapBuffers(window->get_window());
 }
 
@@ -68,7 +88,7 @@ int main()
 
     // Game loop
     while (!glfwWindowShouldClose(window->get_window()))
-    {   
+    {
         update(delta_time);
         poll_events();
         draw();
