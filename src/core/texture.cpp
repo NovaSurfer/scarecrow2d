@@ -37,3 +37,8 @@ void Texture2d::generate() {
  const GLuint& Texture2d::get_obj_id() const {
     return obj_id;
 }
+
+void Texture2d::bind() const
+{
+    glBindTexture(GL_TEXTURE_2D, obj_id);
+}
