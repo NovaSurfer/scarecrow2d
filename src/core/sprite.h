@@ -7,7 +7,7 @@
 
 #include "shader.h"
 #include "texture.h"
-#include "spriteTypes.h"
+#include "sc2dTypes.h"
 #include "math/vector2.h"
 #include "math/size2d.h"
 
@@ -15,8 +15,8 @@ namespace sc2d {
     class Sprite {
     public:
         explicit Sprite(const Shader& shader);
-        void draw_sprite(const Texture2d& tex2d, math::vec2 pos,
-                math::size2d size = {10,10}, float rotate = 0.0);
+        void draw(const Texture2d& tex2d, math::vec2 pos,
+                math::size2d = {10,10}, float rotate = 0.0);
 
     private:
         static Vertex quad_vertices[VERTICES_PER_QUAD];
