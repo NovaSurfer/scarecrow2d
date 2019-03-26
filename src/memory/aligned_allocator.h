@@ -66,41 +66,41 @@ namespace sc2d::memory {
             using other = aligned_allocator<U, N>;
         };
 
-        pointer address(reference r) { return &r; }
+        constexpr pointer address(reference r) const { return &r; }
 
-        const_pointer address(const_reference r) const { return &r; }
+        constexpr const_pointer address(const_reference r) const { return &r; }
 
-        pointer allocate(size_type n, typename std::allocator<void>::const_pointer hint = nullptr);
+        constexpr pointer allocate(size_type n, typename std::allocator<void>::const_pointer hint = nullptr) const;
 
-        pointer deallocate(pointer p, size_type size);
+        constexpr pointer deallocate(pointer p, size_type size) const;
 
-        void construct(pointer p, const_reference value) { new(p) value_type(value); }
+        constexpr void construct(pointer p, const_reference value) const { new(p) value_type(value); }
 
-        void destroy(pointer p) { p->~value_type(); }
+        constexpr void destroy(pointer p) const { p->~value_type(); }
 
-        size_type max_size() const noexcept { return size_type(-1) / sizeof(T); }
+        constexpr size_type max_size() const noexcept { return size_type(-1) / sizeof(T); }
 
-        bool operator==(const aligned_allocator&) { return true; }
+        constexpr bool operator==(const aligned_allocator&) const { return true; }
 
-        bool operator!=(const aligned_allocator& rhs) { return !operator==(rhs); }
+        constexpr bool operator!=(const aligned_allocator& rhs) const { return !operator == (rhs); }
 
     };
 
     template<class T, size_t N>
-    typename aligned_allocator<T, N>::pointer
-    aligned_allocator<T, N>::allocate(size_type n, typename std::allocator<void>::const_pointer hint)
+    constexpr typename aligned_allocator<T, N>::pointer
+    aligned_allocator<T, N>::allocate(size_type n, typename std::allocator<void>::const_pointer hint) const
     {
-        pointer res = reinterpret_cast<pointer>(aligned_malloc(sizeof(T)*n, N));
+        pointer res = reinterpret_cast<pointer>(sc2d::memory::aligned_malloc(sizeof(T) * n, N));
         if (res==0)
             throw std::bad_alloc();
         return res;
     }
 
     template<class T, size_t N>
-    typename aligned_allocator<T, N>::pointer
-    aligned_allocator<T, N>::deallocate(pointer p, size_type size)
+    constexpr typename aligned_allocator<T, N>::pointer
+    aligned_allocator<T, N>::deallocate(pointer p, size_type size) const
     {
-        aligned_free(p);
+        sc2d::memory::aligned_free(p);
     }
 }
 
