@@ -48,7 +48,8 @@ set(SOURCE_FILES
         ${SRC_DIR}/math/utils.h
         ${SRC_DIR}/core/log2.h                       ${SRC_DIR}/core/log2.cpp
         ${SRC_DIR}/core/sprite.h                     ${SRC_DIR}/core/sprite.cpp
-		${SRC_DIR}/memory/aligned_allocator.h 		 ${SRC_DIR}/memory/aligned_allocator.cpp)
+		${SRC_DIR}/memory/aligned_allocator.h 		 ${SRC_DIR}/memory/aligned_allocator.cpp
+		${SRC_DIR}/memory/allocator.h 			     ${SRC_DIR}/memory/allocator.cpp)
 #        ${SRC_DIR}/game2.cpp
 #        ${SRC_DIR}/game2.h)
 #        ${SRC_DIR}/textureManager.cpp
