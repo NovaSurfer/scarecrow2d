@@ -76,5 +76,15 @@ namespace sc2d::memory {
     }
 
     template<typename T>
-    inline void deallocate_array_no_destuct(allocator& alloc, T* array);
+    inline void deallocate_array_no_destuct(allocator& alloc, T* array)
+    {
+        assert(array != nullptr);
+
+        size_t header_size = sizeof(size_t) /sizeof(T);
+
+        if(sizeof(size_t) % sizeof(T) > 0)
+            header_size += 1;
+
+        alloc.deallocate(array - header_size);
+    }
 }
