@@ -6,10 +6,8 @@
 #define CPPTRAINING_vec_H
 
 #include <iterator>
-//#include "../memory/allocator.h"
-
-#include "../memory/aligned_allocator.h"
-#include <iostream>
+#include <type_traits>
+#include "../memory/allocator.h"
 
 namespace sc2d {
 
@@ -28,11 +26,12 @@ namespace sc2d {
         using const_reverse_iterator = const std::reverse_iterator<iterator>;
         using difference_type = ptrdiff_t;
         using size_type = size_t;
+        using IS_T_TRIVIAL = std::is_trivial<T>;
 
         vec() noexcept;
-//        explicit vec(sc2d::memory::allocator& alloc);
         explicit vec(size_type n);
         vec(size_type size, const T& data);
+        vec(size_type size, const memory::allocator& alloc);
         vec(typename vec<T>::iterator first, typename vec<T>::iterator last);
         vec(std::initializer_list<T> ilist);
         vec(const vec<T>& v);
@@ -107,15 +106,25 @@ namespace sc2d {
         size_type reserved_size = 4;
         size_type vec_size = 0;
         T* array;
+        memory::allocator* allocator;
 
+        inline void allocate();
         inline void reallocate();
     };
 
+    template<typename T>
+    void vec<T>::allocate()
+    {
+        if constexpr(vec<T>::IS_T_TRIVIAL::value)
+            array = memory::allocate_array_no_construct(allocator, reserved_size);
+        else
+            array = memory::allocate_array(allocator, reserved_size);
+    }
 
     template <typename T>
     vec<T>::vec() noexcept
     {
-        array = reinterpret_cast<T*>(sc2d::memory::aligned_malloc(sizeof(T) * reserved_size, 16));
+        allocate();
     }
 }
 
