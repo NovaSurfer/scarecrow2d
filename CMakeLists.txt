@@ -50,7 +50,9 @@ set(SOURCE_FILES
         ${SRC_DIR}/core/sprite.h                     ${SRC_DIR}/core/sprite.cpp
 		${SRC_DIR}/memory/aligned_allocator.h 		 ${SRC_DIR}/memory/aligned_allocator.cpp
 		${SRC_DIR}/memory/allocator.h 			     ${SRC_DIR}/memory/allocator.cpp
-		${SRC_DIR}/memory/pool_allocator.cpp  		 ${SRC_DIR}/memory/pool_allocator.h)
+		${SRC_DIR}/memory/pool_allocator.cpp  		 ${SRC_DIR}/memory/pool_allocator.h
+		${SRC_DIR}/memory/aligners.h
+		${SRC_DIR}/collections/vec.h)
 #        ${SRC_DIR}/game2.cpp
 #        ${SRC_DIR}/game2.h)
 #        ${SRC_DIR}/textureManager.cpp
@@ -110,10 +112,10 @@ target_compile_definitions(glad PUBLIC GLAD_GLAPI_EXPORT PRIVATE GLAD_GLAPI_EXPO
 install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION "/")
 
 # GLM
-set(GLM_DIR "${LIB_DIR}/glm")
-set(GLM_TEST_ENABLE OFF CACHE INTERNAL "Build GLM unit tests")
-add_subdirectory("${GLM_DIR}")
-target_link_libraries(${PROJECT_NAME} "${GLM_LIBRARIES}")
+#set(GLM_DIR "${LIB_DIR}/glm")
+#set(GLM_TEST_ENABLE OFF CACHE INTERNAL "Build GLM unit tests")
+#add_subdirectory("${GLM_DIR}")
+#target_link_libraries(${PROJECT_NAME} "${GLM_LIBRARIES}")
 
 #copy game's config & resources files
 configure_file(${CMAKE_SOURCE_DIR}/cfg/config.ini ${CMAKE_BINARY_DIR} COPYONLY)
