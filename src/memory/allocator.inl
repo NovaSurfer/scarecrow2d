@@ -1,11 +1,10 @@
 //
 // Created by maksim.ruts on 28.3.19.
 //
+#ifndef INC_2D_GAME_ALLOCATOR_INL
+#define INC_2D_GAME_ALLOCATOR_INL
 
-#include <utility>
-#include "allocator.h"
-
-namespace sc2d::memory {
+namespace allocs {
 
     template <typename T, typename... Args>
     inline T* allocate_new(allocator& alloc, Args&&... args)
@@ -88,3 +87,4 @@ namespace sc2d::memory {
         alloc.deallocate(array - header_size);
     }
 }
+#endif //INC_2D_GAME_ALLOCATOR_INL
