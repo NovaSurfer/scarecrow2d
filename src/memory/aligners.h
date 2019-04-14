@@ -44,6 +44,11 @@ namespace sc2d::memory
         }
     }
 
+    inline bool is_aligned(const void* address, uint8_t alignment)
+    {
+        return align_forward_adjustment(address, alignment) == 0;
+    }
+
 }
 
 #endif //INC_2D_GAME_ALIGNERS_H
