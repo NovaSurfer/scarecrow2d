@@ -40,8 +40,8 @@ namespace sc2d::memory
             if(needed_space % alignment > 0)
                 adjustment += alignment;
 
-            return adjustment;
         }
+        return adjustment;
     }
 
     inline bool is_aligned(const void* address, uint8_t alignment)
