@@ -8,6 +8,7 @@
 #include <stddef.h>
 #include <cassert>
 #include <cstdint>
+#include <utility>
 
 // Reference: https://www.gamedev.net/articles/programming/general-and-gameplay-programming/c-custom-memory-allocation-r3010/
 
@@ -41,23 +42,27 @@ namespace sc2d::memory {
         size_t _num_allocations;
     };
 
-    template <typename T, typename... Args>
-    inline T* allocate_new(allocator& alloc, Args&&... args);
+    namespace allocs {
 
-    template <typename T>
-    inline void deallocate_delete(allocator& alloc, T& obj);
+        template<typename T, typename... Args>
+        inline T *allocate_new(allocator &alloc, Args &&... args);
 
-    template <typename T>
-    inline T* allocate_array(allocator& alloc, size_t length);
+        template<typename T>
+        inline void deallocate_delete(allocator &alloc, T &obj);
 
-    template <typename T>
-    inline T* allocate_array_no_construct(allocator& alloc, size_t length);
+        template<typename T>
+        inline T *allocate_array(allocator &alloc, size_t length);
 
-    template <typename T>
-    inline void deallocate_array(allocator& alloc, T* array);
+        template<typename T>
+        inline T *allocate_array_no_construct(allocator &alloc, size_t length);
 
-    template<typename T>
-    inline void deallocate_array_no_destuct(allocator& alloc, T* array);
+        template<typename T>
+        inline void deallocate_array(allocator &alloc, T *array);
+
+        template<typename T>
+        inline void deallocate_array_no_destuct(allocator &alloc, T *array);
+    }
+#include "allocator.inl"
 }
 
 #endif //INC_2D_GAME_ALLOCATOR_H

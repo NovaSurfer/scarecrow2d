@@ -116,13 +116,19 @@ namespace sc2d {
     void vec<T>::allocate()
     {
         if constexpr(vec<T>::IS_T_TRIVIAL::value)
-            array = memory::allocate_array_no_construct(allocator, reserved_size);
+            array = memory::allocs::allocate_array_no_construct<T>(*allocator, reserved_size);
         else
-            array = memory::allocate_array(allocator, reserved_size);
+            array = memory::allocs::allocate_array<T>(*allocator, reserved_size);
     }
 
     template <typename T>
     vec<T>::vec() noexcept
+    {
+        allocate();
+    }
+
+    template<typename T>
+    vec<T>::vec(vec::size_type n) : reserved_size{n << 1}, vec_size{n}
     {
         allocate();
     }
