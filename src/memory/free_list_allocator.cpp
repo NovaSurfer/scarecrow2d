@@ -112,6 +112,11 @@ namespace sc2d::memory {
         return (void*)aligned_address;
 
     }
+
+    void free_list_allocator::deallocate(void* p)
+    {
+
+    }
 }
 
 
