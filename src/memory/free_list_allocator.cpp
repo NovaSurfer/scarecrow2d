@@ -115,7 +115,56 @@ namespace sc2d::memory {
 
     void free_list_allocator::deallocate(void* p)
     {
+        assert(p != nullptr);
 
+        allocation_header* header = (allocation_header*) (reinterpret_cast<uintptr_t>(p) - sizeof(allocation_header));
+
+        uintptr_t block_start = reinterpret_cast<uintptr_t>(p) - header->adjustment;
+        size_t block_size = header->size;
+        uintptr_t block_end = block_start + block_size;
+
+        free_block* prev_free_block = nullptr;
+        free_block* curr_free_block = free_blocks;
+
+        while(curr_free_block != nullptr)
+        {
+            if((uintptr_t)curr_free_block >= block_end)
+                break;
+            prev_free_block = curr_free_block;
+            curr_free_block = curr_free_block->next;
+        }
+
+        if(prev_free_block == nullptr)
+        {
+            prev_free_block = (free_block*)block_start;
+            prev_free_block->size = block_size;
+            prev_free_block->next = free_blocks;
+            free_blocks = prev_free_block;
+        }
+
+        else if((uintptr_t)prev_free_block + prev_free_block->size == block_start)
+        {
+            prev_free_block->size += block_size;
+        }
+        else
+        {
+            free_block* temp = (free_block*)block_start;
+            temp->size = block_size;
+            temp->next = prev_free_block->next;
+            prev_free_block->next = temp;
+            prev_free_block = temp;
+        }
+
+        assert(prev_free_block != nullptr);
+
+        if((uintptr_t)prev_free_block + prev_free_block->size == (uintptr_t)prev_free_block->next)
+        {
+            prev_free_block->size += prev_free_block->next->size;
+            prev_free_block->next = prev_free_block->next->next;
+        }
+
+        _num_allocations--;
+        _used_memory -= block_size;
     }
 }
 
