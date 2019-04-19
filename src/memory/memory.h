@@ -7,12 +7,15 @@
 
 class allocator;
 
-namespace sc2d::memory::main
+namespace sc2d::memory
 {
     allocator& default_allocator();
 
-    void init();
-    void destroy();
+    namespace main
+    {
+        void init();
+        void destroy();
+    }
 }
 
 #endif //INC_2D_GAME_MEMORY_H
