@@ -14,7 +14,7 @@ namespace sc2d::memory {
     class free_list_allocator : public allocator {
     public:
         free_list_allocator(size_t size, void* start);
-//        ~free_list_allocator();
+        ~free_list_allocator() override = default;
 
         void* allocate(size_t size, uint8_t alignment) override;
         void deallocate(void* p) override;
