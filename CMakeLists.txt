@@ -54,7 +54,8 @@ set(SOURCE_FILES
 		${SRC_DIR}/memory/aligners.h
 		${SRC_DIR}/collections/vec.h
 		${SRC_DIR}/memory/memory.h					 ${SRC_DIR}/memory/memory.cpp
-		${SRC_DIR}/memory/free_list_allocator.h 	 ${SRC_DIR}/memory/free_list_allocator.cpp)
+		${SRC_DIR}/memory/free_list_allocator.h 	 ${SRC_DIR}/memory/free_list_allocator.cpp
+		${SRC_DIR}/memory/dynamic_linear_allocator.cpp ${SRC_DIR}/memory/dynamic_linear_allocator.h)
 #        ${SRC_DIR}/game2.cpp
 #        ${SRC_DIR}/game2.h)
 #        ${SRC_DIR}/textureManager.cpp
