@@ -91,10 +91,10 @@ namespace sc2d::memory {
 
             if(prev_best_fit != nullptr)
             {
-                prev_best_fit->next = best_fit->next;
+                prev_best_fit->next = new_block;
 
             } else {
-                free_blocks = best_fit->next;
+                free_blocks = new_block;
             }
         }
 
