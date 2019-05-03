@@ -3,6 +3,7 @@
 //
 
 #include "pool_allocator.h"
+#include "core/log2.h"
 
 // Reference: http://www.thinkmind.org/download.php?articleid=computation_tools_2012_1_10_80006
 
@@ -25,7 +26,7 @@ namespace sc2d::memory {
 
     void* pool_allocator::allocate()
     {
-        if(num_of_initialized < num_of_free_blocks)
+        if(num_of_initialized < num_of_blocks)
         {
             unsigned char* ptr = (unsigned char*)addr_from_index(num_of_initialized);
             *ptr = num_of_initialized + 1;
@@ -39,12 +40,23 @@ namespace sc2d::memory {
             --num_of_free_blocks;
             if(num_of_free_blocks != 0)
             {
-                p_next = (unsigned char*)addr_from_index(*(size_t*)p_next);
+                p_next = (unsigned char*)addr_from_index(*((size_t*)p_next));
             }
             else
             {
                 p_next = nullptr;
             }
+        }
+        else
+        {
+            size_t new_num_of_blocks = num_of_blocks << 1;
+            num_of_free_blocks = num_of_blocks;
+            unsigned char* p_new_start = reinterpret_cast<unsigned char*>(realloc(p_start, size_of_block * num_of_blocks));
+            p_start = p_new_start;
+            p_next = (unsigned char*)addr_from_index((new_num_of_blocks - num_of_blocks) + 1);
+            num_of_blocks = new_num_of_blocks;
+            ptr = (void*)p_next;
+//            p_next = (unsigned char*)addr_from_index(*(size_t*)p_next);
         }
 
         return ptr;
