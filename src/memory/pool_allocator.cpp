@@ -28,7 +28,7 @@ namespace sc2d::memory {
     {
         if(num_of_initialized < num_of_blocks)
         {
-            unsigned char* ptr = (unsigned char*)addr_from_index(num_of_initialized);
+            size_t* ptr = (size_t*)addr_from_index(num_of_initialized);
             *ptr = num_of_initialized + 1;
             num_of_initialized++;
         }
@@ -40,23 +40,20 @@ namespace sc2d::memory {
             --num_of_free_blocks;
             if(num_of_free_blocks != 0)
             {
-                p_next = (unsigned char*)addr_from_index(*((size_t*)p_next));
-            }
-            else
-            {
-                p_next = nullptr;
+                p_next = addr_from_index(*(size_t*)p_next);
             }
         }
         else
         {
             size_t new_num_of_blocks = num_of_blocks << 1;
             num_of_free_blocks = num_of_blocks;
+            num_of_blocks = new_num_of_blocks;
             unsigned char* p_new_start = reinterpret_cast<unsigned char*>(realloc(p_start, size_of_block * num_of_blocks));
             p_start = p_new_start;
-            p_next = (unsigned char*)addr_from_index((new_num_of_blocks - num_of_blocks) + 1);
-            num_of_blocks = new_num_of_blocks;
-            ptr = (void*)p_next;
-//            p_next = (unsigned char*)addr_from_index(*(size_t*)p_next);
+            ptr = addr_from_index(num_of_initialized);
+            num_of_initialized++;
+            num_of_free_blocks--;
+            p_next = addr_from_index(num_of_initialized);
         }
 
         return ptr;
@@ -77,9 +74,9 @@ namespace sc2d::memory {
         num_of_free_blocks++;
     }
 
-    void* pool_allocator::addr_from_index(size_t index) const
+    unsigned char* pool_allocator::addr_from_index(size_t index) const
     {
-        return reinterpret_cast<void*>(p_start + (index * size_of_block));
+        return p_start + index * size_of_block;
     }
 
     size_t pool_allocator::index_from_addr(const unsigned char* ptr) const

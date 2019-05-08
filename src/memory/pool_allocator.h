@@ -26,7 +26,7 @@ namespace sc2d::memory {
         unsigned char* p_start = nullptr;
         unsigned char* p_next = nullptr;
     private:
-        void* addr_from_index(size_t index) const;
+        unsigned char* addr_from_index(size_t index) const;
 
         size_t index_from_addr(const unsigned char* ptr) const;
     };
