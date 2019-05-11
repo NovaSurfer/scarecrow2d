@@ -19,16 +19,19 @@ namespace sc2d::memory {
         void* allocate();
         void deallocate(void* ptr);
 
+        unsigned char* get_start() const { return p_start;}
+        size_t get_intialized_num() const { return num_of_initialized; }
+
+    private:
+        unsigned char* addr_from_index(size_t index) const;
+        size_t index_from_addr(const unsigned char* ptr) const;
+
         size_t num_of_blocks = 0;
         size_t size_of_block = 0;
         size_t num_of_free_blocks = 0;
         size_t num_of_initialized = 0;
         unsigned char* p_start = nullptr;
         unsigned char* p_next = nullptr;
-    private:
-        unsigned char* addr_from_index(size_t index) const;
-
-        size_t index_from_addr(const unsigned char* ptr) const;
     };
 
 }

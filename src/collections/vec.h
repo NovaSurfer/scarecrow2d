@@ -135,13 +135,6 @@ namespace sc2d {
     void vec<T>::push_back(const T& cref_type)
     {
         T* item = (T*)pool_alloc->allocate();
-
-        if(item == nullptr)
-        {
-            pool_alloc->grow(array);
-            item = (T*)pool_alloc->allocate();
-        }
-
         *item = cref_type;
         array[pool_alloc->get_intialized_num()] = *item;
     }
