@@ -7,6 +7,7 @@
 
 #include <iterator>
 #include <type_traits>
+#include <memory/pool_allocator.h>
 #include "../memory/allocator.h"
 
 namespace sc2d {
@@ -103,10 +104,9 @@ namespace sc2d {
         bool operator >= (const vec<T> &) const;
 
     private:
-        size_type reserved_size = 4;
         size_type vec_size = 0;
         T* array;
-        memory::allocator* allocator;
+        std::unique_ptr<memory::pool_allocator> pool_alloc {std::make_unique<memory::pool_allocator>()};
 
         inline void allocate();
         inline void reallocate();
@@ -115,10 +115,8 @@ namespace sc2d {
     template<typename T>
     void vec<T>::allocate()
     {
-        if constexpr(vec<T>::IS_T_TRIVIAL::value)
-            array = memory::allocs::allocate_array_no_construct<T>(*allocator, reserved_size);
-        else
-            array = memory::allocs::allocate_array<T>(*allocator, reserved_size);
+        pool_alloc->create(sizeof(T), vec_size << 1, alignof(T));
+        array = (T*)pool_alloc->get_start();
     }
 
     template <typename T>
@@ -128,9 +126,30 @@ namespace sc2d {
     }
 
     template<typename T>
-    vec<T>::vec(vec::size_type n) : reserved_size{n << 1}, vec_size{n}
+    vec<T>::vec(vec::size_type n) : vec_size{n}
     {
         allocate();
+    }
+
+    template<typename T>
+    void vec<T>::push_back(const T& cref_type)
+    {
+        T* item = (T*)pool_alloc->allocate();
+
+        if(item == nullptr)
+        {
+            pool_alloc->grow(array);
+            item = (T*)pool_alloc->allocate();
+        }
+
+        *item = cref_type;
+        array[pool_alloc->get_intialized_num()] = *item;
+    }
+
+    template<typename T>
+    typename vec<T>::reference vec<T>::operator[](vec::size_type index)
+    {
+        return array[index];
     }
 }
 
