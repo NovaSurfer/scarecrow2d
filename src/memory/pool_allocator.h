@@ -21,6 +21,7 @@ namespace sc2d::memory {
 
         unsigned char* get_start() const { return p_start;}
         size_t get_intialized_num() const { return num_of_initialized; }
+        size_t get_num_of_blocks() const {return num_of_blocks; }
 
     private:
         unsigned char* addr_from_index(size_t index) const;

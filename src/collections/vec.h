@@ -8,7 +8,7 @@
 #include <iterator>
 #include <type_traits>
 #include <memory/pool_allocator.h>
-#include "../memory/allocator.h"
+//#include "../memory/allocator.h"
 
 namespace sc2d {
 
@@ -32,7 +32,7 @@ namespace sc2d {
         vec() noexcept;
         explicit vec(size_type n);
         vec(size_type size, const T& data);
-        vec(size_type size, const memory::allocator& alloc);
+//        vec(size_type size, const memory::allocator& alloc);
         vec(typename vec<T>::iterator first, typename vec<T>::iterator last);
         vec(std::initializer_list<T> ilist);
         vec(const vec<T>& v);
@@ -126,9 +126,33 @@ namespace sc2d {
     }
 
     template<typename T>
-    vec<T>::vec(vec::size_type n) : vec_size{n}
+    vec<T>::vec(vec::size_type size) : vec_size{size}
     {
         allocate();
+    }
+
+    template<typename T>
+    vec<T>::vec(vec::size_type size, const T& data) : vec_size{size}
+    {
+        allocate();
+        for(size_t i = 0; i < size; ++i)
+            push_back(data);
+    }
+
+    template<typename T>
+    vec<T>::vec(typename vec<T>::iterator first, typename vec<T>::iterator last) : vec_size{(last - first) << 1}
+    {
+        allocate();
+        for(size_t i = 0; i < vec_size; ++i, ++first)
+            push_back(*first);
+    }
+
+    template<typename T>
+    vec<T>::vec(std::initializer_list<T> ilist) : vec_size{ilist.size() << 1}
+    {
+        allocate();
+        for(const auto& i : ilist)
+            push_back(i);
     }
 
     template<typename T>
@@ -143,6 +167,18 @@ namespace sc2d {
     typename vec<T>::reference vec<T>::operator[](vec::size_type index)
     {
         return array[index];
+    }
+
+    template<typename T>
+    typename vec<T>::iterator vec<T>::begin() noexcept
+    {
+        return array;
+    }
+
+    template<typename T>
+    typename vec<T>::iterator vec<T>::end() noexcept
+    {
+        return array + pool_alloc->get_num_of_blocks();
     }
 }
 
