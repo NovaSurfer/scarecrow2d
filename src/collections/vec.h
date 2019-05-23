@@ -8,7 +8,6 @@
 #include <iterator>
 #include <type_traits>
 #include <memory/pool_allocator.h>
-//#include "../memory/allocator.h"
 
 namespace sc2d {
 
@@ -37,7 +36,7 @@ namespace sc2d {
         vec(std::initializer_list<T> ilist);
         vec(const vec<T>& v);
         vec(vec<T> &&) noexcept;
-        ~vec() = default;
+        ~vec();
 
         vec<T>& operator=(const vec<T>& v);
         vec<T>& operator=(vec<T>&& v);
@@ -60,8 +59,8 @@ namespace sc2d {
         size_type size() const noexcept;
         size_type max_size() const noexcept;
         size_type capacity() const noexcept;
-        void resize(size_type size);
-        void resize(size_type size, const T& data);
+        void resize(size_type new_size);
+        void resize(size_type new_size, const T& data);
         void reverse(size_type size);
         void shrink_to_fit();
 
@@ -109,7 +108,6 @@ namespace sc2d {
         std::unique_ptr<memory::pool_allocator> pool_alloc {std::make_unique<memory::pool_allocator>()};
 
         inline void allocate();
-        inline void reallocate();
     };
 
     template<typename T>
@@ -148,9 +146,79 @@ namespace sc2d {
     }
 
     template<typename T>
-    vec<T>::vec(std::initializer_list<T> ilist) : vec_size{ilist.size() << 1}
+    vec<T>::vec(std::initializer_list<T> ilist) : vec_size{ilist.size()}
     {
         allocate();
+        for(const auto& i : ilist)
+            push_back(i);
+    }
+
+    template<typename T>
+    vec<T>::vec(const vec<T>& v) : vec_size{v.capacity() >> 1}
+    {
+        allocate();
+        for(size_t i = 0; i < v.vec_size; ++i)
+            array[i] = v.array[i];
+    }
+
+    template<typename T>
+    vec<T>::vec(vec<T>&& v) noexcept : vec_size{v.capacity() >> 1}
+    {
+        allocate();
+        for(size_t i = 0; i < v.size(); ++i)
+            array[i] = std::move(v.array[i]);
+    }
+
+    template<typename T>
+    vec<T>::~vec()
+    {
+        pool_alloc->destroy();
+        pool_alloc.reset();
+        array = nullptr;
+    }
+
+    template<typename T>
+    vec<T>& vec<T>::operator=(const vec<T>& other)
+    {
+        for (size_t i = 0; i < other.vec_size; ++i)
+            push_back(other[i]);
+        vec_size = other.vec_size;
+    }
+
+    template<typename T>
+    vec<T>& vec<T>::operator=(vec<T>&& other)
+    {
+        for(size_t i = 0; i < other.vec_size; ++i)
+            push_back(std::move(other[i]));
+        vec_size = other.vec_size;
+    }
+
+    template<typename T>
+    vec<T>& vec<T>::operator=(std::initializer_list<T> ilist)
+    {
+        for(const auto& i : ilist)
+            push_back(i);
+
+    }
+
+    template<typename T>
+    void vec<T>::assign(vec::size_type size, const T& data)
+    {
+        for(size_t i = 0; i < size; ++i)
+            push_back(data);
+    }
+
+    template<typename T>
+    void vec<T>::assign(vec::iterator first, vec::iterator last)
+    {
+        size_t count = last - first;
+        for(size_t i = 0; i < count; ++i, ++first)
+            push_back(*first);
+    }
+
+    template<typename T>
+    void vec<T>::assign(std::initializer_list<T> ilist)
+    {
         for(const auto& i : ilist)
             push_back(i);
     }
@@ -170,6 +238,12 @@ namespace sc2d {
     }
 
     template<typename T>
+    typename vec<T>::size_type vec<T>::capacity() const noexcept
+    {
+        pool_alloc->get_num_of_blocks();
+    }
+
+    template<typename T>
     typename vec<T>::iterator vec<T>::begin() noexcept
     {
         return array;
@@ -179,6 +253,78 @@ namespace sc2d {
     typename vec<T>::iterator vec<T>::end() noexcept
     {
         return array + pool_alloc->get_num_of_blocks();
+    }
+
+    template<typename T>
+    typename vec<T>::const_iterator vec<T>::cbegin() const noexcept
+    {
+        return array;
+    }
+
+    template<typename T>
+    typename vec<T>::const_iterator vec<T>::cend() const noexcept
+    {
+        return array + pool_alloc->get_num_of_blocks();
+    }
+
+    template<typename T>
+    typename vec<T>::reverse_iterator vec<T>::rbegin() noexcept
+    {
+        return reverse_iterator(array + pool_alloc->get_num_of_blocks());
+    }
+
+    template<typename T>
+    typename vec<T>::reverse_iterator vec<T>::rend() noexcept
+    {
+        return reverse_iterator(array);
+    }
+
+    template<typename T>
+    typename vec<T>::const_reverse_iterator vec<T>::crbegin() const noexcept
+    {
+        return reverse_iterator(array + pool_alloc->get_num_of_blocks());
+    }
+
+    template<typename T>
+    typename vec<T>::const_reverse_iterator vec<T>::crend() const noexcept
+    {
+        return reverse_iterator(array);
+    }
+
+    template<typename T>
+    bool vec<T>::empty() const noexcept
+    {
+        return vec_size == 0;
+    }
+
+    template<typename T>
+    typename vec<T>::size_type vec<T>::size() const noexcept
+    {
+        return pool_alloc->get_intialized_num();
+    }
+
+    template<typename T>
+    typename vec<T>::size_type vec<T>::max_size() const noexcept
+    {
+        return size_t(-1);
+    }
+
+    template<typename T>
+    void vec<T>::resize(vec::size_type new_size)
+    {
+        // If new size is bigger than current size of vector
+        if(new_size > pool_alloc->get_intialized_num())
+        {
+            // If new size if begger than current capacity of vector
+            if(new_size > pool_alloc->get_num_of_blocks())
+            {
+                pool_alloc->resize(new_size);
+            }
+        } else {
+            //  Reduce size to its first count elements
+            for(size_t i = pool_alloc->get_intialized_num() - 1; i >= new_size; --i)
+                pool_alloc->deallocate((void*)&array[i]);
+        }
     }
 }
 

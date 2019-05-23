@@ -45,11 +45,7 @@ namespace sc2d::memory {
         }
         else
         {
-            size_t new_num_of_blocks = num_of_blocks << 1;
-            num_of_free_blocks = num_of_blocks;
-            num_of_blocks = new_num_of_blocks;
-            unsigned char* p_new_start = reinterpret_cast<unsigned char*>(realloc(p_start, size_of_block * num_of_blocks));
-            p_start = p_new_start;
+            resize(num_of_blocks << 1);
             ptr = addr_from_index(num_of_initialized);
             num_of_initialized++;
             num_of_free_blocks--;
@@ -57,6 +53,14 @@ namespace sc2d::memory {
         }
 
         return ptr;
+    }
+
+    void pool_allocator::resize(size_t new_size)
+    {
+        num_of_free_blocks = num_of_blocks;
+        num_of_blocks = new_size;
+        unsigned char* p_new_start = reinterpret_cast<unsigned char*>(realloc(p_start, size_of_block * num_of_blocks));
+        p_start = p_new_start;
     }
 
     void pool_allocator::deallocate(void* ptr)
@@ -72,6 +76,7 @@ namespace sc2d::memory {
             p_next = (unsigned char*)ptr;
         }
         num_of_free_blocks++;
+        num_of_initialized--;
     }
 
     unsigned char* pool_allocator::addr_from_index(size_t index) const

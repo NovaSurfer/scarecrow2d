@@ -17,6 +17,7 @@ namespace sc2d::memory {
         void create(size_t block_size, size_t num_of_blocks, size_t alignment);
         void destroy();
         void* allocate();
+        void resize(size_t new_size);
         void deallocate(void* ptr);
 
         unsigned char* get_start() const { return p_start;}
