@@ -458,10 +458,39 @@ namespace sc2d {
     template<typename... Args>
     typename vec<T>::iterator vec<T>::emplace(vec::const_iterator c_iter, Args&& ... args)
     {
+        if(pool_alloc->num_of_free_blocks == 0)
+            pool_alloc->resize(pool_alloc->num_of_blocks << 1);
+
         iterator iter = &array[c_iter - array];
         memmove(iter + 1, iter, (pool_alloc->num_of_initialized - (c_iter - array)) * sizeof(T));
         (*iter) = std::move(T(std::forward<Args>(args) ... ));
-        pool_alloc->num_of_free_blocks++;
+        pool_alloc->num_of_initialized++;
+        return iter;
+    }
+
+    template<typename T>
+    typename vec<T>::iterator vec<T>::insert(vec::const_iterator c_iter, const T &cref_type)
+    {
+        if(pool_alloc->num_of_free_blocks == 0)
+            pool_alloc->resize(pool_alloc->num_of_blocks << 1);
+
+        iterator iter = &array[c_iter - array];
+        memmove(iter + 1, iter, (pool_alloc->num_of_initialized - (c_iter - array)) * sizeof(T));
+        *iter = cref_type;
+        pool_alloc->num_of_initialized++;
+        return iter;
+    }
+
+    template<typename T>
+    typename vec<T>::iterator vec<T>::insert(vec::const_iterator c_iter, T &&uref_type)
+    {
+        if(pool_alloc->num_of_free_blocks == 0)
+            pool_alloc->resize(pool_alloc->num_of_blocks << 1);
+
+        iterator iter = &array[c_iter - array];
+        memmove(iter + 1, iter (pool_alloc->num_of_initialized - (c_iter - array)) * sizeof(T));
+        *iter = std::move(uref_type);
+        pool_alloc->num_of_initialized++;
         return iter;
     }
 }
