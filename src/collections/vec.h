@@ -116,7 +116,7 @@ namespace sc2d {
     template<typename T>
     void vec<T>::allocate()
     {
-        pool_alloc->create(sizeof(T), initial_size << 1, alignof(T));
+        pool_alloc->create(sizeof(T), initial_size << 1, alignof(T*));
         array = (T*)pool_alloc->p_start;
     }
 
@@ -424,28 +424,26 @@ namespace sc2d {
     template<typename T>
     void vec<T>::push_back(const T& cref_data)
     {
-        T* item = (T*)pool_alloc->allocate();
-        *item = cref_data;
-        array[pool_alloc->num_of_initialized] = *item;
+        T& item = *(T*)pool_alloc->allocate();
+        item = cref_data;
+//        array[pool_alloc->num_of_initialized] = item;
     }
 
     template<typename T>
     void vec<T>::push_back(T&& lvref_data)
     {
-        T* item = (T*)pool_alloc->allocate();
-        *item = std::move(lvref_data);
-        array[pool_alloc->num_of_initialized] = std::move(*item);
+        T& item = *(T*)pool_alloc->allocate();
+        item = std::move(lvref_data);
+//        array[pool_alloc->num_of_initialized] = std::move(*item);
     }
 
-    // Don't use it with built in types
-    // TODO: move function inside pool_allocator or not ¯\_(ツ)_/¯
     template<typename T>
     template<typename... Args>
     void vec<T>::emplace_back(Args&& ... args)
     {
-        T* item = (T*)pool_alloc->allocate();
-        *item = std::move(T(std::forward<Args>(args) ... ));
-        array[pool_alloc->num_of_initialized] = std::move(*item);
+        T& item = *(T*)pool_alloc->allocate();
+        item = std::move(T(std::forward<Args>(args) ... ));
+//        array[pool_alloc->num_of_initialized] = std::move(*item);
     }
 
     template<typename T>
