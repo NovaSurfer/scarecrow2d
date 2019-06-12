@@ -27,7 +27,7 @@ namespace sc2d{
 
             void create(size_t block_size, size_t num_of_blocks, size_t alignment);
             void destroy();
-            void* allocate();
+            const void* allocate();
             void resize(size_t new_size);
             void deallocate(void* ptr);
 

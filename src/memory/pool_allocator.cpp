@@ -2,10 +2,11 @@
 // Created by maksim.ruts on 1.4.19.
 //
 
+#include <cstring>
 #include "pool_allocator.h"
 #include "core/log2.h"
 
-// Reference: http://www.thinkmind.org/download.php?articleid=computation_tools_2012_1_10_80006
+//Pool allocator reference: http://www.thinkmind.org/download.php?articleid=computation_tools_2012_1_10_80006
 
 namespace sc2d::memory {
 
@@ -13,18 +14,18 @@ namespace sc2d::memory {
     {
         size_of_block = block_size;
         num_of_blocks = blocks_numb;
-        p_start = reinterpret_cast<unsigned char*>(aligned_malloc(block_size * blocks_numb, alignment));
+        p_start = reinterpret_cast<unsigned char*>(std::aligned_alloc(alignment, block_size * blocks_numb));
         num_of_free_blocks = num_of_blocks;
         p_next = p_start;
     }
 
     void pool_allocator::destroy()
     {
-        aligned_free(p_start);
+        std::free(p_start);
         p_start = nullptr;
     }
 
-    void* pool_allocator::allocate()
+    const void* pool_allocator::allocate()
     {
         if(num_of_initialized < num_of_blocks)
         {
@@ -59,8 +60,12 @@ namespace sc2d::memory {
     {
         num_of_free_blocks = num_of_blocks;
         num_of_blocks = new_size;
-        unsigned char* p_new_start = reinterpret_cast<unsigned char*>(realloc(p_start, size_of_block * num_of_blocks));
-        p_start = p_new_start;
+        if(void* p_new_start = std::realloc(p_start, size_of_block * num_of_blocks))
+            p_start = reinterpret_cast<unsigned char*>(p_new_start);
+        else
+        {
+            // TODO: Error handling.
+        }
     }
 
     void pool_allocator::deallocate(void* ptr)
