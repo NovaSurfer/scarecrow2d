@@ -89,11 +89,11 @@ namespace sc2d {
         iterator emplace(const_iterator c_iter, Args&&...);
         iterator insert(const_iterator c_iter, const T& cref_type);
         iterator insert(const_iterator c_iter, T&& uref_type);
-        iterator insert(const_iterator c_iter, size_type size, const T& cref_type);
+        iterator insert(const_iterator pos, size_type count, const T& value);
         template<typename InputIter>
-        iterator insert(const_iterator c_iter, InputIter first, InputIter last);
-        iterator insert(const_iterator c_iter, std::initializer_list<T> ilist);
-        iterator erase(const_iterator elm);
+        iterator insert(const_iterator pos, InputIter first, InputIter last);
+        iterator insert(const_iterator pos, std::initializer_list<T> ilist);
+        iterator erase(const_iterator it);
         iterator erase(const_iterator fist, const_iterator last);
         void swap(vec<T>& other);
         void clear() noexcept;
@@ -463,6 +463,7 @@ namespace sc2d {
         memmove(iter + 1, iter, (pool_alloc->num_of_initialized - (c_iter - array)) * sizeof(T));
         (*iter) = std::move(T(std::forward<Args>(args) ... ));
         pool_alloc->num_of_initialized++;
+        pool_alloc->num_of_free_blocks--;
         return iter;
     }
 
@@ -476,6 +477,7 @@ namespace sc2d {
         memmove(iter + 1, iter, (pool_alloc->num_of_initialized - (c_iter - array)) * sizeof(T));
         *iter = cref_type;
         pool_alloc->num_of_initialized++;
+        pool_alloc->num_of_free_blocks--;
         return iter;
     }
 
@@ -486,14 +488,202 @@ namespace sc2d {
             pool_alloc->resize(pool_alloc->num_of_blocks << 1);
 
         iterator iter = &array[c_iter - array];
-        memmove(iter + 1, iter (pool_alloc->num_of_initialized - (c_iter - array)) * sizeof(T));
+        memmove(iter + 1, iter, (pool_alloc->num_of_initialized - (c_iter - array)) * sizeof(T));
         *iter = std::move(uref_type);
         pool_alloc->num_of_initialized++;
+        pool_alloc->num_of_free_blocks--;
         return iter;
     }
+
+    template<typename T>
+    typename vec<T>::iterator vec<T>::insert(vec::const_iterator pos, vec::size_type count, const T& value)
+    {
+        iterator iter = &array[pos - array];
+        if(count == 0) return iter;
+
+        if(pool_alloc->num_of_free_blocks - count <= 0)
+            pool_alloc->resize((pool_alloc->num_of_blocks + count) << 1);
+
+        memmove(iter + count, iter, (pool_alloc->num_of_initialized - (pos - array)) * sizeof(T));
+        for(iterator i = iter; count--; ++i)
+            (*i) = value;
+        pool_alloc->num_of_initialized += count;
+        pool_alloc->num_of_free_blocks -= count;
+        return iter;
+    }
+
+    template<typename T>
+    template<typename InputIter>
+    typename vec<T>::iterator vec<T>::insert(vec::const_iterator pos, InputIter first, InputIter last)
+    {
+        iterator iter = &array[pos - array];
+        size_t count = last - first;
+        if(count == 0) return iter;
+
+        if(pool_alloc->num_of_free_blocks - count <= 0)
+            pool_alloc->resize((pool_alloc->num_of_blocks + count) << 1);
+
+        memmove(iter + count, iter, (pool_alloc->num_of_initialized - (pos - array)) * sizeof(T));
+        for(iterator i = first; first != last; ++first, ++last)
+            (*i) = (*first);
+        pool_alloc->num_of_initialized += count;
+        pool_alloc->num_of_free_blocks -= count;
+        return nullptr;
+    }
+
+    template<typename T>
+    typename vec<T>::iterator vec<T>::insert(vec::const_iterator pos, std::initializer_list<T> ilist)
+    {
+        size_t count = ilist.size();
+        iterator iter = &array[pos - array];
+        if(count == 0) return iter;
+
+        if(pool_alloc->num_of_free_blocks - count <= 0)
+            pool_alloc->resize((pool_alloc->num_of_blocks + count) << 1);
+
+        memmove(iter + count, iter, (pool_alloc->num_of_initialized - (pos - array)) * sizeof(T));
+
+        iterator i = iter;
+        for(auto &item : ilist)
+        {
+            (*i) = item;
+            ++i;
+        }
+        pool_alloc->num_of_initialized += count;
+        pool_alloc->num_of_free_blocks -= count;
+        return i;
+    }
+
+    template<typename T>
+    typename vec<T>::iterator vec<T>::erase(vec::const_iterator it)
+    {
+        iterator iter = &array[it - array];
+//        (*iter).~T();
+        pool_alloc->deallocate(iter);
+//        memmove(iter, iter + 1, (pool_alloc->num_of_initialized - (it - array) - 1) * sizeof(T));
+//        pool_alloc->num_of_initialized--;
+//        pool_alloc->num_of_free_blocks++;
+        return iter;
+    }
+
+    template<typename T>
+    typename vec<T>::iterator vec<T>::erase(vec::const_iterator first, vec::const_iterator last)
+    {
+        iterator iter = &array[first - array];
+        if(first == last) return iter;
+
+        while(first != last)
+        {
+            ++first;
+//            (*first).~T();
+            pool_alloc->deallocate(first);
+        }
+
+        memmove(iter, last, (pool_alloc->num_of_initialized - (last - array)) * sizeof(T));
+        pool_alloc->num_of_initialized -= last - first;
+        pool_alloc->num_of_free_blocks -= last - first;
+
+        return iter;
+    }
+
+    template<typename T>
+    void vec<T>::swap(vec<T>& other)
+    {
+        std::swap(*array, *other.array);
+        pool_alloc.swap(other.pool_alloc);
+    }
+
+    template<typename T>
+    void vec<T>::clear() noexcept
+    {
+        for(size_t i = 0; i < pool_alloc->num_of_initialized; ++i)
+        {
+            pool_alloc->deallocate(array[i]);
+        }
+    }
+
+    template<typename T>
+    bool vec<T>::operator==(const vec<T>& other) const
+    {
+        if(pool_alloc->num_of_initialized != other.pool_alloc->num_of_initialized)
+            return false;
+
+        for(size_t i = 0; i < pool_alloc->num_of_initialized; ++i)
+        {
+            if(array[i] != other.array[i])
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    template<typename T>
+    bool vec<T>::operator!=(const vec<T>& other) const
+    {
+        if(pool_alloc->num_of_initialized != other.pool_alloc->num_of_initialized)
+            return true;
+
+        for(size_t i = 0; i < pool_alloc->num_of_initialized; ++i)
+        {
+            if(array[i] != other.array[i])
+                return true;
+        }
+        return false;
+    }
+
+    template<typename T>
+    bool vec<T>::operator<(const vec<T>& other) const
+    {
+        for(size_t i = 0, size = pool_alloc->num_of_initialized < other.pool_alloc->num_of_initialized ?
+                pool_alloc->num_of_initialized : other.pool_alloc->num_of_initialized; i < size; ++i)
+        {
+            if(array[i] != other.array[i])
+                return array[i] < other.array[i];
+        }
+
+        return pool_alloc->num_of_initialized < other.pool_alloc->num_of_initialized;
+    }
+
+    template<typename T>
+    bool vec<T>::operator<=(const vec<T>& other) const
+    {
+        for(size_t i = 0, size = pool_alloc->num_of_initialized < other.pool_alloc->num_of_initialized ?
+                pool_alloc->num_of_initialized : other.pool_alloc->num_of_initialized; i < size; ++i)
+        {
+            if(array[i] != other.array[i])
+                return array[i] < other.array[i];
+        }
+
+        return pool_alloc->num_of_initialized <= other.pool_alloc->num_of_initialized;
+    }
+
+    template<typename T>
+    bool vec<T>::operator>(const vec<T>& other) const
+    {
+        for(size_t i = 0, size = pool_alloc->num_of_initialized < other.pool_alloc->num_of_initialized ?
+                pool_alloc->num_of_initialized : other.pool_alloc->num_of_initialized; i < size; ++i)
+        {
+            if(array[i] != other.array[i])
+                return array[i] > other.array[i];
+        }
+
+        return pool_alloc->num_of_initialized > other.pool_alloc->num_of_initialized;
+    }
+
+    template<typename T>
+    bool vec<T>::operator>=(const vec<T>& other) const
+    {
+        for(size_t i = 0, size = pool_alloc->num_of_initialized < other.pool_alloc->num_of_initialized ?
+                pool_alloc->num_of_initialized : other.pool_alloc->num_of_initialized; i < size; ++i)
+        {
+            if(array[i] != other.array[i])
+                return array[i] > other.array[i];
+        }
+
+        return pool_alloc->num_of_initialized >= other.pool_alloc->num_of_initialized;
+    }
 }
-
-
-
 
 #endif //CPPTRAINING_vec_H
