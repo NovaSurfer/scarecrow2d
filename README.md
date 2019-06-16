@@ -5,7 +5,7 @@
 
 # Compiling
 ## Getting the sourse code
-`git clone --recursive https://github.com/NovaSurfer/2D-Game.git`  
+`git clone --recursive https://github.com/NovaSurfer/scarecrow2d.git`  
 (using recursive cloning we are able to clone all of the dependencies in a proper way)
 
 ## Environment requirenments
