@@ -2,8 +2,8 @@
 // Created by novasurfer on 3/1/19.
 //
 
-#ifndef CPPTRAINING_vec_H
-#define CPPTRAINING_vec_H
+#ifndef INC_2D_GAME_VEC_H
+#define INC_2D_GAME_VEC_H
 
 #include <iterator>
 #include <type_traits>
@@ -141,7 +141,7 @@ namespace sc2d {
     }
 
     template<typename T>
-    vec<T>::vec(typename vec<T>::iterator first, typename vec<T>::iterator last) : initial_size{(last - first) << 1}
+    vec<T>::vec(typename vec<T>::iterator first, typename vec<T>::iterator last) : initial_size{(last - first) >> 1}
     {
         allocate();
         for(size_t i = 0; i < initial_size; ++i, ++first)
@@ -229,7 +229,7 @@ namespace sc2d {
     template<typename T>
     typename vec<T>::size_type vec<T>::capacity() const noexcept
     {
-        pool_alloc->num_of_blocks;
+        return pool_alloc->num_of_blocks;
     }
 
     template<typename T>
@@ -686,4 +686,4 @@ namespace sc2d {
     }
 }
 
-#endif //CPPTRAINING_vec_H
+#endif //INC_2D_GAME_VEC_H

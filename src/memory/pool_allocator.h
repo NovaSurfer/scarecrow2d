@@ -5,9 +5,9 @@
 #ifndef INC_2D_GAME_POOL_ALLOCATOR_H
 #define INC_2D_GAME_POOL_ALLOCATOR_H
 
-#include "allocator.h"
-#include "aligned_allocator.h"
-
+//#include "allocator.h"
+//#include "aligned_allocator.h"
+#include <memory>
 
 namespace sc2d{
 
@@ -33,7 +33,7 @@ namespace sc2d{
 
             unsigned char* get_start() const { return p_start;}
             size_t get_intialized_num() const { return num_of_initialized; }
-            size_t get_num_of_blocks() const {return num_of_blocks; }
+            size_t get_num_of_blocks() const { return num_of_blocks; }
 
         private:
             unsigned char* addr_from_index(size_t index) const;

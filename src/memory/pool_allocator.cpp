@@ -2,7 +2,6 @@
 // Created by maksim.ruts on 1.4.19.
 //
 
-#include <cstring>
 #include "pool_allocator.h"
 #include "core/log2.h"
 
