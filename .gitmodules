@@ -7,3 +7,6 @@
 [submodule "deps/glad"]
 	path = deps/glad
 	url = https://github.com/Dav1dde/glad.git
+[submodule "deps/base64"]
+	path = deps/base64
+	url = git@github.com:ReneNyffenegger/cpp-base64.git
