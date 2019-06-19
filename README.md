@@ -1,10 +1,12 @@
 <img src="https://svgshare.com/i/Ayv.svg" width="100" height="100" alt="image description"></image>  
-# Scarecrow2D
-[![Build Status](https://travis-ci.org/NovaSurfer/scarecrow2d.svg?branch=master)](https://travis-ci.org/NovaSurfer/scarecrow2d)
+# Scarecrow2D  
+
+[![Build Status](https://travis-ci.org/NovaSurfer/scarecrow2d.svg?branch=master)](https://travis-ci.org/NovaSurfer/scarecrow2d)  
+2D game / sandbox project made using C++ and OpenGL
 
 # Compiling
 ## Getting the sourse code
-`git clone --recursive https://github.com/NovaSurfer/2D-Game.git`  
+`git clone --recursive https://github.com/NovaSurfer/scarecrow2d.git`  
 (using recursive cloning we are able to clone all of the dependencies in a proper way)
 
 ## Environment requirenments
