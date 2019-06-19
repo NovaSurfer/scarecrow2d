@@ -3,59 +3,93 @@
 //
 
 #include "pool_allocator.h"
-#include "aligners.h"
+#include "core/log2.h"
 
-// Reference: https://www.gamedev.net/articles/programming/general-and-gameplay-programming/c-custom-memory-allocation-r3010/?page=2
-// Game Engine Architecture by Jason Gregory, 3rd edition: chapter 6.2
+//Pool allocator reference: http://www.thinkmind.org/download.php?articleid=computation_tools_2012_1_10_80006
 
 namespace sc2d::memory {
 
-    pool_allocator::pool_allocator
-            (size_t chunk_size, uint8_t chunk_alignment, size_t size, void *mem) :
-            allocator{size, mem}, chunk_size{chunk_size}, chunk_alignment{chunk_alignment}
+    void pool_allocator::create(size_t block_size, size_t blocks_numb, size_t alignment)
     {
-        assert(chunk_size >= sizeof(void*));
+        size_of_block = block_size;
+        num_of_blocks = blocks_numb;
+        p_start = reinterpret_cast<unsigned char*>(std::aligned_alloc(alignment, block_size * blocks_numb));
+        num_of_free_blocks = num_of_blocks;
+        p_next = p_start;
+    }
 
-        const uint8_t adjustment = align_forward_adjustment(mem, chunk_alignment);
-        pool_list = (void**)(reinterpret_cast<uintptr_t>(mem) + adjustment);
-        const size_t chunks_count = (size - adjustment) / chunk_size - 1;
+    void pool_allocator::destroy()
+    {
+        std::free(p_start);
+        p_start = nullptr;
+    }
 
-        void** list = pool_list;
-
-        for(size_t i = 0; i < chunks_count; ++i)
+    const void* pool_allocator::allocate()
+    {
+        if(num_of_initialized < num_of_blocks)
         {
-            list = (void**)(reinterpret_cast<uintptr_t>(list) + chunk_size);
-            list = (void**) *list;
+            size_t* ptr = (size_t*)addr_from_index(num_of_initialized);
+            *ptr = num_of_initialized + 1;
+            num_of_initialized++;
         }
 
-        *list = nullptr;
+        void* ptr = nullptr;
+        if(num_of_free_blocks > 0)
+        {
+            ptr = (void*)p_next;
+            --num_of_free_blocks;
+            if(num_of_free_blocks != 0)
+            {
+                p_next = addr_from_index(*(size_t*)p_next);
+            }
+        }
+        else
+        {
+            resize(num_of_blocks << 1);
+            ptr = addr_from_index(num_of_initialized);
+            num_of_initialized++;
+            num_of_free_blocks--;
+            p_next = addr_from_index(num_of_initialized);
+        }
+
+        return ptr;
     }
 
-    pool_allocator::~pool_allocator()
+    void pool_allocator::resize(size_t new_size)
     {
-        pool_list = nullptr;
+        num_of_free_blocks = num_of_blocks;
+        num_of_blocks = new_size;
+        if(void* p_new_start = std::realloc(p_start, size_of_block * num_of_blocks))
+            p_start = reinterpret_cast<unsigned char*>(p_new_start);
+        else
+        {
+            // TODO: Error handling.
+        }
     }
 
-    void *pool_allocator::allocate(size_t size, uint8_t alignment)
+    void pool_allocator::deallocate(void* ptr)
     {
-        assert(size == chunk_size && alignment == chunk_alignment);
-
-        if(pool_list == nullptr)
-            return nullptr;
-
-        void* v_ptr = pool_list;
-        pool_list = (void**) *pool_list;
-        _used_memory += size;
-        _num_allocations++;
-
-        return v_ptr;
+        if(p_next != nullptr)
+        {
+            (*(size_t*)ptr) = index_from_addr(p_next);
+            p_next = (unsigned char*)ptr;
+        }
+        else
+        {
+            (*(size_t*)ptr) = num_of_blocks;
+            p_next = (unsigned char*)ptr;
+        }
+        num_of_free_blocks++;
+        num_of_initialized--;
     }
 
-    void pool_allocator::deallocate(void *p)
+    unsigned char* pool_allocator::addr_from_index(size_t index) const
     {
-        *((void**)p) = pool_list;
-        pool_list = (void**)p;
-        _used_memory -= chunk_size;
-        _num_allocations--;
+        return p_start + index * size_of_block;
+    }
+
+    size_t pool_allocator::index_from_addr(const unsigned char* ptr) const
+    {
+        return ((size_t)(ptr - p_start) / size_of_block);
     }
 }

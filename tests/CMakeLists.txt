@@ -1,9 +1,11 @@
 set(TEST_SOURCES
-        catch2/catch.hpp
+        doctest/doctest.h
+        ../src/memory/pool_allocator.cpp
         unit.cpp
-        math_tests.cpp vec_tests.cpp)
+        math_tests.cpp
+        vec_tests.cpp)
 
 add_executable(game_test ${TEST_SOURCES})
-target_include_directories(game_test PRIVATE ${CMAKE_SOURCE_DIR}/src)
+target_include_directories(game_test PUBLIC ${CMAKE_SOURCE_DIR}/src)
 
-ParseAndAddCatchTests(game_test)
+#ParseAndAddCatchTests(game_test)
