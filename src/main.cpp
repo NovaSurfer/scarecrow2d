@@ -7,6 +7,7 @@
 #include <iostream>
 #include "core/window.h"
 #include "filesystem/configLoader.h"
+#include "filesystem/resourceHolder.h"
 #include "core/log2.h"
 #include "core/sprite.h"
 #include "math/transform.h"
