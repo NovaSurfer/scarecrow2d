@@ -6,12 +6,7 @@
 #define INC_2D_GAME_CONFIGLOADER_H
 
 #include <fstream>
-#include <array>
-
 #include "../../deps/nlohmann/json.hpp"
-#include "../core/log2.h"
-#include "configNames.h"
-#include "resourceHolder.h"
 
 using json = nlohmann::json;
 
