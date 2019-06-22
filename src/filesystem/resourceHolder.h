@@ -6,25 +6,32 @@
 #define INC_2D_GAME_FILE_MANAGER_H
 
 #include <unordered_map>
-#include <string>
 #include <string_view>
+#include <string>
 #include <fstream>
 #include <sstream>
+#include <glad/glad.h>
 
-
-#include "core/shader.h"
 #include "core/texture.h"
-#include "core/log2.h"
-#include "../../deps/stb/stb_image.h"
+#include "core/shader.h"
+#include "core/tiled_map.h"
+
+//class Texture2d;
 
 using string_view = std::string_view;
 
 class ResourceHolder {
 public:
-    static Shader load_shader_program(std::string name, const GLchar *vert_file, const GLchar *frag_file, const GLchar *geom_file = nullptr);
+    static void load_shader_program(std::string name, const GLchar *vert_file, const GLchar *frag_file, const GLchar *geom_file = nullptr);
     static const Shader& get_shader(std::string shader_name);
-    static Texture2d load_texture(const std::string& img_file, bool alpha, std::string name);
+
+    static void load_texture(const std::string& img_file, bool alpha, std::string name);
     static const Texture2d& get_texture(std::string texture_name);
+
+    static void load_tiled_map(const std::string& name, int width, int height, int tile_width, int tile_height,
+            std::vector<TileLayer>&& tls, std::vector<TileSet>&& tss);
+    static const TiledMap& get_tiled_map(std::string map_name);
+
     static void clean();
 
     ResourceHolder() = delete;
@@ -36,6 +43,7 @@ public:
 private:
     static std::unordered_map<std::string, Shader> shaders;
     static std::unordered_map<std::string, Texture2d> textures;
+    static std::unordered_map<std::string, TiledMap> tilemaps;
     static std::string load_shader(const GLchar *file_path);
 };
 
