@@ -21,3 +21,4 @@ script:
   - cmake ../
   - make
   - make game_test
+  - ./game_test
