@@ -30,11 +30,14 @@ set(SOURCE_FILES
         ${SRC_DIR}/main.cpp
         ${SRC_DIR}/core/shader.h                     ${SRC_DIR}/core/shader.cpp
         ${SRC_DIR}/core/texture.h                    ${SRC_DIR}/core/texture.cpp
+		${SRC_DIR}/core/tiled_map.h                  ${SRC_DIR}/core/tiled_map.cpp
         ${SRC_DIR}/filesystem/resourceHolder.h       ${SRC_DIR}/filesystem/resourceHolder.cpp
         ${SRC_DIR}/filesystem/configLoader.h         ${SRC_DIR}/filesystem/configLoader.cpp
-        ${SRC_DIR}/filesystem/configNames.h          ${SRC_DIR}/filesystem/configNames.cpp
+        ${SRC_DIR}/filesystem/fs_constants.h         ${SRC_DIR}/filesystem/fs_constants.cpp
         ${LIB_DIR}/stb/stb_image.h                   ${LIB_DIR}/stb/stb_image.c
         ${LIB_DIR}/nlohmann/json.hpp
+		${LIB_DIR}/miniz/miniz.c					 ${LIB_DIR}/miniz/miniz.h
+		${LIB_DIR}/base64/base64.cpp				 ${LIB_DIR}/base64/base64.h
         ${SRC_DIR}/core/window.h                     ${SRC_DIR}/core/window.cpp
         ${SRC_DIR}/math/size2d.h
         ${SRC_DIR}/math/vector2.h
