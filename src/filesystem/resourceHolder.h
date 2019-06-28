@@ -28,8 +28,7 @@ public:
     static void load_texture(const std::string& img_file, bool alpha, std::string name);
     static const Texture2d& get_texture(std::string texture_name);
 
-    static void load_tiled_map(const std::string& name, int width, int height, int tile_width, int tile_height,
-            std::vector<TileLayer>&& tls, std::vector<TileSet>&& tss);
+    static void load_tiled_map(const std::string& name, const TiledData& tiled_data);
     static const TiledMap& get_tiled_map(std::string map_name);
 
     static void clean();

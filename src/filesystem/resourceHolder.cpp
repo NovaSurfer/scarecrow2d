@@ -11,6 +11,7 @@
 
 std::unordered_map<std::string, Shader> ResourceHolder::shaders;
 std::unordered_map<std::string, Texture2d> ResourceHolder::textures;
+std::unordered_map<std::string, TiledMap> ResourceHolder::tilemaps;
 
 void ResourceHolder::load_shader_program(std::string name, const GLchar *vert_file,
         const GLchar *frag_file, const GLchar *geom_file) {
@@ -63,10 +64,9 @@ std::string ResourceHolder::load_shader(const GLchar *file_path) {
     return{};
 }
 
-void ResourceHolder::load_tiled_map(const std::string &name, int width, int height, int tile_width, int tile_height,
-                                    std::vector<TileLayer>&& tls, std::vector<TileSet>&& tss) {
-
-
+void ResourceHolder::load_tiled_map(const std::string& name, const TiledData& tiled_data) {
+    TiledMap tiled_map {tiled_data};
+    tilemaps[name] = tiled_map;
 }
 
 const TiledMap &ResourceHolder::get_tiled_map(std::string map_name) {

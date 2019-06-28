@@ -56,7 +56,6 @@ void ResourcesConfigLoad::operator()(const json &obj_json)
     }
 }
 
-// TODO:
 void SceneConfigLoad::operator()(const json &obj_json)
 {
     const int width = obj_json[FsConsts::SCN_WIDTH].get<const int>();
@@ -92,7 +91,8 @@ void SceneConfigLoad::operator()(const json &obj_json)
         tss.emplace_back(tile_set);
     }
 
-    ResourceHolder::load_tiled_map("<[:)", width, height, tile_with, tile_height, std::move(tls), std::move(tss));
+    TiledData tiledData {width, height, tile_with, tile_height, std::move(tls), std::move(tss)};
+    ResourceHolder::load_tiled_map("<[:)", tiledData);
 }
 
 // Explicitly instantiating Config template

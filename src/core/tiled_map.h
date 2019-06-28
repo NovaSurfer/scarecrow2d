@@ -52,10 +52,16 @@ private:
 };
 
 struct TiledData {
-    int width;
-    int height;
-    int tile_width;
-    int tile_height;
+    TiledData() = default;
+    TiledData(int width, int height, int tile_width, int tile_height,
+              std::vector<TileLayer>&& layers, std::vector<TileSet>&& tilesets) :
+            width{width}, height{height}, tile_width{tile_width},
+            tile_height{tile_height}, layers{layers}, tilesets{tilesets} {}
+
+    int width {};
+    int height {};
+    int tile_width {};
+    int tile_height {};
     std::vector<TileLayer> layers;
     std::vector<TileSet> tilesets;
 };
@@ -63,13 +69,13 @@ struct TiledData {
 
 class TiledMap {
 public:
-    TiledMap(const TiledData& tiled_data) : tiled_data{tiled_data} {}
-
-
+    TiledMap() = default;
+    explicit TiledMap(const TiledData& tiled_data);
 
 private:
     TiledData tiled_data;
 
+    void crack_layer_data();
 
 };
 
