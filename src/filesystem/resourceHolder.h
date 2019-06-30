@@ -16,8 +16,6 @@
 #include "core/shader.h"
 #include "core/tiled_map.h"
 
-//class Texture2d;
-
 namespace sc2d {
 
     using string_view = std::string_view;

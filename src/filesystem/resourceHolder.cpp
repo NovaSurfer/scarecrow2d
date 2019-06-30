@@ -3,8 +3,6 @@
 //
 
 #include "resourceHolder.h"
-#include "core/shader.h"
-#include "core/texture.h"
 #include "core/log2.h"
 #include "../../deps/stb/stb_image.h"
 
