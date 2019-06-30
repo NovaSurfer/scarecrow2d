@@ -18,33 +18,46 @@
 
 //class Texture2d;
 
-using string_view = std::string_view;
+namespace sc2d {
 
-class ResourceHolder {
-public:
-    static void load_shader_program(std::string name, const GLchar *vert_file, const GLchar *frag_file, const GLchar *geom_file = nullptr);
-    static const Shader& get_shader(std::string shader_name);
+    using string_view = std::string_view;
 
-    static void load_texture(const std::string& img_file, bool alpha, std::string name);
-    static const Texture2d& get_texture(std::string texture_name);
+    class ResourceHolder {
+    public:
+        static void load_shader_program(std::string name, const GLchar* vert_file, const GLchar* frag_file,
+                const GLchar* geom_file = nullptr);
 
-    static void load_tiled_map(const std::string& name, const TiledData& tiled_data);
-    static const TiledMap& get_tiled_map(std::string map_name);
+        static const Shader& get_shader(std::string shader_name);
 
-    static void clean();
+        static void load_texture(const std::string& img_file, bool alpha, std::string name);
 
-    ResourceHolder() = delete;
-    ResourceHolder(const ResourceHolder& other) = delete;
-    ResourceHolder(ResourceHolder&& other) = delete;
-    ResourceHolder &operator=(const ResourceHolder& other) = delete;
-    ResourceHolder &operator=(ResourceHolder&& other) = delete;
+        static const Texture2d& get_texture(std::string texture_name);
 
-private:
-    static std::unordered_map<std::string, Shader> shaders;
-    static std::unordered_map<std::string, Texture2d> textures;
-    static std::unordered_map<std::string, TiledMap> tilemaps;
-    static std::string load_shader(const GLchar *file_path);
-};
+        static void load_tiled_map(const std::string& name, const tiled::Data& tiled_data);
+
+        static const tiled::Map& get_tiled_map(std::string map_name);
+
+        static void clean();
+
+        ResourceHolder() = delete;
+
+        ResourceHolder(const ResourceHolder& other) = delete;
+
+        ResourceHolder(ResourceHolder&& other) = delete;
+
+        ResourceHolder& operator=(const ResourceHolder& other) = delete;
+
+        ResourceHolder& operator=(ResourceHolder&& other) = delete;
+
+    private:
+        static std::unordered_map<std::string, Shader> shaders;
+        static std::unordered_map<std::string, Texture2d> textures;
+        static std::unordered_map<std::string, tiled::Map> tilemaps;
+
+        static std::string load_shader(const GLchar* file_path);
+    };
+
+}
 
 
 #endif //INC_2D_GAME_FILE_MANAGER_H

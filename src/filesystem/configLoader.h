@@ -8,28 +8,31 @@
 #include <fstream>
 #include "../../deps/nlohmann/json.hpp"
 
-using json = nlohmann::json;
+namespace sc2d {
 
-struct IConfigLoader {
-    virtual void operator()(const json &) = 0;
+    using json = nlohmann::json;
 
-    virtual ~IConfigLoader() = default;
-};
+    struct IConfigLoader {
+        virtual void operator()(const json&) = 0;
 
-struct SceneConfigLoad : IConfigLoader {
-    void operator()(const json &obj_json) override;
-};
+        virtual ~IConfigLoader() = default;
+    };
 
-struct ResourcesConfigLoad : IConfigLoader {
-    void operator()(const json &obj_json) override;
-};
+    struct SceneConfigLoad : IConfigLoader {
+        void operator()(const json& obj_json) override;
+    };
 
-template<typename T>
-struct Config : T {
-    static_assert(std::is_base_of<IConfigLoader, T>::value, "Template argument must be an IConfigLoader");
+    struct ResourcesConfigLoad : IConfigLoader {
+        void operator()(const json& obj_json) override;
+    };
 
-    static bool open(const std::string &path);
-};
+    template<typename T>
+    struct Config : T {
+        static_assert(std::is_base_of<IConfigLoader, T>::value, "Template argument must be an IConfigLoader");
+
+        static bool open(const std::string& path);
+    };
+}
 
 
 #endif //INC_2D_GAME_CONFIGLOADER_H
