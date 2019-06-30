@@ -30,6 +30,7 @@ set(SOURCE_FILES
         ${SRC_DIR}/main.cpp
         ${SRC_DIR}/core/shader.h                     ${SRC_DIR}/core/shader.cpp
         ${SRC_DIR}/core/texture.h                    ${SRC_DIR}/core/texture.cpp
+		${SRC_DIR}/core/texture_atlas.h				 ${SRC_DIR}/core/texture_atlas.cpp
 		${SRC_DIR}/core/tiled_map.h                  ${SRC_DIR}/core/tiled_map.cpp
         ${SRC_DIR}/filesystem/resourceHolder.h       ${SRC_DIR}/filesystem/resourceHolder.cpp
         ${SRC_DIR}/filesystem/configLoader.h         ${SRC_DIR}/filesystem/configLoader.cpp
