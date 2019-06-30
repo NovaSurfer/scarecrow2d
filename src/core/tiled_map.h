@@ -8,76 +8,88 @@
 #include <string>
 #include <vector>
 
-class TileLayer {
-public:
-    void set_data(const std::string& data)
-    {
-        this->data = data;
-    }
+namespace sc2d::tiled {
 
-    const std::string& get_data()
-    {
-        return data;
-    }
+    // Bits on the far end of the 32-bit global tile ID are used for tile flags
+    constexpr unsigned FLIPPED_HORIZONTALLY_FLAG = 0x80000000;
+    constexpr unsigned FLIPPED_VERTICALLY_FLAG = 0x40000000;
+    constexpr unsigned FLIPPED_DIAGONALLY_FLAG = 0x20000000;
 
-    void set_name(const std::string& name)
-    {
-        this->name = name;
-    }
+    class Layer {
+    public:
+        void set_data(const std::string& data)
+        {
+            this->data = data;
+        }
 
-    const std::string& get_name()
-    {
-        return name;
-    }
+        const std::string& get_data()
+        {
+            return data;
+        }
 
-private:
-    std::string data;
-    std::string name;
-};
+        void set_name(const std::string& name)
+        {
+            this->name = name;
+        }
 
-class TileSet {
-public:
-    void set_img_path(const std::string &img_path)
-    {
-        this->img_path = img_path;
-    }
+        const std::string& get_name()
+        {
+            return name;
+        }
 
-    const std::string& get_data_path()
-    {
-        return img_path;
-    }
+    private:
+        std::string data;
+        std::string name;
+    };
 
-private:
-    std::string img_path;
-};
+    class Set {
+    public:
+        void set_img_path(const std::string& img_path)
+        {
+            this->img_path = img_path;
+        }
 
-struct TiledData {
-    TiledData() = default;
-    TiledData(int width, int height, int tile_width, int tile_height,
-              std::vector<TileLayer>&& layers, std::vector<TileSet>&& tilesets) :
-            width{width}, height{height}, tile_width{tile_width},
-            tile_height{tile_height}, layers{layers}, tilesets{tilesets} {}
+        const std::string& get_data_path()
+        {
+            return img_path;
+        }
 
-    int width {};
-    int height {};
-    int tile_width {};
-    int tile_height {};
-    std::vector<TileLayer> layers;
-    std::vector<TileSet> tilesets;
-};
+    private:
+        std::string img_path;
+    };
 
+    struct Tile {
 
-class TiledMap {
-public:
-    TiledMap() = default;
-    explicit TiledMap(const TiledData& tiled_data);
+    };
 
-private:
-    TiledData tiled_data;
+    struct Data {
+        Data() : width{}, height{}, tile_width{}, tile_height{} { }
+        Data(int width, int height, int tile_width, int tile_height,
+                std::vector<Layer>&& layers, std::vector<Set>&& tilesets)
+                :
+                width{width}, height{height}, tile_width{tile_width},
+                tile_height{tile_height}, layers{layers}, tilesets{tilesets} { }
 
-    void crack_layer_data();
+        int width;
+        int height;
+        int tile_width;
+        int tile_height;
+        std::vector<Layer> layers;
+        std::vector<Set> tilesets;
+    };
 
-};
+    class Map {
+    public:
+        Map() = default;
+        explicit Map(const Data& tiled_data);
+
+    private:
+        Data tiled_data;
+
+        void crack_layer_data();
+
+    };
+}
 
 
 #endif //INC_2D_GAME_TILED_MAP_H
