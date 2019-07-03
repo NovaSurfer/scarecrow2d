@@ -9,9 +9,11 @@
 
 // Reference: https://www.gamedev.net/articles/programming/general-and-gameplay-programming/c-custom-memory-allocation-r3010/
 
-namespace sc2d::memory {
+namespace sc2d::memory
+{
 
-    class free_list_allocator : public allocator {
+    class free_list_allocator : public allocator
+    {
     public:
         free_list_allocator(size_t size, void* start);
         ~free_list_allocator() override = default;
@@ -32,7 +34,8 @@ namespace sc2d::memory {
             free_block* next;
         };
 
-        static_assert(sizeof(allocation_header) >= sizeof(free_block), "sizeof(allocation_header) < sizeof(free_block)");
+        static_assert(sizeof(allocation_header) >= sizeof(free_block),
+                      "sizeof(allocation_header) < sizeof(free_block)");
 
         free_block* free_blocks;
     };

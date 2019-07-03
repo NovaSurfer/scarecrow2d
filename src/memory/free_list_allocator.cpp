@@ -7,10 +7,12 @@
 
 // Reference: https://www.gamedev.net/articles/programming/general-and-gameplay-programming/c-custom-memory-allocation-r3010/
 
-namespace sc2d::memory {
+namespace sc2d::memory
+{
 
     free_list_allocator::free_list_allocator(size_t size, void* start)
-        : allocator{size, start}, free_blocks{(free_block*)start}
+        : allocator{size, start}
+        , free_blocks{(free_block*)start}
     {
         free_blocks->size = size;
         free_blocks->next = nullptr;
@@ -29,17 +31,15 @@ namespace sc2d::memory {
         size_t best_fit_total_size = 0;
 
         // Find best fit
-        while(curr_free_block != nullptr)
-        {
+        while(curr_free_block != nullptr) {
             // Calculate adjustment needed to keep object correctly aligned
-            uint8_t adjustment = align_forward_adjustment_with_header(curr_free_block,
-                    alignment, sizeof(allocation_header));
+            uint8_t adjustment = align_forward_adjustment_with_header(curr_free_block, alignment,
+                                                                      sizeof(allocation_header));
 
             size_t total_size = size + adjustment;
 
             // If its an exact match use this free block
-            if(curr_free_block->size == total_size)
-            {
+            if(curr_free_block->size == total_size) {
                 prev_best_fit = prev_free_block;
                 best_fit = curr_free_block;
                 best_fit_adjustment = adjustment;
@@ -49,8 +49,8 @@ namespace sc2d::memory {
             }
 
             // If its a better fit switch
-            if(curr_free_block->size > total_size && (best_fit == nullptr || curr_free_block->size < best_fit->size))
-            {
+            if(curr_free_block->size > total_size &&
+               (best_fit == nullptr || curr_free_block->size < best_fit->size)) {
                 prev_best_fit = prev_free_block;
                 best_fit = curr_free_block;
                 best_fit_adjustment = adjustment;
@@ -65,32 +65,28 @@ namespace sc2d::memory {
             return nullptr;
 
         // If allocations in the remaining memory will be impossible
-        if(best_fit->size - best_fit_total_size <= sizeof(allocation_header))
-        {
+        if(best_fit->size - best_fit_total_size <= sizeof(allocation_header)) {
             // Increase memory allocation instead of creating new free_block
             best_fit_total_size = best_fit->size;
 
-            if(prev_best_fit != nullptr)
-            {
+            if(prev_best_fit != nullptr) {
                 prev_best_fit->next = best_fit->next;
 
             } else {
                 free_blocks = best_fit->next;
             }
 
-        }
-        else
-        {
+        } else {
             // Prevent new block from overwriting best fit block info
             assert(best_fit_total_size > sizeof(free_block));
 
             // Else create a new free_block containing remaining memory
-            free_block* new_block  = (free_block*) (reinterpret_cast<uintptr_t>(best_fit) + best_fit_total_size);
+            free_block* new_block =
+                (free_block*)(reinterpret_cast<uintptr_t>(best_fit) + best_fit_total_size);
             new_block->size = best_fit->size - best_fit_total_size;
             new_block->next = best_fit->next;
 
-            if(prev_best_fit != nullptr)
-            {
+            if(prev_best_fit != nullptr) {
                 prev_best_fit->next = new_block;
 
             } else {
@@ -100,7 +96,8 @@ namespace sc2d::memory {
 
         uintptr_t aligned_address = (uintptr_t)best_fit + best_fit_adjustment;
 
-        allocation_header* header = (allocation_header*)(aligned_address - sizeof(allocation_header));
+        allocation_header* header =
+            (allocation_header*)(aligned_address - sizeof(allocation_header));
         header->size = best_fit_total_size;
         header->adjustment = best_fit_adjustment;
 
@@ -110,14 +107,14 @@ namespace sc2d::memory {
         _num_allocations++;
 
         return (void*)aligned_address;
-
     }
 
     void free_list_allocator::deallocate(void* p)
     {
         assert(p != nullptr);
 
-        allocation_header* header = (allocation_header*) (reinterpret_cast<uintptr_t>(p) - sizeof(allocation_header));
+        allocation_header* header =
+            (allocation_header*)(reinterpret_cast<uintptr_t>(p) - sizeof(allocation_header));
 
         uintptr_t block_start = reinterpret_cast<uintptr_t>(p) - header->adjustment;
         size_t block_size = header->size;
@@ -126,28 +123,23 @@ namespace sc2d::memory {
         free_block* prev_free_block = nullptr;
         free_block* curr_free_block = free_blocks;
 
-        while(curr_free_block != nullptr)
-        {
+        while(curr_free_block != nullptr) {
             if((uintptr_t)curr_free_block >= block_end)
                 break;
             prev_free_block = curr_free_block;
             curr_free_block = curr_free_block->next;
         }
 
-        if(prev_free_block == nullptr)
-        {
+        if(prev_free_block == nullptr) {
             prev_free_block = (free_block*)block_start;
             prev_free_block->size = block_size;
             prev_free_block->next = free_blocks;
             free_blocks = prev_free_block;
         }
 
-        else if((uintptr_t)prev_free_block + prev_free_block->size == block_start)
-        {
+        else if((uintptr_t)prev_free_block + prev_free_block->size == block_start) {
             prev_free_block->size += block_size;
-        }
-        else
-        {
+        } else {
             free_block* temp = (free_block*)block_start;
             temp->size = block_size;
             temp->next = prev_free_block->next;
@@ -157,8 +149,7 @@ namespace sc2d::memory {
 
         assert(prev_free_block != nullptr);
 
-        if((uintptr_t)prev_free_block + prev_free_block->size == (uintptr_t)prev_free_block->next)
-        {
+        if((uintptr_t)prev_free_block + prev_free_block->size == (uintptr_t)prev_free_block->next) {
             prev_free_block->size += prev_free_block->next->size;
             prev_free_block->next = prev_free_block->next->next;
         }
@@ -167,5 +158,3 @@ namespace sc2d::memory {
         _used_memory -= block_size;
     }
 }
-
-

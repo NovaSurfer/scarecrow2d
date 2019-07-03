@@ -7,13 +7,15 @@
 
 //Pool allocator reference: http://www.thinkmind.org/download.php?articleid=computation_tools_2012_1_10_80006
 
-namespace sc2d::memory {
+namespace sc2d::memory
+{
 
     void pool_allocator::create(size_t block_size, size_t blocks_numb, size_t alignment)
     {
         size_of_block = block_size;
         num_of_blocks = blocks_numb;
-        p_start = reinterpret_cast<unsigned char*>(std::aligned_alloc(alignment, block_size * blocks_numb));
+        p_start = reinterpret_cast<unsigned char*>(
+            std::aligned_alloc(alignment, block_size * blocks_numb));
         num_of_free_blocks = num_of_blocks;
         p_next = p_start;
     }
@@ -26,25 +28,20 @@ namespace sc2d::memory {
 
     const void* pool_allocator::allocate()
     {
-        if(num_of_initialized < num_of_blocks)
-        {
+        if(num_of_initialized < num_of_blocks) {
             size_t* ptr = (size_t*)addr_from_index(num_of_initialized);
             *ptr = num_of_initialized + 1;
             num_of_initialized++;
         }
 
         void* ptr = nullptr;
-        if(num_of_free_blocks > 0)
-        {
+        if(num_of_free_blocks > 0) {
             ptr = (void*)p_next;
             --num_of_free_blocks;
-            if(num_of_free_blocks != 0)
-            {
+            if(num_of_free_blocks != 0) {
                 p_next = addr_from_index(*(size_t*)p_next);
             }
-        }
-        else
-        {
+        } else {
             resize(num_of_blocks << 1);
             ptr = addr_from_index(num_of_initialized);
             num_of_initialized++;
@@ -61,21 +58,17 @@ namespace sc2d::memory {
         num_of_blocks = new_size;
         if(void* p_new_start = std::realloc(p_start, size_of_block * num_of_blocks))
             p_start = reinterpret_cast<unsigned char*>(p_new_start);
-        else
-        {
+        else {
             // TODO: Error handling.
         }
     }
 
     void pool_allocator::deallocate(void* ptr)
     {
-        if(p_next != nullptr)
-        {
+        if(p_next != nullptr) {
             (*(size_t*)ptr) = index_from_addr(p_next);
             p_next = (unsigned char*)ptr;
-        }
-        else
-        {
+        } else {
             (*(size_t*)ptr) = num_of_blocks;
             p_next = (unsigned char*)ptr;
         }

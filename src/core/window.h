@@ -5,9 +5,9 @@
 #ifndef INC_2D_GAME_WINDOW_H
 #define INC_2D_GAME_WINDOW_H
 
-#include <string>
-#include <memory>
 #include <GLFW/glfw3.h>
+#include <memory>
+#include <string>
 
 struct GLFWwindow;
 
@@ -23,15 +23,18 @@ struct WindowData
     GLFWkeyfun key_callback;
 };
 
-class Window {
+class Window
+{
 public:
     Window(const WindowData& window_data, bool isCurrentContext);
-    GLFWwindow* get_window() const { return window;}
+    GLFWwindow* get_window() const
+    {
+        return window;
+    }
 
 private:
     WindowData window_data;
     GLFWwindow* window;
 };
-
 
 #endif //INC_2D_GAME_WINDOW_H

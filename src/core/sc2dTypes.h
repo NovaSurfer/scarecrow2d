@@ -7,30 +7,36 @@
 
 #include "math/vector2.h"
 
-namespace sc2d {
+namespace sc2d
+{
 
     constexpr int VERTICES_PER_QUAD = 4;
-    constexpr int QUAD_INDICES[]
-            {
-                    0, 1, 3,    // First triangle
-                    1, 2, 3     // Second triangle
-            };
+    constexpr int QUAD_INDICES[]{
+        0, 1, 3, // First triangle
+        1, 2, 3 // Second triangle
+    };
 
-    struct Color {
+    struct Color
+    {
         Color() = default;
 
         Color(float r, float g, float b, float a)
-                :r{r}, g{g}, b{b}, a{b} { };
+            : r{r}
+            , g{g}
+            , b{b}
+            , a{b} {};
         float r, g, b, a;
     };
 
-    struct Vertex {
+    struct Vertex
+    {
         math::vec2 pos;
         math::vec2 uv;
-//        Color color;
+        //        Color color;
     };
 
-    struct Quad {
+    struct Quad
+    {
         // Top right
         Vertex tr;
         // Bottom right
@@ -41,16 +47,13 @@ namespace sc2d {
         Vertex tl;
     };
 
-
-    const Quad SPRITE_QUAD
-            {
-                    //positions      //tex coords  //colors (RGBA)
-                    {{ 0.5f,  0.5f}, {1.0f, 1.0f}, /*{1.0f, 0.0f, 0.0f, 1.0}*/},  // top right
-                    {{ 0.5f, -0.5f}, {1.0f, 0.0f}, /*{0.0f, 1.0f, 0.0f, 1.0}*/},  // bottom right
-                    {{-0.5f, -0.5f}, {0.0f, 0.0f}, /*{0.0f, 0.0f, 1.0f, 1.0}*/},  // bottom left
-                    {{-0.5f,  0.5f}, {0.0f, 1.0f}, /*{1.0f, 1.0f, 0.0f, 1.0}*/},  // top left
-            };
-
+    const Quad SPRITE_QUAD{
+        //positions      //tex coords  //colors (RGBA)
+        {{0.5f, 0.5f}, {1.0f, 1.0f}, /*{1.0f, 0.0f, 0.0f, 1.0}*/}, // top right
+        {{0.5f, -0.5f}, {1.0f, 0.0f}, /*{0.0f, 1.0f, 0.0f, 1.0}*/}, // bottom right
+        {{-0.5f, -0.5f}, {0.0f, 0.0f}, /*{0.0f, 0.0f, 1.0f, 1.0}*/}, // bottom left
+        {{-0.5f, 0.5f}, {0.0f, 1.0f}, /*{1.0f, 1.0f, 0.0f, 1.0}*/}, // top left
+    };
 }
 
 #endif //INC_2D_GAME_TYPES_H

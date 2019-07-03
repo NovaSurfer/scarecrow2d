@@ -5,25 +5,27 @@
 #ifndef INC_2D_GAME_FILE_MANAGER_H
 #define INC_2D_GAME_FILE_MANAGER_H
 
-#include <unordered_map>
-#include <string_view>
-#include <string>
 #include <fstream>
-#include <sstream>
 #include <glad/glad.h>
+#include <sstream>
+#include <string>
+#include <string_view>
+#include <unordered_map>
 
-#include "core/texture.h"
 #include "core/shader.h"
+#include "core/texture.h"
 #include "core/tiled_map.h"
 
-namespace sc2d {
+namespace sc2d
+{
 
     using string_view = std::string_view;
 
-    class ResourceHolder {
+    class ResourceHolder
+    {
     public:
-        static void load_shader_program(std::string name, const GLchar* vert_file, const GLchar* frag_file,
-                const GLchar* geom_file = nullptr);
+        static void load_shader_program(std::string name, const GLchar* vert_file,
+                                        const GLchar* frag_file, const GLchar* geom_file = nullptr);
 
         static const Shader& get_shader(std::string shader_name);
 
@@ -54,8 +56,6 @@ namespace sc2d {
 
         static std::string load_shader(const GLchar* file_path);
     };
-
 }
-
 
 #endif //INC_2D_GAME_FILE_MANAGER_H

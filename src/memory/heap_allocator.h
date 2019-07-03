@@ -7,11 +7,16 @@
 
 #include "allocator.h"
 
-namespace sc2d::memory {
+namespace sc2d::memory
+{
 
-    class heap_allocator : public allocator {
+    class heap_allocator : public allocator
+    {
     public:
-        heap_allocator(size_t size, void* start) : allocator(size, start), _start(start), current_pos(start)
+        heap_allocator(size_t size, void* start)
+            : allocator(size, start)
+            , _start(start)
+            , current_pos(start)
         {
             assert(size > 0);
         }
@@ -27,7 +32,6 @@ namespace sc2d::memory {
     protected:
         void* _start;
         void* current_pos;
-
     };
 }
 

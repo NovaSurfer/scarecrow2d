@@ -4,41 +4,36 @@
 
 #include "inputManager.h"
 
-InputManager::InputManager() try
-{
+InputManager::InputManager() try {
     IniIO config("config.ini");
     key_values = config.get_kvps("binds");
 
-    for(const auto& kv : key_values)
-    {
+    for(const auto& kv : key_values) {
         key_names[kv.first] = kv.second;
     }
-
-} catch (const std::exception& e)
-{
+}
+catch(const std::exception& e) {
     std::cerr << e.what() << "\n";
     //TODO: window with error message (config.ini cannot be open)
 }
 
-bool InputManager::get_key_down(const std::string &key)
+bool InputManager::get_key_down(const std::string& key)
 {
-    if(Game::event.type == SDL_KEYDOWN)
-    {
+    if(Game::event.type == SDL_KEYDOWN) {
         return is_same_key(key);
-    } else return false;
+    } else
+        return false;
 }
 
-
-bool InputManager::get_key_up(const std::string &key)
+bool InputManager::get_key_up(const std::string& key)
 {
-    if(Game::event.type == SDL_KEYUP)
-    {
+    if(Game::event.type == SDL_KEYUP) {
         return is_same_key(key);
     }
     return false;
 }
 
-bool InputManager::is_same_key(const std::string &key)
+bool InputManager::is_same_key(const std::string& key)
 {
     return Game::event.key.keysym.sym == SDL_GetKeyFromName(key_names[key].c_str());
 }

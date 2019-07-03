@@ -24,5 +24,4 @@ struct FsConsts
     static const std::string SCN_TILESETS_IMAGE;
 };
 
-
 #endif //INC_2D_GAME_FS_CONSTANTS_H

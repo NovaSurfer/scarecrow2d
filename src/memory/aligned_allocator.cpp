@@ -3,14 +3,16 @@
 //
 #include "aligned_allocator.h"
 
-namespace sc2d::memory {
+namespace sc2d::memory
+{
 
     void* _aligned_malloc(size_t size, size_t alignment)
     {
         void* res = nullptr;
         void* ptr = malloc(size + alignment);
-        if (ptr!=nullptr) {
-            res = reinterpret_cast<void*>((reinterpret_cast<size_t>(ptr) & ~(size_t(alignment-1))) + alignment);
+        if(ptr != nullptr) {
+            res = reinterpret_cast<void*>(
+                (reinterpret_cast<size_t>(ptr) & ~(size_t(alignment - 1))) + alignment);
             *(reinterpret_cast<void**>(res) - 1) = ptr;
         }
         return res;
@@ -27,7 +29,7 @@ namespace sc2d::memory {
 
     void _aligned_free(void* ptr)
     {
-        if (ptr != nullptr)
+        if(ptr != nullptr)
             free(*(reinterpret_cast<void**>(ptr) - 1));
     }
 

@@ -5,7 +5,10 @@
 #include "transform.h"
 
 Transform::Transform(math::vec2 position, SDL_Point scale, double angle)
-        : position(position), scale(scale), angle(angle) { }
+    : position(position)
+    , scale(scale)
+    , angle(angle)
+{}
 
 void Transform::set_pos_x(const float x)
 {
@@ -21,7 +24,7 @@ void Transform::set_scale(const SDL_Point scale)
 {
     this->scale.x += scale.x;
     this->scale.y += scale.y;
-    Sprite *sprite = &entity->get_component<Sprite>();
+    Sprite* sprite = &entity->get_component<Sprite>();
     sprite->resize(this->scale);
 }
 

@@ -8,14 +8,16 @@
 #include <string>
 #include <vector>
 
-namespace sc2d::tiled {
+namespace sc2d::tiled
+{
 
     // Bits on the far end of the 32-bit global tile ID are used for tile flags
     constexpr unsigned FLIPPED_HORIZONTALLY_FLAG = 0x80000000;
     constexpr unsigned FLIPPED_VERTICALLY_FLAG = 0x40000000;
     constexpr unsigned FLIPPED_DIAGONALLY_FLAG = 0x20000000;
 
-    class Layer {
+    class Layer
+    {
     public:
         void set_data(const std::string& data)
         {
@@ -42,7 +44,8 @@ namespace sc2d::tiled {
         std::string name;
     };
 
-    class Set {
+    class Set
+    {
     public:
         void set_img_path(const std::string& img_path)
         {
@@ -58,17 +61,26 @@ namespace sc2d::tiled {
         std::string img_path;
     };
 
-    struct Tile {
+    struct Tile
+    {};
 
-    };
-
-    struct Data {
-        Data() : width{}, height{}, tile_width{}, tile_height{} { }
-        Data(int width, int height, int tile_width, int tile_height,
-                std::vector<Layer>&& layers, std::vector<Set>&& tilesets)
-                :
-                width{width}, height{height}, tile_width{tile_width},
-                tile_height{tile_height}, layers{layers}, tilesets{tilesets} { }
+    struct Data
+    {
+        Data()
+            : width{}
+            , height{}
+            , tile_width{}
+            , tile_height{}
+        {}
+        Data(int width, int height, int tile_width, int tile_height, std::vector<Layer>&& layers,
+             std::vector<Set>&& tilesets)
+            : width{width}
+            , height{height}
+            , tile_width{tile_width}
+            , tile_height{tile_height}
+            , layers{layers}
+            , tilesets{tilesets}
+        {}
 
         int width;
         int height;
@@ -78,7 +90,8 @@ namespace sc2d::tiled {
         std::vector<Set> tilesets;
     };
 
-    class Map {
+    class Map
+    {
     public:
         Map() = default;
         explicit Map(const Data& tiled_data);
@@ -87,9 +100,7 @@ namespace sc2d::tiled {
         Data tiled_data;
 
         void crack_layer_data();
-
     };
 }
-
 
 #endif //INC_2D_GAME_TILED_MAP_H

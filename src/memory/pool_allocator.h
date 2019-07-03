@@ -9,21 +9,27 @@
 //#include "aligned_allocator.h"
 #include <memory>
 
-namespace sc2d{
+namespace sc2d
+{
 
     // Forward declaring vec<T> class
     template <typename T>
     class vec;
 
-    namespace memory {
+    namespace memory
+    {
 
-        class pool_allocator {
+        class pool_allocator
+        {
 
             template <typename T>
             friend class sc2d::vec;
 
         public:
-            ~pool_allocator() {destroy();}
+            ~pool_allocator()
+            {
+                destroy();
+            }
 
             void create(size_t block_size, size_t num_of_blocks, size_t alignment);
             void destroy();
@@ -31,9 +37,18 @@ namespace sc2d{
             void resize(size_t new_size);
             void deallocate(void* ptr);
 
-            unsigned char* get_start() const { return p_start;}
-            size_t get_intialized_num() const { return num_of_initialized; }
-            size_t get_num_of_blocks() const { return num_of_blocks; }
+            unsigned char* get_start() const
+            {
+                return p_start;
+            }
+            size_t get_intialized_num() const
+            {
+                return num_of_initialized;
+            }
+            size_t get_num_of_blocks() const
+            {
+                return num_of_blocks;
+            }
 
         private:
             unsigned char* addr_from_index(size_t index) const;
@@ -46,7 +61,6 @@ namespace sc2d{
             unsigned char* p_start = nullptr;
             unsigned char* p_next = nullptr;
         };
-
     }
 }
 

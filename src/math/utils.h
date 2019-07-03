@@ -5,8 +5,8 @@
 #ifndef INC_2D_ENGINE_UTILS_H
 #define INC_2D_ENGINE_UTILS_H
 
-#include <cmath>
 #include <cfloat>
+#include <cmath>
 
 namespace math
 {
@@ -17,7 +17,7 @@ namespace math
          */
         static bool cmp(const float x, const float y)
         {
-            return fabsf(x - y) <=FLT_EPSILON * fmaxf(1.0f, fmaxf(fabsf(x), fabsf(y)));
+            return fabsf(x - y) <= FLT_EPSILON * fmaxf(1.0f, fmaxf(fabsf(x), fabsf(y)));
         }
 
         /**

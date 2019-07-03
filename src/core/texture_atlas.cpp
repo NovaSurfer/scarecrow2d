@@ -4,18 +4,15 @@
 
 #include "texture_atlas.h"
 
-TextureAtlas::TextureAtlas(unsigned char *img_data, const GLuint width, const GLuint height, const GLuint img_format) {
+TextureAtlas::TextureAtlas(unsigned char* img_data, const GLuint width, const GLuint height,
+                           const GLuint img_format)
+{}
 
+void TextureAtlas::bind() const {}
+
+const GLuint& TextureAtlas::get_obj_id() const
+{
+    //    return <#initializer#>;
 }
 
-void TextureAtlas::bind() const {
-
-}
-
-const GLuint &TextureAtlas::get_obj_id() const {
-//    return <#initializer#>;
-}
-
-void TextureAtlas::generate() {
-
-}
+void TextureAtlas::generate() {}

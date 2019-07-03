@@ -8,10 +8,12 @@
 #include <glad/glad.h>
 #include <string>
 
-class Texture2d {
+class Texture2d
+{
 public:
     Texture2d() = default;
-    Texture2d(unsigned char *img_data, const GLuint width, const GLuint height, const GLuint img_format);
+    Texture2d(unsigned char* img_data, const GLuint width, const GLuint height,
+              const GLuint img_format);
     void bind() const;
     const GLuint& get_obj_id() const;
 
@@ -29,8 +31,6 @@ private:
     unsigned char* data;
 
     void generate();
-
 };
-
 
 #endif //INC_2D_GAME_TEXTURE_H

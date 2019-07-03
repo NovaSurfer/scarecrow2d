@@ -11,40 +11,32 @@ void InputController::init()
 
 void InputController::update()
 {
-    if(Game::input_manager->get_key_down("forward"))
-    {
+    if(Game::input_manager->get_key_down("forward")) {
         transform->set_pos_y(-3);
     }
-    if(Game::input_manager->get_key_down("backward"))
-    {
+    if(Game::input_manager->get_key_down("backward")) {
         transform->set_pos_y(3);
     }
-    if(Game::input_manager->get_key_up("forward"))
-    {
+    if(Game::input_manager->get_key_up("forward")) {
         transform->set_pos_y(0);
     }
-    if(Game::input_manager->get_key_up("backward"))
-    {
+    if(Game::input_manager->get_key_up("backward")) {
         transform->set_pos_y(0);
     }
-    if(Game::input_manager->get_key_down("rotateLeft"))
-    {
+    if(Game::input_manager->get_key_down("rotateLeft")) {
         transform->rotate(-5);
     }
-    if(Game::input_manager->get_key_down("rotateRight"))
-    {
+    if(Game::input_manager->get_key_down("rotateRight")) {
         transform->rotate(5);
     }
-    if(Game::input_manager->get_key_down("resize+"))
-    {
-        transform->set_scale(SDL_Point{1,1});
+    if(Game::input_manager->get_key_down("resize+")) {
+        transform->set_scale(SDL_Point{1, 1});
     }
-    if(Game::input_manager->get_key_down("resize-"))
-    {
-        transform->set_scale(SDL_Point{-1,-1});
+    if(Game::input_manager->get_key_down("resize-")) {
+        transform->set_scale(SDL_Point{-1, -1});
     }
 
-        /*    case SDLK_ESCAPE:
+    /*    case SDLK_ESCAPE:
                 SDL_Window *window = Game::get_window();
                 int flags = SDL_GetWindowDisplayIndex(window);
                 std::cout << SDL_WINDOW_FULLSCREEN << std::endl;
@@ -61,4 +53,3 @@ void InputController::update()
                 }
                 break;*/
 }
-

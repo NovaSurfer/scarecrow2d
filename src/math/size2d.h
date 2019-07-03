@@ -5,73 +5,81 @@
 #ifndef INC_2D_GAME_SIZE2D_H
 #define INC_2D_GAME_SIZE2D_H
 
-#include "vector2.h"
 #include "utils.h"
+#include "vector2.h"
 
-namespace math {
-struct size2d {
-  float width;
-  float height;
+namespace math
+{
+    struct size2d
+    {
+        float width;
+        float height;
 
-  size2d() = default;
+        size2d() = default;
 
-  size2d(float width, float height)
-          :width{width}, height{height} { }
+        size2d(float width, float height)
+            : width{width}
+            , height{height}
+        {}
 
-  size2d(const size2d& other)
-          :width{other.width}, height{other.height} { }
+        size2d(const size2d& other)
+            : width{other.width}
+            , height{other.height}
+        {}
 
-  explicit size2d(const vec2& point)
-          :width{point.x}, height{point.y} { }
+        explicit size2d(const vec2& point)
+            : width{point.x}
+            , height{point.y}
+        {}
 
-  explicit operator vec2() const
-  {
-      return vec2(width, height);
-  }
+        explicit operator vec2() const
+        {
+            return vec2(width, height);
+        }
 
-  size2d& operator=(const size2d& other)
-  {
-      set_size(other.width, other.height);
-      return *this;
-  }
+        size2d& operator=(const size2d& other)
+        {
+            set_size(other.width, other.height);
+            return *this;
+        }
 
-  size2d& operator=(const vec2& point)
-  {
-      set_size(point.x, point.y);
-      return *this;
-  }
+        size2d& operator=(const vec2& point)
+        {
+            set_size(point.x, point.y);
+            return *this;
+        }
 
-  size2d operator+(const size2d& right) const
-  {
-      return size2d(width + right.width, height + right.height);
-  }
+        size2d operator+(const size2d& right) const
+        {
+            return size2d(width + right.width, height + right.height);
+        }
 
-  size2d operator-(const size2d& right) const
-  {
-      return size2d(width - right.width, height - right.height);
-  }
+        size2d operator-(const size2d& right) const
+        {
+            return size2d(width - right.width, height - right.height);
+        }
 
-  size2d operator*(const float value) const
-  {
-      return size2d(width * value, height * value);
-  }
+        size2d operator*(const float value) const
+        {
+            return size2d(width * value, height * value);
+        }
 
-  size2d operator/(const float value) const
-  {
-      return size2d(width * value, height * value);
-  }
+        size2d operator/(const float value) const
+        {
+            return size2d(width * value, height * value);
+        }
 
-  bool operator==(const size2d other) const
-  {
-      return utils::cmp(width, other.width) && utils::cmp(height, other.height);
-  }
+        bool operator==(const size2d other) const
+        {
+            return utils::cmp(width, other.width) && utils::cmp(height, other.height);
+        }
 
-  void set_size(float width, float height)
-  {
-      this->width = width;
-      this->width = height;
-  }
-};
+        void set_size(float width, float height)
+        {
+            this->width = width;
+            this->width = height;
+        }
+    };
 }
 
 #endif //INC_2D_GAME_SIZE2D_H

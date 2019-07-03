@@ -13,9 +13,11 @@
 // For now I don't want make any abstract classes, because I don't want to pay for that abstraction
 // or for code branching as Texture2d and TextureAtlas will be used quite often.
 
-class TextureAtlas {
+class TextureAtlas
+{
     TextureAtlas() = default;
-    TextureAtlas(unsigned char *img_data, const GLuint width, const GLuint height, const GLuint img_format);
+    TextureAtlas(unsigned char* img_data, const GLuint width, const GLuint height,
+                 const GLuint img_format);
     void bind() const;
     const GLuint& get_obj_id() const;
 
@@ -35,6 +37,5 @@ private:
 
     void generate();
 };
-
 
 #endif //INC_2D_GAME_TEXTURE_ATLAS_H

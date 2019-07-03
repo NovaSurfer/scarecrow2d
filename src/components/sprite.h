@@ -6,23 +6,25 @@
 #define INC_2D_ENGINE_SPRITECOMPONENT_H
 
 #include "../textureManager.h"
-#include "components.h"
 #include "SDL.h"
+#include "components.h"
 
 class Transform;
 
-class Sprite : public Component {
+class Sprite : public Component
+{
 private:
-    Transform *transform = nullptr;
-    SDL_Texture *texture = nullptr;
+    Transform* transform = nullptr;
+    SDL_Texture* texture = nullptr;
     SDL_Rect srcrect;
     SDL_Rect destrect;
     SDL_Point pivot;
+
 public:
     explicit Sprite(std::string_view path);
     void set_texture(std::string_view path);
 
-    SDL_Surface *scaled_copy(SDL_Surface *src, SDL_Rect *dstSize);
+    SDL_Surface* scaled_copy(SDL_Surface* src, SDL_Rect* dstSize);
 
     void resize(const SDL_Point dest_size);
     void init() override;
@@ -31,6 +33,5 @@ public:
 
     void calc_pivot();
 };
-
 
 #endif //INC_2D_ENGINE_SPRITECOMPONENT_H

@@ -28,19 +28,20 @@ void Sprite::update()
 
 void Sprite::draw()
 {
-    TextureManager::draw_texture(texture, srcrect, destrect, transform->get_rotation(), pivot, SDL_FLIP_NONE);
+    TextureManager::draw_texture(texture, srcrect, destrect, transform->get_rotation(), pivot,
+                                 SDL_FLIP_NONE);
 }
 
 void Sprite::set_texture(std::string_view path)
 {
-    texture  = TextureManager::load_texture(path);
+    texture = TextureManager::load_texture(path);
 }
 
 void Sprite::resize(const SDL_Point dest_size)
 {
-   destrect.w += dest_size.x;
-   destrect.h += dest_size.y;
-   calc_pivot();
+    destrect.w += dest_size.x;
+    destrect.h += dest_size.y;
+    calc_pivot();
 }
 
 void Sprite::calc_pivot()

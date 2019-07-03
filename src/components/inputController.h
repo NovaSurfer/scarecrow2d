@@ -8,13 +8,14 @@
 #include "../game.h"
 #include "components.h"
 
-class InputController : public Component {
+class InputController : public Component
+{
 public:
     void update() override;
     void init() override;
-private:
-    Transform *transform;
-};
 
+private:
+    Transform* transform;
+};
 
 #endif //INC_2D_ENGINE_INPUTCONTROLLER_H
