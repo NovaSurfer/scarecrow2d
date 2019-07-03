@@ -1,5 +1,6 @@
 #include "ini_io.h"
 
+// clang-format off
 IniIO::IniIO(const std::string &filename)
 {
     // Opening file

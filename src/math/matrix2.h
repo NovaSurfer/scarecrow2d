@@ -7,6 +7,7 @@
 
 #include "vector2.h"
 
+// clang-format off
 namespace math {
     /// Two dimensional square matrix
     struct mat2 {

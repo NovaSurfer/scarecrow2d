@@ -8,6 +8,7 @@
 #include "utils.h"
 #include <ostream>
 
+// clang-format off
 namespace math {
     /// Three dimensional vector
     struct vec3 {

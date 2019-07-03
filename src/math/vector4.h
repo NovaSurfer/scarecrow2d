@@ -8,6 +8,7 @@
 #include "utils.h"
 #include <ostream>
 
+// clang-format off
 namespace math {
     /// Four dimensional vector
     struct vec4 {

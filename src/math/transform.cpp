@@ -5,6 +5,7 @@
 #include "transform.h"
 #include "utils.h"
 
+// clang-format off
 namespace math {
 
     mat4 translation(float x, float y, float z)

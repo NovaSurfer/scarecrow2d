@@ -8,6 +8,7 @@
 #include <regex>
 #include <vector>
 
+// clang-format off
 /*
  * SECTION REGEX:           (\[([^#;\r\n]+)\])
  * KEY-VALUE PAIR REGEX:    (([^\[\]\r\n=#;]+)=([^#;\\\r\n]*(?:\\.[^#;\\\r\n]*)*))

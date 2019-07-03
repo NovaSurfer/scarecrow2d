@@ -8,6 +8,7 @@
 
 #include "vector4.h"
 
+// clang-format off
 namespace math {
     /// Four dimensional square matrix
     struct mat4 {
@@ -106,7 +107,7 @@ namespace math {
 
         /**
          * Multiplication by other matrix4
-         * @param o some matrix4 
+         * @param o some matrix4
          * @return calculated matrix
          * @details https://en.wikipedia.org/wiki/Matrix_multiplication
          */

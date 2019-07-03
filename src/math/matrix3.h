@@ -7,6 +7,7 @@
 
 #include "vector3.h"
 
+// clang-format off
 namespace math {
     /// Three dimensional square matrix
     struct mat3 {
