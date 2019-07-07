@@ -10,31 +10,35 @@
 #include <glad/glad.h>
 #include <map>
 
-enum class ShaderType
+namespace sc2d
 {
-    VERTEX,
-    FRAGMENT,
-    GEOMETRY,
-    NONE
-};
+    enum class ShaderType
+    {
+        VERTEX,
+        FRAGMENT,
+        GEOMETRY,
+        NONE
+    };
 
-class Shader
-{
-public:
-    const GLuint& get_program() const;
-    const Shader& run() const;
-    void compile(const GLchar* vert_src, const GLchar* frag_src, const GLchar* geom_src = nullptr);
+    class Shader
+    {
+    public:
+        const GLuint& get_program() const;
+        const Shader& run() const;
+        void compile(const GLchar* vert_src, const GLchar* frag_src,
+                     const GLchar* geom_src = nullptr);
 
-    void set_mat4(const GLchar* name, const math::mat4& matrix) const;
-    void set_vec3(const GLchar* name, const math::vec3& value) const;
-    void set_int(const GLchar* name, GLint value) const;
+        void set_mat4(const GLchar* name, const math::mat4& matrix) const;
+        void set_vec3(const GLchar* name, const math::vec3& value) const;
+        void set_int(const GLchar* name, GLint value) const;
 
-private:
-    static const std::map<ShaderType, GLenum> shader_types;
-    GLuint program;
+    private:
+        static const std::map<ShaderType, GLenum> shader_types;
+        GLuint program;
 
-    void error_checking(GLuint object, ShaderType shader_type = ShaderType::NONE) const;
-    void make_shader(const GLchar* shader_src, GLuint& shader_obj, ShaderType shader_type) const;
-};
-
+        void error_checking(GLuint object, ShaderType shader_type = ShaderType::NONE) const;
+        void make_shader(const GLchar* shader_src, GLuint& shader_obj,
+                         ShaderType shader_type) const;
+    };
+}
 #endif //INC_2D_GAME_SHADER_H
