@@ -5,6 +5,7 @@
 #include "sprite.h"
 #include "core/log2.h"
 #include "math/transform.h"
+#include "texture.h"
 
 namespace sc2d
 {

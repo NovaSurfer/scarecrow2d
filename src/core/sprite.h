@@ -9,10 +9,11 @@
 #include "math/vector2.h"
 #include "sc2dTypes.h"
 #include "shader.h"
-#include "texture.h"
 
 namespace sc2d
 {
+    class Texture2d;
+
     class Sprite
     {
     public:
