@@ -1,10 +1,12 @@
 {
   "sprites":
   [
-    {"name": "logo", "file": "data/sprites/sc2d.png", "alpha":true}
+    {"name": "logo", "file": "data/sprites/sc2d.png", "alpha":true},
+    {"name": "tilemap", "file": "data/sprites/private/platformer_tilemap.png", "alpha":true}
   ],
   "shaders":
   [
-    {"name": "sprite-default", "vert_file":"data/shaders/sprite-default.vert", "frag_file":"data/shaders/sprite-default.frag"}
+    {"name": "sprite-default", "vert_file":"data/shaders/sprite-default.vert", "frag_file":"data/shaders/sprite-default.frag"},
+    {"name": "spritesheet", "vert_file":"data/shaders/spritesheet.vert", "frag_file":"data/shaders/spritesheet.frag"}
   ]
 }
