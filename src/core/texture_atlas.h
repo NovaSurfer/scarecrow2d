@@ -18,6 +18,7 @@ namespace sc2d
 
     class TextureAtlas
     {
+    public:
         TextureAtlas() = default;
         TextureAtlas(unsigned char* img_data, const GLuint width, const GLuint height,
                      const GLuint img_format);
