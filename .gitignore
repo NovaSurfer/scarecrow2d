@@ -45,3 +45,6 @@ build/
 # CMake
 cmake-build-debug/
 bin/
+
+# Private assets
+data/sprites/private
