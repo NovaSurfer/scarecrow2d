@@ -12,8 +12,9 @@ namespace sc2d
     std::unordered_map<std::string, Shader> ResourceHolder::shaders;
     std::unordered_map<std::string, Texture2d> ResourceHolder::textures;
     std::unordered_map<std::string, tiled::Map> ResourceHolder::tilemaps;
+    std::unordered_map<std::string, TextureAtlas> ResourceHolder::texture_atlases;
 
-    void ResourceHolder::load_shader_program(std::string name, const GLchar* vert_file,
+    void ResourceHolder::load_shader_program(const std::string& name, const GLchar* vert_file,
                                              const GLchar* frag_file, const GLchar* geom_file)
     {
         Shader shader{};
@@ -27,12 +28,12 @@ namespace sc2d
         shaders.insert({name, shader});
     }
 
-    const Shader& ResourceHolder::get_shader(std::string shader_name)
+    const Shader& ResourceHolder::get_shader(const std::string& shader_name)
     {
         return shaders[shader_name];
     }
 
-    void ResourceHolder::load_texture(const std::string& img_file, bool alpha, std::string name)
+    void ResourceHolder::load_texture(const std::string& img_file, bool alpha, const std::string& name)
     {
         int width, height, nr_channels;
         unsigned char* image =
@@ -41,7 +42,7 @@ namespace sc2d
         textures[name] = Texture2d(image, width, height, alpha ? GL_RGBA : GL_RGB);
     }
 
-    const Texture2d& ResourceHolder::get_texture(std::string texture_name)
+    const Texture2d& ResourceHolder::get_texture(const std::string& texture_name)
     {
         return textures[texture_name];
     }
@@ -76,8 +77,21 @@ namespace sc2d
         tilemaps[name] = tiled_map;
     }
 
-    const tiled::Map& ResourceHolder::get_tiled_map(std::string map_name)
+    const tiled::Map& ResourceHolder::get_tiled_map(const std::string& map_name)
     {
-        //    return nullptr;
+        return tilemaps[map_name];
+    }
+    void ResourceHolder::load_texture_atlas(const std::string& img_file, bool alpha,
+                                            const std::string& name)
+    {
+        int width, height, nr_channels;
+        unsigned char* image =
+            stbi_load(img_file.c_str(), &width, &height, &nr_channels, STBI_rgb_alpha);
+
+        texture_atlases[name] = TextureAtlas(image, width, height, alpha ? GL_RGBA : GL_RGB);
+    }
+    const TextureAtlas& ResourceHolder::get_texture_atlas(const std::string& name)
+    {
+        return texture_atlases[name];
     }
 }
