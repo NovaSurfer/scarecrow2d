@@ -8,6 +8,8 @@
 #include <glad/glad.h>
 #include <string>
 
+#include "math/size2d.h"
+
 // For now Texture Atlas class looks almost the same as Texture2d,
 // but in future Texture2d or TextureAtlas may use additional rendering techniques.
 // For now I don't want make any abstract classes, because I don't want to pay for that abstraction
@@ -22,7 +24,7 @@ namespace sc2d
         TextureAtlas() = default;
         TextureAtlas(unsigned char* img_data, const GLuint width, const GLuint height,
                      const GLuint img_format);
-        void bind() const;
+        void bind(const math::size2d& crop) const;
         const GLuint& get_obj_id() const;
 
     private:

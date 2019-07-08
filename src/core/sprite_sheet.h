@@ -18,8 +18,8 @@ namespace sc2d
     {
     public:
         explicit SpriteSheet(const Shader& shader);
-        void draw(const TextureAtlas& texatlas, math::vec2 pos, math::size2d size = {10, 10},
-                  float rotate = 0.0f);
+        void draw(const TextureAtlas& texatlas, math::vec2 pos, math::size2d size,
+                  math::size2d crop, float rotate = 0.0f);
 
     private:
         static Vertex quad_vertices[VERTICES_PER_QUAD];

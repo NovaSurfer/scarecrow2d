@@ -21,9 +21,11 @@ namespace sc2d
         generate();
     }
 
-    void TextureAtlas::bind() const
+    void TextureAtlas::bind(const math::size2d& crop) const
     {
         glBindTexture(GL_TEXTURE_2D_ARRAY, obj_id);
+        glTexImage3D(GL_TEXTURE_2D_ARRAY, 0, internal_format, crop.width, crop.height, 0, 0,
+                     internal_format, GL_UNSIGNED_BYTE, data);
     }
 
     const GLuint& TextureAtlas::get_obj_id() const
