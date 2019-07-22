@@ -191,24 +191,43 @@ namespace sc2d
     template <typename T>
     vec<T>& vec<T>::operator=(const vec<T>& other)
     {
-        for(size_t i = 0; i < other.initial_size; ++i)
-            push_back(other[i]);
-        initial_size = other.initial_size;
+        if(size_t other_capacity = other.pool_alloc->num_of_blocks;
+            other_capacity > pool_alloc->num_of_blocks) {
+            pool_alloc->resize(other_capacity);
+            pool_alloc->num_of_free_blocks = other_capacity - pool_alloc->num_of_initialized;
+        }
+
+        for(size_t i = 0; i < other.pool_alloc->num_of_initialized; ++i)
+            array[i] = other[i];
     }
 
     template <typename T>
     vec<T>& vec<T>::operator=(vec<T>&& other)
     {
+        if(size_t other_capacity = other.pool_alloc->num_of_blocks;
+            other_capacity > pool_alloc->num_of_blocks) {
+            pool_alloc->resize(other_capacity);
+            pool_alloc->num_of_free_blocks = other_capacity - pool_alloc->num_of_initialized;
+        }
+
         for(size_t i = 0; i < other.initial_size; ++i)
-            push_back(std::move(other[i]));
-        initial_size = other.initial_size;
+            array[i] = std::move(other[i]);
     }
 
     template <typename T>
     vec<T>& vec<T>::operator=(std::initializer_list<T> ilist)
     {
-        for(const auto& i : ilist)
-            push_back(i);
+        if(size_t ilist_size = ilist.size();
+            ilist_size > pool_alloc->num_of_blocks) {
+            pool_alloc->resize(ilist_size << 1);
+            pool_alloc->num_of_free_blocks = ilist_size - pool_alloc->num_of_initialized;
+        }
+
+        size_t i = 0;
+        for(auto j = ilist.begin(); j != ilist.end(); ++j, ++i)
+        {
+            array[i] = *j;
+        }
     }
 
     template <typename T>
