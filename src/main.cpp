@@ -4,6 +4,7 @@
 
 #include "core/log2.h"
 #include "core/sprite.h"
+#include "core/sprite_sheet.h"
 #include "core/window.h"
 #include "filesystem/configLoader.h"
 #include "filesystem/resourceHolder.h"
@@ -14,6 +15,8 @@
 
 std::unique_ptr<Window> window;
 std::unique_ptr<sc2d::Sprite> sprite;
+std::unique_ptr<sc2d::SpriteSheet> spritesheet;
+
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 
@@ -60,13 +63,21 @@ int init()
     math::mat4 proj =
         math::ortho(0.0f, static_cast<GLfloat>(window_data.screen_width),
                     static_cast<GLfloat>(window_data.screen_height), 0.0f, -1.0f, 1.0f);
-    sc2d::ResourceHolder::get_shader("sprite-default")
-        .set_int("image", sc2d::ResourceHolder::get_texture("engineer").get_obj_id());
-    sc2d::ResourceHolder::get_shader("sprite-default").run().set_mat4("projection", proj);
-    log_err_cmd("0x%x", glGetError());
-    sprite = std::make_unique<sc2d::Sprite>(sc2d::ResourceHolder::get_shader("sprite-default"));
 
+//    sc2d::ResourceHolder::get_shader("sprite-default")
+//        .set_int("image", sc2d::ResourceHolder::get_texture("engineer").get_obj_id());
+//    sc2d::ResourceHolder::get_shader("sprite-default").run().set_mat4("projection", proj);
+//    log_err_cmd("0x%x", glGetError());
+//    sprite = std::make_unique<sc2d::Sprite>(sc2d::ResourceHolder::get_shader("sprite-default"));
     log_err_cmd("0x%x", glGetError());
+
+    sc2d::ResourceHolder::get_shader("spritesheet")
+        .set_int("image_array", sc2d::ResourceHolder::get_texture_atlas("tilemap").get_obj_id());
+    log_err_cmd("0x%x", glGetError());
+    sc2d::ResourceHolder::get_shader("spritesheet").run().set_mat4("projection", proj);
+
+    spritesheet = std::make_unique<sc2d::SpriteSheet>(sc2d::ResourceHolder::get_shader("spritesheet"));
+
     return glGetError();
 }
 
@@ -79,8 +90,10 @@ void draw()
 {
     glClearColor(0.0f, 0.3f, 0.3f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
-    sprite->draw(sc2d::ResourceHolder::get_texture("logo"), math::vec2(0, 0),
-                 math::size2d(111, 148), 0);
+//    sprite->draw(sc2d::ResourceHolder::get_texture("logo"), math::vec2(0, 0),
+//                 math::size2d(111, 148), 0);
+    spritesheet->draw(sc2d::ResourceHolder::get_texture_atlas("tilemap"), math::vec2(0, 0),
+                      math::size2d(16,16), math::size2d(0, 0), 0);
     glfwSwapBuffers(window->get_window());
 }
 
