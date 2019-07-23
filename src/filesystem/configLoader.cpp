@@ -43,9 +43,18 @@ namespace sc2d
             const std::string s_path = sprite["file"].get<const std::string>();
             const std::string s_name = sprite["name"].get<const std::string>();
             bool s_alpha = sprite["alpha"].get<bool>();
+            bool s_atlas = sprite["atlas"].get<bool>();
 
             log_info_cmd("Loading sprite file: %s", s_path.c_str());
-            ResourceHolder::load_texture(s_path, s_alpha, s_name);
+
+            if(!s_atlas)
+                ResourceHolder::load_texture(s_path, s_alpha, s_name);
+            else
+            {
+                const uint rows = sprite["rows"].get<uint>();
+                const uint columns = sprite["columns"].get<uint>();
+                ResourceHolder::load_texture_atlas(s_path, rows, columns, s_alpha, s_name);
+            }
         }
 
         for(const auto& shader : shaders_section) {

@@ -32,7 +32,7 @@ namespace sc2d
         static void load_tiled_map(const std::string& name, const tiled::Data& tiled_data);
         static const tiled::Map& get_tiled_map(const std::string& map_name);
         static const TextureAtlas& get_texture_atlas(const std::string& name);
-        static void load_texture_atlas(const std::string& img_file, bool alpha,
+        static void load_texture_atlas(const std::string& img_file, const uint rows, const uint columns, bool alpha,
                                        const std::string& name);
 
         static void clean();

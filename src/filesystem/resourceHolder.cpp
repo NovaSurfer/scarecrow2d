@@ -33,7 +33,8 @@ namespace sc2d
         return shaders[shader_name];
     }
 
-    void ResourceHolder::load_texture(const std::string& img_file, bool alpha, const std::string& name)
+    void ResourceHolder::load_texture(const std::string& img_file, bool alpha,
+                                      const std::string& name)
     {
         int width, height, nr_channels;
         unsigned char* image =
@@ -81,14 +82,15 @@ namespace sc2d
     {
         return tilemaps[map_name];
     }
-    void ResourceHolder::load_texture_atlas(const std::string& img_file, bool alpha,
-                                            const std::string& name)
+    void ResourceHolder::load_texture_atlas(const std::string& img_file, const uint rows,
+                                            const uint columns, bool alpha, const std::string& name)
     {
         int width, height, nr_channels;
         unsigned char* image =
             stbi_load(img_file.c_str(), &width, &height, &nr_channels, STBI_rgb_alpha);
 
-        texture_atlases[name] = TextureAtlas(image, width, height, alpha ? GL_RGBA : GL_RGB);
+        texture_atlases[name] =
+            TextureAtlas(image, width, height, rows, columns, alpha ? GL_RGBA : GL_RGB);
     }
     const TextureAtlas& ResourceHolder::get_texture_atlas(const std::string& name)
     {
