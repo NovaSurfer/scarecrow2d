@@ -3,14 +3,17 @@
 //
 
 #include "texture_atlas.h"
+#include "log2.h"
 
 namespace sc2d
 {
     TextureAtlas::TextureAtlas(unsigned char* img_data, const GLuint width, const GLuint height,
-                               const GLuint img_format)
+                               const GLuint rows, const GLuint columns, const GLuint img_format)
         : data {img_data}
         , width {width}
         , height {height}
+        , rows {rows}
+        , columns {columns}
         , internal_format {img_format}
         , image_format {img_format}
         , wrap_s {GL_REPEAT}
@@ -24,8 +27,6 @@ namespace sc2d
     void TextureAtlas::bind(const math::size2d& crop) const
     {
         glBindTexture(GL_TEXTURE_2D_ARRAY, obj_id);
-        glTexImage3D(GL_TEXTURE_2D_ARRAY, 0, internal_format, crop.width, crop.height, 0, 0,
-                     internal_format, GL_UNSIGNED_BYTE, data);
     }
 
     const GLuint& TextureAtlas::get_obj_id() const
@@ -35,19 +36,44 @@ namespace sc2d
 
     void TextureAtlas::generate()
     {
-        // generate texture
+        const size_t tile_width = width / rows;
+        const size_t tile_height = height / columns;
+        const size_t tiles_length = rows * columns;
+        const size_t next_row_offset = tile_width * tile_width;
+        size_t ptr_offset = tile_width;
+
         glGenTextures(1, &obj_id);
-        // create texture
         glBindTexture(GL_TEXTURE_2D_ARRAY, obj_id);
-        glTexImage3D(GL_TEXTURE_2D_ARRAY, 0, internal_format, width, height, 0, 0, internal_format,
-                     GL_UNSIGNED_BYTE, data);
-        // set wrap mode
+
+        glPixelStorei(GL_UNPACK_ROW_LENGTH, width);
+        glPixelStorei(GL_UNPACK_IMAGE_HEIGHT, height);
+
+        glTexImage3D(GL_TEXTURE_2D_ARRAY, 0, GL_RGBA8, tile_width, tile_height, tiles_length, 0,
+                     GL_RGBA, GL_UNSIGNED_BYTE, nullptr);
+
+        for(size_t i = 0; i < tiles_length; ++i) {
+            if(i % rows == 0) {
+                ptr_offset = next_row_offset * i;
+            } else {
+                ptr_offset += tile_width;
+            }
+
+            log_info_cmd("result: %d", ptr_offset * 4);
+            glTexSubImage3D(GL_TEXTURE_2D_ARRAY, 0, 0, 0, i, tile_width, tile_height, 1, GL_RGBA,
+                            GL_UNSIGNED_BYTE, data + ptr_offset * 4);
+        }
+
+
+        glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_BASE_LEVEL, 0);
+        glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_MAX_LEVEL, 1);
+        glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_MAG_FILTER, filter_max);
+        glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_MIN_FILTER, filter_min);
         glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_WRAP_S, wrap_s);
         glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_WRAP_T, wrap_t);
-        // set filter mode
-        glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_MIN_FILTER, filter_min);
-        glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_MAG_FILTER, filter_max);
+
         // unbind texture
         glBindTexture(GL_TEXTURE_2D_ARRAY, 0);
+
+        log_err_cmd("0x%x", glGetError());
     }
 }
