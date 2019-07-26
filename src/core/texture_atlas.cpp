@@ -36,6 +36,7 @@ namespace sc2d
 
     void TextureAtlas::generate()
     {
+        const uint bytes_per_pixel = image_format == GL_RGB ? 3 : 4;
         const size_t tile_width = width / rows;
         const size_t tile_height = height / columns;
         const size_t tiles_length = rows * columns;
@@ -58,9 +59,9 @@ namespace sc2d
                 ptr_offset += tile_width;
             }
 
-            log_info_cmd("result: %d", ptr_offset * 4);
+            log_info_cmd("result: %d", ptr_offset * bytes_per_pixel);
             glTexSubImage3D(GL_TEXTURE_2D_ARRAY, 0, 0, 0, i, tile_width, tile_height, 1, GL_RGBA,
-                            GL_UNSIGNED_BYTE, data + ptr_offset * 4);
+                            GL_UNSIGNED_BYTE, data + ptr_offset * bytes_per_pixel);
         }
 
 
