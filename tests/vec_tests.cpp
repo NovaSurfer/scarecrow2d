@@ -117,31 +117,31 @@ TEST_CASE("vector-operations") {
         CHECK(v2[4] == 5.99);
     }
 
-//    SUBCASE("move assignment operator")
-//    {
-//        sc2d::vec<double> v({1.99, 2.99, 3.99, 4.99, 5.99});
-//        sc2d::vec<double> v2(2, 5.0);
-//        v2 = std::move(v);
-//
-//        CHECK(v2.capacity() == 10);
-//        CHECK(v2[0] == 1.99);
-//        CHECK(v2[1] == 2.99);
-//        CHECK(v2[2] == 3.99);
-//        CHECK(v2[3] == 4.99);
-//        CHECK(v2[4] == 5.99);
-//    }
-//
-//    SUBCASE("copy assignment initializer_list")
-//    {
-//        sc2d::vec<double> v(2, 5.0);
-//        v = std::initializer_list<double> {1.99, 2.99, 3.99, 4.99, 5.99};
-//
-//        CHECK(v.capacity() == 10);
-//        CHECK(v[0] == 1.99);
-//        CHECK(v[1] == 2.99);
-//        CHECK(v[2] == 3.99);
-//        CHECK(v[3] == 4.99);
-//        CHECK(v[4] == 5.99);
-//    }
+    SUBCASE("move assignment operator")
+    {
+        sc2d::vec<double> v({1.99, 2.99, 3.99, 4.99, 5.99});
+        sc2d::vec<double> v2(2, 5.0);
+        v2 = std::move(v);
+
+        CHECK(v2.capacity() == 10);
+        CHECK(v2[0] == 1.99);
+        CHECK(v2[1] == 2.99);
+        CHECK(v2[2] == 3.99);
+        CHECK(v2[3] == 4.99);
+        CHECK(v2[4] == 5.99);
+    }
+
+    SUBCASE("copy assignment initializer_list")
+    {
+        sc2d::vec<double> v(2, 5.0);
+        v = std::initializer_list<double> {1.99, 2.99, 3.99, 4.99, 5.99};
+
+        CHECK(v.capacity() == 10);
+        CHECK(v[0] == 1.99);
+        CHECK(v[1] == 2.99);
+        CHECK(v[2] == 3.99);
+        CHECK(v[3] == 4.99);
+        CHECK(v[4] == 5.99);
+    }
 }
 
