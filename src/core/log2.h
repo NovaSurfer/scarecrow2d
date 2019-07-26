@@ -15,6 +15,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <ctime>
+#include <glad/glad.h>
 #include <mutex>
 
 #define log_info_cmd(...)                                                                          \
@@ -30,9 +31,11 @@
 #define log_err_file(...)                                                                          \
     sc2d::logging::log(sc2d::logging::FILE_S, sc2d::logging::ERR, __FILE__, __LINE__, __VA_ARGS__)
 
+#define log_gl_error_cmd() log_err_cmd("%s", sc2d::logging::check_gl_error());
+#define log_gl_error_file() log_err_file("%s", sc2d::logging::check_gl_error());
+
 namespace sc2d::logging
 {
-
     enum LogLevel
     {
         INFO,
@@ -46,15 +49,14 @@ namespace sc2d::logging
         FILE_S
     };
 
-    static constexpr const char* lvl_names[]{"INFO", "WARNING", "ERROR"};
-
-    static constexpr const char* lvl_colors[]{
+    static constexpr const char* lvl_names[] {"INFO", "WARNING", "ERROR"};
+    static constexpr const char* lvl_colors[] {
         "\x1b[32m", // INFO - green
         "\x1b[33m", // WARNING - yellow
         "\x1b[31m" // ERROR - red
     };
 
     void log(LogType log_type, LogLevel log_level, const char* file, int line, const char* fmt...);
+    const char* check_gl_error();
 }
-
 #endif //INC_2D_GAME_LOG2_H

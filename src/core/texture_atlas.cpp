@@ -75,6 +75,6 @@ namespace sc2d
         // unbind texture
         glBindTexture(GL_TEXTURE_2D_ARRAY, 0);
 
-        log_err_cmd("0x%x", glGetError());
+        log_gl_error_cmd();
     }
 }
