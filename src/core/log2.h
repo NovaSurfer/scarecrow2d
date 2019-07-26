@@ -15,7 +15,6 @@
 #include <cstdio>
 #include <cstdlib>
 #include <ctime>
-#include <glad/glad.h>
 #include <mutex>
 
 #define log_info_cmd(...)                                                                          \
