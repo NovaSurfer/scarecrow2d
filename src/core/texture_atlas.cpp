@@ -3,7 +3,7 @@
 //
 
 #include "texture_atlas.h"
-#include "log2.h"
+#include "debug_utils.h"
 
 namespace sc2d
 {

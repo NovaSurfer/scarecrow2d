@@ -31,9 +31,6 @@
 #define log_err_file(...)                                                                          \
     sc2d::logging::log(sc2d::logging::FILE_S, sc2d::logging::ERR, __FILE__, __LINE__, __VA_ARGS__)
 
-#define log_gl_error_cmd() log_err_cmd("%s", sc2d::logging::check_gl_error());
-#define log_gl_error_file() log_err_file("%s", sc2d::logging::check_gl_error());
-
 namespace sc2d::logging
 {
     enum LogLevel
