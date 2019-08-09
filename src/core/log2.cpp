@@ -11,7 +11,7 @@ namespace sc2d::logging
         time_t t = time(nullptr);
         tm lt{};
 
-#if defined(__unix__)
+#if defined(__unix__) || (__APPLE__)
         localtime_r(&t, &lt);
 #elif defined(_MSC_VER) || (__MINGW32__)
         localtime_s(&lt, &t);
