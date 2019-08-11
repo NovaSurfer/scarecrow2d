@@ -24,7 +24,7 @@ namespace sc2d
         generate();
     }
 
-    void TextureAtlas::bind(const math::size2d& crop) const
+    void TextureAtlas::bind() const
     {
         glBindTexture(GL_TEXTURE_2D_ARRAY, obj_id);
     }
@@ -59,7 +59,6 @@ namespace sc2d
                 ptr_offset += tile_width;
             }
 
-            log_info_cmd("result: %d", ptr_offset * bytes_per_pixel);
             glTexSubImage3D(GL_TEXTURE_2D_ARRAY, 0, 0, 0, i, tile_width, tile_height, 1, GL_RGBA,
                             GL_UNSIGNED_BYTE, data + ptr_offset * bytes_per_pixel);
         }

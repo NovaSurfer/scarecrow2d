@@ -24,7 +24,7 @@ namespace sc2d
         TextureAtlas() = default;
         TextureAtlas(unsigned char* img_data, const GLuint width, const GLuint height,
                      const GLuint rows, const GLuint columns, const GLuint img_format);
-        void bind(const math::size2d& crop) const;
+        void bind() const;
         const GLuint& get_obj_id() const;
 
     private:

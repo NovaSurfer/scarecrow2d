@@ -44,8 +44,8 @@ namespace sc2d
         glEnableVertexAttribArray(1);
     }
 
-    void SpriteSheet::draw(const sc2d::TextureAtlas& texatlas, math::vec2 pos, math::size2d size,
-                           math::size2d crop, float rotate)
+    void SpriteSheet::draw(const sc2d::TextureAtlas& texatlas, const math::vec2& pos,
+                           const math::size2d& size, const float rotate)
     {
         shader.run();
         math::mat4 model =
@@ -56,7 +56,7 @@ namespace sc2d
         shader.set_vec3("spriteColor", math::vec3(1.0f, 1.0f, 1.0f));
 
         glActiveTexture(GL_TEXTURE0);
-        texatlas.bind(crop);
+        texatlas.bind();
 
         glBindVertexArray(quad_vao);
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
