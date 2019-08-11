@@ -11,7 +11,7 @@ namespace sc2d::tiled
 {
 
     Map::Map(const Data& tiled_data)
-        : tiled_data{tiled_data}
+        : tiled_data {tiled_data}
     {
         crack_layer_data();
     }
@@ -34,12 +34,28 @@ namespace sc2d::tiled
         } else {
             unsigned tile_inx = 0;
             std::vector<uint32_t> tile_ids;
-            //            tile_ids.reserve(tiled_data.width * tiled_data.height);
             for(int x = 0; x < tiled_data.tile_width; ++x) {
                 for(int y = 0; y < tiled_data.height; ++y) {
                     unsigned gid = out[y * tiled_data.width + x];
-                    log_info_cmd("GID: %d", gid);
-                    tile_ids.push_back(gid);
+                    unsigned tileset_index = gid;
+
+                    // Get tileset index
+                    tileset_index &= ~(FLIPPED_HORIZONTALLY_FLAG | FLIPPED_VERTICALLY_FLAG |
+                             FLIPPED_DIAGONALLY_FLAG);
+
+                    for(int i = tiled_data.tilesets.size() - 1; i > -1; --i)
+                    {
+                        if(tileset_index >= 1)
+                            tileset_index = i;
+                        else
+                            tileset_index = -1;
+                    }
+
+                    if(tileset_index != -1)
+                    {
+                        tile_ids.push_back(gid);
+                        log_info_cmd("GID: %d", gid - 1);
+                    }
                 }
             }
             log_info_cmd("VECSIZE: %d", tile_ids.size());
