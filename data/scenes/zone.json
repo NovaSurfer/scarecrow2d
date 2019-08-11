@@ -3,7 +3,7 @@
  "layers":[
         {
          "compression":"zlib",
-         "data":"eJzt1UEKgCAQhWHvotsWdZ26QN7\/ABkoiJAJDo3G\/8FbtDDmiZYxAAAAAP7AhriQoxKrNl27VXsAIbv2AELo8b3aXZ7hDicz7XkNPcYi0WML8TFa\/xyJHqfAO3q1fJOWmKfnEXp4834myrlLTnqoTneP\/Ky3JK1BnwuMNhJP",
+         "data":"eJztw8kNwCAAwDB6UvZfmBXy6CdSLHmMJEmSJEmSfxygwQkaXKDBDRo8oMELGkzQ4AMNFmiwAYaEAZY=",
          "encoding":"base64",
          "height":30,
          "id":1,
@@ -23,15 +23,15 @@
  "tileheight":16,
  "tilesets":[
         {
-         "columns":14,
+         "columns":3,
          "firstgid":1,
-         "image":"..\/Downloads\/Pixel Platformer Asset Pack\/Tilemap\/Update 1.2 Tilemap\/update 1.2 tilemap (Pixel Platformer Engine).png",
-         "imageheight":160,
-         "imagewidth":224,
+         "image":"..\/sprites\/private\/platformer_tilemap.png",
+         "imageheight":48,
+         "imagewidth":48,
          "margin":0,
-         "name":"update 1.2 tilemap (Pixel Platformer Engine)",
+         "name":"platformer_tilemap",
          "spacing":0,
-         "tilecount":140,
+         "tilecount":9,
          "tileheight":16,
          "tilewidth":16
         }],
