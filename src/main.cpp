@@ -29,17 +29,15 @@ bool engine_init()
 int init()
 {
     glfwInit();
-    log_info_cmd("Hello %s", "world");
-    log_info_file("Hello %s", "world");
 
-    const WindowData window_data{3,
-                                 3,
-                                 GLFW_OPENGL_CORE_PROFILE,
-                                 800,
-                                 600,
-                                 "scarecrow2d",
-                                 framebuffer_size_callback,
-                                 key_callback};
+    const WindowData window_data {3,
+                                  3,
+                                  GLFW_OPENGL_CORE_PROFILE,
+                                  800,
+                                  600,
+                                  "scarecrow2d",
+                                  framebuffer_size_callback,
+                                  key_callback};
     window = std::make_unique<Window>(window_data, true);
 
     // Glad loads OpenGL functions pointers
@@ -64,19 +62,20 @@ int init()
         math::ortho(0.0f, static_cast<GLfloat>(window_data.screen_width),
                     static_cast<GLfloat>(window_data.screen_height), 0.0f, -1.0f, 1.0f);
 
-//    sc2d::ResourceHolder::get_shader("sprite-default")
-//        .set_int("image", sc2d::ResourceHolder::get_texture("engineer").get_obj_id());
-//    sc2d::ResourceHolder::get_shader("sprite-default").run().set_mat4("projection", proj);
-//    log_err_cmd("0x%x", glGetError());
-//    sprite = std::make_unique<sc2d::Sprite>(sc2d::ResourceHolder::get_shader("sprite-default"));
+    //    sc2d::ResourceHolder::get_shader("sprite-default")
+    //        .set_int("image", sc2d::ResourceHolder::get_texture("engineer").get_obj_id());
+    //    sc2d::ResourceHolder::get_shader("sprite-default").run().set_mat4("projection", proj);
+    //    log_err_cmd("0x%x", glGetError());
+    //    sprite = std::make_unique<sc2d::Sprite>(sc2d::ResourceHolder::get_shader("sprite-default"));
     log_err_cmd("0x%x", glGetError());
 
-    sc2d::ResourceHolder::get_shader("spritesheet")
-        .set_int("image_array", sc2d::ResourceHolder::get_texture_atlas("tilemap").get_obj_id());
+    const sc2d::Shader& sprite_sheet_shader = sc2d::ResourceHolder::get_shader("spritesheet");
+    sprite_sheet_shader.set_int("image_array",
+                                sc2d::ResourceHolder::get_texture_atlas("tilemap").get_obj_id());
     log_err_cmd("0x%x", glGetError());
-    sc2d::ResourceHolder::get_shader("spritesheet").run().set_mat4("projection", proj);
-
-    spritesheet = std::make_unique<sc2d::SpriteSheet>(sc2d::ResourceHolder::get_shader("spritesheet"));
+    sprite_sheet_shader.run().set_mat4("projection", proj);
+    sprite_sheet_shader.set_int("tile_index", 2);
+    spritesheet = std::make_unique<sc2d::SpriteSheet>(sprite_sheet_shader);
 
     return glGetError();
 }
@@ -90,10 +89,10 @@ void draw()
 {
     glClearColor(0.0f, 0.3f, 0.3f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
-//    sprite->draw(sc2d::ResourceHolder::get_texture("logo"), math::vec2(0, 0),
-//                 math::size2d(111, 148), 0);
+    //    sprite->draw(sc2d::ResourceHolder::get_texture("logo"), math::vec2(0, 0),
+    //                 math::size2d(111, 148), 0);
     spritesheet->draw(sc2d::ResourceHolder::get_texture_atlas("tilemap"), math::vec2(0, 0),
-                      math::size2d(16,16), math::size2d(0, 0), 0);
+                      math::size2d(16, 16), 0);
     glfwSwapBuffers(window->get_window());
 }
 
