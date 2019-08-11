@@ -10,7 +10,7 @@
 namespace sc2d
 {
 
-    Vertex Sprite::quad_vertices[VERTICES_PER_QUAD]{
+    Vertex Sprite::quad_vertices[VERTICES_PER_QUAD] {
         SPRITE_QUAD.tr,
         SPRITE_QUAD.br,
         SPRITE_QUAD.bl,
@@ -23,7 +23,8 @@ namespace sc2d
         init_data();
     }
 
-    void Sprite::draw(const Texture2d& tex2d, math::vec2 pos, math::size2d size, float rotate)
+    void Sprite::draw(const Texture2d& tex2d, const math::vec2& pos, const math::size2d& size,
+                      const float rotate)
     {
         shader.run();
         math::mat4 model =

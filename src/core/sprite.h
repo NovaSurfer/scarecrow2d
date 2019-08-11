@@ -18,8 +18,8 @@ namespace sc2d
     {
     public:
         explicit Sprite(const Shader& shader);
-        void draw(const Texture2d& tex2d, math::vec2 pos, math::size2d = {10, 10},
-                  float rotate = 0.0);
+        void draw(const Texture2d& tex2d, const math::vec2& pos, const math::size2d& size,
+                  const float rotate = 0.0);
 
     private:
         static Vertex quad_vertices[VERTICES_PER_QUAD];
