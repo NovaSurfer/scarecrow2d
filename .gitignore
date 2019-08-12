@@ -48,3 +48,6 @@ bin/
 
 # Private assets
 data/sprites/private
+
+# OS generated files
+.DS_Store
