@@ -3,6 +3,7 @@
 //
 
 #include "tiled_map.h"
+#include "sprite_sheet.h"
 #include "../../deps/base64/base64.h"
 #include "../../deps/miniz/miniz.h"
 #include "log2.h"
@@ -32,8 +33,10 @@ namespace sc2d::tiled
             log_err_cmd("ERROR!");
             free(out);
         } else {
+
             unsigned tile_inx = 0;
             std::vector<uint32_t> tile_ids;
+
             for(int x = 0; x < tiled_data.tile_width; ++x) {
                 for(int y = 0; y < tiled_data.height; ++y) {
                     unsigned gid = out[y * tiled_data.width + x];
@@ -50,7 +53,9 @@ namespace sc2d::tiled
                         else
                             tileset_index = -1;
                     }
-
+		            
+                    map_gids[x][y] = gid; 
+                    
                     if(tileset_index != -1)
                     {
                         tile_ids.push_back(gid);
@@ -59,6 +64,15 @@ namespace sc2d::tiled
                 }
             }
             log_info_cmd("VECSIZE: %d", tile_ids.size());
+        }
+    }
+
+    void Map::draw_map()
+    {
+	    for(int x = 0; x < tiled_data.tile_width; ++x) {
+            for(int y = 0; y < tiled_data.tile_height; ++y) {
+                
+            }
         }
     }
 }
