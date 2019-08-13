@@ -98,10 +98,11 @@ namespace sc2d::tiled
 
     private:
         Data tiled_data;
-	std::vector<std::vector<int>> map_gids;
+	    std::vector<uint32_t> map_gids;
 	
         void crack_layer_data();
-	void draw_map();
+        void init_map();
+    	void draw_map();
     };
 }
 

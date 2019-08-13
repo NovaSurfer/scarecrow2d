@@ -35,9 +35,9 @@ namespace sc2d::tiled
         } else {
 
             unsigned tile_inx = 0;
-            std::vector<uint32_t> tile_ids;
+            map_gids.resize(tiled_data.width * tiled_data.height, 0);
 
-            for(int x = 0; x < tiled_data.tile_width; ++x) {
+            for(int x = 0; x < tiled_data.width; ++x) {
                 for(int y = 0; y < tiled_data.height; ++y) {
                     unsigned gid = out[y * tiled_data.width + x];
                     unsigned tileset_index = gid;
@@ -53,26 +53,31 @@ namespace sc2d::tiled
                         else
                             tileset_index = -1;
                     }
-		            
-                    map_gids[x][y] = gid; 
                     
                     if(tileset_index != -1)
                     {
-                        tile_ids.push_back(gid);
-                        log_info_cmd("GID: %d", gid - 1);
+                        map_gids[y * tiled_data.width + x] = gid;
+                        log_info_cmd("GID: %d", gid);
                     }
                 }
             }
-            log_info_cmd("VECSIZE: %d", tile_ids.size());
+            log_info_cmd("VECSIZE: %d", map_gids.size());
         }
+        free(out);
     }
 
     void Map::draw_map()
     {
-	    for(int x = 0; x < tiled_data.tile_width; ++x) {
-            for(int y = 0; y < tiled_data.tile_height; ++y) {
-                
+        // Hard coding stuff
+        for(int x = 0; x < tiled_data.tile_width; ++x) {
+            for(int y = 0; y < tiled_data.tile_width; ++y) {
+                uint32_t tile_index = map_gids[y * tiled_data.width + x];
             }
         }
+    }
+
+    void Map::init_map()
+    {
+            
     }
 }
