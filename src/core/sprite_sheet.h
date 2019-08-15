@@ -17,13 +17,14 @@ namespace sc2d
     class SpriteSheet
     {
     public:
-        explicit SpriteSheet(const Shader& shader);
-        void draw(const TextureAtlas& texatlas, const math::vec2& pos, const math::size2d& size,
+        SpriteSheet(const Shader& shader, const math::vec2& pos);
+        void draw(const TextureAtlas& texatlas, const math::size2d& size,
                   const float rotate = 0.0f);
 
     private:
         static Vertex quad_vertices[VERTICES_PER_QUAD];
         Shader shader;
+        math::vec2 position;
         GLuint quad_vao;
 
         void init_data();

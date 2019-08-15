@@ -5,15 +5,17 @@
 #include "sprite_sheet.h"
 #include "math/transform.h"
 #include "texture_atlas.h"
+#include "core/debug_utils.h"
 
 namespace sc2d
 {
     Vertex SpriteSheet::quad_vertices[VERTICES_PER_QUAD] {SPRITE_QUAD.tr, SPRITE_QUAD.br,
                                                           SPRITE_QUAD.bl, SPRITE_QUAD.tl};
 
-    SpriteSheet::SpriteSheet(const sc2d::Shader& shader)
+    SpriteSheet::SpriteSheet(const sc2d::Shader& shader, const math::vec2& pos)
+        : shader {shader}
+        , position {pos}
     {
-        this->shader = shader;
         init_data();
     }
 
@@ -44,13 +46,13 @@ namespace sc2d
         glEnableVertexAttribArray(1);
     }
 
-    void SpriteSheet::draw(const sc2d::TextureAtlas& texatlas, const math::vec2& pos,
-                           const math::size2d& size, const float rotate)
+    void SpriteSheet::draw(const sc2d::TextureAtlas& texatlas, const math::size2d& size,
+                           const float rotate)
     {
         shader.run();
-        math::mat4 model =
-            math::transform(math::vec3(size.width, size.height, 1.0f), math::vec3(0.0f, 0.0f, 1.0f),
-                            rotate, math::vec3(0.5f * size.width, 0.5f * size.height, 0.0f));
+        math::mat4 model = math::transform(
+            math::vec3(size.width, size.height, 1.0f), math::vec3(0.0f, 0.0f, 1.0f), rotate,
+            math::vec3(0.5f * size.width + position.x, 0.5f * size.height + position.y, 0.0f));
 
         shader.set_mat4("model", model);
         shader.set_vec3("spriteColor", math::vec3(1.0f, 1.0f, 1.0f));
@@ -62,5 +64,6 @@ namespace sc2d
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
         glBindVertexArray(0);
+        log_gl_error_cmd();
     }
 }

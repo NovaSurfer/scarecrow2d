@@ -3,10 +3,11 @@
 //
 
 #include "tiled_map.h"
-#include "sprite_sheet.h"
 #include "../../deps/base64/base64.h"
 #include "../../deps/miniz/miniz.h"
 #include "log2.h"
+#include "math/size2d.h"
+#include "math/vector2.h"
 
 namespace sc2d::tiled
 {
@@ -34,7 +35,6 @@ namespace sc2d::tiled
             free(out);
         } else {
 
-            unsigned tile_inx = 0;
             map_gids.resize(tiled_data.width * tiled_data.height, 0);
 
             for(int x = 0; x < tiled_data.width; ++x) {
@@ -44,19 +44,23 @@ namespace sc2d::tiled
 
                     // Get tileset index
                     tileset_index &= ~(FLIPPED_HORIZONTALLY_FLAG | FLIPPED_VERTICALLY_FLAG |
-                             FLIPPED_DIAGONALLY_FLAG);
+                                       FLIPPED_DIAGONALLY_FLAG);
 
-                    for(int i = tiled_data.tilesets.size() - 1; i > -1; --i)
-                    {
+                    for(int i = tiled_data.tilesets.size() - 1; i > -1; --i) {
                         if(tileset_index >= 1)
                             tileset_index = i;
                         else
                             tileset_index = -1;
                     }
-                    
-                    if(tileset_index != -1)
-                    {
+
+                    if(tileset_index != -1) {
                         map_gids[y * tiled_data.width + x] = gid;
+                        if(gid > 0) {
+                            shader.set_int("tile_index", gid - 1);
+                            sprites.emplace_back(std::make_shared<sc2d::SpriteSheet>(
+                                shader,
+                                math::vec2(x * tiled_data.tile_width, y * tiled_data.tile_height)));
+                        }
                         log_info_cmd("GID: %d", gid);
                     }
                 }
@@ -66,18 +70,11 @@ namespace sc2d::tiled
         free(out);
     }
 
-    void Map::draw_map()
+    void Map::draw_map(const sc2d::TextureAtlas& tex_atlas)
     {
-        // Hard coding stuff
-        for(int x = 0; x < tiled_data.tile_width; ++x) {
-            for(int y = 0; y < tiled_data.tile_width; ++y) {
-                uint32_t tile_index = map_gids[y * tiled_data.width + x];
-            }
+        for(const auto& s : sprites)
+        {
+            s->draw(tex_atlas, math::size2d(tiled_data.tile_width, tiled_data.tile_height), 0);
         }
-    }
-
-    void Map::init_map()
-    {
-            
     }
 }

@@ -7,6 +7,9 @@
 
 #include <string>
 #include <vector>
+#include "sprite_sheet.h"
+#include "shader.h"
+#include "texture_atlas.h"
 
 namespace sc2d::tiled
 {
@@ -59,7 +62,7 @@ namespace sc2d::tiled
 
     private:
         std::string img_path;
-    };
+};
 
     struct Tile
     {};
@@ -94,15 +97,19 @@ namespace sc2d::tiled
     {
     public:
         Map() = default;
-        explicit Map(const Data& tiled_data);
-
+         explicit Map(const Data& tiled_data);
+    	void draw_map(const sc2d::TextureAtlas& tex_atlas);
+        void set_shader(const sc2d::Shader& s)
+        {
+            shader = s;
+        }
     private:
         Data tiled_data;
+        sc2d::Shader shader;
 	    std::vector<uint32_t> map_gids;
+        std::vector<std::shared_ptr<sc2d::SpriteSheet>> sprites;
 	
         void crack_layer_data();
-        void init_map();
-    	void draw_map();
     };
 }
 

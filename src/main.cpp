@@ -12,10 +12,14 @@
 #include <GLFW/glfw3.h>
 #include <glad/glad.h>
 #include <iostream>
+#include "core/tiled_map.h"
 
 std::unique_ptr<Window> window;
 std::unique_ptr<sc2d::Sprite> sprite;
 std::unique_ptr<sc2d::SpriteSheet> spritesheet;
+
+sc2d::tiled::Map tiled_map;
+sc2d::TextureAtlas tex_atlas;
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
@@ -62,20 +66,22 @@ int init()
         math::ortho(0.0f, static_cast<GLfloat>(window_data.screen_width),
                     static_cast<GLfloat>(window_data.screen_height), 0.0f, -1.0f, 1.0f);
 
-    //    sc2d::ResourceHolder::get_shader("sprite-default")
-    //        .set_int("image", sc2d::ResourceHolder::get_texture("engineer").get_obj_id());
-    //    sc2d::ResourceHolder::get_shader("sprite-default").run().set_mat4("projection", proj);
-    //    log_err_cmd("0x%x", glGetError());
-    //    sprite = std::make_unique<sc2d::Sprite>(sc2d::ResourceHolder::get_shader("sprite-default"));
-    log_err_cmd("0x%x", glGetError());
-
+//        sc2d::ResourceHolder::get_shader("sprite-default")
+//            .set_int("image", sc2d::ResourceHolder::get_texture("engineer").get_obj_id());
+//        sc2d::ResourceHolder::get_shader("sprite-default").run().set_mat4("projection", proj);
+//        log_err_cmd("0x%x", glGetError());
+//        sprite = std::make_unique<sc2d::Sprite>(sc2d::ResourceHolder::get_shader("sprite-default"));
+//    log_err_cmd("0x%x", glGetError());
+//
     const sc2d::Shader& sprite_sheet_shader = sc2d::ResourceHolder::get_shader("spritesheet");
-    sprite_sheet_shader.set_int("image_array",
-                                sc2d::ResourceHolder::get_texture_atlas("tilemap").get_obj_id());
-    log_err_cmd("0x%x", glGetError());
+    tex_atlas = sc2d::ResourceHolder::get_texture_atlas("tilemap");
+    sprite_sheet_shader.set_int("image_array", tex_atlas.get_obj_id());
+    log_gl_error_cmd()
     sprite_sheet_shader.run().set_mat4("projection", proj);
+    tiled_map = sc2d::ResourceHolder::get_tiled_map("wasd");
+    tiled_map.set_shader(sprite_sheet_shader);
     sprite_sheet_shader.set_int("tile_index", 2);
-    spritesheet = std::make_unique<sc2d::SpriteSheet>(sprite_sheet_shader);
+//    spritesheet = std::make_unique<sc2d::SpriteSheet>(sprite_sheet_shader);
 
     return glGetError();
 }
@@ -89,10 +95,11 @@ void draw()
 {
     glClearColor(0.0f, 0.3f, 0.3f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
-    //    sprite->draw(sc2d::ResourceHolder::get_texture("logo"), math::vec2(0, 0),
-    //                 math::size2d(111, 148), 0);
-    spritesheet->draw(sc2d::ResourceHolder::get_texture_atlas("tilemap"), math::vec2(0, 0),
-                      math::size2d(16, 16), 0);
+//        sprite->draw(sc2d::ResourceHolder::get_texture("logo"), math::vec2(0, 0),
+//                     math::size2d(111, 148), 0);
+//    spritesheet->draw(sc2d::ResourceHolder::get_texture_atlas("tilemap"), math::vec2(0, 0),
+//                     math::size2d(16, 16), 0);
+    tiled_map.draw_map(tex_atlas);
     glfwSwapBuffers(window->get_window());
 }
 
