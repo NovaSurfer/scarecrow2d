@@ -97,6 +97,11 @@ namespace sc2d
         glUniform3f(glGetUniformLocation(program, name), value.x, value.y, value.z);
     }
 
+    void Shader::set_vec2(const GLchar* name, const math::vec2& value) const
+    {
+        glUniform2f(glGetUniformLocation(program, name), value.x, value.y);
+    }
+
     void Shader::set_int(const GLchar* name, GLint value) const
     {
         glUniform1i(glGetUniformLocation(program, name), value);

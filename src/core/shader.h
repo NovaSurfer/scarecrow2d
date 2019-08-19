@@ -7,6 +7,7 @@
 
 #include "math/matrix4.h"
 #include "math/vector3.h"
+#include "math/vector2.h"
 #include <glad/glad.h>
 #include <map>
 
@@ -30,6 +31,7 @@ namespace sc2d
 
         void set_mat4(const GLchar* name, const math::mat4& matrix) const;
         void set_vec3(const GLchar* name, const math::vec3& value) const;
+        void set_vec2(const GLchar* name, const math::vec2& value) const;
         void set_int(const GLchar* name, GLint value) const;
 
     private:

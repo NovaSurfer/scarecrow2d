@@ -102,12 +102,14 @@ namespace sc2d::tiled
         void set_shader(const sc2d::Shader& s)
         {
             shader = s;
+            crack_layer_data();
         }
     private:
         Data tiled_data;
         sc2d::Shader shader;
 	    std::vector<uint32_t> map_gids;
-        std::vector<std::shared_ptr<sc2d::SpriteSheet>> sprites;
+//        std::vector<std::shared_ptr<sc2d::SpriteSheet>> sprites;
+        sc2d::SpriteSheet sprite_sheet;
 	
         void crack_layer_data();
     };
