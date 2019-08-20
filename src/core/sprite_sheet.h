@@ -19,14 +19,16 @@ namespace sc2d
     {
     public:
         SpriteSheet() = default;
-        SpriteSheet(const Shader& shader, std::vector<math::vec2>&& pos);
-        void draw(const TextureAtlas& texatlas, const math::size2d& size,
-                  const float rotate = 0.0f);
+        SpriteSheet(const Shader& shader, const math::size2d& size, std::vector<math::vec2>&& pos,
+                    std::vector<uint32_t>&& gid);
+        void draw(const TextureAtlas& texatlas);
 
     private:
         static Vertex quad_vertices[VERTICES_PER_QUAD];
         Shader shader;
+        math::size2d size;
         std::vector<math::vec2> positions;
+        std::vector<uint32_t> gids;
         GLuint quad_vao;
 
         void init_data();

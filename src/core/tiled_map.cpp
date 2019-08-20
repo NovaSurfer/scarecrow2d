@@ -35,7 +35,11 @@ namespace sc2d::tiled
             free(out);
         } else {
 
+            log_info_cmd("size in bytes %d: ", sizeof(out));
             map_gids.resize(tiled_data.width * tiled_data.height, 0);
+
+            std::vector<math::vec2> positions;
+            std::vector<uint32_t> nn_gids;
 
             for(int x = 0; x < tiled_data.width; ++x) {
                 for(int y = 0; y < tiled_data.height; ++y) {
@@ -55,31 +59,31 @@ namespace sc2d::tiled
 
                     if(tileset_index != -1) {
                         map_gids[y * tiled_data.width + x] = gid;
-                        std::vector<math::vec2> positions;
-                        positions.emplace_back(x * tiled_data.tile_width,
-                                               y * tiled_data.tile_height);
                         if(gid > 0) {
-                            shader.set_int("tile_index", gid - 2);
-                            sprite_sheet = SpriteSheet(shader, std::move(positions));
-//                            sprites.emplace_back(std::make_shared<sc2d::SpriteSheet>(
-//                                shader,
-//                                math::vec2(x * tiled_data.tile_width, y * tiled_data.tile_height)));
+                            positions.emplace_back(x * tiled_data.tile_width,
+                                                   y * tiled_data.tile_height);
+                            nn_gids.emplace_back(gid);
+                            shader.set_int("tile_index", gid - 1);
+                            //                            sprites.emplace_back(std::make_shared<sc2d::SpriteSheet>(
+                            //                                shader,
+                            //                                math::vec2(x * tiled_data.tile_width, y * tiled_data.tile_height)));
                         }
                         log_info_cmd("GID: %d", gid);
                     }
                 }
             }
+            sprite_sheet = SpriteSheet(shader, math::size2d(tiled_data.tile_width, tiled_data.tile_height), std::move(positions), std::move(nn_gids));
             log_info_cmd("VECSIZE: %d", map_gids.size());
-//            log_info_cmd("SPRITES SIZE: %d", sprites.size());
+            //            log_info_cmd("SPRITES SIZE: %d", sprites.size());
         }
         free(out);
     }
 
     void Map::draw_map(const sc2d::TextureAtlas& tex_atlas)
     {
-        sprite_sheet.draw(tex_atlas, math::size2d(5,5), 0);
-//        for(const auto& s : sprites) {
-//            s->draw(tex_atlas, math::size2d(5, 5), 0);
-//        }
+        sprite_sheet.draw(tex_atlas);
+        //        for(const auto& s : sprites) {
+        //            s->draw(tex_atlas, math::size2d(5, 5), 0);
+        //        }
     }
 }
