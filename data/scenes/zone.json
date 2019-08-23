@@ -18,6 +18,12 @@
  "nextlayerid":2,
  "nextobjectid":1,
  "orientation":"orthogonal",
+ "properties":[
+        {
+         "name":"content_count",
+         "type":"int",
+         "value":81
+        }],
  "renderorder":"right-down",
  "tiledversion":"1.2.4",
  "tileheight":16,
