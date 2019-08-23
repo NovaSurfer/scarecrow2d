@@ -38,8 +38,8 @@ namespace sc2d::tiled
             free(out);
         } else {
             map_gids.reserve(tiled_data.width * tiled_data.height);
-            constexpr size_t HARDCODED_VALUE = 81;
-            SpriteSheetInstanceData<HARDCODED_VALUE> sids {};
+            uint32_t data_gids[tiled_data.content_count];
+            math::vec2 data_pos[tiled_data.content_count];
             uint32_t sid_idx = 0;
 
             for(int x = 0; x < tiled_data.width; ++x) {
@@ -61,23 +61,26 @@ namespace sc2d::tiled
                     if(tileset_index != -1) {
                         map_gids[y * tiled_data.width + x] = gid;
                         if(gid > 0) {
-                            sids.pos[sid_idx].x = x * tiled_data.tile_width;
-                            sids.pos[sid_idx].y = y * tiled_data.tile_height;
-                            sids.gid[sid_idx] = gid - 1;
+                            data_pos[sid_idx].x = x * tiled_data.tile_width;
+                            data_pos[sid_idx].y = y * tiled_data.tile_height;
+                            data_gids[sid_idx] = gid - 1;
                             ++sid_idx;
                         }
                         log_info_cmd("GID: %d", gid);
                     }
                 }
             }
-            sprite_sheet.init_data<HARDCODED_VALUE>(
-                shader, math::size2d(tiled_data.tile_width, tiled_data.tile_height), sids);
+
+            SpriteSheetInstanceData sids(data_gids, data_pos);
+            sprite_sheet.init_data(
+                shader, math::size2d(tiled_data.tile_width, tiled_data.tile_height),
+                tiled_data.content_count, sids);
             log_info_cmd("VECSIZE: %d", map_gids.size());
         }
         free(out);
     }
 
-    void Map::draw_map(const GLuint texatlas_id)
+    void Map::draw_map(const GLuint texatlas_id) const
     {
         sprite_sheet.draw(texatlas_id);
     }

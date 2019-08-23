@@ -102,7 +102,7 @@ namespace sc2d::tiled
         Map() = default;
         explicit Map(const Data& tiled_data);
         void init(const sc2d::Shader& map_shader);
-        void draw_map(const GLuint texatlas_id);
+        void draw_map(const GLuint texatlas_id) const;
 
     private:
         Data tiled_data;
