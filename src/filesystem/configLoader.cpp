@@ -49,8 +49,7 @@ namespace sc2d
 
             if(!s_atlas)
                 ResourceHolder::load_texture(s_path, s_alpha, s_name);
-            else
-            {
+            else {
                 const uint rows = sprite["rows"].get<uint>();
                 const uint columns = sprite["columns"].get<uint>();
                 ResourceHolder::load_texture_atlas(s_path, rows, columns, s_alpha, s_name);
@@ -74,6 +73,10 @@ namespace sc2d
         const int height = obj_json[FsConsts::SCN_HEIGHT].get<const int>();
         const int tile_with = obj_json[FsConsts::SCN_TILE_WIDTH].get<const int>();
         const int tile_height = obj_json[FsConsts::SCN_TILE_HEIGHT].get<const int>();
+
+        // Getting value of first property - 'content_count'
+        const size_t content_count = obj_json["properties"][0]["value"].get<const size_t>();
+        log_info_cmd("content count: %d", content_count);
 
         const auto layers_section = obj_json[FsConsts::SCN_LAYERS];
         std::vector<tiled::Layer> tls;
@@ -102,8 +105,8 @@ namespace sc2d
             tss.emplace_back(tile_set);
         }
 
-        tiled::Data tiledData{width,       height,         tile_with,
-                              tile_height, std::move(tls), std::move(tss)};
+        tiled::Data tiledData {width,         height,         tile_with,     tile_height,
+                               content_count, std::move(tls), std::move(tss)};
         ResourceHolder::load_tiled_map("wasd", tiledData);
     }
 

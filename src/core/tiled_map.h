@@ -62,33 +62,36 @@ namespace sc2d::tiled
 
     private:
         std::string img_path;
-};
+    };
 
-//    struct Tile
-//    {};
+    //    struct Tile
+    //    {};
 
     struct Data
     {
         Data()
-            : width{}
-            , height{}
-            , tile_width{}
-            , tile_height{}
+            : width {}
+            , height {}
+            , tile_width {}
+            , tile_height {}
+            , content_count {}
         {}
-        Data(int width, int height, int tile_width, int tile_height, std::vector<Layer>&& layers,
-             std::vector<Set>&& tilesets)
-            : width{width}
-            , height{height}
-            , tile_width{tile_width}
-            , tile_height{tile_height}
-            , layers{layers}
-            , tilesets{tilesets}
+        Data(int width, int height, int tile_width, int tile_height, size_t content_count,
+             std::vector<Layer>&& layers, std::vector<Set>&& tilesets)
+            : width {width}
+            , height {height}
+            , tile_width {tile_width}
+            , tile_height {tile_height}
+            , content_count {content_count}
+            , layers {layers}
+            , tilesets {tilesets}
         {}
 
         int width;
         int height;
         int tile_width;
         int tile_height;
+        size_t content_count;
         std::vector<Layer> layers;
         std::vector<Set> tilesets;
     };
@@ -98,15 +101,15 @@ namespace sc2d::tiled
     public:
         Map() = default;
         explicit Map(const Data& tiled_data);
-    	void init(const sc2d::Shader& map_shader);
-    	void draw_map(const GLuint texatlas_id);
+        void init(const sc2d::Shader& map_shader);
+        void draw_map(const GLuint texatlas_id);
 
     private:
         Data tiled_data;
         sc2d::Shader shader;
-	    std::vector<uint32_t> map_gids;
+        std::vector<uint32_t> map_gids;
         sc2d::SpriteSheetInstanced sprite_sheet;
-	
+
         void crack_layer_data();
     };
 }
