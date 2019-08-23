@@ -29,7 +29,7 @@ namespace sc2d
         glBindTexture(GL_TEXTURE_2D_ARRAY, obj_id);
     }
 
-    const GLuint& TextureAtlas::get_obj_id() const
+    const GLuint TextureAtlas::get_obj_id() const
     {
         return obj_id;
     }
@@ -62,7 +62,6 @@ namespace sc2d
             glTexSubImage3D(GL_TEXTURE_2D_ARRAY, 0, 0, 0, i, tile_width, tile_height, 1, GL_RGBA,
                             GL_UNSIGNED_BYTE, data + ptr_offset * bytes_per_pixel);
         }
-
 
         glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_BASE_LEVEL, 0);
         glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_MAX_LEVEL, 1);
