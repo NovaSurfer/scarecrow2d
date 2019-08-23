@@ -104,7 +104,7 @@ namespace sc2d
 
         tiled::Data tiledData{width,       height,         tile_with,
                               tile_height, std::move(tls), std::move(tss)};
-        ResourceHolder::load_tiled_map("<[:)", tiledData);
+        ResourceHolder::load_tiled_map("wasd", tiledData);
     }
 
     // Explicitly instantiating Config template

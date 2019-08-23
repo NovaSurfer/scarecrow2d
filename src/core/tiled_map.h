@@ -5,6 +5,9 @@
 #ifndef INC_2D_GAME_TILED_MAP_H
 #define INC_2D_GAME_TILED_MAP_H
 
+#include "shader.h"
+#include "sprite_sheet_inst.h"
+#include "texture_atlas.h"
 #include <string>
 #include <vector>
 
@@ -59,10 +62,10 @@ namespace sc2d::tiled
 
     private:
         std::string img_path;
-    };
+};
 
-    struct Tile
-    {};
+//    struct Tile
+//    {};
 
     struct Data
     {
@@ -95,14 +98,16 @@ namespace sc2d::tiled
     public:
         Map() = default;
         explicit Map(const Data& tiled_data);
+    	void init(const sc2d::Shader& map_shader);
+    	void draw_map(const GLuint texatlas_id);
 
     private:
         Data tiled_data;
+        sc2d::Shader shader;
 	    std::vector<uint32_t> map_gids;
+        sc2d::SpriteSheetInstanced sprite_sheet;
 	
         void crack_layer_data();
-        void init_map();
-    	void draw_map();
     };
 }
 

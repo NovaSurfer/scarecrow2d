@@ -25,7 +25,7 @@ namespace sc2d
         TextureAtlas(unsigned char* img_data, const GLuint width, const GLuint height,
                      const GLuint rows, const GLuint columns, const GLuint img_format);
         void bind() const;
-        const GLuint& get_obj_id() const;
+        const GLuint get_obj_id() const;
 
     private:
         unsigned char* data;
@@ -41,7 +41,6 @@ namespace sc2d
         GLuint wrap_t;
         GLuint filter_min;
         GLuint filter_max;
-        GLenum texture_type;
 
         void generate();
     };
