@@ -2,9 +2,11 @@
 // Created by Maksim Ruts on 28-Aug-18.
 //
 
+#include "core/debug_utils.h"
 #include "core/log2.h"
 #include "core/sprite.h"
-#include "core/sprite_sheet.h"
+#include "core/sprite_sheet_inst.h"
+#include "core/tiled_map.h"
 #include "core/window.h"
 #include "filesystem/configLoader.h"
 #include "filesystem/resourceHolder.h"
@@ -12,11 +14,10 @@
 #include <GLFW/glfw3.h>
 #include <glad/glad.h>
 #include <iostream>
-#include "core/tiled_map.h"
 
 std::unique_ptr<Window> window;
 std::unique_ptr<sc2d::Sprite> sprite;
-std::unique_ptr<sc2d::SpriteSheet> spritesheet;
+std::unique_ptr<sc2d::SpriteSheetInstanced> spritesheet;
 
 sc2d::tiled::Map tiled_map;
 sc2d::TextureAtlas tex_atlas;
@@ -79,9 +80,9 @@ int init()
     log_gl_error_cmd()
     sprite_sheet_shader.run().set_mat4("projection", proj);
     tiled_map = sc2d::ResourceHolder::get_tiled_map("wasd");
-    tiled_map.set_shader(sprite_sheet_shader);
-    sprite_sheet_shader.set_int("tile_index", 2);
-//    spritesheet = std::make_unique<sc2d::SpriteSheet>(sprite_sheet_shader);
+    tiled_map.init(sprite_sheet_shader);
+    log_gl_error_cmd()
+//    spritesheet = std::make_unique<sc2d::SpriteSheetInstanced>(sprite_sheet_shader);
 
     return glGetError();
 }
@@ -99,7 +100,7 @@ void draw()
 //                     math::size2d(111, 148), 0);
 //    spritesheet->draw(sc2d::ResourceHolder::get_texture_atlas("tilemap"), math::vec2(0, 0),
 //                     math::size2d(16, 16), 0);
-    tiled_map.draw_map(tex_atlas);
+    tiled_map.draw_map(tex_atlas.get_obj_id());
     glfwSwapBuffers(window->get_window());
 }
 

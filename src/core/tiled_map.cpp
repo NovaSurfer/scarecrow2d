@@ -7,15 +7,18 @@
 #include "../../deps/miniz/miniz.h"
 #include "log2.h"
 #include "math/size2d.h"
-#include "math/vector2.h"
 
 namespace sc2d::tiled
 {
 
     Map::Map(const Data& tiled_data)
         : tiled_data {tiled_data}
+    {}
+
+    void Map::init(const sc2d::Shader& map_shader)
     {
-        //        crack_layer_data();
+        shader = map_shader;
+        crack_layer_data();
     }
 
     // TODO: Move zlib / miniz stuff to another class and wrap it for C++
@@ -34,12 +37,10 @@ namespace sc2d::tiled
             log_err_cmd("ERROR!");
             free(out);
         } else {
-
-            log_info_cmd("size in bytes %d: ", sizeof(out));
-            map_gids.resize(tiled_data.width * tiled_data.height, 0);
-
-            std::vector<math::vec2> positions;
-            std::vector<uint32_t> nn_gids;
+            map_gids.reserve(tiled_data.width * tiled_data.height);
+            constexpr size_t HARDCODED_VALUE = 81;
+            SpriteSheetInstanceData<HARDCODED_VALUE> sids {};
+            uint32_t sid_idx = 0;
 
             for(int x = 0; x < tiled_data.width; ++x) {
                 for(int y = 0; y < tiled_data.height; ++y) {
@@ -60,30 +61,24 @@ namespace sc2d::tiled
                     if(tileset_index != -1) {
                         map_gids[y * tiled_data.width + x] = gid;
                         if(gid > 0) {
-                            positions.emplace_back(x * tiled_data.tile_width,
-                                                   y * tiled_data.tile_height);
-                            nn_gids.emplace_back(gid);
-                            shader.set_int("tile_index", gid - 1);
-                            //                            sprites.emplace_back(std::make_shared<sc2d::SpriteSheet>(
-                            //                                shader,
-                            //                                math::vec2(x * tiled_data.tile_width, y * tiled_data.tile_height)));
+                            sids.pos[sid_idx].x = x * tiled_data.tile_width;
+                            sids.pos[sid_idx].y = y * tiled_data.tile_height;
+                            sids.gid[sid_idx] = gid - 1;
+                            ++sid_idx;
                         }
                         log_info_cmd("GID: %d", gid);
                     }
                 }
             }
-            sprite_sheet = SpriteSheet(shader, math::size2d(tiled_data.tile_width, tiled_data.tile_height), std::move(positions), std::move(nn_gids));
+            sprite_sheet.init_data<HARDCODED_VALUE>(
+                shader, math::size2d(tiled_data.tile_width, tiled_data.tile_height), sids);
             log_info_cmd("VECSIZE: %d", map_gids.size());
-            //            log_info_cmd("SPRITES SIZE: %d", sprites.size());
         }
         free(out);
     }
 
-    void Map::draw_map(const sc2d::TextureAtlas& tex_atlas)
+    void Map::draw_map(const GLuint texatlas_id)
     {
-        sprite_sheet.draw(tex_atlas);
-        //        for(const auto& s : sprites) {
-        //            s->draw(tex_atlas, math::size2d(5, 5), 0);
-        //        }
+        sprite_sheet.draw(texatlas_id);
     }
 }
