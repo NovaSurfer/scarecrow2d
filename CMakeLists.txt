@@ -62,7 +62,7 @@ set(SOURCE_FILES
 		${SRC_DIR}/memory/free_list_allocator.h 	 ${SRC_DIR}/memory/free_list_allocator.cpp
 		${SRC_DIR}/memory/dynamic_linear_allocator.cpp ${SRC_DIR}/memory/dynamic_linear_allocator.h
 		${SRC_DIR}/memory/heap_allocator.h			 ${SRC_DIR}/memory/heap_allocator.cpp
-		${SRC_DIR}/core/debug_utils.h ${SRC_DIR}/core/debug_utils.cpp)
+		${SRC_DIR}/core/debug_utils.h ${SRC_DIR}/core/debug_utils.cpp src/core/result.h src/core/asserts.h src/core/compiler.h)
 #        ${SRC_DIR}/game2.cpp
 #        ${SRC_DIR}/game2.h)
 #        ${SRC_DIR}/textureManager.cpp
