@@ -22,6 +22,8 @@ else()
 	add_compile_options("-Wall" "-Wextra" "-Wshadow" "-Wnon-virtual-dtor" "-pedantic" "$<$<CONFIG:DEBUG>:-O0>")
 endif()
 
+	#add_compile_options("-fno-exceptions")
+
 if(MINGW)
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static-libstdc++")
 endif()
@@ -62,7 +64,8 @@ set(SOURCE_FILES
 		${SRC_DIR}/memory/free_list_allocator.h 	 ${SRC_DIR}/memory/free_list_allocator.cpp
 		${SRC_DIR}/memory/dynamic_linear_allocator.cpp ${SRC_DIR}/memory/dynamic_linear_allocator.h
 		${SRC_DIR}/memory/heap_allocator.h			 ${SRC_DIR}/memory/heap_allocator.cpp
-		${SRC_DIR}/core/debug_utils.h ${SRC_DIR}/core/debug_utils.cpp src/core/result.h src/core/asserts.h src/core/compiler.h)
+		${SRC_DIR}/core/stacktrace.cpp ${SRC_DIR}/core/stacktrace.h
+		${SRC_DIR}/core/debug_utils.h ${SRC_DIR}/core/debug_utils.cpp src/core/result.h src/core/asserts.h src/core/compiler.h src/core/stacktrace.cpp src/core/stacktrace.h)
 #        ${SRC_DIR}/game2.cpp
 #        ${SRC_DIR}/game2.h)
 #        ${SRC_DIR}/textureManager.cpp
