@@ -48,23 +48,23 @@ const char* Backtrace(int skip = 1)
 
         Dl_info info;
         if(dladdr(callstack[i], &info) && info.dli_sname) {
-            char* demangled = NULL;
+            char* demangled = nullptr;
             int status = -1;
             if(info.dli_sname[0] == '_')
-                demangled = abi::__cxa_demangle(info.dli_sname, NULL, 0, &status);
+                demangled = abi::__cxa_demangle(info.dli_sname, nullptr, nullptr, &status);
             snprintf(buf, sizeof(buf), "%-3d %*p %s + %zd\n", i, int(2 + sizeof(void*) * 2),
                      callstack[i],
-                     status == 0 ? demangled : info.dli_sname == 0 ? symbols[i] : info.dli_sname,
+                     status == 0 ? demangled : info.dli_sname == nullptr ? symbols[i] : info.dli_sname,
                      (char*)callstack[i] - (char*)info.dli_saddr);
             free(demangled);
         } else {
+
             snprintf(buf, sizeof(buf), "%-3d %*p %s\n", i, int(2 + sizeof(void*) * 2), callstack[i],
                      symbols[i]);
         }
         trace_buf << buf;
     }
     free(symbols);
-    if(nFrames == nMaxFrames)
-        trace_buf << "[truncated]\n";
+
     return trace_buf.str().c_str();
 }

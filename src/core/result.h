@@ -5,20 +5,14 @@
 #ifndef INC_2D_GAME_RESULT_H
 #define INC_2D_GAME_RESULT_H
 
+#include "os/terminate.h"
+#include "os/error_types.h"
 #include <type_traits>
 
 namespace sc2d
 {
 
-    enum class ResErr
-    {
-        DAT_ERROR,
-        OMG_WTF,
-        SORRY_NOT_TODAY
-    };
-
-    // TODO: Make some sort of exception handling with registers crash data writing like in WebKit project
-    template <typename T, ResErr E>
+    template <typename T, Err E>
     class Result
     {
     public:
@@ -75,40 +69,35 @@ namespace sc2d
         {
             if(has)
                 return result;
-            else
-                return {};
+            return (sc2d::terminate(E), result);
         }
 
         constexpr T& get() &
         {
             if(has)
                 return result;
-            else
-                return {};
+            return (sc2d::terminate(E), result);
         }
 
         constexpr const T&& get() const&&
         {
             if(has)
                 return std::move(result);
-            else
-                return {};
+            return sc2d::terminate(E);
         }
 
         constexpr T&& get() &&
         {
             if(has)
                 return std::move(result);
-            else
-                return {};
+            return sc2d::terminate(E);
         }
 
-        constexpr ResErr err()
+        constexpr Err err()
         {
             if(!has)
                 return error;
-            else
-                return {};
+            return Err::OK;
         }
 
         template <typename... Args>
@@ -125,23 +114,11 @@ namespace sc2d
             return has;
         }
 
-        constexpr explicit operator const char*() const
-        {
-            switch(error) {
-            case ResErr::DAT_ERROR:
-                return "DAT_ERROR";
-            case ResErr::OMG_WTF:
-                return "OMG_WTF";
-            case ResErr::SORRY_NOT_TODAY:
-                return "SORRY_NOT_TODAY";
-            }
-        }
-
     private:
         union
         {
             T result;
-            ResErr error;
+            Err error;
         };
 
         bool has;
