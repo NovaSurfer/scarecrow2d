@@ -1,4 +1,5 @@
 #include "log2.h"
+#include "compiler.h"
 
 namespace sc2d::logging
 {
@@ -11,9 +12,9 @@ namespace sc2d::logging
         time_t t = time(nullptr);
         tm lt{};
 
-#if defined(__unix__) || (__APPLE__)
+#if COMPILER_CLANG || COMPILER_GCC
         localtime_r(&t, &lt);
-#elif defined(_MSC_VER) || (__MINGW32__)
+#elif COMPILER_MVC || COMPILER_MINGW32 || COMPILER_MINGW64
         localtime_s(&lt, &t);
 #endif
 
