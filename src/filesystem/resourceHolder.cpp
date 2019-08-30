@@ -59,17 +59,17 @@ namespace sc2d
     // TODO: remove C++ streams and exceptions
     std::string ResourceHolder::load_shader(const GLchar* file_path)
     {
-        try {
+//        try {
             std::ifstream shader_file(file_path);
             std::stringstream shader_stream;
             shader_stream << shader_file.rdbuf();
             shader_file.close();
             return shader_stream.str();
-        }
-        catch(const std::exception& e) {
+//        }
+//        catch(const std::exception& e) {
             log_err_file("Failed to read shader file %s", file_path);
-        }
-        return {};
+//        }
+//        return {};
     }
 
     void ResourceHolder::load_tiled_map(const std::string& name, const tiled::Data& tiled_data)

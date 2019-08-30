@@ -45,10 +45,6 @@ IniIO::IniIO(const std::string &filename)
         sections.push_back(unit);
         this->filename = filename;
     }
-    else
-    {
-        throw std::runtime_error("Cannot open config file");
-    }
 }
 
 

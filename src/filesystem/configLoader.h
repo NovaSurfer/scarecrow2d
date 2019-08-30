@@ -6,6 +6,8 @@
 #define INC_2D_GAME_CONFIGLOADER_H
 
 #include "../../deps/nlohmann/json.hpp"
+#include "../core/os/error_types.h"
+#include "core/result.h"
 #include <fstream>
 
 namespace sc2d
@@ -35,7 +37,6 @@ namespace sc2d
     {
         static_assert(std::is_base_of<IConfigLoader, T>::value,
                       "Template argument must be an IConfigLoader");
-
         static bool open(const std::string& path);
     };
 }

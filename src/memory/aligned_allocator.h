@@ -116,7 +116,7 @@ namespace sc2d::memory
     {
         pointer res = reinterpret_cast<pointer>(sc2d::memory::aligned_malloc(sizeof(T) * n, N));
         if(res == 0)
-            throw std::bad_alloc();
+//            throw std::bad_alloc();
         return res;
     }
 
