@@ -8,8 +8,11 @@
 namespace sc2d
 {
 
-#define FOREACH_ERROR(ERR)                                                                        \
+#define FOREACH_ERROR(ERR)                                                                         \
     ERR(OK)                                                                                        \
+    ERR(FAILED_TO_OPEN_FILE)                                                                       \
+    ERR(FAILED_TO_PARSE_JSON)                                                                      \
+    ERR(FAILED_TO_INIT_GLAD)                                                                       \
     ERR(FAILED)                                                                                    \
     ERR(RESOURCE_LOADING_FAIL)                                                                     \
     ERR(SCENE_LOADING_FAIL)                                                                        \

@@ -11,10 +11,12 @@
 
 namespace sc2d
 {
-
-    [[noreturn]] inline void terminate(Err e)
+    template <typename E>
+    [[noreturn]] inline void terminate(E e)
     {
-        log_err_cmd("Code :: %s", ERR_STR[static_cast<int>(e)]);
+        if constexpr(std::is_same<sc2d::Err, E>::value)
+            log_err_cmd("Code :: %s", ERR_STR[static_cast<int>(e)]);
+
         const char* trace_str = Backtrace(0);
         FILE* trace_file = nullptr;
         trace_file = fopen("sc2d_stacktrace.log", "a");
