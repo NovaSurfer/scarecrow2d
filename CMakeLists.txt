@@ -28,7 +28,21 @@ if(MINGW)
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static-libstdc++")
 endif()
 
+file(GLOB_RECURSE SHADER_FILES CONFIGURE_DEPENDS
+		${SRC_DIR}/shaders/*.frag
+		${SRC_DIR}/shaders/*.vert)
+
+# Adds raw string literal for each shader file
+foreach(shader_file ${SHADER_FILES})
+	file(STRINGS ${shader_file} shader_str NEWLINE_CONSUME)
+	if(NOT ${shader_str} MATCHES "(R\"\)")
+		set(SHADER ${shader_str})
+		configure_file(shader_template.sc2d ${shader_file})
+	endif()
+endforeach()
+
 file(GLOB_RECURSE SOURCE_FILES CONFIGURE_DEPENDS
+		${SHADER_FILES}
 		${SRC_DIR}/*.h
 		${SRC_DIR}/*.cpp
 		${SRC_DIR}/*.inl
@@ -37,8 +51,12 @@ file(GLOB_RECURSE SOURCE_FILES CONFIGURE_DEPENDS
 		${LIB_DIR}/miniz/miniz.c		deps/miniz/miniz.h
 		${LIB_DIR}/base64/base64.h	deps/base64/base64.cpp)
 
+file(GLOB_RECURSE SHADER_FILES CONFIGURE_DEPENDS
+		${SRC_DIR}/shaders/*.frag
+		${SRC_DIR}/shaders/*.vert)
+
 # Executable definition and properties
-add_executable(${PROJECT_NAME} ${SOURCE_FILES})
+add_executable(${PROJECT_NAME} ${SOURCE_FILES} src/filesystem/shader_files.h)
 target_include_directories(${PROJECT_NAME} PRIVATE "${SRC_DIR}")
 set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 17)
 
@@ -82,8 +100,3 @@ add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_directory
         ${CMAKE_SOURCE_DIR}/data/
         ${CMAKE_BINARY_DIR}/data/)
-
-add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy_directory
-        ${CMAKE_SOURCE_DIR}/src/shaders/
-        ${CMAKE_BINARY_DIR}/data/shaders/)

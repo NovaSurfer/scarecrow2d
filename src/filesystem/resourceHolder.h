@@ -21,19 +21,26 @@ namespace sc2d
 {
     using string_view = std::string_view;
 
+    enum class ShaderSource
+    {
+        BUILTIN,
+        FILE
+    };
+
     class ResourceHolder
     {
     public:
-        static void load_shader_program(const std::string& name, const GLchar* vert_file,
-                                        const GLchar* frag_file, const GLchar* geom_file = nullptr);
+        static void load_shader_program(ShaderSource shader_source, const std::string& name,
+                                        const GLchar* vert_file, const GLchar* frag_file,
+                                        const GLchar* geom_file = nullptr);
         static const Shader& get_shader(const std::string& shader_name);
         static void load_texture(const std::string& img_file, bool alpha, const std::string& name);
         static const Texture2d& get_texture(const std::string& texture_name);
         static void load_tiled_map(const std::string& name, const tiled::Data& tiled_data);
         static const tiled::Map& get_tiled_map(const std::string& map_name);
         static const TextureAtlas& get_texture_atlas(const std::string& name);
-        static void load_texture_atlas(const std::string& img_file, const uint rows, const uint columns, bool alpha,
-                                       const std::string& name);
+        static void load_texture_atlas(const std::string& img_file, const uint rows,
+                                       const uint columns, bool alpha, const std::string& name);
 
         static void clean();
 

@@ -1,3 +1,4 @@
+R"(
 #version 330 core
 layout (location = 0) in vec2 l_pos;
 layout (location = 1) in vec2 l_uv;
@@ -16,3 +17,5 @@ void main()
     TileIndex = l_tileIndex;
     gl_Position = projection * l_model * vec4(l_pos, 0.0, 1.0);
 }
+
+)"

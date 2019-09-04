@@ -5,6 +5,7 @@
 #include "configLoader.h"
 #include "core/log2.h"
 #include "core/tiled_map.h"
+#include "filesystem/shader_files.h"
 #include "fs_constants.h"
 #include "resourceHolder.h"
 #include <vector>
@@ -56,6 +57,13 @@ namespace sc2d
             }
         }
 
+        // Builtint shaders
+        for(const auto& shader : sc2d::cshaders::SHADERS_ARRAY) {
+            ResourceHolder::load_shader_program(ShaderSource::BUILTIN, shader.name, shader.vs_src,
+                                                shader.fs_src);
+        }
+
+        // External shaders
         for(const auto& shader : shaders_section) {
             const std::string frag_path = shader["frag_file"].get<const std::string>();
             const std::string vert_path = shader["vert_file"].get<const std::string>();
@@ -63,7 +71,7 @@ namespace sc2d
 
             log_info_cmd("Loading shader files\nVERTEX: %s\nFRAGMENT: %s", vert_path.c_str(),
                          frag_path.c_str());
-            ResourceHolder::load_shader_program(s_name, vert_path.c_str(), frag_path.c_str());
+            ResourceHolder::load_shader_program(ShaderSource::FILE, s_name, vert_path.c_str(), frag_path.c_str());
         }
     }
 

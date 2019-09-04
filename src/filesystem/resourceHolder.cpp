@@ -14,17 +14,22 @@ namespace sc2d
     std::unordered_map<std::string, tiled::Map> ResourceHolder::tilemaps;
     std::unordered_map<std::string, TextureAtlas> ResourceHolder::texture_atlases;
 
-    void ResourceHolder::load_shader_program(const std::string& name, const GLchar* vert_file,
-                                             const GLchar* frag_file, const GLchar* geom_file)
+    void ResourceHolder::load_shader_program(ShaderSource shader_source, const std::string& name,
+                                             const GLchar* vert_file, const GLchar* frag_file,
+                                             const GLchar* geom_file)
     {
-        Shader shader{};
-        std::string v_shader, f_shader, g_shader;
-        v_shader = load_shader(vert_file);
-        f_shader = load_shader(frag_file);
-        if(geom_file != nullptr)
-            g_shader = load_shader(geom_file);
-        shader.compile(v_shader.c_str(), f_shader.c_str(),
-                       geom_file != nullptr ? g_shader.c_str() : nullptr);
+        Shader shader {};
+        if(shader_source == ShaderSource::FILE) {
+            std::string v_shader, f_shader, g_shader;
+            v_shader = load_shader(vert_file);
+            f_shader = load_shader(frag_file);
+            if(geom_file != nullptr)
+                g_shader = load_shader(geom_file);
+            shader.compile(v_shader.c_str(), f_shader.c_str(),
+                           geom_file != nullptr ? g_shader.c_str() : nullptr);
+        } else {
+            shader.compile(vert_file, frag_file, geom_file != nullptr ? geom_file : nullptr);
+        }
         shaders.insert({name, shader});
     }
 
@@ -59,22 +64,22 @@ namespace sc2d
     // TODO: remove C++ streams and exceptions
     std::string ResourceHolder::load_shader(const GLchar* file_path)
     {
-//        try {
-            std::ifstream shader_file(file_path);
-            std::stringstream shader_stream;
-            shader_stream << shader_file.rdbuf();
-            shader_file.close();
-            return shader_stream.str();
-//        }
-//        catch(const std::exception& e) {
-            log_err_file("Failed to read shader file %s", file_path);
-//        }
-//        return {};
+        //        try {
+        std::ifstream shader_file(file_path);
+        std::stringstream shader_stream;
+        shader_stream << shader_file.rdbuf();
+        shader_file.close();
+        return shader_stream.str();
+        //        }
+        //        catch(const std::exception& e) {
+        log_err_file("Failed to read shader file %s", file_path);
+        //        }
+        //        return {};
     }
 
     void ResourceHolder::load_tiled_map(const std::string& name, const tiled::Data& tiled_data)
     {
-        tiled::Map tiled_map{tiled_data};
+        tiled::Map tiled_map {tiled_data};
         tilemaps[name] = tiled_map;
     }
 
