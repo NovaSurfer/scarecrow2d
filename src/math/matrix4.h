@@ -14,25 +14,25 @@ namespace math {
     struct mat4 {
         float n[4][4];
 
-        mat4() : n{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0} {};
+        mat4() : n{{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}} {};
 
         mat4(float _11, float _12, float _13, float _14,
              float _21, float _22, float _23, float _24,
              float _31, float _32, float _33, float _34,
              float _41, float _42, float _43, float _44)
-             : n{_11, _12, _13, _14,
-                 _21, _22, _23, _24,
-                 _31, _32, _33, _34,
-                 _41, _42, _43, _44} {};
+             : n{{_11, _12, _13, _14},
+                 {_21, _22, _23, _24},
+                 {_31, _32, _33, _34},
+                 {_41, _42, _43, _44}} {};
 
         mat4(const vec4 &a,
              const vec4 &b,
              const vec4 &c,
              const vec4 &d)
-             : n{a.x, a.y, a.z, a.w,
-                 b.x, b.y, b.z, b.w,
-                 c.x, c.y, c.z, c.w,
-                 d.x, d.y, d.z, d.w} {};
+             : n{{a.x, a.y, a.z, a.w},
+                 {b.x, b.y, b.z, b.w},
+                 {c.x, c.y, c.z, c.w},
+                 {d.x, d.y, d.z, d.w}} {};
         /**
          * Gets element value
          * @param i row number
@@ -259,7 +259,7 @@ namespace math {
          * @return transposed matrix
          * @detail https://en.wikipedia.org/wiki/Transpose
          */
-        mat4 transpose() const
+        [[nodiscard]] mat4 transpose() const
         {
             mat4 result;
             result.n[0][0] = n[0][0];
@@ -291,7 +291,7 @@ namespace math {
          * @note for 3x3 matrix determinant 
          * I've used new method discribed here (Scheme 5): http://m-hikari.com/ija/ija-password-2009/ija-password5-8-2009/hajrizajIJA5-8-2009.pdf
          */
-        float determinant() const
+        [[nodiscard]] float determinant() const
         {
             return
             n[0][0] * (n[1][3] * n[2][1] * n[3][2] + n[1][1] * n[2][2] * n[3][3] +
@@ -316,7 +316,7 @@ namespace math {
          * @return minor matrix
          * @details https://en.wikipedia.org/wiki/Minor_(linear_algebra)
          */
-        mat4 minor() const
+        [[nodiscard]] mat4 minor() const
         {               // M (0,0)
             return mat4(n[1][1] * n[2][2] * n[3][3] + n[1][2] * n[2][3] * n[3][1] +
                         n[1][3] * n[2][1] * n[3][2] - n[1][3] * n[2][2] * n[3][1] -
@@ -391,7 +391,7 @@ namespace math {
          * @return calculation result
          * @details https://en.wikipedia.org/wiki/Minor_(linear_algebra)#Cofactor_expansion_of_the_determinant
          */
-        mat4 cofactor() const
+        [[nodiscard]] mat4 cofactor() const
         {
             mat4 result;
             mat4 minor_mat = minor();
@@ -422,7 +422,7 @@ namespace math {
          * @return calculation result
          * @details https://en.wikipedia.org/wiki/Adjugate_matrix
          */
-        mat4 adjugate() const
+        [[nodiscard]] mat4 adjugate() const
         {
             mat4 transposed = transpose();
             return transposed.cofactor();

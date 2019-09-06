@@ -44,8 +44,8 @@ namespace sc2d::tiled
 
             for(int x = 0; x < tiled_data.width; ++x) {
                 for(int y = 0; y < tiled_data.height; ++y) {
-                    unsigned gid = out[y * tiled_data.width + x];
-                    unsigned tileset_index = gid;
+                    uint32_t gid = out[y * tiled_data.width + x];
+                    uint32_t tileset_index = gid;
 
                     // Get tileset index
                     tileset_index &= ~(FLIPPED_HORIZONTALLY_FLAG | FLIPPED_VERTICALLY_FLAG |

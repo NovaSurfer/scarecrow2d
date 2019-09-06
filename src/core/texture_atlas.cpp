@@ -29,7 +29,7 @@ namespace sc2d
         glBindTexture(GL_TEXTURE_2D_ARRAY, obj_id);
     }
 
-    const GLuint TextureAtlas::get_obj_id() const
+    GLuint TextureAtlas::get_obj_id() const
     {
         return obj_id;
     }

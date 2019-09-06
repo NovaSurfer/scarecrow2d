@@ -37,8 +37,8 @@ namespace sc2d
 
     void ResourcesConfigLoad::operator()(const json& obj_json)
     {
-        const auto sprites_section = obj_json[FsConsts::RES_SPRITE];
-        const auto shaders_section = obj_json[FsConsts::RES_SHADER];
+        const auto sprites_section = obj_json[fs_const::RES_SPRITE];
+        const auto shaders_section = obj_json[fs_const::RES_SHADER];
 
         for(const auto& sprite : sprites_section) {
             const std::string s_path = sprite["file"].get<const std::string>();
@@ -77,21 +77,21 @@ namespace sc2d
 
     void SceneConfigLoad::operator()(const json& obj_json)
     {
-        const int width = obj_json[FsConsts::SCN_WIDTH].get<const int>();
-        const int height = obj_json[FsConsts::SCN_HEIGHT].get<const int>();
-        const int tile_with = obj_json[FsConsts::SCN_TILE_WIDTH].get<const int>();
-        const int tile_height = obj_json[FsConsts::SCN_TILE_HEIGHT].get<const int>();
+        const int width = obj_json[fs_const::SCN_WIDTH].get<const int>();
+        const int height = obj_json[fs_const::SCN_HEIGHT].get<const int>();
+        const int tile_with = obj_json[fs_const::SCN_TILE_WIDTH].get<const int>();
+        const int tile_height = obj_json[fs_const::SCN_TILE_HEIGHT].get<const int>();
 
         // Getting value of first property - 'content_count'
         const size_t content_count = obj_json["properties"][0]["value"].get<const size_t>();
         log_info_cmd("content count: %d", content_count);
 
-        const auto layers_section = obj_json[FsConsts::SCN_LAYERS];
+        const auto layers_section = obj_json[fs_const::SCN_LAYERS];
         std::vector<tiled::Layer> tls;
         tls.reserve(layers_section.size());
         for(const auto& layer : layers_section) {
-            const std::string data = layer[FsConsts::SCN_LAYERS_DATA].get<const std::string>();
-            const std::string name = layer[FsConsts::SCN_LAYERS_NAME].get<const std::string>();
+            const std::string data = layer[fs_const::SCN_LAYERS_DATA].get<const std::string>();
+            const std::string name = layer[fs_const::SCN_LAYERS_NAME].get<const std::string>();
 
             tiled::Layer tile_layer;
             tile_layer.set_data(data);
@@ -100,12 +100,12 @@ namespace sc2d
             tls.emplace_back(tile_layer);
         }
 
-        const auto tileset_section = obj_json[FsConsts::SCN_TILESETS];
+        const auto tileset_section = obj_json[fs_const::SCN_TILESETS];
         std::vector<tiled::Set> tss;
         tss.reserve(tileset_section.size());
         for(const auto& tileset : tileset_section) {
             const std::string img_path =
-                tileset[FsConsts::SCN_TILESETS_IMAGE].get<const std::string>();
+                tileset[fs_const::SCN_TILESETS_IMAGE].get<const std::string>();
 
             tiled::Set tile_set;
             tile_set.set_img_path(img_path);

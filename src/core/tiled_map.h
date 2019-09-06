@@ -22,9 +22,9 @@ namespace sc2d::tiled
     class Layer
     {
     public:
-        void set_data(const std::string& data)
+        void set_data(const std::string& d)
         {
-            this->data = data;
+            data = d;
         }
 
         const std::string& get_data()
@@ -32,9 +32,9 @@ namespace sc2d::tiled
             return data;
         }
 
-        void set_name(const std::string& name)
+        void set_name(const std::string& n)
         {
-            this->name = name;
+            name = n;
         }
 
         const std::string& get_name()
@@ -50,9 +50,9 @@ namespace sc2d::tiled
     class Set
     {
     public:
-        void set_img_path(const std::string& img_path)
+        void set_img_path(const std::string& path)
         {
-            this->img_path = img_path;
+            img_path = path;
         }
 
         const std::string& get_data_path()
@@ -102,7 +102,7 @@ namespace sc2d::tiled
         Map() = default;
         explicit Map(const Data& tiled_data);
         void init(const sc2d::Shader& map_shader);
-        void draw_map(const GLuint texatlas_id) const;
+        void draw_map(GLuint texatlas_id) const;
 
     private:
         Data tiled_data;

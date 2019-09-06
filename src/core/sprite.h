@@ -18,7 +18,7 @@ namespace sc2d
     {
     public:
         explicit Sprite(const Shader& shader);
-        void draw(const Texture2d& tex2d, const math::vec2& pos, const math::size2d& size,
+        void draw(const GLuint tex2d, const math::vec2& pos, const math::size2d& size,
                   const float rotate = 0.0);
 
     private:

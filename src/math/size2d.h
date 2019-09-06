@@ -18,18 +18,15 @@ namespace math
         size2d() = default;
 
         size2d(float width, float height)
-            : width{width}
-            , height{height}
+            : width {width}
+            , height {height}
         {}
 
-        size2d(const size2d& other)
-            : width{other.width}
-            , height{other.height}
-        {}
+        size2d(const size2d& other) = default;
 
         explicit size2d(const vec2& point)
-            : width{point.x}
-            , height{point.y}
+            : width {point.x}
+            , height {point.y}
         {}
 
         explicit operator vec2() const
@@ -69,15 +66,15 @@ namespace math
             return size2d(width * value, height * value);
         }
 
-        bool operator==(const size2d other) const
+        bool operator==(const size2d& other) const
         {
             return utils::cmp(width, other.width) && utils::cmp(height, other.height);
         }
 
-        void set_size(float width, float height)
+        void set_size(float w, float h)
         {
-            this->width = width;
-            this->width = height;
+            width = w;
+            width = h;
         }
     };
 }

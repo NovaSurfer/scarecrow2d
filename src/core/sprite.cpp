@@ -23,7 +23,7 @@ namespace sc2d
         init_data();
     }
 
-    void Sprite::draw(const Texture2d& tex2d, const math::vec2& pos, const math::size2d& size,
+    void Sprite::draw(const GLuint tex_id, const math::vec2& pos, const math::size2d& size,
                       const float rotate)
     {
         shader.run();
@@ -35,7 +35,7 @@ namespace sc2d
         shader.set_vec3("spriteColor", math::vec3(1.0f, 1.0f, 1.0f));
 
         glActiveTexture(GL_TEXTURE0);
-        tex2d.bind();
+        glBindTexture(GL_TEXTURE_2D, tex_id);
 
         glBindVertexArray(quad_vao);
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);

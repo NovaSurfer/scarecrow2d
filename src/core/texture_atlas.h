@@ -22,10 +22,10 @@ namespace sc2d
     {
     public:
         TextureAtlas() = default;
-        TextureAtlas(unsigned char* img_data, const GLuint width, const GLuint height,
-                     const GLuint rows, const GLuint columns, const GLuint img_format);
+        TextureAtlas(unsigned char* img_data, GLuint width, GLuint height,
+                     GLuint rows, GLuint columns, GLuint img_format);
         void bind() const;
-        const GLuint get_obj_id() const;
+        [[nodiscard]]  GLuint get_obj_id() const;
 
     private:
         unsigned char* data;

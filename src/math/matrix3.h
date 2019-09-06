@@ -13,21 +13,21 @@ namespace math {
     struct mat3 {
         float n[3][3];
 
-        mat3() : n{0, 0, 0, 0, 0, 0, 0, 0, 0} {};
+        mat3() : n{{0, 0, 0}, {0, 0, 0}, {0, 0, 0}} {};
 
         mat3(float _11, float _12, float _13,
              float _21, float _22, float _23,
              float _31, float _32, float _33)
-             : n{_11, _12, _13,
-                 _21, _22, _23,
-                 _31, _32, _33} {};
+             : n{{_11, _12, _13},
+                 {_21, _22, _23},
+                 {_31, _32, _33}} {};
 
         mat3(const vec3 &a,
              const vec3 &b,
              const vec3 &c)
-             : n{a.x, a.y, a.z,
-                 b.x, b.y, b.z,
-                 c.x, b.y, b.z} {};
+             : n{{a.x, a.y, a.z},
+                 {b.x, b.y, b.z},
+                 {c.x, b.y, b.z}} {};
         /**
          * Gets element value
          * @param i row number
@@ -221,7 +221,7 @@ namespace math {
          * @return transposed matrix
          * @detail https://en.wikipedia.org/wiki/Transpose
          */
-        mat3 transpose() const
+        [[nodiscard]] mat3 transpose() const
         {
             mat3 result;
             result.n[0][0] = n[0][0];
@@ -243,7 +243,7 @@ namespace math {
          * @return matrix determinant
          * @details https://en.wikipedia.org/wiki/Determinant
          */
-        float determinant() const
+        [[nodiscard]] float determinant() const
         {
             return n[0][0] * (n[1][1] * n[2][2] - n[1][2] * n[2][1]) -
                    n[0][1] * (n[1][0] * n[2][2] - n[1][2] * n[2][0]) +
@@ -256,7 +256,7 @@ namespace math {
          * @return minor matrix
          * @details https://en.wikipedia.org/wiki/Minor_(linear_algebra)
          */
-        mat3 minor() const
+        [[nodiscard]] mat3 minor() const
         {
             return mat3(n[1][1] * n[2][2] - n[1][2] * n[2][1],
                         n[1][0] * n[2][2] - n[1][2] * n[2][0],
@@ -276,7 +276,7 @@ namespace math {
          * @return calculation result
          * @details https://en.wikipedia.org/wiki/Minor_(linear_algebra)#Cofactor_expansion_of_the_determinant
          */
-        mat3 cofactor() const
+        [[nodiscard]] mat3 cofactor() const
         {
             mat3 result;
             mat3 minor_mat = minor();
@@ -299,7 +299,7 @@ namespace math {
          * @return calculation result
          * @details https://en.wikipedia.org/wiki/Adjugate_matrix
          */
-        mat3 adjugate() const
+        [[nodiscard]] mat3 adjugate() const
         {
             mat3 transposed = transpose();
             return transposed.cofactor();
