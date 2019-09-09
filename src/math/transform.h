@@ -5,8 +5,10 @@
 #ifndef INC_2D_GAME_TRANSFORM_H
 #define INC_2D_GAME_TRANSFORM_H
 
+#include "matrix2.h"
 #include "matrix3.h"
 #include "matrix4.h"
+#include "vector2.h"
 #include "vector3.h"
 #include "vector4.h"
 
@@ -141,6 +143,14 @@ namespace math
          *          https://en.wikipedia.org/wiki/Skew-symmetric_matrix
          */
     mat3 axis_angle3x3(const vec3& axis, float angle);
+
+    /**
+         * Pre multiplication (left to right) [vector * matrix]
+         * @param vec
+         * @param mat
+         * @return multiplication result for each row stored in each axis of vector
+         */
+    vec2 multiply_vector(const vec2& vec, const mat2& mat);
 
     /**
          * Pre multiplication (left to right) [vector * matrix]

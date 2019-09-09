@@ -152,6 +152,14 @@ namespace math {
                 t * v.x * v.z + s * v.y, t * v.y * v.z - s * v.x, t * (v.z * v.z) + c);
     }
 
+    vec2 multiply_vector(const vec2& vec, const mat2& mat)
+    {
+        vec2 result;
+        result.x = dot(vec, mat[0]);
+        result.y = dot(vec, mat[1]);
+        return result;
+    }
+
     vec3 multiply_vector(const vec3& vec, const mat3& mat)
     {
         vec3 result;
