@@ -7,6 +7,8 @@
 
 #include "utils.h"
 #include "vector2.h"
+#include "matrix2.h"
+#include "transform.h"
 
 namespace math
 {
@@ -76,7 +78,7 @@ namespace math
             return vec2(fmaxf(p1.x, p2.x), fmaxf(p1.y, p2.y));
         }
 
-        rect2d from_min_max(const vec2& min, const vec2& max)
+        static rect2d from_min_max(const vec2& min, const vec2& max)
         {
             return rect2d(min, max - min);
         }
@@ -111,7 +113,7 @@ namespace math
 
         static interval2d get_interval(const rect2d& rect, const vec2& axis)
         {
-            interval2d result;
+            interval2d result {};
             // Find the min and max of the rectangle being tested
             vec2 min = rect2d::get_min(rect);
             vec2 max = rect2d::get_max(rect);
@@ -173,14 +175,21 @@ namespace math
         return min.x <= point.x && min.y <= point.y && point.x <= max.x && point.y <= max.y;
     }
 
-    //    bool point_in_orrect(const point2d &point, const orrect2d rect)
-    //    {
-    //        vec2 rot_vec = point - rect.positon;
-    //        float theta = -utils::deg2rad(rect.rotation);
-    //        float z_rot2x2p[] = {
-    //                -sinf(theta), cosf(theta)
-    //        };
-    //    };
+        bool point_in_orrect(const point2d &point, const orrect2d rect)
+        {
+            rect2d local_rect {point2d(), rect.half_extends * 2.0f};
+            vec2 rot_vec = point - rect.positon;
+            float theta = -utils::deg2rad(rect.rotation);
+            mat2 z_rotation {
+                cosf(theta), sinf(theta),
+                -sinf(theta), cosf(theta)
+            };
+
+            rot_vec = multiply_vector(rot_vec, z_rotation);
+            vec2 local_point = rot_vec + rect.half_extends;
+
+            return point_in_rect(local_point, local_rect);
+        };
 
     bool line_circle(const line2d& line, const circle& circle)
     {
