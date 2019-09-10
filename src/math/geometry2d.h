@@ -86,7 +86,7 @@ namespace math
 
     struct orrect2d
     {
-        point2d positon;
+        point2d position;
         vec2 half_extends;
         float rotation;
 
@@ -95,12 +95,12 @@ namespace math
             , rotation(0)
         {}
         orrect2d(const point2d& positon, const vec2& half_extends)
-            : positon(positon)
+            : position(positon)
             , half_extends(half_extends)
             , rotation(0)
         {}
         orrect2d(const point2d& positon, const vec2& half_extends, float rotation)
-            : positon(positon)
+            : position(positon)
             , half_extends(half_extends)
             , rotation(rotation)
         {}
@@ -175,26 +175,26 @@ namespace math
         return min.x <= point.x && min.y <= point.y && point.x <= max.x && point.y <= max.y;
     }
 
-        bool point_in_orrect(const point2d &point, const orrect2d rect)
-        {
-            rect2d local_rect {point2d(), rect.half_extends * 2.0f};
-            vec2 rot_vec = point - rect.positon;
-            float theta = -utils::deg2rad(rect.rotation);
-            mat2 z_rotation {
-                cosf(theta), sinf(theta),
-                -sinf(theta), cosf(theta)
-            };
-
-            rot_vec = multiply_vector(rot_vec, z_rotation);
-            vec2 local_point = rot_vec + rect.half_extends;
-
-            return point_in_rect(local_point, local_rect);
+    bool point_in_orrect(const point2d &point, const orrect2d rect)
+    {
+        rect2d local_rect {point2d(), rect.half_extends * 2.0f};
+        vec2 rot_vec = point - rect.position;
+        float theta = -utils::deg2rad(rect.rotation);
+        mat2 z_rotation {
+            cosf(theta), sinf(theta),
+            -sinf(theta), cosf(theta)
         };
+
+        rot_vec = multiply_vector(rot_vec, z_rotation);
+        vec2 local_point = rot_vec + rect.half_extends;
+
+        return point_in_rect(local_point, local_rect);
+    };
 
     bool line_circle(const line2d& line, const circle& circle)
     {
         vec2 ab = line.end - line.start;
-        float t = dot(circle.position - line.start, ab) / dot(ab, ab);
+        float t = dot(circle.position - line.start, ab) / magnitudeSq(ab);
         if(t < 0.0f || t > 1.0f) {
             return false;
         }
@@ -224,6 +224,28 @@ namespace math
         float t = (tmin < 0.0f) ? tmax : tmin;
         return t > 0.0f && t * t < line2d::lengthSq(line);
     }
+
+    bool line_orrect(const line2d& line, const orrect2d& orrect)
+    {
+        float theta = -utils::deg2rad(orrect.rotation);
+        mat2 z_rotation {
+            cosf(theta), sinf(theta),
+            -sinf(theta), cosf(theta)
+        };
+        line2d local_line;
+
+        vec2 rot_vector = line.start - orrect.position;
+        rot_vector = multiply_vector(rot_vector, z_rotation);
+        local_line.start = rot_vector + orrect.half_extends;
+
+        rot_vector = line.end - orrect.position;
+        rot_vector = multiply_vector(rot_vector, z_rotation);
+        local_line.end = rot_vector + orrect.half_extends;
+
+        rect2d local_rect {point2d(), orrect.half_extends * 2.0f};
+
+        return line_rect(local_line, local_rect);
+    };
 };
 
 #endif //INC_2D_GAME_GEOMETRY2D_H
