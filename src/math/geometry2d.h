@@ -5,10 +5,10 @@
 #ifndef INC_2D_GAME_GEOMETRY2D_H
 #define INC_2D_GAME_GEOMETRY2D_H
 
-#include "utils.h"
-#include "vector2.h"
 #include "matrix2.h"
 #include "transform.h"
+#include "utils.h"
+#include "vector2.h"
 
 namespace math
 {
@@ -22,7 +22,7 @@ namespace math
         line2d() = default;
         line2d(const point2d& start, const point2d& end)
             : start(start)
-            , end(end){};
+            , end(end) {};
 
         static float length(const line2d& line)
         {
@@ -118,8 +118,8 @@ namespace math
             vec2 min = rect2d::get_min(rect);
             vec2 max = rect2d::get_max(rect);
             // building a set of vertices
-            vec2 verts[]{// get all vertices of rect
-                         vec2(min.x, min.y), vec2(max.x, max.y)};
+            vec2 verts[] {// get all vertices of rect
+                          vec2(min.x, min.y), vec2(max.x, max.y)};
             // Project each vertex onto the axis, store the smallest and largest values
             result.min = result.max = dot(axis, verts[0]);
             for(int i = 0; i < 4; ++i) {
@@ -132,7 +132,59 @@ namespace math
                 }
             }
             return result;
-        };
+        }
+
+        static interval2d get_interval(const orrect2d& orrect, const vec2& axis)
+        {
+            // construct a non-oriented rectangle
+            rect2d rect(point2d(orrect.position - orrect.half_extends), orrect.half_extends * 2.0f);
+            // find vertices of that triangle
+            vec2 min = rect2d::get_min(rect);
+            vec2 max = rect2d::get_max(rect);
+
+            vec2 verts[] {min, max, min, max};
+
+            // rotation matrix for oriented rectangle
+            float theta = utils::deg2rad(orrect.rotation);
+            mat2 z_rotation {cosf(theta), sinf(theta), -sinf(theta), cosf(theta)};
+
+            // Rotate every vertex of the non oriented rectangle
+            // with rotation matrix, in order to get verts positions in
+            // world space
+            vec2 rot_vec = verts[0] - orrect.position;
+            rot_vec = multiply_vector(rot_vec, z_rotation);
+            verts[0] = rot_vec + orrect.position;
+
+            rot_vec = verts[1] - orrect.position;
+            rot_vec = multiply_vector(rot_vec, z_rotation);
+            verts[1] = rot_vec + orrect.position;
+
+            rot_vec = verts[2] - orrect.position;
+            rot_vec = multiply_vector(rot_vec, z_rotation);
+            verts[2] = rot_vec + orrect.position;
+
+            rot_vec = verts[3] - orrect.position;
+            rot_vec = multiply_vector(rot_vec, z_rotation);
+            verts[3] = rot_vec + orrect.position;
+
+            interval2d result;
+            // store the min & max points of every projected vertex as the
+            // interval of the rectangle.
+            result.min = result.max = dot(axis, verts[0]);
+            float proj = dot(axis, verts[1]);
+            result.min = proj < result.min ? proj : result.min;
+            result.max = proj > result.max ? proj : result.max;
+
+            proj = dot(axis, verts[2]);
+            result.min = proj < result.min ? proj : result.min;
+            result.max = proj > result.max ? proj : result.max;
+
+            proj = dot(axis, verts[3]);
+            result.min = proj < result.min ? proj : result.min;
+            result.max = proj > result.max ? proj : result.max;
+
+            return result;
+        }
     };
 
     /***
@@ -175,21 +227,18 @@ namespace math
         return min.x <= point.x && min.y <= point.y && point.x <= max.x && point.y <= max.y;
     }
 
-    bool point_in_orrect(const point2d &point, const orrect2d rect)
+    bool point_in_orrect(const point2d& point, const orrect2d rect)
     {
         rect2d local_rect {point2d(), rect.half_extends * 2.0f};
         vec2 rot_vec = point - rect.position;
         float theta = -utils::deg2rad(rect.rotation);
-        mat2 z_rotation {
-            cosf(theta), sinf(theta),
-            -sinf(theta), cosf(theta)
-        };
+        mat2 z_rotation {cosf(theta), sinf(theta), -sinf(theta), cosf(theta)};
 
         rot_vec = multiply_vector(rot_vec, z_rotation);
         vec2 local_point = rot_vec + rect.half_extends;
 
         return point_in_rect(local_point, local_rect);
-    };
+    }
 
     bool line_circle(const line2d& line, const circle& circle)
     {
@@ -228,10 +277,7 @@ namespace math
     bool line_orrect(const line2d& line, const orrect2d& orrect)
     {
         float theta = -utils::deg2rad(orrect.rotation);
-        mat2 z_rotation {
-            cosf(theta), sinf(theta),
-            -sinf(theta), cosf(theta)
-        };
+        mat2 z_rotation {cosf(theta), sinf(theta), -sinf(theta), cosf(theta)};
         line2d local_line;
 
         vec2 rot_vector = line.start - orrect.position;
@@ -246,6 +292,22 @@ namespace math
 
         return line_rect(local_line, local_rect);
     };
+
+    bool overlap_on_axis(const math::rect2d& rect1, const math::rect2d& rect2,
+                                const math::vec2& axis)
+    {
+        interval2d a = interval2d::get_interval(rect1, axis);
+        interval2d b = interval2d::get_interval(rect2, axis);
+        return ((b.min <= a.max) && (a.min <= b.max));
+    }
+
+    bool overlap_on_axis(const math::rect2d& rect1, const math::orrect2d& rect2,
+                         const math::vec2& axis)
+    {
+        interval2d a = interval2d::get_interval(rect1, axis);
+        interval2d b = interval2d::get_interval(rect2, axis);
+        return ((b.min <= a.max) && (a.min <= b.max));
+    }
 };
 
 #endif //INC_2D_GAME_GEOMETRY2D_H
