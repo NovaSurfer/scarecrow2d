@@ -187,6 +187,16 @@ namespace math
         }
     };
 
+    struct bounding_shape
+    {
+        circle* circles;
+        rect2d* rectangles;
+
+        bounding_shape()
+            : circles {nullptr}
+            , rectangles {nullptr} {};
+    };
+
     /***
      * @details <a href="https://en.wikipedia.org/wiki/Slope#Algebra_and_geometry">Slope-intercept form</a>
      * @param point
@@ -294,7 +304,7 @@ namespace math
     };
 
     bool overlap_on_axis(const math::rect2d& rect1, const math::rect2d& rect2,
-                                const math::vec2& axis)
+                         const math::vec2& axis)
     {
         interval2d a = interval2d::get_interval(rect1, axis);
         interval2d b = interval2d::get_interval(rect2, axis);
@@ -308,6 +318,79 @@ namespace math
         interval2d b = interval2d::get_interval(rect2, axis);
         return ((b.min <= a.max) && (a.min <= b.max));
     }
-};
 
+    /**
+     * Creates bounding circle for a set a of 2d points
+     * @param points array of points
+     * @return circle with central point position & difference between furthest point and center as a radius
+     */
+    circle containing_circle(const point2d* const points)
+    {
+        constexpr size_t points_count = sizeof(points) / sizeof(points[0]);
+        point2d center;
+        for(size_t i = 0; i < points_count; ++i) {
+            center = center + points[i];
+        }
+        center = center / points_count;
+
+        circle result {center, magnitudeSq(center - points[0])};
+        for(size_t i = 1; i < points_count; ++i) {
+            float dist = magnitudeSq(center - points[i]);
+            if(result.radius < dist) {
+                result.radius = dist;
+            }
+        }
+        result.radius = sqrtf(result.radius);
+
+        return result;
+    }
+
+    /**
+     * Creates bounding rect for a set a of 2d points
+     * @param points
+     * @return
+     */
+    rect2d containing_rectangle(const point2d* const points)
+    {
+        constexpr size_t points_count = sizeof(points) / sizeof(points[0]);
+        vec2 min = points[0];
+        vec2 max = points[0];
+
+        for(size_t i = 1; i < points_count; ++i) {
+            if(points[i].x < min.x)
+                min.x = points[i].x;
+            if(points[i].y < min.y)
+                min.y = points[i].y;
+            if(points[i].x > max.x)
+                max.x = points[i].x;
+            if(points[i].y > max.y)
+                max.y = points[i].y;
+        }
+
+        return rect2d::from_min_max(min, max);
+    }
+
+    /**
+     * Checks shape for point containment
+     * @param shape bounding shape
+     * @param point point
+     * @return true if point is inside the shape
+     */
+    bool point_in_shape(const bounding_shape& shape, const point2d& point)
+    {
+        constexpr size_t num_circles = sizeof(shape.circles) / sizeof(shape.circles[0]);
+        for(size_t i = 0; i < num_circles; ++i) {
+            if(point_in_circle(point, shape.circles[i]))
+                return true;
+        }
+
+        constexpr size_t num_rectangles = sizeof(shape.rectangles) / sizeof(shape.rectangles[0]);
+        for(size_t i = 0; i < num_rectangles; ++i) {
+            if(point_in_rect(point, shape.rectangles[i]))
+                return true;
+        }
+
+        return false;
+    }
+}
 #endif //INC_2D_GAME_GEOMETRY2D_H
