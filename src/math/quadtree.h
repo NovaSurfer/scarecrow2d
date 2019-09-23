@@ -46,7 +46,7 @@ namespace math
         rect2d node_bounds;
         size_t current_depth;
         static size_t max_depth;
-        static size_t max_depth_per_node;
+        static size_t max_objects_per_node;
     };
 };
 #endif //SCARECROW2D_QUADTREE_H
