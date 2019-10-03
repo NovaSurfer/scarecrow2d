@@ -6,9 +6,13 @@
 
 #include "ecs_component.h"
 
-static uint32_t common_id = 0;
+std::vector<std::tuple<ECSComponentCreateFunction, ECSComponentFreeFunction, size_t>>
+    BaseECSComponent::component_types;
 
-uint32_t BaseECSComponent::next_id()
+size_t BaseECSComponent::register_component_type(ECSComponentCreateFunction createfn,
+                                                 ECSComponentFreeFunction freefn, size_t size)
 {
-    return common_id++;
+    size_t component_id = component_types.size();
+    component_types.emplace_back((std::forward_as_tuple(createfn, freefn, size)));
+    return component_id;
 }

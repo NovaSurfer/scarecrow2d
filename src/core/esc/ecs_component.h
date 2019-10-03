@@ -7,10 +7,8 @@
 #ifndef SCARECROW2D_ECS_COMPONENT_H
 #define SCARECROW2D_ECS_COMPONENT_H
 
-#include <cstdint>
-#include <cstdlib>
 #include <vector>
-
+#include <tuple>
 
 struct BaseECSComponent;
 using EntityHandle = void*;
@@ -18,10 +16,31 @@ using ECSComponentCreateFunction = uint32_t (*)(std::vector<uint8_t>& memory, En
                                                 BaseECSComponent* comp);
 using ECSComponentFreeFunction = uint32_t (*)(BaseECSComponent* comp);
 
-struct BaseECSComponent
+class BaseECSComponent
 {
-    static uint32_t next_id();
+public:
+    static size_t register_component_type(ECSComponentCreateFunction createfn,
+                                          ECSComponentFreeFunction freefn, size_t size);
     EntityHandle entity = nullptr;
+
+    static ECSComponentCreateFunction get_type_createfn(uint32_t id)
+    {
+        return std::get<0>(component_types[id]);
+    }
+
+    static ECSComponentFreeFunction get_type_freefn(uint32_t id)
+    {
+        return std::get<1>(component_types[id]);
+    }
+
+    static size_t get_type_size(uint32_t id)
+    {
+        return std::get<2>(component_types[id]);
+    }
+
+private:
+    static std::vector<std::tuple<ECSComponentCreateFunction, ECSComponentFreeFunction, size_t>>
+        component_types;
 };
 
 template <typename T>
@@ -52,7 +71,9 @@ uint32_t ECSComponentFree(BaseECSComponent* comp)
 }
 
 template <typename T>
-const uint32_t ECSComponent<T>::id(BaseECSComponent::next_id());
+const uint32_t ECSComponent<T>::id(BaseECSComponent::register_component_type(ECSComponentCreate<T>,
+                                                                             ECSComponentFree<T>,
+                                                                             sizeof(T)));
 
 template <typename T>
 const size_t ECSComponent<T>::size(sizeof(T));
