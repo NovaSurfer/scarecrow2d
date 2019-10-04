@@ -12,13 +12,15 @@
 class ECS
 {
 public:
+    ECS();
+    ~ECS();
     ECS(const ECS&) = delete;
     ECS(ECS&&) = delete;
     ECS& operator=(const ECS&) = delete;
     ECS& operator=(ECS&&) = delete;
 
     // Entity methods
-    EntityHandle make_entity(BaseECSComponent* components, const uint32_t* component_ids,
+    EntityHandle make_entity(BaseECSComponent* entity_components, const uint32_t* component_ids,
                              size_t num_components);
     void remove_entity(EntityHandle handle);
 
@@ -57,6 +59,11 @@ private:
     auto& handle_to_entity(EntityHandle handle)
     {
         return handle_to_raw_type(handle)->second;
+    }
+
+    void remove_component_internal(uint32_t component_id, uint32_t index)
+    {
+
     }
 };
 

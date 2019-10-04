@@ -38,6 +38,11 @@ public:
         return std::get<2>(component_types[id]);
     }
 
+    static bool is_type_valid(uint32_t id)
+    {
+        return id >= component_types.size();
+    }
+
 private:
     static std::vector<std::tuple<ECSComponentCreateFunction, ECSComponentFreeFunction, size_t>>
         component_types;

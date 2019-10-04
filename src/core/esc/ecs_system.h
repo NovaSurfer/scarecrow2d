@@ -12,7 +12,7 @@ class BaseECSSystem
 public:
     explicit BaseECSSystem(const std::vector<uint32_t>& component_types)
         : component_types(component_types) {};
-    virtual void update_components(float delta, BaseECSComponent** components) {}
+    virtual void update_components(float delta, BaseECSComponent** components);
     [[nodiscard]] const std::vector<uint32_t>& get_component_types() const
     {
         return component_types;
