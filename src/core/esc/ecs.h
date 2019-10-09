@@ -12,7 +12,7 @@
 class ECS
 {
 public:
-    ECS();
+    ECS() = default;
     ~ECS();
     ECS(const ECS&) = delete;
     ECS(ECS&&) = delete;
@@ -26,7 +26,10 @@ public:
 
     // Components methods
     template <typename Component>
-    void add_component(EntityHandle entity, Component* component);
+    void add_component(EntityHandle entity, Component* component)
+    {
+        add_component_internal(entity, handle_to_entity(entity), Component::id, Component::size);
+    }
     template <typename Component>
     void remove_component(EntityHandle entity);
     template <typename Component>
@@ -35,11 +38,12 @@ public:
     // System methods
     void add_system(BaseECSSystem& system)
     {
-        systems.emplace_back(&system);
+        systems.emplace_back(system);
     }
 
     void remove_system(BaseECSSystem& system);
     void update_systems(float delta);
+
 private:
     std::vector<BaseECSSystem> systems;
     std::map<uint32_t, std::vector<uint8_t>> components;
@@ -56,15 +60,14 @@ private:
         return handle_to_raw_type(handle)->first;
     }
 
-    auto& handle_to_entity(EntityHandle handle)
+    std::vector<std::pair<uint32_t, uint32_t>>& handle_to_entity(EntityHandle handle)
     {
         return handle_to_raw_type(handle)->second;
     }
 
-    void remove_component_internal(uint32_t component_id, uint32_t index)
-    {
-
-    }
+    void add_component_internal(EntityHandle handle, std::vector<std::pair<uint32_t, uint32_t>>& entity,
+                                uint32_t component_id, BaseECSComponent* component);
+    void delete_component_internal(uint32_t component_id, uint32_t index);
 };
 
 #endif //SCARECROW2D_ECS_H

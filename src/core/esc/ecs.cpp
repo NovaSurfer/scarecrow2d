@@ -30,13 +30,7 @@ EntityHandle ECS::make_entity(BaseECSComponent* entity_components, const uint32_
             delete new_entity;
             return nullptr;
         }
-
-        ECSComponentCreateFunction createfn = BaseECSComponent::get_type_createfn(component_ids[i]);
-        std::pair<uint32_t, uint32_t> new_pair;
-        new_pair.first = component_ids[i];
-        new_pair.second =
-             createfn(entity_components[component_ids[i]], handle, &entity_components[i]);
-        new_entity->second.emplace_back(new_pair);
+        add_component_internal(handle, new_entity->second, component_ids[i], &entity_components[i]);
     }
 
     new_entity->first = entities.size();
@@ -48,7 +42,7 @@ void ECS::remove_entity(EntityHandle handle)
 {
     auto& entity = handle_to_entity(handle);
     for(auto& i : entity) {
-        remove_component_internal(i.first, i.second);
+        delete_component_internal(i.first, i.second);
     }
 
     uint32_t dest_index = handle_to_entity_index(handle);
@@ -56,4 +50,39 @@ void ECS::remove_entity(EntityHandle handle)
     delete entities[dest_index];
     entities[dest_index] = entities[src_index];
     entities.pop_back();
+}
+void ECS::add_component_internal(EntityHandle handle, std::vector<std::pair<uint32_t, uint32_t>>& entity,
+                                 uint32_t component_id, BaseECSComponent* component)
+{
+    ECSComponentCreateFunction createfn = BaseECSComponent::get_type_createfn(component_id);
+    std::pair<uint32_t, uint32_t> new_pair;
+    new_pair.first = component_id;
+    new_pair.second = createfn(components[component_id], handle, component);
+    entity.emplace_back(new_pair);
+}
+
+void ECS::delete_component_internal(uint32_t component_id, uint32_t index)
+{
+    std::vector<uint8_t>& array = components[component_id];
+    ECSComponentFreeFunction freefn = BaseECSComponent::get_type_freefn(component_id);
+    size_t type_size = BaseECSComponent::get_type_size(component_id);
+
+    uint32_t src_index = array.size() - type_size;
+    BaseECSComponent* dest_component = (BaseECSComponent*)&array[index];
+    BaseECSComponent* src_component = (BaseECSComponent*)&array[src_index];
+    freefn(dest_component);
+
+    // If 'index' is last element
+    if(index == src_index) {
+        array.resize(src_index);
+        return;
+    }
+    memcpy(dest_component, src_component, type_size);
+    auto& src_components = handle_to_entity(src_component->entity);
+    for(auto& c : src_components) {
+        if(component_id == c.first && src_index == c.second) {
+            c.second = index;
+            break;
+        }
+    }
 }
