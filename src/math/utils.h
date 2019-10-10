@@ -58,6 +58,12 @@ namespace math
         {
             number = (number < min) ? min : ((number > max) ? max : number);
         }
+
+        template <typename T>
+        constexpr static const T& max(const T& a, const T& b)
+        {
+            return a < b ? b : a;
+        }
     };
 }
 
