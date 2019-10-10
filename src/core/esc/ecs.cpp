@@ -1,9 +1,12 @@
 //
 // Created by Maksim Ruts on 24/09/2019.
 //
+// Entity component system from 'thebennybox'
+// https://raw.githubusercontent.com/BennyQBD/3DGameProgrammingTutorial/master/LICENSE
 
 #include "ecs.h"
 #include "core/log2.h"
+#include "math/utils.h"
 
 ECS::~ECS()
 {
@@ -22,7 +25,7 @@ EntityHandle ECS::make_entity(BaseECSComponent* entity_components, const uint32_
                               size_t num_components)
 {
     auto* new_entity = new std::pair<uint32_t, std::vector<std::pair<uint32_t, uint32_t>>>();
-    EntityHandle handle = (EntityHandle)new_entity;
+    auto handle = (EntityHandle)new_entity;
 
     for(size_t i = 0; i < num_components; ++i) {
         if(!BaseECSComponent::is_type_valid(component_ids[i])) {
@@ -51,7 +54,8 @@ void ECS::remove_entity(EntityHandle handle)
     entities[dest_index] = entities[src_index];
     entities.pop_back();
 }
-void ECS::add_component_internal(EntityHandle handle, std::vector<std::pair<uint32_t, uint32_t>>& entity,
+void ECS::add_component_internal(EntityHandle handle,
+                                 std::vector<std::pair<uint32_t, uint32_t>>& entity,
                                  uint32_t component_id, BaseECSComponent* component)
 {
     ECSComponentCreateFunction createfn = BaseECSComponent::get_type_createfn(component_id);
@@ -68,8 +72,8 @@ void ECS::delete_component_internal(uint32_t component_id, uint32_t index)
     size_t type_size = BaseECSComponent::get_type_size(component_id);
 
     uint32_t src_index = array.size() - type_size;
-    BaseECSComponent* dest_component = (BaseECSComponent*)&array[index];
-    BaseECSComponent* src_component = (BaseECSComponent*)&array[src_index];
+    auto* dest_component = (BaseECSComponent*)&array[index];
+    auto* src_component = (BaseECSComponent*)&array[src_index];
     freefn(dest_component);
 
     // If 'index' is last element
@@ -85,4 +89,64 @@ void ECS::delete_component_internal(uint32_t component_id, uint32_t index)
             break;
         }
     }
+}
+void ECS::remove_component_internal(EntityHandle handle, uint32_t component_id)
+{
+    auto& entity_components = handle_to_entity(handle);
+    for(size_t i = 0; i < entity_components.size(); ++i) {
+        if(component_id == entity_components[i].first) {
+            delete_component_internal(entity_components[i].first, entity_components[i].second);
+            uint32_t src_index = entity_components.size() - 1;
+            uint32_t dest_index = i;
+            entity_components[dest_index] = entity_components[src_index];
+            entity_components.pop_back();
+            return;
+        }
+    }
+}
+BaseECSComponent*
+ECS::get_component_internal(std::vector<std::pair<uint32_t, uint32_t>>& entity_components,
+                            std::vector<uint8_t>& array, uint32_t component_id) const
+{
+    for(auto& c : entity_components) {
+        if(component_id == c.first) {
+            return (BaseECSComponent*)&array [c.second];
+        }
+    }
+    return nullptr;
+}
+
+void ECS::remove_system(BaseECSSystem& system)
+{
+    for(size_t i = 0; i < systems.size(); ++i) {
+        if(&system == &systems[i]) {
+            systems.erase(systems.begin() + i);
+        }
+    }
+}
+void ECS::update_systems(float delta)
+{
+    std::vector<BaseECSComponent*> component_param;
+    std::vector<std::vector<uint8_t>*> component_array;
+    for(size_t i = 0; i < systems.size(); ++i) {
+        const std::vector<uint32_t>& component_types = systems[i].get_component_types();
+        if(component_types.size() == 1) {
+            size_t type_size = BaseECSComponent::get_type_size(component_types[0]);
+            std::vector<uint8_t>& comps_array = components[component_types[0]];
+            for(size_t j = 0; j < comps_array.size(); j += type_size) {
+                auto component = (BaseECSComponent*)&comps_array[j];
+                systems[i].update_components(delta, &component);
+            }
+        } else {
+            update_system_components(i, delta, component_types, component_param, component_array);
+        }
+    }
+}
+void ECS::update_system_components(size_t index, float delta,
+                                   const std::vector<uint32_t>& component_types,
+                                   std::vector<BaseECSComponent*>& component_param,
+                                   std::vector<std::vector<uint8_t>*>& component_array)
+{
+//    component_param.resize(math::utils::max(component_param.size(), component_types.size()));
+//    std::vector<uint8_t>& array
 }
