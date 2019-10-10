@@ -7,6 +7,7 @@
 #include "ecs.h"
 #include "core/log2.h"
 #include "math/utils.h"
+#include <cstring>
 
 ECS::~ECS()
 {
@@ -110,7 +111,7 @@ ECS::get_component_internal(std::vector<std::pair<uint32_t, uint32_t>>& entity_c
 {
     for(auto& c : entity_components) {
         if(component_id == c.first) {
-            return (BaseECSComponent*)&array [c.second];
+            return (BaseECSComponent*)&array[c.second];
         }
     }
     return nullptr;
@@ -147,6 +148,6 @@ void ECS::update_system_components(size_t index, float delta,
                                    std::vector<BaseECSComponent*>& component_param,
                                    std::vector<std::vector<uint8_t>*>& component_array)
 {
-//    component_param.resize(math::utils::max(component_param.size(), component_types.size()));
-//    std::vector<uint8_t>& array
+    //    component_param.resize(math::utils::max(component_param.size(), component_types.size()));
+    //    std::vector<uint8_t>& array
 }
