@@ -54,16 +54,11 @@ public:
 
     void remove_system(BaseECSSystem& system);
     void update_systems(float delta);
-    void update_system_components(size_t index, float delta,
-                                  const std::vector<uint32_t>& component_types,
-                                  std::vector<BaseECSComponent*>& component_param,
-                                  std::vector<std::vector<uint8_t>*>& component_array);
 
 private:
     std::vector<BaseECSSystem> systems;
     std::map<uint32_t, std::vector<uint8_t>> components;
     std::vector<std::pair<uint32_t, std::vector<std::pair<uint32_t, uint32_t>>>*> entities;
-
     auto handle_to_raw_type(EntityHandle handle) const
     {
         return static_cast<std::pair<uint32_t, std::vector<std::pair<uint32_t, uint32_t>>>*>(
@@ -80,6 +75,10 @@ private:
         return handle_to_raw_type(handle)->second;
     }
 
+    void update_system_components(size_t index, float delta,
+                                  const std::vector<uint32_t>& component_types,
+                                  std::vector<BaseECSComponent*>& component_param,
+                                  std::vector<std::vector<uint8_t>*>& component_array);
     void add_component_internal(EntityHandle handle,
                                 std::vector<std::pair<uint32_t, uint32_t>>& entity,
                                 uint32_t component_id, BaseECSComponent* component);
@@ -88,6 +87,7 @@ private:
     BaseECSComponent*
     get_component_internal(std::vector<std::pair<uint32_t, uint32_t>>& entity_components,
                            std::vector<uint8_t>& array, uint32_t component_id) const;
+    uint32_t find_least_common_component(const std::vector<uint32_t>& component_types);
 };
 
 #endif //SCARECROW2D_ECS_H

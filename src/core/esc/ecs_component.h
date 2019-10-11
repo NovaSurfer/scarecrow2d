@@ -12,9 +12,11 @@
 
 struct BaseECSComponent;
 using EntityHandle = void*;
+
+// Define function pointers
 using ECSComponentCreateFunction = uint32_t (*)(std::vector<uint8_t>& memory, EntityHandle entity,
                                                 BaseECSComponent* comp);
-using ECSComponentFreeFunction = uint32_t (*)(BaseECSComponent* comp);
+using ECSComponentFreeFunction = void (*)(BaseECSComponent* comp);
 
 class BaseECSComponent
 {
@@ -48,28 +50,52 @@ private:
         component_types;
 };
 
+/**
+ * ECS Component
+ * We are using 'Curiously recurring template pattern'
+ * In order to get static variables in every derived component class
+ * @tparam T the component class itself
+ */
 template <typename T>
 struct ECSComponent : public BaseECSComponent
 {
     static const ECSComponentCreateFunction CREATE_FUNCTION;
     static const ECSComponentFreeFunction FREE_FUNCTION;
+    // Index for component type in oder to distinguish type from another
     static const uint32_t id;
+    // Component type size
     static const size_t size;
 };
 
+/**
+ * Creates component and allocates memory for it.
+ * @tparam Component component class
+ * @param memory
+ * @param entity Entity in which the Component will be stored
+ * @param comp component
+ * @return Component index
+ */
 template <typename Component>
 uint32_t ECSComponentCreate(std::vector<uint8_t>& memory, EntityHandle entity,
                             BaseECSComponent* comp)
 {
     size_t index = memory.size();
+    // Resizing, making an offset with 'last index + component size'
     memory.resize(index + Component::size);
+    // Construct new component in the address of 'memory' which is already allocated
     Component* component = new(&memory[index]) Component(*(Component*)comp);
     component->entity = entity;
     return index;
 }
 
+/**
+ * Frees component from memory
+ * @tparam Component component class
+ * @param comp component
+ * @return
+ */
 template <typename Component>
-uint32_t ECSComponentFree(BaseECSComponent* comp)
+void ECSComponentFree(BaseECSComponent* comp)
 {
     Component* component = (Component*)comp;
     component->~Component();
@@ -80,12 +106,24 @@ const uint32_t ECSComponent<T>::id(BaseECSComponent::register_component_type(ECS
                                                                              ECSComponentFree<T>,
                                                                              sizeof(T)));
 
+/**
+ * Size of Component, needed for Component allocation
+ * @tparam T Component
+ */
 template <typename T>
 const size_t ECSComponent<T>::size(sizeof(T));
 
+/**
+ * Init create function pointer
+ * @tparam T component class
+ */
 template <typename T>
 const ECSComponentCreateFunction ECSComponent<T>::CREATE_FUNCTION(ECSComponentCreate<T>);
 
+/**
+ * Init free function pointer
+ * @tparam T component class
+ */
 template <typename T>
 const ECSComponentFreeFunction ECSComponent<T>::FREE_FUNCTION(ECSComponentFree<T>);
 

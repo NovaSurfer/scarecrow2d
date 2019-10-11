@@ -9,9 +9,15 @@
 
 #include "ecs_component.h"
 
+/**
+ * Contains some list of Components
+ */
 class BaseECSSystem
 {
 public:
+    /**
+     * @param component_types component types ids
+     */
     explicit BaseECSSystem(const std::vector<uint32_t>& component_types)
         : component_types(component_types) {};
     virtual void update_components(float delta, BaseECSComponent** components);
@@ -22,6 +28,7 @@ public:
     virtual ~BaseECSSystem() = default;
 
 private:
+    // Stores component types ids
     std::vector<uint32_t> component_types;
 };
 
