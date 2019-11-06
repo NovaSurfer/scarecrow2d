@@ -18,6 +18,8 @@ using ECSComponentCreateFunction = uint32_t (*)(std::vector<uint8_t>& memory, En
                                                 BaseECSComponent* comp);
 using ECSComponentFreeFunction = void (*)(BaseECSComponent* comp);
 
+using compId_t = uint32_t;
+
 class BaseECSComponent
 {
 public:
@@ -25,22 +27,22 @@ public:
                                           ECSComponentFreeFunction freefn, size_t size);
     EntityHandle entity = nullptr;
 
-    static ECSComponentCreateFunction get_type_createfn(uint32_t id)
+    static ECSComponentCreateFunction get_type_createfn(compId_t id)
     {
         return std::get<0>(component_types[id]);
     }
 
-    static ECSComponentFreeFunction get_type_freefn(uint32_t id)
+    static ECSComponentFreeFunction get_type_freefn(compId_t id)
     {
         return std::get<1>(component_types[id]);
     }
 
-    static size_t get_type_size(uint32_t id)
+    static size_t get_type_size(compId_t id)
     {
         return std::get<2>(component_types[id]);
     }
 
-    static bool is_type_valid(uint32_t id)
+    static bool is_type_valid(compId_t id)
     {
         return id >= component_types.size();
     }
@@ -62,7 +64,7 @@ struct ECSComponent : public BaseECSComponent
     static const ECSComponentCreateFunction CREATE_FUNCTION;
     static const ECSComponentFreeFunction FREE_FUNCTION;
     // Index for component type in oder to distinguish type from another
-    static const uint32_t id;
+    static const compId_t id;
     // Component type size
     static const size_t size;
 };

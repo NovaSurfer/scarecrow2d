@@ -20,16 +20,19 @@ public:
      */
     explicit BaseECSSystem(const std::vector<uint32_t>& component_types)
         : component_types(component_types) {};
+
+    virtual ~BaseECSSystem() = default;
+
     virtual void update_components(float delta, BaseECSComponent** components);
-    [[nodiscard]] const std::vector<uint32_t>& get_component_types() const
+
+    [[nodiscard]] const std::vector<compId_t>& get_component_types() const
     {
         return component_types;
     }
-    virtual ~BaseECSSystem() = default;
 
 private:
     // Stores component types ids
-    std::vector<uint32_t> component_types;
+    std::vector<compId_t> component_types;
 };
 
 #endif //SCARECROW2D_ECS_SYSTEM_H

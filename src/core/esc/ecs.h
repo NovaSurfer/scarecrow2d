@@ -11,6 +11,9 @@
 #include "ecs_system.h"
 #include <map>
 
+/**
+ * Main class for Entity Component System
+ */
 class ECS
 {
 public:
@@ -22,7 +25,14 @@ public:
     ECS& operator=(ECS&&) = delete;
 
     // Entity methods
-    EntityHandle make_entity(BaseECSComponent* entity_components, const uint32_t* component_ids,
+    /**
+     * Makes entity
+     * @param entity_components components attached to the entity
+     * @param component_ids components types ids
+     * @param num_components nubmer of components
+     * @return
+     */
+    EntityHandle make_entity(BaseECSComponent* entity_components, const compId_t* component_ids,
                              size_t num_components);
     void remove_entity(EntityHandle handle);
 
@@ -49,27 +59,44 @@ public:
     // System methods
     void add_system(BaseECSSystem& system)
     {
-        systems.emplace_back(system);
+        systems.emplace_back(&system);
     }
 
     void remove_system(BaseECSSystem& system);
     void update_systems(float delta);
 
 private:
-    std::vector<BaseECSSystem> systems;
-    std::map<uint32_t, std::vector<uint8_t>> components;
-    std::vector<std::pair<uint32_t, std::vector<std::pair<uint32_t, uint32_t>>>*> entities;
+    std::vector<BaseECSSystem*> systems;
+    std::map<compId_t, std::vector<uint8_t>> components;
+    // [vector]<[pair]<index in array it self,[vector]<[pair]< component id, index of component in components array>>>>
+    std::vector<std::pair<uint32_t, std::vector<std::pair<compId_t, uint32_t>>>*> entities;
+
+    /**
+     * Utility method: casts Entity handle to raw entity type
+     * @param handle Entity handle
+     * @return
+     */
     auto handle_to_raw_type(EntityHandle handle) const
     {
-        return static_cast<std::pair<uint32_t, std::vector<std::pair<uint32_t, uint32_t>>>*>(
+        return static_cast<std::pair<uint32_t, std::vector<std::pair<compId_t, uint32_t>>>*>(
             handle);
     }
 
+    /**
+     * Utility method: casts Entity handle to entity index in entities vector
+     * @param handle Entity handle
+     * @return
+     */
     uint32_t handle_to_entity_index(EntityHandle handle) const
     {
         return handle_to_raw_type(handle)->first;
     }
 
+    /**
+     * Utility method: casts Entity handle to entity type
+     * @param handle Entity handle
+     * @return
+     */
     std::vector<std::pair<uint32_t, uint32_t>>& handle_to_entity(EntityHandle handle) const
     {
         return handle_to_raw_type(handle)->second;

@@ -125,7 +125,7 @@ ECS::get_component_internal(std::vector<std::pair<uint32_t, uint32_t>>& entity_c
 void ECS::remove_system(BaseECSSystem& system)
 {
     for(size_t i = 0; i < systems.size(); ++i) {
-        if(&system == &systems[i]) {
+        if(&system == systems[i]) {
             systems.erase(systems.begin() + i);
         }
     }
@@ -135,13 +135,13 @@ void ECS::update_systems(float delta)
     std::vector<BaseECSComponent*> component_param;
     std::vector<std::vector<uint8_t>*> component_array;
     for(size_t i = 0; i < systems.size(); ++i) {
-        const std::vector<uint32_t>& component_types = systems[i].get_component_types();
+        const std::vector<uint32_t>& component_types = systems[i]->get_component_types();
         if(component_types.size() == 1) {
             size_t type_size = BaseECSComponent::get_type_size(component_types[0]);
             std::vector<uint8_t>& comps_array = components[component_types[0]];
             for(size_t j = 0; j < comps_array.size(); j += type_size) {
                 auto component = (BaseECSComponent*)&comps_array[j];
-                systems[i].update_components(delta, &component);
+                systems[i]->update_components(delta, &component);
             }
         } else {
             update_system_components(i, delta, component_types, component_param, component_array);
@@ -181,7 +181,7 @@ void ECS::update_system_components(size_t index, float delta,
             }
         }
         if(is_valid)
-            systems[index].update_components(delta, &component_param[0]);
+            systems[index]->update_components(delta, &component_param[0]);
     }
 }
 
