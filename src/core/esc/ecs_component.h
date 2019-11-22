@@ -7,18 +7,17 @@
 #ifndef SCARECROW2D_ECS_COMPONENT_H
 #define SCARECROW2D_ECS_COMPONENT_H
 
-#include <vector>
 #include <tuple>
+#include <vector>
 
 struct BaseECSComponent;
 using EntityHandle = void*;
+using compId_t = uint32_t;
 
 // Define function pointers
-using ECSComponentCreateFunction = uint32_t (*)(std::vector<uint8_t>& memory, EntityHandle entity,
-                                                BaseECSComponent* comp);
 using ECSComponentFreeFunction = void (*)(BaseECSComponent* comp);
-
-using compId_t = uint32_t;
+using ECSComponentCreateFunction = compId_t (*)(std::vector<uint8_t>& memory, EntityHandle entity,
+                                                BaseECSComponent* comp);
 
 class BaseECSComponent
 {
@@ -78,9 +77,10 @@ struct ECSComponent : public BaseECSComponent
  * @return Component index
  */
 template <typename Component>
-uint32_t ECSComponentCreate(std::vector<uint8_t>& memory, EntityHandle entity,
+compId_t ECSComponentCreate(std::vector<uint8_t>& memory, EntityHandle entity,
                             BaseECSComponent* comp)
 {
+    // Get last index
     size_t index = memory.size();
     // Resizing, making an offset with 'last index + component size'
     memory.resize(index + Component::size);

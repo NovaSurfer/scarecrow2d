@@ -67,6 +67,7 @@ public:
 
 private:
     std::vector<BaseECSSystem*> systems;
+    // contains: component id, component's memory
     std::map<compId_t, std::vector<uint8_t>> components;
     // [vector]<[pair]<index in array it self,[vector]<[pair]< component id, index of component in components array>>>>
     std::vector<std::pair<uint32_t, std::vector<std::pair<compId_t, uint32_t>>>*> entities;
@@ -97,7 +98,7 @@ private:
      * @param handle Entity handle
      * @return
      */
-    std::vector<std::pair<uint32_t, uint32_t>>& handle_to_entity(EntityHandle handle) const
+    std::vector<std::pair<compId_t, uint32_t>>& handle_to_entity(EntityHandle handle) const
     {
         return handle_to_raw_type(handle)->second;
     }
@@ -107,12 +108,12 @@ private:
                                   std::vector<BaseECSComponent*>& component_param,
                                   std::vector<std::vector<uint8_t>*>& component_array);
     void add_component_internal(EntityHandle handle,
-                                std::vector<std::pair<uint32_t, uint32_t>>& entity,
-                                uint32_t component_id, BaseECSComponent* component);
-    void remove_component_internal(EntityHandle handle, uint32_t component_id);
-    void delete_component_internal(uint32_t component_id, uint32_t index);
+                                std::vector<std::pair<compId_t, uint32_t>>& entity,
+                                compId_t component_id, BaseECSComponent* component);
+    void remove_component_internal(EntityHandle handle, compId_t component_id);
+    void delete_component_internal(compId_t component_id, uint32_t index);
     BaseECSComponent*
-    get_component_internal(std::vector<std::pair<uint32_t, uint32_t>>& entity_components,
+    get_component_internal(std::vector<std::pair<compId_t, uint32_t>>& entity_components,
                            std::vector<uint8_t>& array, uint32_t component_id) const;
     uint32_t find_least_common_component(const std::vector<uint32_t>& component_types);
 };

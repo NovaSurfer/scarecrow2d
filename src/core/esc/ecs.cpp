@@ -14,7 +14,7 @@ ECS::~ECS()
     for(auto& entity : entities)
         delete entity;
 
-    for(auto& component : components) {
+    for(const auto& component : components) {
         size_t type_size = BaseECSComponent::get_type_size(component.first);
         ECSComponentFreeFunction freefn = BaseECSComponent::get_type_freefn(component.first);
         for(size_t i = 0; i < component.second.size(); i += type_size) {
@@ -23,13 +23,14 @@ ECS::~ECS()
     }
 }
 
-EntityHandle ECS::make_entity(BaseECSComponent* entity_components, const uint32_t* component_ids,
+EntityHandle ECS::make_entity(BaseECSComponent* entity_components, const compId_t* component_ids,
                               size_t num_components)
 {
-    auto* new_entity = new std::pair<uint32_t, std::vector<std::pair<uint32_t, uint32_t>>>();
+    auto* new_entity = new std::pair<uint32_t, std::vector<std::pair<compId_t, uint32_t>>>();
     auto handle = (EntityHandle)new_entity;
 
     for(size_t i = 0; i < num_components; ++i) {
+        // Check if component id is valid
         if(!BaseECSComponent::is_type_valid(component_ids[i])) {
             log_err_cmd("%u is not a valid component type.", component_ids[i]);
             delete new_entity;
@@ -54,26 +55,28 @@ void ECS::remove_entity(EntityHandle handle)
     uint32_t dest_index = handle_to_entity_index(handle);
     uint32_t src_index = entities.size() - 1;
     delete entities[dest_index];
+    // Removing entity from vector
     entities[dest_index] = entities[src_index];
     entities.pop_back();
 }
 
 void ECS::add_component_internal(EntityHandle handle,
-                                 std::vector<std::pair<uint32_t, uint32_t>>& entity,
-                                 uint32_t component_id, BaseECSComponent* component)
+                                 std::vector<std::pair<compId_t, uint32_t>>& entity,
+                                 compId_t component_id, BaseECSComponent* component)
 {
     ECSComponentCreateFunction createfn = BaseECSComponent::get_type_createfn(component_id);
-    std::pair<uint32_t, uint32_t> new_pair;
+    std::pair<compId_t, uint32_t> new_pair;
     new_pair.first = component_id;
     new_pair.second = createfn(components[component_id], handle, component);
     entity.emplace_back(new_pair);
 }
 
-void ECS::delete_component_internal(uint32_t component_id, uint32_t index)
+void ECS::delete_component_internal(compId_t component_id, uint32_t index)
 {
     std::vector<uint8_t>& array = components[component_id];
     ECSComponentFreeFunction freefn = BaseECSComponent::get_type_freefn(component_id);
     size_t type_size = BaseECSComponent::get_type_size(component_id);
+
 
     uint32_t src_index = array.size() - type_size;
     auto* dest_component = (BaseECSComponent*)&array[index];
