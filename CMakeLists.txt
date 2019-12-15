@@ -77,6 +77,10 @@ target_compile_definitions(${PROJECT_NAME} PUBLIC "GLFW_INCLUDE_NONE")
 
 # GLAD
 set(GLAD_DIR "${LIB_DIR}/glad")
+set(GLAD_PROFILE "core")
+set(GLAD_API "gl=3.3")
+set(GLAD_EXTENSIONS "GL_ARB_instanced_arrays")
+set(GLAD_SPEC "gl")
 add_subdirectory("${GLAD_DIR}")
 target_include_directories("glad" PRIVATE "${GLAD_DIR}/include")
 target_include_directories(${PROJECT_NAME} PRIVATE "${GLAD_DIR}/include")
