@@ -22,12 +22,6 @@ namespace sc2d::debug
                 case GL_INVALID_OPERATION:
                     err_str = "GL_INVALID_OPERATION";
                     break;
-                case GL_STACK_OVERFLOW:
-                    err_str = "GL_STACK_OVERFLOW";
-                    break;
-                case GL_STACK_UNDERFLOW:
-                    err_str = "GL_STACK_UNDERFLOW";
-                    break;
                 case GL_OUT_OF_MEMORY:
                     err_str = "GL_OUT_OF_MEMORY";
                     break;
