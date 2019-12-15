@@ -79,8 +79,10 @@ sc2d::ResultBool program_init()
     //
     const sc2d::Shader& sprite_sheet_shader = sc2d::ResourceHolder::get_shader("spritesheet");
     tex_atlas = sc2d::ResourceHolder::get_texture_atlas("tilemap");
+    sprite_sheet_shader.run();
     sprite_sheet_shader.set_int("image_array", tex_atlas.get_obj_id());
-    log_gl_error_cmd() sprite_sheet_shader.run().set_mat4("projection", proj);
+    log_gl_error_cmd()
+    sprite_sheet_shader.set_mat4("projection", proj);
     tiled_map = sc2d::ResourceHolder::get_tiled_map("wasd");
     tiled_map.init(sprite_sheet_shader);
     log_gl_error_cmd()
