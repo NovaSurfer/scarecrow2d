@@ -39,7 +39,7 @@ namespace sc2d
         static Vertex quad_vertices[VERTICES_PER_QUAD];
         Shader shader;
         size_t sprites_count;
-        GLuint quad_vao;
+//        GLuint quad_vao;
     };
 }
 

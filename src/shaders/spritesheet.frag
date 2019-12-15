@@ -2,7 +2,7 @@ R"(
 #version 330 core
 
 in vec2 TexCoords;
-flat in int TileIndex;
+flat in uint TileIndex;
 out vec4 color;
 
 uniform sampler2DArray image_array;
