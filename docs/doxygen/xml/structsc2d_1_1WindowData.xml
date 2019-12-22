@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structsc2d_1_1WindowData" kind="struct" language="C++" prot="public">
+    <compoundname>sc2d::WindowData</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structsc2d_1_1WindowData_1a329927b97d37a7039b04a003444e099a" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int sc2d::WindowData::context_version_min</definition>
+        <argsstring></argsstring>
+        <name>context_version_min</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/window.h" line="19" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/window.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsc2d_1_1WindowData_1a241f55fe0787d8bd9b879304e68c597c" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int sc2d::WindowData::context_version_max</definition>
+        <argsstring></argsstring>
+        <name>context_version_max</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/window.h" line="20" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/window.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsc2d_1_1WindowData_1a725afa79d23cc1bcc1c9aaa56d11c5a4" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int sc2d::WindowData::opengl_profile</definition>
+        <argsstring></argsstring>
+        <name>opengl_profile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/window.h" line="21" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/window.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsc2d_1_1WindowData_1acd449e0527c50a1aa8856ce8a3d7b015" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int sc2d::WindowData::screen_width</definition>
+        <argsstring></argsstring>
+        <name>screen_width</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/window.h" line="22" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/window.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsc2d_1_1WindowData_1a0eb4d71f46f60e04e4c8bfef06b61082" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int sc2d::WindowData::screen_height</definition>
+        <argsstring></argsstring>
+        <name>screen_height</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/window.h" line="23" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/window.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsc2d_1_1WindowData_1ac590af28b89a6e785d9065125012dee2" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* sc2d::WindowData::window_name</definition>
+        <argsstring></argsstring>
+        <name>window_name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/window.h" line="24" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/window.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsc2d_1_1WindowData_1ae8e59cd551270fb8aa306f8a01db3c78" prot="public" static="no" mutable="no">
+        <type>GLFWframebuffersizefun</type>
+        <definition>GLFWframebuffersizefun sc2d::WindowData::frame_buffer_size_callback</definition>
+        <argsstring></argsstring>
+        <name>frame_buffer_size_callback</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/window.h" line="25" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/window.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsc2d_1_1WindowData_1a503aa995fc885844bc4bca1c979c7990" prot="public" static="no" mutable="no">
+        <type>GLFWkeyfun</type>
+        <definition>GLFWkeyfun sc2d::WindowData::key_callback</definition>
+        <argsstring></argsstring>
+        <name>key_callback</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/window.h" line="26" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/window.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/novasurfer/projects/scarecrow2d/src/core/window.h" line="18" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/window.h" bodystart="17" bodyend="27"/>
+    <listofallmembers>
+      <member refid="structsc2d_1_1WindowData_1a241f55fe0787d8bd9b879304e68c597c" prot="public" virt="non-virtual"><scope>sc2d::WindowData</scope><name>context_version_max</name></member>
+      <member refid="structsc2d_1_1WindowData_1a329927b97d37a7039b04a003444e099a" prot="public" virt="non-virtual"><scope>sc2d::WindowData</scope><name>context_version_min</name></member>
+      <member refid="structsc2d_1_1WindowData_1ae8e59cd551270fb8aa306f8a01db3c78" prot="public" virt="non-virtual"><scope>sc2d::WindowData</scope><name>frame_buffer_size_callback</name></member>
+      <member refid="structsc2d_1_1WindowData_1a503aa995fc885844bc4bca1c979c7990" prot="public" virt="non-virtual"><scope>sc2d::WindowData</scope><name>key_callback</name></member>
+      <member refid="structsc2d_1_1WindowData_1a725afa79d23cc1bcc1c9aaa56d11c5a4" prot="public" virt="non-virtual"><scope>sc2d::WindowData</scope><name>opengl_profile</name></member>
+      <member refid="structsc2d_1_1WindowData_1a0eb4d71f46f60e04e4c8bfef06b61082" prot="public" virt="non-virtual"><scope>sc2d::WindowData</scope><name>screen_height</name></member>
+      <member refid="structsc2d_1_1WindowData_1acd449e0527c50a1aa8856ce8a3d7b015" prot="public" virt="non-virtual"><scope>sc2d::WindowData</scope><name>screen_width</name></member>
+      <member refid="structsc2d_1_1WindowData_1ac590af28b89a6e785d9065125012dee2" prot="public" virt="non-virtual"><scope>sc2d::WindowData</scope><name>window_name</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

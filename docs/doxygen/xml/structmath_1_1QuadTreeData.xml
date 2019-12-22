@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structmath_1_1QuadTreeData" kind="struct" language="C++" prot="public">
+    <compoundname>math::QuadTreeData</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structmath_1_1QuadTreeData_1ab0dc4a5b878c81d4f8ab0eb7d1cbd22a" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* math::QuadTreeData::object</definition>
+        <argsstring></argsstring>
+        <name>object</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.h" line="15" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmath_1_1QuadTreeData_1af07af2ba2e8651d8069a924148943866" prot="public" static="no" mutable="no">
+        <type><ref refid="structmath_1_1rect2d" kindref="compound">rect2d</ref></type>
+        <definition>rect2d math::QuadTreeData::bounds</definition>
+        <argsstring></argsstring>
+        <name>bounds</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.h" line="16" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmath_1_1QuadTreeData_1ab59d5d953f4b2bb5359695bc817068d0" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool math::QuadTreeData::flag</definition>
+        <argsstring></argsstring>
+        <name>flag</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.h" line="17" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structmath_1_1QuadTreeData_1a7c3182a7e326751bc339c18d6660571d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>math::QuadTreeData::QuadTreeData</definition>
+        <argsstring>(void *obj, const rect2d &amp;rect)</argsstring>
+        <name>QuadTreeData</name>
+        <param>
+          <type>void *</type>
+          <declname>obj</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1rect2d" kindref="compound">rect2d</ref> &amp;</type>
+          <declname>rect</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.h" line="19" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.h" bodystart="19" bodyend="23"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="85">
+        <label>math::QuadTreeData</label>
+        <link refid="structmath_1_1QuadTreeData"/>
+        <childnode refid="86" relation="usage">
+          <edgelabel>bounds</edgelabel>
+        </childnode>
+      </node>
+      <node id="86">
+        <label>math::rect2d</label>
+        <link refid="structmath_1_1rect2d"/>
+        <childnode refid="87" relation="usage">
+          <edgelabel>size</edgelabel>
+          <edgelabel>origin</edgelabel>
+        </childnode>
+      </node>
+      <node id="87">
+        <label>math::vec2</label>
+        <link refid="structmath_1_1vec2"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.h" line="14" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.h" bodystart="13" bodyend="24"/>
+    <listofallmembers>
+      <member refid="structmath_1_1QuadTreeData_1af07af2ba2e8651d8069a924148943866" prot="public" virt="non-virtual"><scope>math::QuadTreeData</scope><name>bounds</name></member>
+      <member refid="structmath_1_1QuadTreeData_1ab59d5d953f4b2bb5359695bc817068d0" prot="public" virt="non-virtual"><scope>math::QuadTreeData</scope><name>flag</name></member>
+      <member refid="structmath_1_1QuadTreeData_1ab0dc4a5b878c81d4f8ab0eb7d1cbd22a" prot="public" virt="non-virtual"><scope>math::QuadTreeData</scope><name>object</name></member>
+      <member refid="structmath_1_1QuadTreeData_1a7c3182a7e326751bc339c18d6660571d" prot="public" virt="non-virtual"><scope>math::QuadTreeData</scope><name>QuadTreeData</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

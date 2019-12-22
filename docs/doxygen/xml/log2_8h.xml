@@ -1,0 +1,239 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="log2_8h" kind="file" language="C++">
+    <compoundname>log2.h</compoundname>
+    <includes local="no">cstdarg</includes>
+    <includes local="no">cstdio</includes>
+    <includes local="no">cstdlib</includes>
+    <includes local="no">ctime</includes>
+    <includes local="no">mutex</includes>
+    <includedby refid="vec_8h" local="yes">/home/novasurfer/projects/scarecrow2d/src/collections/vec.h</includedby>
+    <includedby refid="debug__utils_8h" local="yes">/home/novasurfer/projects/scarecrow2d/src/core/debug_utils.h</includedby>
+    <includedby refid="ecs_8cpp" local="yes">/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.cpp</includedby>
+    <includedby refid="log2_8cpp" local="yes">/home/novasurfer/projects/scarecrow2d/src/core/log2.cpp</includedby>
+    <includedby refid="terminate_8h" local="yes">/home/novasurfer/projects/scarecrow2d/src/core/os/terminate.h</includedby>
+    <includedby refid="shader_8cpp" local="yes">/home/novasurfer/projects/scarecrow2d/src/core/shader.cpp</includedby>
+    <includedby refid="sprite_8cpp" local="yes">/home/novasurfer/projects/scarecrow2d/src/core/sprite.cpp</includedby>
+    <includedby refid="tiled__map_8cpp" local="yes">/home/novasurfer/projects/scarecrow2d/src/core/tiled_map.cpp</includedby>
+    <includedby refid="configLoader_8cpp" local="yes">/home/novasurfer/projects/scarecrow2d/src/filesystem/configLoader.cpp</includedby>
+    <includedby refid="resourceHolder_8cpp" local="yes">/home/novasurfer/projects/scarecrow2d/src/filesystem/resourceHolder.cpp</includedby>
+    <includedby refid="main_8cpp" local="yes">/home/novasurfer/projects/scarecrow2d/src/main.cpp</includedby>
+    <includedby refid="pool__allocator_8cpp" local="yes">/home/novasurfer/projects/scarecrow2d/src/memory/pool_allocator.cpp</includedby>
+    <incdepgraph>
+      <node id="92">
+        <label>/home/novasurfer/projects/scarecrow2d/src/core/log2.h</label>
+        <link refid="log2_8h"/>
+        <childnode refid="93" relation="include">
+        </childnode>
+        <childnode refid="94" relation="include">
+        </childnode>
+        <childnode refid="95" relation="include">
+        </childnode>
+        <childnode refid="96" relation="include">
+        </childnode>
+        <childnode refid="97" relation="include">
+        </childnode>
+      </node>
+      <node id="93">
+        <label>cstdarg</label>
+      </node>
+      <node id="94">
+        <label>cstdio</label>
+      </node>
+      <node id="96">
+        <label>ctime</label>
+      </node>
+      <node id="95">
+        <label>cstdlib</label>
+      </node>
+      <node id="97">
+        <label>mutex</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="101">
+        <label>/home/novasurfer/projects/scarecrow2d/src/core/sprite_sheet_inst.h</label>
+        <link refid="sprite__sheet__inst_8h_source"/>
+        <childnode refid="102" relation="include">
+        </childnode>
+      </node>
+      <node id="98">
+        <label>/home/novasurfer/projects/scarecrow2d/src/core/log2.h</label>
+        <link refid="log2_8h"/>
+        <childnode refid="99" relation="include">
+        </childnode>
+        <childnode refid="100" relation="include">
+        </childnode>
+        <childnode refid="104" relation="include">
+        </childnode>
+      </node>
+      <node id="102">
+        <label>/home/novasurfer/projects/scarecrow2d/src/core/tiled_map.h</label>
+        <link refid="tiled__map_8h_source"/>
+        <childnode refid="103" relation="include">
+        </childnode>
+      </node>
+      <node id="105">
+        <label>/home/novasurfer/projects/scarecrow2d/src/core/result.h</label>
+        <link refid="result_8h_source"/>
+        <childnode refid="106" relation="include">
+        </childnode>
+      </node>
+      <node id="103">
+        <label>/home/novasurfer/projects/scarecrow2d/src/filesystem/resourceHolder.h</label>
+        <link refid="resourceHolder_8h_source"/>
+      </node>
+      <node id="100">
+        <label>/home/novasurfer/projects/scarecrow2d/src/core/debug_utils.h</label>
+        <link refid="debug__utils_8h_source"/>
+        <childnode refid="101" relation="include">
+        </childnode>
+      </node>
+      <node id="104">
+        <label>/home/novasurfer/projects/scarecrow2d/src/core/os/terminate.h</label>
+        <link refid="terminate_8h_source"/>
+        <childnode refid="105" relation="include">
+        </childnode>
+      </node>
+      <node id="106">
+        <label>/home/novasurfer/projects/scarecrow2d/src/filesystem/configLoader.h</label>
+        <link refid="configLoader_8h_source"/>
+      </node>
+      <node id="99">
+        <label>/home/novasurfer/projects/scarecrow2d/src/collections/vec.h</label>
+        <link refid="vec_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innernamespace refid="namespacesc2d_1_1logging">sc2d::logging</innernamespace>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="log2_8h_1a87b5dd80fe5451cc59d75bddd4def375" prot="public" static="no">
+        <name>log_info_cmd</name>
+        <param><defname>...</defname></param>
+        <initializer>sc2d::logging::log(sc2d::logging::CONSOLE, sc2d::logging::INFO, __FILE__, __LINE__, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>I know that this is bad C++ code, but unfortunately I can&apos;t use <bold>FILE</bold> / <bold>LINE</bold> predefined macroses outside of another macros context. I&apos;ve tried to use std::experimental::source_location, but it&apos;s very hard to mix variadic arguments with default value for source_location. Details_01: <ulink url="https://stackoverflow.com/questions/52977593/stdexperimentalsource-location-at-compile-time">https://stackoverflow.com/questions/52977593/stdexperimentalsource-location-at-compile-time</ulink> Details_02: <ulink url="https://stackoverflow.com/questions/4196431/passing-the-caller-file-line-to-a-function-without-using-macro/28742116">https://stackoverflow.com/questions/4196431/passing-the-caller-file-line-to-a-function-without-using-macro/28742116</ulink> Modified <ulink url="https://github.com/rxi/log.c">https://github.com/rxi/log.c</ulink> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/log2.h" line="20" column="9" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/log2.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="log2_8h_1a3ba0c0913b6110ff13616a6994708155" prot="public" static="no">
+        <name>log_info_file</name>
+        <param><defname>...</defname></param>
+        <initializer>sc2d::logging::log(sc2d::logging::FILE_S, sc2d::logging::INFO, __FILE__, __LINE__, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/log2.h" line="22" column="9" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/log2.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="log2_8h_1a6632db171bd2c1225d356cd42aafebf5" prot="public" static="no">
+        <name>log_warn_cmd</name>
+        <param><defname>...</defname></param>
+        <initializer>sc2d::logging::log(sc2d::logging::CONSOLE, sc2d::logging::WARN, __FILE__, __LINE__, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/log2.h" line="24" column="9" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/log2.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="log2_8h_1a5f8643977acb8daa17404dadbcb9ce33" prot="public" static="no">
+        <name>log_warn_file</name>
+        <param><defname>...</defname></param>
+        <initializer>sc2d::logging::log(sc2d::logging::FILE_S, sc2d::logging::WARN, __FILE__, __LINE__, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/log2.h" line="26" column="9" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/log2.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="log2_8h_1a7946892bd866eed396427b00ce441dc3" prot="public" static="no">
+        <name>log_err_cmd</name>
+        <param><defname>...</defname></param>
+        <initializer>sc2d::logging::log(sc2d::logging::CONSOLE, sc2d::logging::ERR, __FILE__, __LINE__, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/log2.h" line="28" column="9" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/log2.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="log2_8h_1adc218d7bd82ab0c748f064e146ea01a0" prot="public" static="no">
+        <name>log_err_file</name>
+        <param><defname>...</defname></param>
+        <initializer>sc2d::logging::log(sc2d::logging::FILE_S, sc2d::logging::ERR, __FILE__, __LINE__, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/log2.h" line="30" column="9" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/log2.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="11"><highlight class="preprocessor">#ifndef<sp/>INC_2D_GAME_LOG2_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>INC_2D_GAME_LOG2_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdarg&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdio&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdlib&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ctime&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;mutex&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>log_info_cmd(...)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="21"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>sc2d::logging::log(sc2d::logging::CONSOLE,<sp/>sc2d::logging::INFO,<sp/>__FILE__,<sp/>__LINE__,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>log_info_file(...)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="23"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>sc2d::logging::log(sc2d::logging::FILE_S,<sp/>sc2d::logging::INFO,<sp/>__FILE__,<sp/>__LINE__,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>log_warn_cmd(...)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="25"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>sc2d::logging::log(sc2d::logging::CONSOLE,<sp/>sc2d::logging::WARN,<sp/>__FILE__,<sp/>__LINE__,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>log_warn_file(...)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="27"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>sc2d::logging::log(sc2d::logging::FILE_S,<sp/>sc2d::logging::WARN,<sp/>__FILE__,<sp/>__LINE__,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>log_err_cmd(...)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="29"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>sc2d::logging::log(sc2d::logging::CONSOLE,<sp/>sc2d::logging::ERR,<sp/>__FILE__,<sp/>__LINE__,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>log_err_file(...)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="31"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>sc2d::logging::log(sc2d::logging::FILE_S,<sp/>sc2d::logging::ERR,<sp/>__FILE__,<sp/>__LINE__,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesc2d_1_1logging" kindref="compound">sc2d::logging</ref></highlight></codeline>
+<codeline lineno="34"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>LogLevel</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>INFO,</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WARN,</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ERR</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>LogType</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CONSOLE,</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>FILE_S</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>constexpr<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>lvl_names[]<sp/>{</highlight><highlight class="stringliteral">&quot;INFO&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;WARNING&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;ERROR&quot;</highlight><highlight class="normal">};</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>constexpr<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>lvl_colors[]<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;\x1b[32m&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="comment">//<sp/>INFO<sp/>-<sp/>green</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;\x1b[33m&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="comment">//<sp/>WARNING<sp/>-<sp/>yellow</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;\x1b[31m&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">//<sp/>ERROR<sp/>-<sp/>red</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>log(LogType<sp/>log_type,<sp/>LogLevel<sp/>log_level,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>file,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>line,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>fmt...);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>check_gl_error();</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//INC_2D_GAME_LOG2_H</highlight></codeline>
+    </programlisting>
+    <location file="/home/novasurfer/projects/scarecrow2d/src/core/log2.h"/>
+  </compounddef>
+</doxygen>

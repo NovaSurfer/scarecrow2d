@@ -1,0 +1,36 @@
+\hypertarget{classBaseECSComponent}{}\section{Base\+E\+C\+S\+Component Class Reference}
+\label{classBaseECSComponent}\index{Base\+E\+C\+S\+Component@{Base\+E\+C\+S\+Component}}
+
+
+Inheritance diagram for Base\+E\+C\+S\+Component\+:
+% FIG 0
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBaseECSComponent_a913dccda9e4a4fb34f0c254292bca251}\label{classBaseECSComponent_a913dccda9e4a4fb34f0c254292bca251}} 
+static size\+\_\+t {\bfseries register\+\_\+component\+\_\+type} (E\+C\+S\+Component\+Create\+Function createfn, E\+C\+S\+Component\+Free\+Function freefn, size\+\_\+t size)
+\item 
+\mbox{\Hypertarget{classBaseECSComponent_a17c36f475efd8d737ddccd4f9cd24f88}\label{classBaseECSComponent_a17c36f475efd8d737ddccd4f9cd24f88}} 
+static E\+C\+S\+Component\+Create\+Function {\bfseries get\+\_\+type\+\_\+createfn} (comp\+Id\+\_\+t id)
+\item 
+\mbox{\Hypertarget{classBaseECSComponent_abbfd9dd726db008a35c239384e50b172}\label{classBaseECSComponent_abbfd9dd726db008a35c239384e50b172}} 
+static E\+C\+S\+Component\+Free\+Function {\bfseries get\+\_\+type\+\_\+freefn} (comp\+Id\+\_\+t id)
+\item 
+\mbox{\Hypertarget{classBaseECSComponent_a3c894c18497d4c61e50208fbe96a565e}\label{classBaseECSComponent_a3c894c18497d4c61e50208fbe96a565e}} 
+static size\+\_\+t {\bfseries get\+\_\+type\+\_\+size} (comp\+Id\+\_\+t id)
+\item 
+\mbox{\Hypertarget{classBaseECSComponent_ad149edd83402b03ba86fec5c51134610}\label{classBaseECSComponent_ad149edd83402b03ba86fec5c51134610}} 
+static bool {\bfseries is\+\_\+type\+\_\+valid} (comp\+Id\+\_\+t id)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBaseECSComponent_adcaf0c71c06aa94e59cadc1afcd4032a}\label{classBaseECSComponent_adcaf0c71c06aa94e59cadc1afcd4032a}} 
+Entity\+Handle {\bfseries entity} = nullptr
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs\+\_\+component.\+h\item 
+/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs\+\_\+component.\+cpp\end{DoxyCompactItemize}

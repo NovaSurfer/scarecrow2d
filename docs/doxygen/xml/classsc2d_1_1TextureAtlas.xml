@@ -1,0 +1,281 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classsc2d_1_1TextureAtlas" kind="class" language="C++" prot="public">
+    <compoundname>sc2d::TextureAtlas</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsc2d_1_1TextureAtlas_1ae212e483a69428e8680b1aa3437860d1" prot="private" static="no" mutable="no">
+        <type>unsigned char *</type>
+        <definition>unsigned char* sc2d::TextureAtlas::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/texture_atlas.h" line="31" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/texture_atlas.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsc2d_1_1TextureAtlas_1a237c4504bc43afe11e3a3b76f53e2d05" prot="private" static="no" mutable="no">
+        <type>GLuint</type>
+        <definition>GLuint sc2d::TextureAtlas::obj_id</definition>
+        <argsstring></argsstring>
+        <name>obj_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/texture_atlas.h" line="33" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/texture_atlas.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsc2d_1_1TextureAtlas_1aadb93d6a4d0e42bb1bf923e6ea7664e7" prot="private" static="no" mutable="no">
+        <type>GLuint</type>
+        <definition>GLuint sc2d::TextureAtlas::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/texture_atlas.h" line="34" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/texture_atlas.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsc2d_1_1TextureAtlas_1a8ef57c2334f0d267ece5cea1f70a7ca4" prot="private" static="no" mutable="no">
+        <type>GLuint</type>
+        <definition>GLuint sc2d::TextureAtlas::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/texture_atlas.h" line="35" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/texture_atlas.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsc2d_1_1TextureAtlas_1acab7bd2cc6dcd563c55d9ef2530537b8" prot="private" static="no" mutable="no">
+        <type>GLuint</type>
+        <definition>GLuint sc2d::TextureAtlas::rows</definition>
+        <argsstring></argsstring>
+        <name>rows</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/texture_atlas.h" line="36" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/texture_atlas.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsc2d_1_1TextureAtlas_1a291dd32264b51cd11a0198f88a0a7cd8" prot="private" static="no" mutable="no">
+        <type>GLuint</type>
+        <definition>GLuint sc2d::TextureAtlas::columns</definition>
+        <argsstring></argsstring>
+        <name>columns</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/texture_atlas.h" line="37" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/texture_atlas.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsc2d_1_1TextureAtlas_1a566aba83836f0ab6c99d4498d15b4eaf" prot="private" static="no" mutable="no">
+        <type>GLuint</type>
+        <definition>GLuint sc2d::TextureAtlas::internal_format</definition>
+        <argsstring></argsstring>
+        <name>internal_format</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/texture_atlas.h" line="38" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/texture_atlas.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsc2d_1_1TextureAtlas_1aabeb2a16a31fc053701646f91882d6cd" prot="private" static="no" mutable="no">
+        <type>GLuint</type>
+        <definition>GLuint sc2d::TextureAtlas::image_format</definition>
+        <argsstring></argsstring>
+        <name>image_format</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/texture_atlas.h" line="39" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/texture_atlas.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsc2d_1_1TextureAtlas_1a6471b73c44bba0fabd1ecd68824406ed" prot="private" static="no" mutable="no">
+        <type>GLuint</type>
+        <definition>GLuint sc2d::TextureAtlas::wrap_s</definition>
+        <argsstring></argsstring>
+        <name>wrap_s</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/texture_atlas.h" line="40" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/texture_atlas.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsc2d_1_1TextureAtlas_1ad26d92c42b74bc6ca090f2066dd759c4" prot="private" static="no" mutable="no">
+        <type>GLuint</type>
+        <definition>GLuint sc2d::TextureAtlas::wrap_t</definition>
+        <argsstring></argsstring>
+        <name>wrap_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/texture_atlas.h" line="41" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/texture_atlas.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsc2d_1_1TextureAtlas_1a9332f575272e788f175603cf9e59251c" prot="private" static="no" mutable="no">
+        <type>GLuint</type>
+        <definition>GLuint sc2d::TextureAtlas::filter_min</definition>
+        <argsstring></argsstring>
+        <name>filter_min</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/texture_atlas.h" line="42" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/texture_atlas.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsc2d_1_1TextureAtlas_1a6e88971144564710f3f9468c97df892e" prot="private" static="no" mutable="no">
+        <type>GLuint</type>
+        <definition>GLuint sc2d::TextureAtlas::filter_max</definition>
+        <argsstring></argsstring>
+        <name>filter_max</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/texture_atlas.h" line="43" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/texture_atlas.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsc2d_1_1TextureAtlas_1a7b86cb70f39ffa5ad6b2516b5ce5407c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>sc2d::TextureAtlas::TextureAtlas</definition>
+        <argsstring>()=default</argsstring>
+        <name>TextureAtlas</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/texture_atlas.h" line="24" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classsc2d_1_1TextureAtlas_1a7e0aa19b8e9e13a25cf04387f4bc0ff9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>sc2d::TextureAtlas::TextureAtlas</definition>
+        <argsstring>(unsigned char *img_data, GLuint width, GLuint height, GLuint rows, GLuint columns, GLuint img_format)</argsstring>
+        <name>TextureAtlas</name>
+        <param>
+          <type>unsigned char *</type>
+          <declname>img_data</declname>
+        </param>
+        <param>
+          <type>GLuint</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>GLuint</type>
+          <declname>height</declname>
+        </param>
+        <param>
+          <type>GLuint</type>
+          <declname>rows</declname>
+        </param>
+        <param>
+          <type>GLuint</type>
+          <declname>columns</declname>
+        </param>
+        <param>
+          <type>GLuint</type>
+          <declname>img_format</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/texture_atlas.h" line="25" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/texture_atlas.cpp" bodystart="10" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classsc2d_1_1TextureAtlas_1a7936963dc3a6e8334d07bcaf0d514439" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sc2d::TextureAtlas::bind</definition>
+        <argsstring>() const</argsstring>
+        <name>bind</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/texture_atlas.h" line="27" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/texture_atlas.cpp" bodystart="27" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classsc2d_1_1TextureAtlas_1af442ca460381b9c13d8880d1fac06da7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>GLuint</type>
+        <definition>GLuint sc2d::TextureAtlas::get_obj_id</definition>
+        <argsstring>() const</argsstring>
+        <name>get_obj_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/texture_atlas.h" line="28" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/texture_atlas.cpp" bodystart="32" bodyend="35"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsc2d_1_1TextureAtlas_1ae0467d0019b4c591297c8a204dc79214" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sc2d::TextureAtlas::generate</definition>
+        <argsstring>()</argsstring>
+        <name>generate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/texture_atlas.h" line="45" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/texture_atlas.cpp" bodystart="37" bodyend="77"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/novasurfer/projects/scarecrow2d/src/core/texture_atlas.h" line="22" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/texture_atlas.h" bodystart="21" bodyend="46"/>
+    <listofallmembers>
+      <member refid="classsc2d_1_1TextureAtlas_1a7936963dc3a6e8334d07bcaf0d514439" prot="public" virt="non-virtual"><scope>sc2d::TextureAtlas</scope><name>bind</name></member>
+      <member refid="classsc2d_1_1TextureAtlas_1a291dd32264b51cd11a0198f88a0a7cd8" prot="private" virt="non-virtual"><scope>sc2d::TextureAtlas</scope><name>columns</name></member>
+      <member refid="classsc2d_1_1TextureAtlas_1ae212e483a69428e8680b1aa3437860d1" prot="private" virt="non-virtual"><scope>sc2d::TextureAtlas</scope><name>data</name></member>
+      <member refid="classsc2d_1_1TextureAtlas_1a6e88971144564710f3f9468c97df892e" prot="private" virt="non-virtual"><scope>sc2d::TextureAtlas</scope><name>filter_max</name></member>
+      <member refid="classsc2d_1_1TextureAtlas_1a9332f575272e788f175603cf9e59251c" prot="private" virt="non-virtual"><scope>sc2d::TextureAtlas</scope><name>filter_min</name></member>
+      <member refid="classsc2d_1_1TextureAtlas_1ae0467d0019b4c591297c8a204dc79214" prot="private" virt="non-virtual"><scope>sc2d::TextureAtlas</scope><name>generate</name></member>
+      <member refid="classsc2d_1_1TextureAtlas_1af442ca460381b9c13d8880d1fac06da7" prot="public" virt="non-virtual"><scope>sc2d::TextureAtlas</scope><name>get_obj_id</name></member>
+      <member refid="classsc2d_1_1TextureAtlas_1a8ef57c2334f0d267ece5cea1f70a7ca4" prot="private" virt="non-virtual"><scope>sc2d::TextureAtlas</scope><name>height</name></member>
+      <member refid="classsc2d_1_1TextureAtlas_1aabeb2a16a31fc053701646f91882d6cd" prot="private" virt="non-virtual"><scope>sc2d::TextureAtlas</scope><name>image_format</name></member>
+      <member refid="classsc2d_1_1TextureAtlas_1a566aba83836f0ab6c99d4498d15b4eaf" prot="private" virt="non-virtual"><scope>sc2d::TextureAtlas</scope><name>internal_format</name></member>
+      <member refid="classsc2d_1_1TextureAtlas_1a237c4504bc43afe11e3a3b76f53e2d05" prot="private" virt="non-virtual"><scope>sc2d::TextureAtlas</scope><name>obj_id</name></member>
+      <member refid="classsc2d_1_1TextureAtlas_1acab7bd2cc6dcd563c55d9ef2530537b8" prot="private" virt="non-virtual"><scope>sc2d::TextureAtlas</scope><name>rows</name></member>
+      <member refid="classsc2d_1_1TextureAtlas_1a7b86cb70f39ffa5ad6b2516b5ce5407c" prot="public" virt="non-virtual"><scope>sc2d::TextureAtlas</scope><name>TextureAtlas</name></member>
+      <member refid="classsc2d_1_1TextureAtlas_1a7e0aa19b8e9e13a25cf04387f4bc0ff9" prot="public" virt="non-virtual"><scope>sc2d::TextureAtlas</scope><name>TextureAtlas</name></member>
+      <member refid="classsc2d_1_1TextureAtlas_1aadb93d6a4d0e42bb1bf923e6ea7664e7" prot="private" virt="non-virtual"><scope>sc2d::TextureAtlas</scope><name>width</name></member>
+      <member refid="classsc2d_1_1TextureAtlas_1a6471b73c44bba0fabd1ecd68824406ed" prot="private" virt="non-virtual"><scope>sc2d::TextureAtlas</scope><name>wrap_s</name></member>
+      <member refid="classsc2d_1_1TextureAtlas_1ad26d92c42b74bc6ca090f2066dd759c4" prot="private" virt="non-virtual"><scope>sc2d::TextureAtlas</scope><name>wrap_t</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

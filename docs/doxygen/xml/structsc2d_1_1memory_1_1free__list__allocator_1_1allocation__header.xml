@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structsc2d_1_1memory_1_1free__list__allocator_1_1allocation__header" kind="struct" language="C++" prot="private">
+    <compoundname>sc2d::memory::free_list_allocator::allocation_header</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structsc2d_1_1memory_1_1free__list__allocator_1_1allocation__header_1a845bf6ddcbba538e8a18bdfd2354c2ff" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t sc2d::memory::free_list_allocator::allocation_header::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/free_list_allocator.h" line="27" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/free_list_allocator.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsc2d_1_1memory_1_1free__list__allocator_1_1allocation__header_1a89569bb770159c37991ac5307d2522ee" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t sc2d::memory::free_list_allocator::allocation_header::adjustment</definition>
+        <argsstring></argsstring>
+        <name>adjustment</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/free_list_allocator.h" line="28" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/free_list_allocator.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/novasurfer/projects/scarecrow2d/src/memory/free_list_allocator.h" line="26" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/free_list_allocator.h" bodystart="25" bodyend="29"/>
+    <listofallmembers>
+      <member refid="structsc2d_1_1memory_1_1free__list__allocator_1_1allocation__header_1a89569bb770159c37991ac5307d2522ee" prot="public" virt="non-virtual"><scope>sc2d::memory::free_list_allocator::allocation_header</scope><name>adjustment</name></member>
+      <member refid="structsc2d_1_1memory_1_1free__list__allocator_1_1allocation__header_1a845bf6ddcbba538e8a18bdfd2354c2ff" prot="public" virt="non-virtual"><scope>sc2d::memory::free_list_allocator::allocation_header</scope><name>size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

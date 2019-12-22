@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classsc2d_1_1memory_1_1free__list__allocator" kind="class" language="C++" prot="public">
+    <compoundname>sc2d::memory::free_list_allocator</compoundname>
+    <basecompoundref refid="classsc2d_1_1memory_1_1allocator" prot="public" virt="non-virtual">sc2d::memory::allocator</basecompoundref>
+    <innerclass refid="structsc2d_1_1memory_1_1free__list__allocator_1_1allocation__header" prot="private">sc2d::memory::free_list_allocator::allocation_header</innerclass>
+    <innerclass refid="structsc2d_1_1memory_1_1free__list__allocator_1_1free__block" prot="private">sc2d::memory::free_list_allocator::free_block</innerclass>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsc2d_1_1memory_1_1free__list__allocator_1ab5a1a6ba6973f2841677dfe0b3574e90" prot="private" static="no" mutable="no">
+        <type>free_block *</type>
+        <definition>free_block* sc2d::memory::free_list_allocator::free_blocks</definition>
+        <argsstring></argsstring>
+        <name>free_blocks</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/free_list_allocator.h" line="40" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/free_list_allocator.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsc2d_1_1memory_1_1free__list__allocator_1a4728d4e67a357edcbe00d3416864a57b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>sc2d::memory::free_list_allocator::free_list_allocator</definition>
+        <argsstring>(size_t size, void *start)</argsstring>
+        <name>free_list_allocator</name>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>start</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/free_list_allocator.h" line="18" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/free_list_allocator.cpp" bodystart="13" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classsc2d_1_1memory_1_1free__list__allocator_1a96711bb3d12bd74ae50d7fba6c4a2867" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>sc2d::memory::free_list_allocator::~free_list_allocator</definition>
+        <argsstring>() override=default</argsstring>
+        <name>~free_list_allocator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/free_list_allocator.h" line="19" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classsc2d_1_1memory_1_1free__list__allocator_1a66af769394bcbebf67002d5c0ddcfe9b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void *</type>
+        <definition>void * sc2d::memory::free_list_allocator::allocate</definition>
+        <argsstring>(size_t size, uint8_t alignment) override</argsstring>
+        <name>allocate</name>
+        <reimplements refid="classsc2d_1_1memory_1_1allocator_1afefebdf8439e35d7894829af8d653a51">allocate</reimplements>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>alignment</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/free_list_allocator.h" line="21" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/free_list_allocator.cpp" bodystart="21" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="classsc2d_1_1memory_1_1free__list__allocator_1ade0842119e9583d8c322653dadb417b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void sc2d::memory::free_list_allocator::deallocate</definition>
+        <argsstring>(void *p) override</argsstring>
+        <name>deallocate</name>
+        <reimplements refid="classsc2d_1_1memory_1_1allocator_1ab29524288541651d4bcacc278dc21deb">deallocate</reimplements>
+        <param>
+          <type>void *</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/free_list_allocator.h" line="22" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/free_list_allocator.cpp" bodystart="112" bodyend="159"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="46">
+        <label>sc2d::memory::free_list_allocator</label>
+        <link refid="classsc2d_1_1memory_1_1free__list__allocator"/>
+        <childnode refid="47" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="47">
+        <label>sc2d::memory::allocator</label>
+        <link refid="classsc2d_1_1memory_1_1allocator"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="48">
+        <label>sc2d::memory::free_list_allocator</label>
+        <link refid="classsc2d_1_1memory_1_1free__list__allocator"/>
+        <childnode refid="49" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="49">
+        <label>sc2d::memory::allocator</label>
+        <link refid="classsc2d_1_1memory_1_1allocator"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/novasurfer/projects/scarecrow2d/src/memory/free_list_allocator.h" line="16" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/free_list_allocator.h" bodystart="15" bodyend="41"/>
+    <listofallmembers>
+      <member refid="classsc2d_1_1memory_1_1allocator_1a21c5a6310f1e8feb470870b664b04753" prot="protected" virt="non-virtual"><scope>sc2d::memory::free_list_allocator</scope><name>_num_allocations</name></member>
+      <member refid="classsc2d_1_1memory_1_1allocator_1a9d5773c2a51447cf4054203a563f95c2" prot="protected" virt="non-virtual"><scope>sc2d::memory::free_list_allocator</scope><name>_size</name></member>
+      <member refid="classsc2d_1_1memory_1_1allocator_1a0688f548cd0ef36fff6585fc25e31f30" prot="protected" virt="non-virtual"><scope>sc2d::memory::free_list_allocator</scope><name>_start</name></member>
+      <member refid="classsc2d_1_1memory_1_1allocator_1a5d2fa4113436f8046742f274aba6abdf" prot="protected" virt="non-virtual"><scope>sc2d::memory::free_list_allocator</scope><name>_used_memory</name></member>
+      <member refid="classsc2d_1_1memory_1_1free__list__allocator_1a66af769394bcbebf67002d5c0ddcfe9b" prot="public" virt="virtual"><scope>sc2d::memory::free_list_allocator</scope><name>allocate</name></member>
+      <member refid="classsc2d_1_1memory_1_1allocator_1a15fe77378d29ab41a1a44c596166b43a" prot="public" virt="non-virtual"><scope>sc2d::memory::free_list_allocator</scope><name>allocator</name></member>
+      <member refid="classsc2d_1_1memory_1_1free__list__allocator_1ade0842119e9583d8c322653dadb417b9" prot="public" virt="virtual"><scope>sc2d::memory::free_list_allocator</scope><name>deallocate</name></member>
+      <member refid="classsc2d_1_1memory_1_1free__list__allocator_1ab5a1a6ba6973f2841677dfe0b3574e90" prot="private" virt="non-virtual"><scope>sc2d::memory::free_list_allocator</scope><name>free_blocks</name></member>
+      <member refid="classsc2d_1_1memory_1_1free__list__allocator_1a4728d4e67a357edcbe00d3416864a57b" prot="public" virt="non-virtual"><scope>sc2d::memory::free_list_allocator</scope><name>free_list_allocator</name></member>
+      <member refid="classsc2d_1_1memory_1_1allocator_1ad519c09ef37afc903fbd83941697fc91" prot="public" virt="non-virtual"><scope>sc2d::memory::free_list_allocator</scope><name>get_num_allocation</name></member>
+      <member refid="classsc2d_1_1memory_1_1allocator_1a8265804fb4e665597c134cc96203e63a" prot="public" virt="non-virtual"><scope>sc2d::memory::free_list_allocator</scope><name>get_size</name></member>
+      <member refid="classsc2d_1_1memory_1_1allocator_1a849ee42faf7430786e18eae6c5d67551" prot="public" virt="non-virtual"><scope>sc2d::memory::free_list_allocator</scope><name>get_start</name></member>
+      <member refid="classsc2d_1_1memory_1_1allocator_1a7bc5801c3b722c2339a1320028d4828d" prot="public" virt="non-virtual"><scope>sc2d::memory::free_list_allocator</scope><name>get_used_memory</name></member>
+      <member refid="classsc2d_1_1memory_1_1allocator_1a415be64b44c19c6c08ffc58a20ac2fa2" prot="public" virt="virtual"><scope>sc2d::memory::free_list_allocator</scope><name>~allocator</name></member>
+      <member refid="classsc2d_1_1memory_1_1free__list__allocator_1a96711bb3d12bd74ae50d7fba6c4a2867" prot="public" virt="non-virtual"><scope>sc2d::memory::free_list_allocator</scope><name>~free_list_allocator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

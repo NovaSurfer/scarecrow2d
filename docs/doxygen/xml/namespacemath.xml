@@ -1,0 +1,3009 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="namespacemath" kind="namespace" language="C++">
+    <compoundname>math</compoundname>
+    <innerclass refid="structmath_1_1bounding__shape" prot="public">math::bounding_shape</innerclass>
+    <innerclass refid="structmath_1_1circle" prot="public">math::circle</innerclass>
+    <innerclass refid="structmath_1_1interval2d" prot="public">math::interval2d</innerclass>
+    <innerclass refid="structmath_1_1line2d" prot="public">math::line2d</innerclass>
+    <innerclass refid="structmath_1_1mat2" prot="public">math::mat2</innerclass>
+    <innerclass refid="structmath_1_1mat3" prot="public">math::mat3</innerclass>
+    <innerclass refid="structmath_1_1mat4" prot="public">math::mat4</innerclass>
+    <innerclass refid="structmath_1_1orrect2d" prot="public">math::orrect2d</innerclass>
+    <innerclass refid="structmath_1_1QuadTreeData" prot="public">math::QuadTreeData</innerclass>
+    <innerclass refid="classmath_1_1QuadTreeNode" prot="public">math::QuadTreeNode</innerclass>
+    <innerclass refid="structmath_1_1rect2d" prot="public">math::rect2d</innerclass>
+    <innerclass refid="structmath_1_1size2d" prot="public">math::size2d</innerclass>
+    <innerclass refid="structmath_1_1utils" prot="public">math::utils</innerclass>
+    <innerclass refid="structmath_1_1vec2" prot="public">math::vec2</innerclass>
+    <innerclass refid="structmath_1_1vec3" prot="public">math::vec3</innerclass>
+    <innerclass refid="structmath_1_1vec4" prot="public">math::vec4</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="geometry2d_8h_1ab387442ef71f95e173b48b73fb790dd4" prot="public" static="no">
+        <type><ref refid="structmath_1_1vec2" kindref="compound">vec2</ref></type>
+        <definition>using math::point2d = typedef vec2</definition>
+        <argsstring></argsstring>
+        <name>point2d</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/geometry2d.h" line="15" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/geometry2d.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="geometry2d_8h_1aa1eda969688fcf769dd0eed1f20d6af3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool math::point_on_line</definition>
+        <argsstring>(const point2d &amp;point, const line2d &amp;line)</argsstring>
+        <name>point_on_line</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec2" kindref="compound">point2d</ref> &amp;</type>
+          <declname>point</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1line2d" kindref="compound">line2d</ref> &amp;</type>
+          <declname>line</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/geometry2d.h" line="206" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/geometry2d.h" bodystart="206" bodyend="216"/>
+      </memberdef>
+      <memberdef kind="function" id="geometry2d_8h_1aaf0d7de01a4f23a72659390682be9d7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool math::point_in_circle</definition>
+        <argsstring>(const point2d &amp;point, const circle &amp;c)</argsstring>
+        <name>point_in_circle</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec2" kindref="compound">point2d</ref> &amp;</type>
+          <declname>point</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1circle" kindref="compound">circle</ref> &amp;</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/geometry2d.h" line="227" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/geometry2d.h" bodystart="227" bodyend="231"/>
+      </memberdef>
+      <memberdef kind="function" id="geometry2d_8h_1adf7f80f971356579d3cc323b3d4fe162" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool math::point_in_rect</definition>
+        <argsstring>(const point2d &amp;point, const rect2d rect)</argsstring>
+        <name>point_in_rect</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec2" kindref="compound">point2d</ref> &amp;</type>
+          <declname>point</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1rect2d" kindref="compound">rect2d</ref></type>
+          <declname>rect</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/geometry2d.h" line="233" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/geometry2d.h" bodystart="233" bodyend="238"/>
+      </memberdef>
+      <memberdef kind="function" id="geometry2d_8h_1ab78172093915db8f2eab13fa4d4d1761" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool math::point_in_orrect</definition>
+        <argsstring>(const point2d &amp;point, const orrect2d rect)</argsstring>
+        <name>point_in_orrect</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec2" kindref="compound">point2d</ref> &amp;</type>
+          <declname>point</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1orrect2d" kindref="compound">orrect2d</ref></type>
+          <declname>rect</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/geometry2d.h" line="240" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/geometry2d.h" bodystart="240" bodyend="251"/>
+      </memberdef>
+      <memberdef kind="function" id="geometry2d_8h_1a41c131a0fbbac4981b19214522e10a73" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool math::line_circle</definition>
+        <argsstring>(const line2d &amp;line, const circle &amp;circle)</argsstring>
+        <name>line_circle</name>
+        <param>
+          <type>const <ref refid="structmath_1_1line2d" kindref="compound">line2d</ref> &amp;</type>
+          <declname>line</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1circle" kindref="compound">circle</ref> &amp;</type>
+          <declname>circle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/geometry2d.h" line="253" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/geometry2d.h" bodystart="253" bodyend="263"/>
+      </memberdef>
+      <memberdef kind="function" id="geometry2d_8h_1a3c2212241dd44d19078a7258d38b52e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool math::line_rect</definition>
+        <argsstring>(const line2d &amp;line, const rect2d &amp;rect)</argsstring>
+        <name>line_rect</name>
+        <param>
+          <type>const <ref refid="structmath_1_1line2d" kindref="compound">line2d</ref> &amp;</type>
+          <declname>line</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1rect2d" kindref="compound">rect2d</ref> &amp;</type>
+          <declname>rect</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/geometry2d.h" line="265" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/geometry2d.h" bodystart="265" bodyend="285"/>
+      </memberdef>
+      <memberdef kind="function" id="geometry2d_8h_1a1d5bcfd1bdb04d83e6fd89111c6c5331" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool math::line_orrect</definition>
+        <argsstring>(const line2d &amp;line, const orrect2d &amp;orrect)</argsstring>
+        <name>line_orrect</name>
+        <param>
+          <type>const <ref refid="structmath_1_1line2d" kindref="compound">line2d</ref> &amp;</type>
+          <declname>line</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1orrect2d" kindref="compound">orrect2d</ref> &amp;</type>
+          <declname>orrect</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/geometry2d.h" line="287" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/geometry2d.h" bodystart="287" bodyend="304"/>
+      </memberdef>
+      <memberdef kind="function" id="geometry2d_8h_1abd1ac50421fa724ee737898232754fe5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool math::overlap_on_axis</definition>
+        <argsstring>(const math::rect2d &amp;rect1, const math::rect2d &amp;rect2, const math::vec2 &amp;axis)</argsstring>
+        <name>overlap_on_axis</name>
+        <param>
+          <type>const <ref refid="structmath_1_1rect2d" kindref="compound">math::rect2d</ref> &amp;</type>
+          <declname>rect1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1rect2d" kindref="compound">math::rect2d</ref> &amp;</type>
+          <declname>rect2</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec2" kindref="compound">math::vec2</ref> &amp;</type>
+          <declname>axis</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/geometry2d.h" line="306" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/geometry2d.h" bodystart="306" bodyend="312"/>
+      </memberdef>
+      <memberdef kind="function" id="geometry2d_8h_1a2c4e315cd75e1e33144598a3a4055af9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool math::overlap_on_axis</definition>
+        <argsstring>(const math::rect2d &amp;rect1, const math::orrect2d &amp;rect2, const math::vec2 &amp;axis)</argsstring>
+        <name>overlap_on_axis</name>
+        <param>
+          <type>const <ref refid="structmath_1_1rect2d" kindref="compound">math::rect2d</ref> &amp;</type>
+          <declname>rect1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1orrect2d" kindref="compound">math::orrect2d</ref> &amp;</type>
+          <declname>rect2</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec2" kindref="compound">math::vec2</ref> &amp;</type>
+          <declname>axis</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/geometry2d.h" line="314" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/geometry2d.h" bodystart="314" bodyend="320"/>
+      </memberdef>
+      <memberdef kind="function" id="geometry2d_8h_1ab08e8a95f5cecde0ef35bdb0ea6276a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structmath_1_1circle" kindref="compound">circle</ref></type>
+        <definition>circle math::containing_circle</definition>
+        <argsstring>(const point2d *const points)</argsstring>
+        <name>containing_circle</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec2" kindref="compound">point2d</ref> *const</type>
+          <declname>points</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates bounding circle for a set a of 2d points <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>points</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>array of points </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>circle with central point position &amp; difference between furthest point and center as a radius </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/geometry2d.h" line="327" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/geometry2d.h" bodystart="327" bodyend="346"/>
+      </memberdef>
+      <memberdef kind="function" id="geometry2d_8h_1aec0c5a521073e77f8f1716e9366d8b72" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structmath_1_1rect2d" kindref="compound">rect2d</ref></type>
+        <definition>rect2d math::containing_rectangle</definition>
+        <argsstring>(const point2d *const points)</argsstring>
+        <name>containing_rectangle</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec2" kindref="compound">point2d</ref> *const</type>
+          <declname>points</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates bounding rect for a set a of 2d points <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>points</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/geometry2d.h" line="353" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/geometry2d.h" bodystart="353" bodyend="371"/>
+      </memberdef>
+      <memberdef kind="function" id="geometry2d_8h_1ab7c9055609a47184efb427f3d641de8e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool math::point_in_shape</definition>
+        <argsstring>(const bounding_shape &amp;shape, const point2d &amp;point)</argsstring>
+        <name>point_in_shape</name>
+        <param>
+          <type>const <ref refid="structmath_1_1bounding__shape" kindref="compound">bounding_shape</ref> &amp;</type>
+          <declname>shape</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec2" kindref="compound">point2d</ref> &amp;</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks shape for point containment <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>shape</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>bounding shape </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>point</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>point </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if point is inside the shape </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/geometry2d.h" line="379" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/geometry2d.h" bodystart="379" bodyend="394"/>
+      </memberdef>
+      <memberdef kind="function" id="transform_8cpp_1a24e2c2ede7c5140bd30d24f6649657c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref></type>
+        <definition>mat4 math::translation</definition>
+        <argsstring>(float x, float y, float z)</argsstring>
+        <name>translation</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+<para>Matrices transformation operations. </para>        </briefdescription>
+        <detaileddescription>
+<para>Creates translation matrix <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>component </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>component </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>z</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>component </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>identity matrix with translation stored in 41, 42, 43 elements (x, y, z) </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" line="11" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" bodystart="11" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="transform_8cpp_1aa0c43ddcd2e2594c54ff8af2c483c481" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref></type>
+        <definition>mat4 math::translation</definition>
+        <argsstring>(const vec3 &amp;pos)</argsstring>
+        <name>translation</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates translation matrix <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>translation vector3 </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>identity matrix with translation stored in 41, 42, 43 elements </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" line="19" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" bodystart="19" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="transform_8cpp_1af1e713c78634cd2a593ecfdbca35f7dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structmath_1_1vec3" kindref="compound">vec3</ref></type>
+        <definition>vec3 math::get_translation</definition>
+        <argsstring>(const mat4 &amp;mat)</argsstring>
+        <name>get_translation</name>
+        <param>
+          <type>const <ref refid="structmath_1_1mat4" kindref="compound">mat4</ref> &amp;</type>
+          <declname>mat</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns translation vector <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mat</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>translation vector </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" line="27" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" bodystart="27" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="transform_8cpp_1a3df55746994ce2ef128d8b2bd61aea43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref></type>
+        <definition>mat4 math::scale</definition>
+        <argsstring>(float x, float y, float z)</argsstring>
+        <name>scale</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates scaling matrix <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>component </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>component </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>z</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>component </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>identity matrix with translation stored in 11, 22, 33 elements (x, y, z) </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" line="32" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" bodystart="32" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="transform_8cpp_1aca79ce04db0ff573b988716881c5386b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref></type>
+        <definition>mat4 math::scale</definition>
+        <argsstring>(const vec3 &amp;scale)</argsstring>
+        <name>scale</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>scale</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates scaling matrix <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>scale</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>vector </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>identity matrix with translation stored in 11, 22, 33 elements </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" line="40" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" bodystart="40" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="transform_8cpp_1adbabb6d9e9074e4f4c2f2284abcc20bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structmath_1_1vec3" kindref="compound">vec3</ref></type>
+        <definition>vec3 math::get_scale</definition>
+        <argsstring>(const mat4 &amp;mat)</argsstring>
+        <name>get_scale</name>
+        <param>
+          <type>const <ref refid="structmath_1_1mat4" kindref="compound">mat4</ref> &amp;</type>
+          <declname>mat</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns scaling vector <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mat</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>vector with scale for each axis </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" line="48" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" bodystart="48" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="transform_8cpp_1a263d983cd366d975b532c2a070d63d14" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref></type>
+        <definition>mat4 math::rotation</definition>
+        <argsstring>(float pitch, float yaw, float roll)</argsstring>
+        <name>rotation</name>
+        <param>
+          <type>float</type>
+          <declname>pitch</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>yaw</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>roll</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Combines Euler angles that represent rotation around each matrix <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pitch</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>object&apos;s local Lateral Axis (X-Axis) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>yaw</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>object&apos;s local Perpendicular Axis (Y-Axis) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>roll</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>object&apos;s local Longitudinal Axis (Z-Axis) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>rotated matrix </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" line="53" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" bodystart="53" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="transform_8cpp_1ab03ba00106039894b0cd1904c631081e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structmath_1_1mat3" kindref="compound">mat3</ref></type>
+        <definition>mat3 math::rotation3x3</definition>
+        <argsstring>(float pitch, float yaw, float roll)</argsstring>
+        <name>rotation3x3</name>
+        <param>
+          <type>float</type>
+          <declname>pitch</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>yaw</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>roll</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Combines Euler angles that represent rotation around each matrix <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pitch</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>object&apos;s local Lateral Axis (X-Axis) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>yaw</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>object&apos;s local Perpendicular Axis (Y-Axis) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>roll</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>object&apos;s local Longitudinal Axis (Z-Axis) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>rotated matrix </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" line="58" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" bodystart="58" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="transform_8cpp_1a07c1c2643765f76ba23599252f25af28" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref></type>
+        <definition>mat4 math::z_rotation</definition>
+        <argsstring>(float angle)</argsstring>
+        <name>z_rotation</name>
+        <param>
+          <type>float</type>
+          <declname>angle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Rotates Z-basis vector for the matrix by given angle <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>angle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>rotation </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>identity matrix with rotated Z-basis vector </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" line="63" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" bodystart="63" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="transform_8cpp_1aee697a9ae1031a21f16e2350c033d367" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structmath_1_1mat3" kindref="compound">mat3</ref></type>
+        <definition>mat3 math::z_rotation3x3</definition>
+        <argsstring>(float angle)</argsstring>
+        <name>z_rotation3x3</name>
+        <param>
+          <type>float</type>
+          <declname>angle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Rotates Z-basis vector for the matrix by given angle <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>angle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>rotation </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>identity matrix with rotated Z-basis vector </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" line="72" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" bodystart="72" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="transform_8cpp_1a42c2db3fad0a02aa66f683b26f75a1e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref></type>
+        <definition>mat4 math::y_rotation</definition>
+        <argsstring>(float angle)</argsstring>
+        <name>y_rotation</name>
+        <param>
+          <type>float</type>
+          <declname>angle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Rotates Y-basis vector for the matrix by given angle <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>angle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>rotation </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>identity matrix with rotated Y-basis vector </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" line="80" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" bodystart="80" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="transform_8cpp_1a240713179d7570578f5ee245f5ba0643" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structmath_1_1mat3" kindref="compound">mat3</ref></type>
+        <definition>mat3 math::y_rotation3x3</definition>
+        <argsstring>(float angle)</argsstring>
+        <name>y_rotation3x3</name>
+        <param>
+          <type>float</type>
+          <declname>angle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Rotates Y-basis vector for the matrix by given angle <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>angle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>rotation </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>identity matrix with rotated Y-basis vector </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" line="89" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" bodystart="89" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="transform_8cpp_1acd8379e4f0de408168812d06673247d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref></type>
+        <definition>mat4 math::x_rotation</definition>
+        <argsstring>(float angle)</argsstring>
+        <name>x_rotation</name>
+        <param>
+          <type>float</type>
+          <declname>angle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Rotates X-basis vector for the matrix by given angle <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>angle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>rotation </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>identity matrix with rotated X-basis vector </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" line="97" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" bodystart="97" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="transform_8cpp_1a5b6eebd193e9bb01a3cd16a89574adf9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structmath_1_1mat3" kindref="compound">mat3</ref></type>
+        <definition>mat3 math::x_rotation3x3</definition>
+        <argsstring>(float angle)</argsstring>
+        <name>x_rotation3x3</name>
+        <param>
+          <type>float</type>
+          <declname>angle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Rotates X-basis vector for the matrix by given angle <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>angle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>rotation </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>identity matrix with rotated X-basis vector </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" line="106" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" bodystart="106" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="transform_8cpp_1acc0259c1d6819b13bc674c2475a0b0a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref></type>
+        <definition>mat4 math::axis_angle</definition>
+        <argsstring>(const vec3 &amp;axis, float angle)</argsstring>
+        <name>axis_angle</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>axis</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>angle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Rotates around given axis <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>axis</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>angle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>rotated axis</para></simplesect>
+<ulink url="https://en.wikipedia.org/wiki/Rotation_matrix#Rotation_matrix_from_axis_and_angle">https://en.wikipedia.org/wiki/Rotation_matrix#Rotation_matrix_from_axis_and_angle</ulink> <ulink url="https://en.wikipedia.org/wiki/Symmetric_matrix">https://en.wikipedia.org/wiki/Symmetric_matrix</ulink> <ulink url="https://en.wikipedia.org/wiki/Skew-symmetric_matrix">https://en.wikipedia.org/wiki/Skew-symmetric_matrix</ulink> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" line="114" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" bodystart="114" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="transform_8cpp_1addf9414517610067caf7360a446ee4e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structmath_1_1mat3" kindref="compound">mat3</ref></type>
+        <definition>mat3 math::axis_angle3x3</definition>
+        <argsstring>(const vec3 &amp;axis, float angle)</argsstring>
+        <name>axis_angle3x3</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>axis</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>angle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Rotates around given axis <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>axis</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>angle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>rotates matrix</para></simplesect>
+<ulink url="https://en.wikipedia.org/wiki/Rotation_matrix#Rotation_matrix_from_axis_and_angle">https://en.wikipedia.org/wiki/Rotation_matrix#Rotation_matrix_from_axis_and_angle</ulink> <ulink url="https://en.wikipedia.org/wiki/Symmetric_matrix">https://en.wikipedia.org/wiki/Symmetric_matrix</ulink> <ulink url="https://en.wikipedia.org/wiki/Skew-symmetric_matrix">https://en.wikipedia.org/wiki/Skew-symmetric_matrix</ulink> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" line="135" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" bodystart="135" bodyend="153"/>
+      </memberdef>
+      <memberdef kind="function" id="transform_8cpp_1a0414738219225821e4131382fdf4eb6e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structmath_1_1vec2" kindref="compound">vec2</ref></type>
+        <definition>vec2 math::multiply_vector</definition>
+        <argsstring>(const vec2 &amp;vec, const mat2 &amp;mat)</argsstring>
+        <name>multiply_vector</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec2" kindref="compound">vec2</ref> &amp;</type>
+          <declname>vec</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1mat2" kindref="compound">mat2</ref> &amp;</type>
+          <declname>mat</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pre multiplication (left to right) [vector * matrix] <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>vec</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mat</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>multiplication result for each row stored in each axis of vector </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" line="155" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" bodystart="155" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="function" id="transform_8cpp_1aab03f919c50045605479ab1ac1ec5064" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structmath_1_1vec3" kindref="compound">vec3</ref></type>
+        <definition>vec3 math::multiply_vector</definition>
+        <argsstring>(const vec3 &amp;vec, const mat3 &amp;mat)</argsstring>
+        <name>multiply_vector</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>vec</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1mat3" kindref="compound">mat3</ref> &amp;</type>
+          <declname>mat</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pre multiplication (left to right) [vector * matrix] <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>vec</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mat</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>multiplication result for each row stored in each axis of vector </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" line="163" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" bodystart="163" bodyend="170"/>
+      </memberdef>
+      <memberdef kind="function" id="transform_8cpp_1a12e24e0db6a1f251311d8ee87767e533" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structmath_1_1vec4" kindref="compound">vec4</ref></type>
+        <definition>vec4 math::multiply_vector</definition>
+        <argsstring>(const vec4 &amp;vec, const mat4 &amp;mat)</argsstring>
+        <name>multiply_vector</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec4" kindref="compound">vec4</ref> &amp;</type>
+          <declname>vec</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1mat4" kindref="compound">mat4</ref> &amp;</type>
+          <declname>mat</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pre multiplication (left to right) [vector * matrix] <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>vec</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mat</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>multiplication result for each row stored in each axis of vector </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" line="172" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" bodystart="172" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="transform_8cpp_1a809f51492eb1c67c1ee51c23e1b18eb2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref></type>
+        <definition>mat4 math::transform</definition>
+        <argsstring>(const vec3 &amp;scale, const vec3 &amp;euler_rot, const vec3 &amp;translate)</argsstring>
+        <name>transform</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>scale</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>euler_rot</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>translate</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates World Transform Matrix (Scale-Rotate-Translate) <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>scale</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>euler_rot</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>translate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>transformed matrix </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" line="182" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" bodystart="182" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="transform_8cpp_1a48dffd469cae004baa43936dade61ae2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref></type>
+        <definition>mat4 math::transform</definition>
+        <argsstring>(const vec3 &amp;scale, const vec3 &amp;rot_axis, float rot_angle, const vec3 &amp;translate)</argsstring>
+        <name>transform</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>scale</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>rot_axis</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>rot_angle</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>translate</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates World Transform Matrix (Scale-Rotate-Translate) <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>scale</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>euler_rot</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>translate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>transformed matrix </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" line="187" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" bodystart="187" bodyend="190"/>
+      </memberdef>
+      <memberdef kind="function" id="transform_8cpp_1a636acaa39c81312d7ad44ee3c1e335c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref></type>
+        <definition>mat4 math::look_at</definition>
+        <argsstring>(const vec3 &amp;pos, const vec3 &amp;target, const vec3 &amp;up)</argsstring>
+        <name>look_at</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>pos</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>target</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>up</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates rotation basis <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>object&apos;s position </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>target</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>position where the object is looking at </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>up</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>world up </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>View Transform Matrix</para></simplesect>
+<ulink url="http://www.songho.ca/opengl/gl_camera.html#lookat">http://www.songho.ca/opengl/gl_camera.html#lookat</ulink> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" line="192" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" bodystart="192" bodyend="203"/>
+      </memberdef>
+      <memberdef kind="function" id="transform_8cpp_1a0edaa7dec1069e1bfccc4a21bcba5e15" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref></type>
+        <definition>mat4 math::perspective</definition>
+        <argsstring>(float fov, float aspect, float z_near, float z_far)</argsstring>
+        <name>perspective</name>
+        <param>
+          <type>float</type>
+          <declname>fov</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>aspect</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>z_near</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>z_far</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates Perspective projection matrix <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fov</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>field of view </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>aspect</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>proportional relationship between view volume&apos;s width and height </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>z_near</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>near clipping plane. All coordinates that are in front of the near plane will not be drawn </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>z_far</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>far clipping plane. All coordinates behind far plane will not be drawn </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>projection matrix</para></simplesect>
+<ulink url="https://www.codeguru.com/cpp/misc/misc/graphics/article.php/c10123/Deriving-Projection-Matrices.htm">https://www.codeguru.com/cpp/misc/misc/graphics/article.php/c10123/Deriving-Projection-Matrices.htm</ulink> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" line="205" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" bodystart="205" bodyend="220"/>
+      </memberdef>
+      <memberdef kind="function" id="transform_8cpp_1aa3ff8d30c68f676a642cccc976dd49d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref></type>
+        <definition>mat4 math::ortho</definition>
+        <argsstring>(float left, float right, float bottom, float top, float z_near, float z_far)</argsstring>
+        <name>ortho</name>
+        <param>
+          <type>float</type>
+          <declname>left</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>right</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>bottom</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>top</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>z_near</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>z_far</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates Orthographic projection matrix <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>left</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>coordinate of the ortho frustum </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>right</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>coordinate of the ortho frustum </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bottom</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>coordinate of the ortho frustum </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>top</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>coordinate of the ortho frustum </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>z_near</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>near clipping plane. All coordinates that are in front of the near plane will not be drawn </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>z_far</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>far clipping plane. All coordinates behind far plane will not be drawn </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>projection matrix</para></simplesect>
+<ulink url="https://www.codeguru.com/cpp/misc/misc/graphics/article.php/c10123/Deriving-Projection-Matrices.htm">https://www.codeguru.com/cpp/misc/misc/graphics/article.php/c10123/Deriving-Projection-Matrices.htm</ulink> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" line="222" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/transform.cpp" bodystart="222" bodyend="236"/>
+      </memberdef>
+      <memberdef kind="function" id="vector2_8h_1a3456527eba6606d605f25d01db67a921" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool math::operator==</definition>
+        <argsstring>(const vec2 &amp;a, const vec2 &amp;b)</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec2" kindref="compound">vec2</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec2" kindref="compound">vec2</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compares two vectors <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if vectors are equal </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector2.h" line="110" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector2.h" bodystart="110" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="vector2_8h_1a6eb9f8aab29175369238ad875261e6e3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool math::operator!=</definition>
+        <argsstring>(const vec2 &amp;a, const vec2 &amp;b)</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec2" kindref="compound">vec2</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec2" kindref="compound">vec2</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compares two vectors <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if vectors are not equal </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector2.h" line="121" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector2.h" bodystart="121" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="vector2_8h_1ad88d3b53b174728c8940b3038aef9141" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structmath_1_1vec2" kindref="compound">vec2</ref></type>
+        <definition>vec2 math::operator*</definition>
+        <argsstring>(const vec2 &amp;v, float s)</argsstring>
+        <name>operator*</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec2" kindref="compound">vec2</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Multiplication of vector by scalar <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>some vector2 </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>s</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>some scalar </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>copy of the calculation result </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector2.h" line="132" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector2.h" bodystart="132" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="vector2_8h_1a2302678aa415c7ee32c699b90997beb6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structmath_1_1vec2" kindref="compound">vec2</ref></type>
+        <definition>vec2 math::operator*</definition>
+        <argsstring>(const vec2 &amp;a, const vec2 &amp;b)</argsstring>
+        <name>operator*</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec2" kindref="compound">vec2</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec2" kindref="compound">vec2</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Regular multiplication <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>copy of the calculation result </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector2.h" line="143" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector2.h" bodystart="143" bodyend="146"/>
+      </memberdef>
+      <memberdef kind="function" id="vector2_8h_1a16d49073076106b44f452b7b7550fd76" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structmath_1_1vec2" kindref="compound">vec2</ref></type>
+        <definition>vec2 math::operator/</definition>
+        <argsstring>(const vec2 &amp;v, float s)</argsstring>
+        <name>operator/</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec2" kindref="compound">vec2</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Division of vector by scalar <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>some vector2 </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>s</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>some scalar </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>copy of the calculation result </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector2.h" line="154" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector2.h" bodystart="154" bodyend="158"/>
+      </memberdef>
+      <memberdef kind="function" id="vector2_8h_1a3dbe67d4733a19991cf39ca186c85209" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structmath_1_1vec2" kindref="compound">vec2</ref></type>
+        <definition>vec2 math::operator+</definition>
+        <argsstring>(const vec2 &amp;a, const vec2 &amp;b)</argsstring>
+        <name>operator+</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec2" kindref="compound">vec2</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec2" kindref="compound">vec2</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The sum of vectors <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>copy of the calculation result </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector2.h" line="166" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector2.h" bodystart="166" bodyend="169"/>
+      </memberdef>
+      <memberdef kind="function" id="vector2_8h_1a8e8171b9d634370e32cc25fae556b4bc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structmath_1_1vec2" kindref="compound">vec2</ref></type>
+        <definition>vec2 math::operator-</definition>
+        <argsstring>(const vec2 &amp;a, const vec2 &amp;b)</argsstring>
+        <name>operator-</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec2" kindref="compound">vec2</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec2" kindref="compound">vec2</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The difference of two vectors <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>copy of the calculation result </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector2.h" line="177" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector2.h" bodystart="177" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="vector2_8h_1a93f7f9084e149e42193f7909ee99a2c7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float math::dot</definition>
+        <argsstring>(const vec2 &amp;a, const vec2 &amp;b)</argsstring>
+        <name>dot</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec2" kindref="compound">vec2</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec2" kindref="compound">vec2</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Scalar product between two vectors <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>scalar value</para></simplesect>
+<ulink url="https://en.wikipedia.org/wiki/Dot_product">https://en.wikipedia.org/wiki/Dot_product</ulink> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector2.h" line="189" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector2.h" bodystart="189" bodyend="192"/>
+      </memberdef>
+      <memberdef kind="function" id="vector2_8h_1a51788ba9f4525d6bd45e411b7b186793" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float math::magnitude</definition>
+        <argsstring>(const vec2 &amp;v)</argsstring>
+        <name>magnitude</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec2" kindref="compound">vec2</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Lenght of the vector <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>scalar value</para></simplesect>
+<ulink url="https://en.wikipedia.org/wiki/Magnitude_(mathematics)#Vector_spaces">https://en.wikipedia.org/wiki/Magnitude_(mathematics)#Vector_spaces</ulink> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector2.h" line="200" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector2.h" bodystart="200" bodyend="203"/>
+      </memberdef>
+      <memberdef kind="function" id="vector2_8h_1ad2d695e6a1bd5f184c6221db9e2350a2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float math::magnitudeSq</definition>
+        <argsstring>(const vec2 &amp;v)</argsstring>
+        <name>magnitudeSq</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec2" kindref="compound">vec2</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Square length of the vector <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>scalar value </para></simplesect>
+<simplesect kind="note"><para>avoids expensive square root operation </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector2.h" line="211" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector2.h" bodystart="211" bodyend="214"/>
+      </memberdef>
+      <memberdef kind="function" id="vector2_8h_1a45f6d1075aaa2fc3a9c5acaf7c79116b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float math::distance</definition>
+        <argsstring>(const vec2 &amp;a, const vec2 &amp;b)</argsstring>
+        <name>distance</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec2" kindref="compound">vec2</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec2" kindref="compound">vec2</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates distance between two vectors <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>scalar value</para></simplesect>
+<ulink url="https://en.wikipedia.org/wiki/Euclidean_distance#Two_dimensions">https://en.wikipedia.org/wiki/Euclidean_distance#Two_dimensions</ulink> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector2.h" line="223" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector2.h" bodystart="223" bodyend="227"/>
+      </memberdef>
+      <memberdef kind="function" id="vector2_8h_1a40e2576eed9b3b236dbd701800f06cba" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structmath_1_1vec2" kindref="compound">vec2</ref></type>
+        <definition>vec2 math::normalize</definition>
+        <argsstring>(const vec2 &amp;v)</argsstring>
+        <name>normalize</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec2" kindref="compound">vec2</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Vector normalization <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>vector that will be normalized </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>unit vector</para></simplesect>
+<ulink url="https://en.wikipedia.org/wiki/Unit_vector">https://en.wikipedia.org/wiki/Unit_vector</ulink> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector2.h" line="235" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector2.h" bodystart="235" bodyend="238"/>
+      </memberdef>
+      <memberdef kind="function" id="vector2_8h_1ade9fefbcc586a94034ae83f74177d00f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float math::angle</definition>
+        <argsstring>(const vec2 &amp;a, const vec2 &amp;b)</argsstring>
+        <name>angle</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec2" kindref="compound">vec2</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec2" kindref="compound">vec2</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates angle between two vectors <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>angle in radians</para></simplesect>
+<ulink url="https://en.wikipedia.org/wiki/Inner_product_space#Norms_on_inner_product_spaces">https://en.wikipedia.org/wiki/Inner_product_space#Norms_on_inner_product_spaces</ulink> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector2.h" line="247" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector2.h" bodystart="247" bodyend="251"/>
+      </memberdef>
+      <memberdef kind="function" id="vector2_8h_1ae4e1e92d04d458a30682e2720dfee71a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structmath_1_1vec2" kindref="compound">vec2</ref></type>
+        <definition>vec2 math::project</definition>
+        <argsstring>(const vec2 &amp;len, const vec2 &amp;dir)</argsstring>
+        <name>project</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec2" kindref="compound">vec2</ref> &amp;</type>
+          <declname>len</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec2" kindref="compound">vec2</ref> &amp;</type>
+          <declname>dir</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Project one vector onto another <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dir</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>projected vector</para></simplesect>
+<ulink url="https://en.wikipedia.org/wiki/Vector_projection#Vector_projection_2">https://en.wikipedia.org/wiki/Vector_projection#Vector_projection_2</ulink> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector2.h" line="260" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector2.h" bodystart="260" bodyend="265"/>
+      </memberdef>
+      <memberdef kind="function" id="vector2_8h_1ae8bb619a793429b0cf523beb2a84f92e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structmath_1_1vec2" kindref="compound">vec2</ref></type>
+        <definition>vec2 math::perpendicular</definition>
+        <argsstring>(const vec2 &amp;len, const vec2 &amp;dir)</argsstring>
+        <name>perpendicular</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec2" kindref="compound">vec2</ref> &amp;</type>
+          <declname>len</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec2" kindref="compound">vec2</ref> &amp;</type>
+          <declname>dir</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates perpendicular vector <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dir</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector2.h" line="273" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector2.h" bodystart="273" bodyend="276"/>
+      </memberdef>
+      <memberdef kind="function" id="vector2_8h_1aa21ce35b4699217def78487e13ee6502" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structmath_1_1vec2" kindref="compound">vec2</ref></type>
+        <definition>vec2 math::reflection</definition>
+        <argsstring>(const vec2 &amp;v, const vec2 &amp;normal)</argsstring>
+        <name>reflection</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec2" kindref="compound">vec2</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec2" kindref="compound">vec2</ref> &amp;</type>
+          <declname>normal</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates reflected vector <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>normal</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>reflected vector v around normal</para></simplesect>
+<ulink url="https://en.wikipedia.org/wiki/Reflection_(mathematics)">https://en.wikipedia.org/wiki/Reflection_(mathematics)</ulink> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector2.h" line="285" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector2.h" bodystart="285" bodyend="289"/>
+      </memberdef>
+      <memberdef kind="function" id="vector3_8h_1a6be9646f339b92faea19313a45bdb23a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool math::operator==</definition>
+        <argsstring>(const vec3 &amp;a, const vec3 &amp;b)</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compares two vectors <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if vectors are equal </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector3.h" line="114" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector3.h" bodystart="114" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="vector3_8h_1a665070c39d73b09ba4d92efda459a363" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool math::operator!=</definition>
+        <argsstring>(const vec3 &amp;a, const vec3 &amp;b)</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compares two vectors <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if vectors are not equal </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector3.h" line="125" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector3.h" bodystart="125" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="function" id="vector3_8h_1aa35437d6be71b38f0148d636f61c4393" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structmath_1_1vec3" kindref="compound">vec3</ref></type>
+        <definition>vec3 math::operator*</definition>
+        <argsstring>(const vec3 &amp;v, float s)</argsstring>
+        <name>operator*</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Multiplication of vector by scalar <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>some vector3 </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>s</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>some scalar </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>copy of the calculation result </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector3.h" line="136" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector3.h" bodystart="136" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="vector3_8h_1ae9f0e297ac74bc706a717a46e73fd61c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structmath_1_1vec3" kindref="compound">vec3</ref></type>
+        <definition>vec3 math::operator*</definition>
+        <argsstring>(const vec3 &amp;a, const vec3 &amp;b)</argsstring>
+        <name>operator*</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Regular multiplication <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>copy of the calculation result </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector3.h" line="147" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector3.h" bodystart="147" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="vector3_8h_1a6b75c9bed1c0d9f9a7fa1d68f72025ca" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structmath_1_1vec3" kindref="compound">vec3</ref></type>
+        <definition>vec3 math::operator/</definition>
+        <argsstring>(const vec3 &amp;v, float s)</argsstring>
+        <name>operator/</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Division of vector by scalar <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>some vector3 </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>s</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>some scalar </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>copy of the calculation result </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector3.h" line="158" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector3.h" bodystart="158" bodyend="162"/>
+      </memberdef>
+      <memberdef kind="function" id="vector3_8h_1abc34bc848b45b39cdaf34561ed7af937" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structmath_1_1vec3" kindref="compound">vec3</ref></type>
+        <definition>vec3 math::operator+</definition>
+        <argsstring>(const vec3 &amp;a, const vec3 &amp;b)</argsstring>
+        <name>operator+</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The sum of vectors <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>copy of the calculation result </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector3.h" line="170" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector3.h" bodystart="170" bodyend="173"/>
+      </memberdef>
+      <memberdef kind="function" id="vector3_8h_1afbcbd5bc5a31b4cc3b99f471193cf87d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structmath_1_1vec3" kindref="compound">vec3</ref></type>
+        <definition>vec3 math::operator-</definition>
+        <argsstring>(const vec3 &amp;a, const vec3 &amp;b)</argsstring>
+        <name>operator-</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The difference of two vectors <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>copy of the calculation result </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector3.h" line="181" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector3.h" bodystart="181" bodyend="184"/>
+      </memberdef>
+      <memberdef kind="function" id="vector3_8h_1a6735f00f1570fba22efbbcd1e325f46d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float math::dot</definition>
+        <argsstring>(const vec3 &amp;a, const vec3 &amp;b)</argsstring>
+        <name>dot</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Scalar product between two vectors <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>scalar value</para></simplesect>
+<ulink url="https://en.wikipedia.org/wiki/Dot_product">https://en.wikipedia.org/wiki/Dot_product</ulink> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector3.h" line="193" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector3.h" bodystart="193" bodyend="196"/>
+      </memberdef>
+      <memberdef kind="function" id="vector3_8h_1acf2cabba80b724d8de8b464dddad07b9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float math::magnitude</definition>
+        <argsstring>(const vec3 &amp;v)</argsstring>
+        <name>magnitude</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Lenght of the vector <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>scalar value</para></simplesect>
+<ulink url="https://en.wikipedia.org/wiki/Magnitude_(mathematics)#Vector_spaces">https://en.wikipedia.org/wiki/Magnitude_(mathematics)#Vector_spaces</ulink> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector3.h" line="204" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector3.h" bodystart="204" bodyend="207"/>
+      </memberdef>
+      <memberdef kind="function" id="vector3_8h_1a5f874c3f25db1e2306e3d2d929d096f2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float math::magnitudeSq</definition>
+        <argsstring>(const vec3 &amp;v)</argsstring>
+        <name>magnitudeSq</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Square length of the vector <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>scalar value </para></simplesect>
+<simplesect kind="note"><para>avoids expensive square root operation </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector3.h" line="215" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector3.h" bodystart="215" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="function" id="vector3_8h_1aa43ca9e7acb84c4aa7837ba9501fff6c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float math::distance</definition>
+        <argsstring>(const vec3 &amp;a, const vec3 &amp;b)</argsstring>
+        <name>distance</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates distance between two vectors <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>scalar value</para></simplesect>
+<ulink url="https://en.wikipedia.org/wiki/Euclidean_distance#Three_dimensions">https://en.wikipedia.org/wiki/Euclidean_distance#Three_dimensions</ulink> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector3.h" line="227" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector3.h" bodystart="227" bodyend="231"/>
+      </memberdef>
+      <memberdef kind="function" id="vector3_8h_1a237e71d3334e2412f5dfb04f99975bf7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structmath_1_1vec3" kindref="compound">vec3</ref></type>
+        <definition>vec3 math::normalize</definition>
+        <argsstring>(const vec3 &amp;v)</argsstring>
+        <name>normalize</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Vector normalization <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>vector that will be normalized </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>unit vector</para></simplesect>
+<ulink url="https://en.wikipedia.org/wiki/Unit_vector">https://en.wikipedia.org/wiki/Unit_vector</ulink> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector3.h" line="239" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector3.h" bodystart="239" bodyend="242"/>
+      </memberdef>
+      <memberdef kind="function" id="vector3_8h_1aee2ac0ed9899f1feb7d90d5cbbb22747" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structmath_1_1vec3" kindref="compound">vec3</ref></type>
+        <definition>vec3 math::cross</definition>
+        <argsstring>(const vec3 &amp;a, const vec3 &amp;b)</argsstring>
+        <name>cross</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates vector that is perpendicular to both a and b <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>copy of the calculation result</para></simplesect>
+<ulink url="https://en.wikipedia.org/wiki/Cross_product">https://en.wikipedia.org/wiki/Cross_product</ulink> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector3.h" line="251" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector3.h" bodystart="251" bodyend="258"/>
+      </memberdef>
+      <memberdef kind="function" id="vector3_8h_1a9756c54e04a73def490b9cc9be069185" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float math::angle</definition>
+        <argsstring>(const vec3 &amp;a, const vec3 &amp;b)</argsstring>
+        <name>angle</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates angle between two vectors <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>angle in radians</para></simplesect>
+<ulink url="https://en.wikipedia.org/wiki/Inner_product_space#Norms_on_inner_product_spaces">https://en.wikipedia.org/wiki/Inner_product_space#Norms_on_inner_product_spaces</ulink> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector3.h" line="267" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector3.h" bodystart="267" bodyend="271"/>
+      </memberdef>
+      <memberdef kind="function" id="vector3_8h_1a4c5c35138d3a0ecadc46fbdba17ed433" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structmath_1_1vec3" kindref="compound">vec3</ref></type>
+        <definition>vec3 math::project</definition>
+        <argsstring>(const vec3 &amp;len, const vec3 &amp;dir)</argsstring>
+        <name>project</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>len</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>dir</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Project one vector onto another <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dir</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>projected vector</para></simplesect>
+<ulink url="https://en.wikipedia.org/wiki/Vector_projection#Vector_projection_2">https://en.wikipedia.org/wiki/Vector_projection#Vector_projection_2</ulink> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector3.h" line="280" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector3.h" bodystart="280" bodyend="285"/>
+      </memberdef>
+      <memberdef kind="function" id="vector3_8h_1aa4a87b25abf7ea925f45a0ee511b36da" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structmath_1_1vec3" kindref="compound">vec3</ref></type>
+        <definition>vec3 math::perpendicular</definition>
+        <argsstring>(const vec3 &amp;len, const vec3 &amp;dir)</argsstring>
+        <name>perpendicular</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>len</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>dir</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates perpendicular vector <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dir</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector3.h" line="293" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector3.h" bodystart="293" bodyend="296"/>
+      </memberdef>
+      <memberdef kind="function" id="vector3_8h_1ac48af7c8e433ad42517851cf07a46c77" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structmath_1_1vec3" kindref="compound">vec3</ref></type>
+        <definition>vec3 math::reflection</definition>
+        <argsstring>(const vec3 &amp;v, const vec3 &amp;normal)</argsstring>
+        <name>reflection</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec3" kindref="compound">vec3</ref> &amp;</type>
+          <declname>normal</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates reflected vector <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>normal</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>reflected vector v around normal</para></simplesect>
+<ulink url="https://en.wikipedia.org/wiki/Reflection_(mathematics)">https://en.wikipedia.org/wiki/Reflection_(mathematics)</ulink> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector3.h" line="305" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector3.h" bodystart="305" bodyend="309"/>
+      </memberdef>
+      <memberdef kind="function" id="vector4_8h_1a081e7f5384ba4d55a9e123cb4550a7d3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool math::operator==</definition>
+        <argsstring>(const vec4 &amp;a, const vec4 &amp;b)</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec4" kindref="compound">vec4</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec4" kindref="compound">vec4</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compares two vectors <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if vectors are equal </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector4.h" line="118" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector4.h" bodystart="118" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="vector4_8h_1a2a9f748934841afb5edcbf932d05e084" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool math::operator!=</definition>
+        <argsstring>(const vec4 &amp;a, const vec4 &amp;b)</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec4" kindref="compound">vec4</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec4" kindref="compound">vec4</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compares two vectors <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if vectors are not equal </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector4.h" line="130" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector4.h" bodystart="130" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="vector4_8h_1a908bf03500ea4115f25fa42451f68684" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structmath_1_1vec4" kindref="compound">vec4</ref></type>
+        <definition>vec4 math::operator*</definition>
+        <argsstring>(const vec4 &amp;v, float s)</argsstring>
+        <name>operator*</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec4" kindref="compound">vec4</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Multiplication of vector by scalar <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>some vector4 </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>s</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>some scalar </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>copy of the calculation result </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector4.h" line="141" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector4.h" bodystart="141" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="function" id="vector4_8h_1a52233f08807e6058c0896f5017d6f368" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structmath_1_1vec4" kindref="compound">vec4</ref></type>
+        <definition>vec4 math::operator*</definition>
+        <argsstring>(const vec4 &amp;a, const vec4 &amp;b)</argsstring>
+        <name>operator*</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec4" kindref="compound">vec4</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec4" kindref="compound">vec4</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Regular multiplication <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>copy of the calculation result </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector4.h" line="152" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector4.h" bodystart="152" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="function" id="vector4_8h_1afdb13c933fbb8b73f3fbf69c576ea5d8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structmath_1_1vec4" kindref="compound">vec4</ref></type>
+        <definition>vec4 math::operator/</definition>
+        <argsstring>(const vec4 &amp;v, float s)</argsstring>
+        <name>operator/</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec4" kindref="compound">vec4</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Division of vector by scalar <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>some vector4 </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>s</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>some scalar </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>copy of the calculation result </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector4.h" line="163" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector4.h" bodystart="163" bodyend="167"/>
+      </memberdef>
+      <memberdef kind="function" id="vector4_8h_1a9a9796354825c26c329056316fd0de5e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structmath_1_1vec4" kindref="compound">vec4</ref></type>
+        <definition>vec4 math::operator+</definition>
+        <argsstring>(const vec4 &amp;a, const vec4 &amp;b)</argsstring>
+        <name>operator+</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec4" kindref="compound">vec4</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec4" kindref="compound">vec4</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The sum of vectors <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>copy of the calculation result </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector4.h" line="175" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector4.h" bodystart="175" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="function" id="vector4_8h_1a9b01988d8b1e1bb16de9908773fab39a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structmath_1_1vec4" kindref="compound">vec4</ref></type>
+        <definition>vec4 math::operator-</definition>
+        <argsstring>(const vec4 &amp;a, const vec4 &amp;b)</argsstring>
+        <name>operator-</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec4" kindref="compound">vec4</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec4" kindref="compound">vec4</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The difference of two vectors <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>copy of the calculation result </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector4.h" line="186" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector4.h" bodystart="186" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="vector4_8h_1a21734a037ef5bb00b3e75d41152fec61" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float math::dot</definition>
+        <argsstring>(const vec4 &amp;a, const vec4 &amp;b)</argsstring>
+        <name>dot</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec4" kindref="compound">vec4</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec4" kindref="compound">vec4</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Scalar product between two vectors <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>scalar value</para></simplesect>
+<ulink url="https://en.wikipedia.org/wiki/Dot_product">https://en.wikipedia.org/wiki/Dot_product</ulink> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector4.h" line="198" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector4.h" bodystart="198" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="vector4_8h_1a477f512320fd36356719463914046431" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float math::magnitude</definition>
+        <argsstring>(const vec4 &amp;v)</argsstring>
+        <name>magnitude</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec4" kindref="compound">vec4</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Lenght of the vector <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>scalar value</para></simplesect>
+<ulink url="https://en.wikipedia.org/wiki/Magnitude_(mathematics)#Vector_spaces">https://en.wikipedia.org/wiki/Magnitude_(mathematics)#Vector_spaces</ulink> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector4.h" line="209" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector4.h" bodystart="209" bodyend="212"/>
+      </memberdef>
+      <memberdef kind="function" id="vector4_8h_1ae285364f0dca70f653930e71f04b65f2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float math::magnitudeSq</definition>
+        <argsstring>(const vec4 &amp;v)</argsstring>
+        <name>magnitudeSq</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec4" kindref="compound">vec4</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Square length of the vector <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>scalar value </para></simplesect>
+<simplesect kind="note"><para>avoids expensive square root operation </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector4.h" line="220" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector4.h" bodystart="220" bodyend="223"/>
+      </memberdef>
+      <memberdef kind="function" id="vector4_8h_1ac9eccf08f34e25a7c7464279d4229d48" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float math::distance</definition>
+        <argsstring>(const vec4 &amp;a, const vec4 &amp;b)</argsstring>
+        <name>distance</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec4" kindref="compound">vec4</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec4" kindref="compound">vec4</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates distance between two vectors <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>scalar value</para></simplesect>
+<ulink url="https://en.wikipedia.org/wiki/Euclidean_distance#Three_dimensions">https://en.wikipedia.org/wiki/Euclidean_distance#Three_dimensions</ulink> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector4.h" line="232" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector4.h" bodystart="232" bodyend="236"/>
+      </memberdef>
+      <memberdef kind="function" id="vector4_8h_1a99aa6e309af4ee2e87289835a1158e92" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structmath_1_1vec4" kindref="compound">vec4</ref></type>
+        <definition>vec4 math::normalize</definition>
+        <argsstring>(const vec4 &amp;v)</argsstring>
+        <name>normalize</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec4" kindref="compound">vec4</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Vector normalization <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>vector that will be normalized </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>unit vector</para></simplesect>
+<ulink url="https://en.wikipedia.org/wiki/Unit_vector">https://en.wikipedia.org/wiki/Unit_vector</ulink> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector4.h" line="244" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector4.h" bodystart="244" bodyend="247"/>
+      </memberdef>
+      <memberdef kind="function" id="vector4_8h_1a934c8b5839fa6324e4e2aeb00e19c50e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structmath_1_1vec4" kindref="compound">vec4</ref></type>
+        <definition>vec4 math::cross</definition>
+        <argsstring>(const vec4 &amp;a, const vec4 &amp;b)</argsstring>
+        <name>cross</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec4" kindref="compound">vec4</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec4" kindref="compound">vec4</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates vector that is perpendicular to both a and b <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>copy of the calculation result</para></simplesect>
+<ulink url="https://en.wikipedia.org/wiki/Cross_product">https://en.wikipedia.org/wiki/Cross_product</ulink> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector4.h" line="256" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector4.h" bodystart="256" bodyend="265"/>
+      </memberdef>
+      <memberdef kind="function" id="vector4_8h_1a8fb3f8d8cd7c235539e2dbc7faf789c7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float math::angle</definition>
+        <argsstring>(const vec4 &amp;a, const vec4 &amp;b)</argsstring>
+        <name>angle</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec4" kindref="compound">vec4</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec4" kindref="compound">vec4</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates angle between two vectors <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>angle in radians</para></simplesect>
+<ulink url="https://en.wikipedia.org/wiki/Inner_product_space#Norms_on_inner_product_spaces">https://en.wikipedia.org/wiki/Inner_product_space#Norms_on_inner_product_spaces</ulink> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector4.h" line="274" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector4.h" bodystart="274" bodyend="278"/>
+      </memberdef>
+      <memberdef kind="function" id="vector4_8h_1ac0773addd37b375b346e1dc0fcc47758" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structmath_1_1vec4" kindref="compound">vec4</ref></type>
+        <definition>vec4 math::project</definition>
+        <argsstring>(const vec4 &amp;len, const vec4 &amp;dir)</argsstring>
+        <name>project</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec4" kindref="compound">vec4</ref> &amp;</type>
+          <declname>len</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec4" kindref="compound">vec4</ref> &amp;</type>
+          <declname>dir</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Project one vector onto another <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dir</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>projected vector</para></simplesect>
+<ulink url="https://en.wikipedia.org/wiki/Vector_projection#Vector_projection_2">https://en.wikipedia.org/wiki/Vector_projection#Vector_projection_2</ulink> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector4.h" line="287" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector4.h" bodystart="287" bodyend="292"/>
+      </memberdef>
+      <memberdef kind="function" id="vector4_8h_1ad65b6d60469f77bc2ec90abf3c9372e5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structmath_1_1vec4" kindref="compound">vec4</ref></type>
+        <definition>vec4 math::perpendicular</definition>
+        <argsstring>(const vec4 &amp;len, const vec4 &amp;dir)</argsstring>
+        <name>perpendicular</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec4" kindref="compound">vec4</ref> &amp;</type>
+          <declname>len</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec4" kindref="compound">vec4</ref> &amp;</type>
+          <declname>dir</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates perpendicular vector <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dir</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector4.h" line="300" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector4.h" bodystart="300" bodyend="303"/>
+      </memberdef>
+      <memberdef kind="function" id="vector4_8h_1ab258438e8e264d0eb40cb916fc8db654" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structmath_1_1vec4" kindref="compound">vec4</ref></type>
+        <definition>vec4 math::reflection</definition>
+        <argsstring>(const vec4 &amp;v, const vec4 &amp;normal)</argsstring>
+        <name>reflection</name>
+        <param>
+          <type>const <ref refid="structmath_1_1vec4" kindref="compound">vec4</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec4" kindref="compound">vec4</ref> &amp;</type>
+          <declname>normal</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates reflected vector <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>normal</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>reflected vector v around normal</para></simplesect>
+<ulink url="https://en.wikipedia.org/wiki/Reflection_(mathematics)">https://en.wikipedia.org/wiki/Reflection_(mathematics)</ulink> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/vector4.h" line="312" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/vector4.h" bodystart="312" bodyend="316"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/novasurfer/projects/scarecrow2d/src/math/geometry2d.h" line="14" column="1"/>
+  </compounddef>
+</doxygen>

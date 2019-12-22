@@ -1,0 +1,174 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="namespaceallocs" kind="namespace" language="C++">
+    <compoundname>allocs</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="allocator_8inl_1ab06704c73066d03e068b2c9cb36d6169" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>T *</type>
+        <definition>T* allocs::allocate_new</definition>
+        <argsstring>(allocator &amp;alloc, Args &amp;&amp;... args)</argsstring>
+        <name>allocate_new</name>
+        <param>
+          <type>allocator &amp;</type>
+          <declname>alloc</declname>
+        </param>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/allocator.inl" line="10" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/allocator.inl" bodystart="10" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="allocator_8inl_1a4b58d56fbaf05621a779479eb74ac4dd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void allocs::deallocate_delete</definition>
+        <argsstring>(allocator &amp;alloc, T &amp;obj)</argsstring>
+        <name>deallocate_delete</name>
+        <param>
+          <type>allocator &amp;</type>
+          <declname>alloc</declname>
+        </param>
+        <param>
+          <type>T &amp;</type>
+          <declname>obj</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/allocator.inl" line="16" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/allocator.inl" bodystart="16" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="allocator_8inl_1af13a4c318d2a73cd275a8fa4ca8653bb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T *</type>
+        <definition>T* allocs::allocate_array</definition>
+        <argsstring>(allocator &amp;alloc, size_t length)</argsstring>
+        <name>allocate_array</name>
+        <param>
+          <type>allocator &amp;</type>
+          <declname>alloc</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/allocator.inl" line="23" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/allocator.inl" bodystart="23" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="allocator_8inl_1ada43263d108cad440b8ef5c82f89b78b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T *</type>
+        <definition>T* allocs::allocate_array_no_construct</definition>
+        <argsstring>(allocator &amp;alloc, size_t length)</argsstring>
+        <name>allocate_array_no_construct</name>
+        <param>
+          <type>allocator &amp;</type>
+          <declname>alloc</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/allocator.inl" line="43" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/allocator.inl" bodystart="43" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="allocator_8inl_1acfa9935f78921672631beec261352c3a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void allocs::deallocate_array</definition>
+        <argsstring>(allocator &amp;alloc, T *array)</argsstring>
+        <name>deallocate_array</name>
+        <param>
+          <type>allocator &amp;</type>
+          <declname>alloc</declname>
+        </param>
+        <param>
+          <type>T *</type>
+          <declname>array</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/allocator.inl" line="58" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/allocator.inl" bodystart="58" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="allocator_8inl_1ac6f64cf4869f080c7cb417a4e83ad2d4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void allocs::deallocate_array_no_destuct</definition>
+        <argsstring>(allocator &amp;alloc, T *array)</argsstring>
+        <name>deallocate_array_no_destuct</name>
+        <param>
+          <type>allocator &amp;</type>
+          <declname>alloc</declname>
+        </param>
+        <param>
+          <type>T *</type>
+          <declname>array</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/allocator.inl" line="78" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/allocator.inl" bodystart="78" bodyend="88"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/novasurfer/projects/scarecrow2d/src/memory/allocator.inl" line="7" column="1"/>
+  </compounddef>
+</doxygen>

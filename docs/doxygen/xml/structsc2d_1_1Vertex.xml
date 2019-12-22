@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structsc2d_1_1Vertex" kind="struct" language="C++" prot="public">
+    <compoundname>sc2d::Vertex</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structsc2d_1_1Vertex_1a01188c98be7ce285dce3d35e8c786e51" prot="public" static="no" mutable="no">
+        <type><ref refid="structmath_1_1vec2" kindref="compound">math::vec2</ref></type>
+        <definition>math::vec2 sc2d::Vertex::pos</definition>
+        <argsstring></argsstring>
+        <name>pos</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/sc2dTypes.h" line="33" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/sc2dTypes.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsc2d_1_1Vertex_1ab38c25d9d4d1d584927a1e7d498486fe" prot="public" static="no" mutable="no">
+        <type><ref refid="structmath_1_1vec2" kindref="compound">math::vec2</ref></type>
+        <definition>math::vec2 sc2d::Vertex::uv</definition>
+        <argsstring></argsstring>
+        <name>uv</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/sc2dTypes.h" line="34" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/sc2dTypes.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="145">
+        <label>sc2d::Vertex</label>
+        <link refid="structsc2d_1_1Vertex"/>
+        <childnode refid="146" relation="usage">
+          <edgelabel>uv</edgelabel>
+          <edgelabel>pos</edgelabel>
+        </childnode>
+      </node>
+      <node id="146">
+        <label>math::vec2</label>
+        <link refid="structmath_1_1vec2"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/novasurfer/projects/scarecrow2d/src/core/sc2dTypes.h" line="32" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/sc2dTypes.h" bodystart="31" bodyend="36"/>
+    <listofallmembers>
+      <member refid="structsc2d_1_1Vertex_1a01188c98be7ce285dce3d35e8c786e51" prot="public" virt="non-virtual"><scope>sc2d::Vertex</scope><name>pos</name></member>
+      <member refid="structsc2d_1_1Vertex_1ab38c25d9d4d1d584927a1e7d498486fe" prot="public" virt="non-virtual"><scope>sc2d::Vertex</scope><name>uv</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

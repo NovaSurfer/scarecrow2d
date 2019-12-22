@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="dir_ae9a93452e2a84339148a16bcf2eb561" kind="dir">
+    <compoundname>/home/novasurfer/projects/scarecrow2d/src/math</compoundname>
+    <innerfile refid="geometry2d_8h">geometry2d.h</innerfile>
+    <innerfile refid="matrix2_8h">matrix2.h</innerfile>
+    <innerfile refid="matrix3_8h">matrix3.h</innerfile>
+    <innerfile refid="matrix4_8h">matrix4.h</innerfile>
+    <innerfile refid="quadtree_8cpp">quadtree.cpp</innerfile>
+    <innerfile refid="quadtree_8h">quadtree.h</innerfile>
+    <innerfile refid="size2d_8h">size2d.h</innerfile>
+    <innerfile refid="transform_8cpp">transform.cpp</innerfile>
+    <innerfile refid="transform_8h">transform.h</innerfile>
+    <innerfile refid="utils_8h">utils.h</innerfile>
+    <innerfile refid="vector2_8h">vector2.h</innerfile>
+    <innerfile refid="vector3_8h">vector3.h</innerfile>
+    <innerfile refid="vector4_8h">vector4.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/novasurfer/projects/scarecrow2d/src/math/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,312 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classsc2d_1_1memory_1_1pool__allocator" kind="class" language="C++" prot="public">
+    <compoundname>sc2d::memory::pool_allocator</compoundname>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classsc2d_1_1memory_1_1pool__allocator_1a2e04baf33c43689ad08746f193cb306c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>friend class</type>
+        <definition>friend class sc2d::vec</definition>
+        <argsstring></argsstring>
+        <name>sc2d::vec</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/pool_allocator.h" line="26" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/pool_allocator.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsc2d_1_1memory_1_1pool__allocator_1a341cbf0ef1c4dffd3e34abad527d5ab5" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t sc2d::memory::pool_allocator::num_of_blocks</definition>
+        <argsstring></argsstring>
+        <name>num_of_blocks</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/pool_allocator.h" line="57" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/pool_allocator.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsc2d_1_1memory_1_1pool__allocator_1a5fa09e5e114a8cc2cf75dfa091ff0986" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t sc2d::memory::pool_allocator::size_of_block</definition>
+        <argsstring></argsstring>
+        <name>size_of_block</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/pool_allocator.h" line="58" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/pool_allocator.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsc2d_1_1memory_1_1pool__allocator_1a434eb1142c11df6a67d81e67dc5b4768" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t sc2d::memory::pool_allocator::num_of_free_blocks</definition>
+        <argsstring></argsstring>
+        <name>num_of_free_blocks</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/pool_allocator.h" line="59" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/pool_allocator.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsc2d_1_1memory_1_1pool__allocator_1a21238c51065ccf118cf5f9a0b86ae1ee" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t sc2d::memory::pool_allocator::num_of_initialized</definition>
+        <argsstring></argsstring>
+        <name>num_of_initialized</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/pool_allocator.h" line="60" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/pool_allocator.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsc2d_1_1memory_1_1pool__allocator_1a811d8a3814f48df52245d414a321e3ea" prot="private" static="no" mutable="no">
+        <type>unsigned char *</type>
+        <definition>unsigned char* sc2d::memory::pool_allocator::p_start</definition>
+        <argsstring></argsstring>
+        <name>p_start</name>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/pool_allocator.h" line="61" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/pool_allocator.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsc2d_1_1memory_1_1pool__allocator_1abe6c5863394a24706ad82f3523882e2f" prot="private" static="no" mutable="no">
+        <type>unsigned char *</type>
+        <definition>unsigned char* sc2d::memory::pool_allocator::p_next</definition>
+        <argsstring></argsstring>
+        <name>p_next</name>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/pool_allocator.h" line="62" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/pool_allocator.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsc2d_1_1memory_1_1pool__allocator_1a0e3596bd1acdb2ae4be45872add7146b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>sc2d::memory::pool_allocator::~pool_allocator</definition>
+        <argsstring>()</argsstring>
+        <name>~pool_allocator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/pool_allocator.h" line="29" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/pool_allocator.h" bodystart="29" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="classsc2d_1_1memory_1_1pool__allocator_1a91c77a66c8e6c74c9dae87dc5ad7956a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sc2d::memory::pool_allocator::create</definition>
+        <argsstring>(size_t block_size, size_t num_of_blocks, size_t alignment)</argsstring>
+        <name>create</name>
+        <param>
+          <type>size_t</type>
+          <declname>block_size</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>num_of_blocks</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>alignment</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/pool_allocator.h" line="34" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/pool_allocator.cpp" bodystart="13" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classsc2d_1_1memory_1_1pool__allocator_1ab313582eae462597924ad43cce564ed4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sc2d::memory::pool_allocator::destroy</definition>
+        <argsstring>()</argsstring>
+        <name>destroy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/pool_allocator.h" line="35" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/pool_allocator.cpp" bodystart="23" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classsc2d_1_1memory_1_1pool__allocator_1a927cfc82bd3dbf089d3b2a20b4260e6a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const void *</type>
+        <definition>const void * sc2d::memory::pool_allocator::allocate</definition>
+        <argsstring>()</argsstring>
+        <name>allocate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/pool_allocator.h" line="36" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/pool_allocator.cpp" bodystart="29" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classsc2d_1_1memory_1_1pool__allocator_1a223110342f8987b6637800a34f692010" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sc2d::memory::pool_allocator::resize</definition>
+        <argsstring>(size_t new_size)</argsstring>
+        <name>resize</name>
+        <param>
+          <type>size_t</type>
+          <declname>new_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/pool_allocator.h" line="37" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/pool_allocator.cpp" bodystart="55" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classsc2d_1_1memory_1_1pool__allocator_1a700f43f95cdf86714a4df5bc727d8919" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sc2d::memory::pool_allocator::deallocate</definition>
+        <argsstring>(void *ptr)</argsstring>
+        <name>deallocate</name>
+        <param>
+          <type>void *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/pool_allocator.h" line="38" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/pool_allocator.cpp" bodystart="66" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="classsc2d_1_1memory_1_1pool__allocator_1a9d6c4623e47051e497b5deb8f0cfbdb9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>unsigned char *</type>
+        <definition>unsigned char* sc2d::memory::pool_allocator::get_start</definition>
+        <argsstring>() const</argsstring>
+        <name>get_start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/pool_allocator.h" line="40" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/pool_allocator.h" bodystart="40" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classsc2d_1_1memory_1_1pool__allocator_1ac2326a5a29b93d5aaa1ef552a43408b4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t sc2d::memory::pool_allocator::get_intialized_num</definition>
+        <argsstring>() const</argsstring>
+        <name>get_intialized_num</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/pool_allocator.h" line="44" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/pool_allocator.h" bodystart="44" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classsc2d_1_1memory_1_1pool__allocator_1a0bb6d57bf2b24b374e96ca12d7557e3f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t sc2d::memory::pool_allocator::get_num_of_blocks</definition>
+        <argsstring>() const</argsstring>
+        <name>get_num_of_blocks</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/pool_allocator.h" line="48" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/pool_allocator.h" bodystart="48" bodyend="51"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsc2d_1_1memory_1_1pool__allocator_1a810067c759de7746fdd3ee564230d1b3" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned char *</type>
+        <definition>unsigned char * sc2d::memory::pool_allocator::addr_from_index</definition>
+        <argsstring>(size_t index) const</argsstring>
+        <name>addr_from_index</name>
+        <param>
+          <type>size_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/pool_allocator.h" line="54" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/pool_allocator.cpp" bodystart="79" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="classsc2d_1_1memory_1_1pool__allocator_1a9ee7ac3369f3292d0452ed48d6d87c2e" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t sc2d::memory::pool_allocator::index_from_addr</definition>
+        <argsstring>(const unsigned char *ptr) const</argsstring>
+        <name>index_from_addr</name>
+        <param>
+          <type>const unsigned char *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/pool_allocator.h" line="55" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/pool_allocator.cpp" bodystart="84" bodyend="87"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/novasurfer/projects/scarecrow2d/src/memory/pool_allocator.h" line="23" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/pool_allocator.h" bodystart="22" bodyend="63"/>
+    <listofallmembers>
+      <member refid="classsc2d_1_1memory_1_1pool__allocator_1a810067c759de7746fdd3ee564230d1b3" prot="private" virt="non-virtual"><scope>sc2d::memory::pool_allocator</scope><name>addr_from_index</name></member>
+      <member refid="classsc2d_1_1memory_1_1pool__allocator_1a927cfc82bd3dbf089d3b2a20b4260e6a" prot="public" virt="non-virtual"><scope>sc2d::memory::pool_allocator</scope><name>allocate</name></member>
+      <member refid="classsc2d_1_1memory_1_1pool__allocator_1a91c77a66c8e6c74c9dae87dc5ad7956a" prot="public" virt="non-virtual"><scope>sc2d::memory::pool_allocator</scope><name>create</name></member>
+      <member refid="classsc2d_1_1memory_1_1pool__allocator_1a700f43f95cdf86714a4df5bc727d8919" prot="public" virt="non-virtual"><scope>sc2d::memory::pool_allocator</scope><name>deallocate</name></member>
+      <member refid="classsc2d_1_1memory_1_1pool__allocator_1ab313582eae462597924ad43cce564ed4" prot="public" virt="non-virtual"><scope>sc2d::memory::pool_allocator</scope><name>destroy</name></member>
+      <member refid="classsc2d_1_1memory_1_1pool__allocator_1ac2326a5a29b93d5aaa1ef552a43408b4" prot="public" virt="non-virtual"><scope>sc2d::memory::pool_allocator</scope><name>get_intialized_num</name></member>
+      <member refid="classsc2d_1_1memory_1_1pool__allocator_1a0bb6d57bf2b24b374e96ca12d7557e3f" prot="public" virt="non-virtual"><scope>sc2d::memory::pool_allocator</scope><name>get_num_of_blocks</name></member>
+      <member refid="classsc2d_1_1memory_1_1pool__allocator_1a9d6c4623e47051e497b5deb8f0cfbdb9" prot="public" virt="non-virtual"><scope>sc2d::memory::pool_allocator</scope><name>get_start</name></member>
+      <member refid="classsc2d_1_1memory_1_1pool__allocator_1a9ee7ac3369f3292d0452ed48d6d87c2e" prot="private" virt="non-virtual"><scope>sc2d::memory::pool_allocator</scope><name>index_from_addr</name></member>
+      <member refid="classsc2d_1_1memory_1_1pool__allocator_1a341cbf0ef1c4dffd3e34abad527d5ab5" prot="private" virt="non-virtual"><scope>sc2d::memory::pool_allocator</scope><name>num_of_blocks</name></member>
+      <member refid="classsc2d_1_1memory_1_1pool__allocator_1a434eb1142c11df6a67d81e67dc5b4768" prot="private" virt="non-virtual"><scope>sc2d::memory::pool_allocator</scope><name>num_of_free_blocks</name></member>
+      <member refid="classsc2d_1_1memory_1_1pool__allocator_1a21238c51065ccf118cf5f9a0b86ae1ee" prot="private" virt="non-virtual"><scope>sc2d::memory::pool_allocator</scope><name>num_of_initialized</name></member>
+      <member refid="classsc2d_1_1memory_1_1pool__allocator_1abe6c5863394a24706ad82f3523882e2f" prot="private" virt="non-virtual"><scope>sc2d::memory::pool_allocator</scope><name>p_next</name></member>
+      <member refid="classsc2d_1_1memory_1_1pool__allocator_1a811d8a3814f48df52245d414a321e3ea" prot="private" virt="non-virtual"><scope>sc2d::memory::pool_allocator</scope><name>p_start</name></member>
+      <member refid="classsc2d_1_1memory_1_1pool__allocator_1a223110342f8987b6637800a34f692010" prot="public" virt="non-virtual"><scope>sc2d::memory::pool_allocator</scope><name>resize</name></member>
+      <member refid="classsc2d_1_1memory_1_1pool__allocator_1a2e04baf33c43689ad08746f193cb306c" prot="public" virt="non-virtual"><scope>sc2d::memory::pool_allocator</scope><name>sc2d::vec</name></member>
+      <member refid="classsc2d_1_1memory_1_1pool__allocator_1a5fa09e5e114a8cc2cf75dfa091ff0986" prot="private" virt="non-virtual"><scope>sc2d::memory::pool_allocator</scope><name>size_of_block</name></member>
+      <member refid="classsc2d_1_1memory_1_1pool__allocator_1a0e3596bd1acdb2ae4be45872add7146b" prot="public" virt="non-virtual"><scope>sc2d::memory::pool_allocator</scope><name>~pool_allocator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

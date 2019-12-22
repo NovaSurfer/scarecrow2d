@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="namespacesc2d_1_1fs__const" kind="namespace" language="C++">
+    <compoundname>sc2d::fs_const</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="fs__constants_8h_1a59cbb0005c6d1e01d42678ad71fe5b1b" prot="public" static="yes" mutable="no">
+        <type>constexpr const char *const</type>
+        <definition>constexpr const char* const sc2d::fs_const::RES_CONFIG_PATH</definition>
+        <argsstring></argsstring>
+        <name>RES_CONFIG_PATH</name>
+        <initializer>{&quot;resources.json&quot;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/filesystem/fs_constants.h" line="11" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/filesystem/fs_constants.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="fs__constants_8h_1addea2e2d770f5b96329c8463c9f72862" prot="public" static="yes" mutable="no">
+        <type>constexpr const char *const</type>
+        <definition>constexpr const char* const sc2d::fs_const::RES_SPRITE</definition>
+        <argsstring></argsstring>
+        <name>RES_SPRITE</name>
+        <initializer>{&quot;sprites&quot;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/filesystem/fs_constants.h" line="12" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/filesystem/fs_constants.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="fs__constants_8h_1a4a80010c86c8fab9c25660ea2257bc0f" prot="public" static="yes" mutable="no">
+        <type>constexpr const char *const</type>
+        <definition>constexpr const char* const sc2d::fs_const::RES_SHADER</definition>
+        <argsstring></argsstring>
+        <name>RES_SHADER</name>
+        <initializer>{&quot;shaders&quot;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/filesystem/fs_constants.h" line="13" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/filesystem/fs_constants.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="fs__constants_8h_1a68e6e31831a522889f2dabcfadad216e" prot="public" static="yes" mutable="no">
+        <type>constexpr const char *const</type>
+        <definition>constexpr const char* const sc2d::fs_const::SCN_LAYERS</definition>
+        <argsstring></argsstring>
+        <name>SCN_LAYERS</name>
+        <initializer>{&quot;layers&quot;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/filesystem/fs_constants.h" line="14" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/filesystem/fs_constants.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="fs__constants_8h_1a63d2c409bf5a848a3b54a8deede17575" prot="public" static="yes" mutable="no">
+        <type>constexpr const char *const</type>
+        <definition>constexpr const char* const sc2d::fs_const::SCN_TILESETS</definition>
+        <argsstring></argsstring>
+        <name>SCN_TILESETS</name>
+        <initializer>{&quot;tilesets&quot;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/filesystem/fs_constants.h" line="15" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/filesystem/fs_constants.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="fs__constants_8h_1a261142e8db4eb56aeccfa8059feb72ec" prot="public" static="yes" mutable="no">
+        <type>constexpr const char *const</type>
+        <definition>constexpr const char* const sc2d::fs_const::SCN_LAYERS_DATA</definition>
+        <argsstring></argsstring>
+        <name>SCN_LAYERS_DATA</name>
+        <initializer>{&quot;data&quot;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/filesystem/fs_constants.h" line="16" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/filesystem/fs_constants.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="fs__constants_8h_1ac08ae6b31a734ff9da5f0ba8c8bd892b" prot="public" static="yes" mutable="no">
+        <type>constexpr const char *const</type>
+        <definition>constexpr const char* const sc2d::fs_const::SCN_LAYERS_NAME</definition>
+        <argsstring></argsstring>
+        <name>SCN_LAYERS_NAME</name>
+        <initializer>{&quot;name&quot;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/filesystem/fs_constants.h" line="17" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/filesystem/fs_constants.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="fs__constants_8h_1ad52df1a8002611c4244181801e45d40a" prot="public" static="yes" mutable="no">
+        <type>constexpr const char *const</type>
+        <definition>constexpr const char* const sc2d::fs_const::SCN_WIDTH</definition>
+        <argsstring></argsstring>
+        <name>SCN_WIDTH</name>
+        <initializer>{&quot;width&quot;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/filesystem/fs_constants.h" line="18" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/filesystem/fs_constants.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="fs__constants_8h_1a81868d81684ddca7170450ee2c026a86" prot="public" static="yes" mutable="no">
+        <type>constexpr const char *const</type>
+        <definition>constexpr const char* const sc2d::fs_const::SCN_HEIGHT</definition>
+        <argsstring></argsstring>
+        <name>SCN_HEIGHT</name>
+        <initializer>{&quot;height&quot;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/filesystem/fs_constants.h" line="19" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/filesystem/fs_constants.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="fs__constants_8h_1a40638519c5e38a5123c27107e9aaff5f" prot="public" static="yes" mutable="no">
+        <type>constexpr const char *const</type>
+        <definition>constexpr const char* const sc2d::fs_const::SCN_TILE_WIDTH</definition>
+        <argsstring></argsstring>
+        <name>SCN_TILE_WIDTH</name>
+        <initializer>{&quot;tilewidth&quot;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/filesystem/fs_constants.h" line="20" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/filesystem/fs_constants.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="fs__constants_8h_1ab68196f29d74ea73967450b9d1fa02f1" prot="public" static="yes" mutable="no">
+        <type>constexpr const char *const</type>
+        <definition>constexpr const char* const sc2d::fs_const::SCN_TILE_HEIGHT</definition>
+        <argsstring></argsstring>
+        <name>SCN_TILE_HEIGHT</name>
+        <initializer>{&quot;tileheight&quot;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/filesystem/fs_constants.h" line="21" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/filesystem/fs_constants.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="fs__constants_8h_1a266a40b8af2f449b453c516c33fbd5a8" prot="public" static="yes" mutable="no">
+        <type>constexpr const char *const</type>
+        <definition>constexpr const char* const sc2d::fs_const::SCN_TILESETS_IMAGE</definition>
+        <argsstring></argsstring>
+        <name>SCN_TILESETS_IMAGE</name>
+        <initializer>{&quot;image&quot;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/filesystem/fs_constants.h" line="22" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/filesystem/fs_constants.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/novasurfer/projects/scarecrow2d/src/filesystem/fs_constants.h" line="9" column="1"/>
+  </compounddef>
+</doxygen>

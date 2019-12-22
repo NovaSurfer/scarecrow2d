@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structmath_1_1interval2d" kind="struct" language="C++" prot="public">
+    <compoundname>math::interval2d</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structmath_1_1interval2d_1ab22324d1825a2809bdeb2e7c22898e9e" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float math::interval2d::min</definition>
+        <argsstring></argsstring>
+        <name>min</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/geometry2d.h" line="111" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/geometry2d.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmath_1_1interval2d_1ab97494891c33376c009ececd62d1bfec" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float math::interval2d::max</definition>
+        <argsstring></argsstring>
+        <name>max</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/geometry2d.h" line="112" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/geometry2d.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structmath_1_1interval2d_1a6e391e2dffbfd47c78ccd2667a24fc66" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structmath_1_1interval2d" kindref="compound">interval2d</ref></type>
+        <definition>static interval2d math::interval2d::get_interval</definition>
+        <argsstring>(const rect2d &amp;rect, const vec2 &amp;axis)</argsstring>
+        <name>get_interval</name>
+        <param>
+          <type>const <ref refid="structmath_1_1rect2d" kindref="compound">rect2d</ref> &amp;</type>
+          <declname>rect</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec2" kindref="compound">vec2</ref> &amp;</type>
+          <declname>axis</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/geometry2d.h" line="114" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/geometry2d.h" bodystart="114" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="structmath_1_1interval2d_1a28c98b51fc765684168ac92a7f373de5" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structmath_1_1interval2d" kindref="compound">interval2d</ref></type>
+        <definition>static interval2d math::interval2d::get_interval</definition>
+        <argsstring>(const orrect2d &amp;orrect, const vec2 &amp;axis)</argsstring>
+        <name>get_interval</name>
+        <param>
+          <type>const <ref refid="structmath_1_1orrect2d" kindref="compound">orrect2d</ref> &amp;</type>
+          <declname>orrect</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmath_1_1vec2" kindref="compound">vec2</ref> &amp;</type>
+          <declname>axis</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/geometry2d.h" line="137" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/geometry2d.h" bodystart="137" bodyend="187"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/novasurfer/projects/scarecrow2d/src/math/geometry2d.h" line="110" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/geometry2d.h" bodystart="109" bodyend="188"/>
+    <listofallmembers>
+      <member refid="structmath_1_1interval2d_1a6e391e2dffbfd47c78ccd2667a24fc66" prot="public" virt="non-virtual"><scope>math::interval2d</scope><name>get_interval</name></member>
+      <member refid="structmath_1_1interval2d_1a28c98b51fc765684168ac92a7f373de5" prot="public" virt="non-virtual"><scope>math::interval2d</scope><name>get_interval</name></member>
+      <member refid="structmath_1_1interval2d_1ab97494891c33376c009ececd62d1bfec" prot="public" virt="non-virtual"><scope>math::interval2d</scope><name>max</name></member>
+      <member refid="structmath_1_1interval2d_1ab22324d1825a2809bdeb2e7c22898e9e" prot="public" virt="non-virtual"><scope>math::interval2d</scope><name>min</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

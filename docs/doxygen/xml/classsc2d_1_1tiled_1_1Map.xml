@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classsc2d_1_1tiled_1_1Map" kind="class" language="C++" prot="public">
+    <compoundname>sc2d::tiled::Map</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsc2d_1_1tiled_1_1Map_1a0978056be79e016b081d7971aaf9c72e" prot="private" static="no" mutable="no">
+        <type><ref refid="structsc2d_1_1tiled_1_1Data" kindref="compound">Data</ref></type>
+        <definition>Data sc2d::tiled::Map::tiled_data</definition>
+        <argsstring></argsstring>
+        <name>tiled_data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/tiled_map.h" line="108" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/tiled_map.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsc2d_1_1tiled_1_1Map_1aa62a3ae42b412ede913f16f8c4a91ae2" prot="private" static="no" mutable="no">
+        <type><ref refid="classsc2d_1_1Shader" kindref="compound">sc2d::Shader</ref></type>
+        <definition>sc2d::Shader sc2d::tiled::Map::shader</definition>
+        <argsstring></argsstring>
+        <name>shader</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/tiled_map.h" line="109" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/tiled_map.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsc2d_1_1tiled_1_1Map_1ae6276687478254a81f9f36da0f931c63" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; uint32_t &gt;</type>
+        <definition>std::vector&lt;uint32_t&gt; sc2d::tiled::Map::map_gids</definition>
+        <argsstring></argsstring>
+        <name>map_gids</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/tiled_map.h" line="110" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/tiled_map.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsc2d_1_1tiled_1_1Map_1a8fba9275bad4707111624a2804e0faed" prot="private" static="no" mutable="no">
+        <type><ref refid="classsc2d_1_1SpriteSheetInstanced" kindref="compound">sc2d::SpriteSheetInstanced</ref></type>
+        <definition>sc2d::SpriteSheetInstanced sc2d::tiled::Map::sprite_sheet</definition>
+        <argsstring></argsstring>
+        <name>sprite_sheet</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/tiled_map.h" line="111" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/tiled_map.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsc2d_1_1tiled_1_1Map_1a61ed406c7487c659ba2efe39ec58e6ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>sc2d::tiled::Map::Map</definition>
+        <argsstring>()=default</argsstring>
+        <name>Map</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/tiled_map.h" line="102" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classsc2d_1_1tiled_1_1Map_1ab9eba13eef207d590c0d472cc4b31914" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>sc2d::tiled::Map::Map</definition>
+        <argsstring>(const Data &amp;tiled_data)</argsstring>
+        <name>Map</name>
+        <param>
+          <type>const <ref refid="structsc2d_1_1tiled_1_1Data" kindref="compound">Data</ref> &amp;</type>
+          <declname>tiled_data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/tiled_map.h" line="103" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/tiled_map.cpp" bodystart="14" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classsc2d_1_1tiled_1_1Map_1a5a477ef9a53dacf9335ac3701799dac5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sc2d::tiled::Map::init</definition>
+        <argsstring>(const sc2d::Shader &amp;map_shader)</argsstring>
+        <name>init</name>
+        <param>
+          <type>const <ref refid="classsc2d_1_1Shader" kindref="compound">sc2d::Shader</ref> &amp;</type>
+          <declname>map_shader</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/tiled_map.h" line="104" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/tiled_map.cpp" bodystart="18" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classsc2d_1_1tiled_1_1Map_1ab4d594dac29fb48040bc1dde24657110" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sc2d::tiled::Map::draw_map</definition>
+        <argsstring>(GLuint texatlas_id) const</argsstring>
+        <name>draw_map</name>
+        <param>
+          <type>GLuint</type>
+          <declname>texatlas_id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/tiled_map.h" line="105" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/tiled_map.cpp" bodystart="83" bodyend="86"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsc2d_1_1tiled_1_1Map_1a03cb08e31126d8e15ac16173b63c6be8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sc2d::tiled::Map::crack_layer_data</definition>
+        <argsstring>()</argsstring>
+        <name>crack_layer_data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/tiled_map.h" line="113" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/tiled_map.cpp" bodystart="25" bodyend="81"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/novasurfer/projects/scarecrow2d/src/core/tiled_map.h" line="100" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/tiled_map.h" bodystart="99" bodyend="114"/>
+    <listofallmembers>
+      <member refid="classsc2d_1_1tiled_1_1Map_1a03cb08e31126d8e15ac16173b63c6be8" prot="private" virt="non-virtual"><scope>sc2d::tiled::Map</scope><name>crack_layer_data</name></member>
+      <member refid="classsc2d_1_1tiled_1_1Map_1ab4d594dac29fb48040bc1dde24657110" prot="public" virt="non-virtual"><scope>sc2d::tiled::Map</scope><name>draw_map</name></member>
+      <member refid="classsc2d_1_1tiled_1_1Map_1a5a477ef9a53dacf9335ac3701799dac5" prot="public" virt="non-virtual"><scope>sc2d::tiled::Map</scope><name>init</name></member>
+      <member refid="classsc2d_1_1tiled_1_1Map_1a61ed406c7487c659ba2efe39ec58e6ed" prot="public" virt="non-virtual"><scope>sc2d::tiled::Map</scope><name>Map</name></member>
+      <member refid="classsc2d_1_1tiled_1_1Map_1ab9eba13eef207d590c0d472cc4b31914" prot="public" virt="non-virtual"><scope>sc2d::tiled::Map</scope><name>Map</name></member>
+      <member refid="classsc2d_1_1tiled_1_1Map_1ae6276687478254a81f9f36da0f931c63" prot="private" virt="non-virtual"><scope>sc2d::tiled::Map</scope><name>map_gids</name></member>
+      <member refid="classsc2d_1_1tiled_1_1Map_1aa62a3ae42b412ede913f16f8c4a91ae2" prot="private" virt="non-virtual"><scope>sc2d::tiled::Map</scope><name>shader</name></member>
+      <member refid="classsc2d_1_1tiled_1_1Map_1a8fba9275bad4707111624a2804e0faed" prot="private" virt="non-virtual"><scope>sc2d::tiled::Map</scope><name>sprite_sheet</name></member>
+      <member refid="classsc2d_1_1tiled_1_1Map_1a0978056be79e016b081d7971aaf9c72e" prot="private" virt="non-virtual"><scope>sc2d::tiled::Map</scope><name>tiled_data</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

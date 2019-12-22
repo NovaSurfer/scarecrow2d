@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="namespacesc2d_1_1memory_1_1main" kind="namespace" language="C++">
+    <compoundname>sc2d::memory::main</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="memory_8cpp_1a1aba5627cd16d186326471c8043a8693" prot="public" static="no" mutable="no">
+        <type>constexpr size_t</type>
+        <definition>constexpr size_t sc2d::memory::main::_memory_size</definition>
+        <argsstring></argsstring>
+        <name>_memory_size</name>
+        <initializer>= 1024 * 1024 * 31</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/memory.cpp" line="15" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/memory.cpp" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="memory_8cpp_1a0101d0c0ea0efa3e677078002256009d" prot="public" static="yes" mutable="no">
+        <type>void *</type>
+        <definition>void* sc2d::memory::main::_buffer</definition>
+        <argsstring></argsstring>
+        <name>_buffer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/memory.cpp" line="16" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/memory.cpp" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="memory_8cpp_1a9430433b339522087375fcb365e2808c" prot="public" static="yes" mutable="no">
+        <type><ref refid="classsc2d_1_1memory_1_1free__list__allocator" kindref="compound">free_list_allocator</ref> *</type>
+        <definition>free_list_allocator* sc2d::memory::main::_main_allocator</definition>
+        <argsstring></argsstring>
+        <name>_main_allocator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/memory.cpp" line="17" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/memory.cpp" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="memory_8cpp_1a8b6ca8b96d09c75d9e22a652eaaabc9a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sc2d::memory::main::init</definition>
+        <argsstring>()</argsstring>
+        <name>init</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/memory.cpp" line="19" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/memory.cpp" bodystart="19" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="memory_8cpp_1a8e48515fb2662104bc03551ae5dd8658" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sc2d::memory::main::destroy</definition>
+        <argsstring>()</argsstring>
+        <name>destroy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/memory.cpp" line="28" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/memory.cpp" bodystart="28" bodyend="31"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/novasurfer/projects/scarecrow2d/src/memory/memory.cpp" line="14" column="1"/>
+  </compounddef>
+</doxygen>

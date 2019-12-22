@@ -1,0 +1,585 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classECS" kind="class" language="C++" prot="public">
+    <compoundname>ECS</compoundname>
+    <includes refid="ecs_8h" local="no">ecs.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classECS_1af6e0cfe95d8f3d1126cbb5138c58d4a4" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classBaseECSSystem" kindref="compound">BaseECSSystem</ref> * &gt;</type>
+        <definition>std::vector&lt;BaseECSSystem*&gt; ECS::systems</definition>
+        <argsstring></argsstring>
+        <name>systems</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.h" line="69" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classECS_1a5da34e4746dabfe83e5b193f0d565aed" prot="private" static="no" mutable="no">
+        <type>std::map&lt; compId_t, std::vector&lt; uint8_t &gt; &gt;</type>
+        <definition>std::map&lt;compId_t, std::vector&lt;uint8_t&gt; &gt; ECS::components</definition>
+        <argsstring></argsstring>
+        <name>components</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.h" line="71" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classECS_1aa96df7b66ca9effbd14e1b7e2642ed08" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::pair&lt; uint32_t, std::vector&lt; std::pair&lt; compId_t, uint32_t &gt; &gt; &gt; * &gt;</type>
+        <definition>std::vector&lt;std::pair&lt;uint32_t, std::vector&lt;std::pair&lt;compId_t, uint32_t&gt; &gt; &gt;*&gt; ECS::entities</definition>
+        <argsstring></argsstring>
+        <name>entities</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.h" line="73" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classECS_1a7a5fae6bd6cd38ebcbf209528d911c6a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ECS::ECS</definition>
+        <argsstring>()=default</argsstring>
+        <name>ECS</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.h" line="20" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classECS_1a7a7a0263b1a68878d5727f35fe6b3a5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ECS::~ECS</definition>
+        <argsstring>()</argsstring>
+        <name>~ECS</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.h" line="21" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.cpp" bodystart="12" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classECS_1a316cc3417a9eb09d25c2598b4b352fe0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ECS::ECS</definition>
+        <argsstring>(const ECS &amp;)=delete</argsstring>
+        <name>ECS</name>
+        <param>
+          <type>const <ref refid="classECS" kindref="compound">ECS</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.h" line="22" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classECS_1afc231af38c79ef41625ba428079ba038" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ECS::ECS</definition>
+        <argsstring>(ECS &amp;&amp;)=delete</argsstring>
+        <name>ECS</name>
+        <param>
+          <type><ref refid="classECS" kindref="compound">ECS</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.h" line="23" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classECS_1adecac823806246bc357bc786bfaf2f0f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classECS" kindref="compound">ECS</ref> &amp;</type>
+        <definition>ECS&amp; ECS::operator=</definition>
+        <argsstring>(const ECS &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classECS" kindref="compound">ECS</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.h" line="24" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classECS_1a6f7f7d2e973bb4d206b3f8fae0b429d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classECS" kindref="compound">ECS</ref> &amp;</type>
+        <definition>ECS&amp; ECS::operator=</definition>
+        <argsstring>(ECS &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classECS" kindref="compound">ECS</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.h" line="25" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classECS_1aeb3ab746cd0f198cd86631489e438ea6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>EntityHandle</type>
+        <definition>EntityHandle ECS::make_entity</definition>
+        <argsstring>(BaseECSComponent *entity_components, const compId_t *component_ids, size_t num_components)</argsstring>
+        <name>make_entity</name>
+        <param>
+          <type><ref refid="classBaseECSComponent" kindref="compound">BaseECSComponent</ref> *</type>
+          <declname>entity_components</declname>
+        </param>
+        <param>
+          <type>const compId_t *</type>
+          <declname>component_ids</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>num_components</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Makes entity <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>entity_components</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>components attached to the entity </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>component_ids</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>components types ids </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>num_components</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>nubmer of components </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.h" line="35" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.cpp" bodystart="26" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classECS_1ab864271724be8395bac46bf276571a3c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ECS::remove_entity</definition>
+        <argsstring>(EntityHandle handle)</argsstring>
+        <name>remove_entity</name>
+        <param>
+          <type>EntityHandle</type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.h" line="37" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.cpp" bodystart="48" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classECS_1a46b26cb09b107d34cfb761e0a30e35d7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Component</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void ECS::add_component</definition>
+        <argsstring>(EntityHandle entity, Component *component)</argsstring>
+        <name>add_component</name>
+        <param>
+          <type>EntityHandle</type>
+          <declname>entity</declname>
+        </param>
+        <param>
+          <type>Component *</type>
+          <declname>component</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.h" line="41" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.h" bodystart="41" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classECS_1a59a523514ddf60755b3cbe7bc5f1ed6f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Component</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void ECS::remove_component</definition>
+        <argsstring>(EntityHandle entity)</argsstring>
+        <name>remove_component</name>
+        <param>
+          <type>EntityHandle</type>
+          <declname>entity</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.h" line="47" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.h" bodystart="47" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classECS_1a05bf55eb5a0a8d49881fac023b50581e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Component</type>
+          </param>
+        </templateparamlist>
+        <type>Component *</type>
+        <definition>Component* ECS::get_component</definition>
+        <argsstring>(EntityHandle entity) const</argsstring>
+        <name>get_component</name>
+        <param>
+          <type>EntityHandle</type>
+          <declname>entity</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.h" line="53" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.h" bodystart="53" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classECS_1af3e5006e5d71622d79c0add84a103e4e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ECS::add_system</definition>
+        <argsstring>(BaseECSSystem &amp;system)</argsstring>
+        <name>add_system</name>
+        <param>
+          <type><ref refid="classBaseECSSystem" kindref="compound">BaseECSSystem</ref> &amp;</type>
+          <declname>system</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.h" line="60" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.h" bodystart="60" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classECS_1a5ca1fe0202fe1a59f76ac061bb247fe8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ECS::remove_system</definition>
+        <argsstring>(BaseECSSystem &amp;system)</argsstring>
+        <name>remove_system</name>
+        <param>
+          <type><ref refid="classBaseECSSystem" kindref="compound">BaseECSSystem</ref> &amp;</type>
+          <declname>system</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.h" line="65" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.cpp" bodystart="128" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="classECS_1ab565442f53e9175caeac308b2947ccc8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ECS::update_systems</definition>
+        <argsstring>(float delta)</argsstring>
+        <name>update_systems</name>
+        <param>
+          <type>float</type>
+          <declname>delta</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.h" line="66" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.cpp" bodystart="136" bodyend="153"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classECS_1ac261ece310602edb90a51bfe08192fed" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>auto</type>
+        <definition>auto ECS::handle_to_raw_type</definition>
+        <argsstring>(EntityHandle handle) const</argsstring>
+        <name>handle_to_raw_type</name>
+        <param>
+          <type>EntityHandle</type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Utility method: casts Entity handle to raw entity type <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Entity handle </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.h" line="80" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.h" bodystart="80" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classECS_1ab9a201a55deb095206c9e92f2e8a3af5" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t ECS::handle_to_entity_index</definition>
+        <argsstring>(EntityHandle handle) const</argsstring>
+        <name>handle_to_entity_index</name>
+        <param>
+          <type>EntityHandle</type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Utility method: casts Entity handle to entity index in entities vector <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Entity handle </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.h" line="91" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.h" bodystart="91" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="classECS_1aa10a1b068cfcffe20a3f4353c08dd723" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; std::pair&lt; compId_t, uint32_t &gt; &gt; &amp;</type>
+        <definition>std::vector&lt;std::pair&lt;compId_t, uint32_t&gt; &gt;&amp; ECS::handle_to_entity</definition>
+        <argsstring>(EntityHandle handle) const</argsstring>
+        <name>handle_to_entity</name>
+        <param>
+          <type>EntityHandle</type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Utility method: casts Entity handle to entity type <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Entity handle </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.h" line="101" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.h" bodystart="101" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="classECS_1a9c835c0961fc9498864eaaa8425a2962" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ECS::update_system_components</definition>
+        <argsstring>(size_t index, float delta, const std::vector&lt; uint32_t &gt; &amp;component_types, std::vector&lt; BaseECSComponent *&gt; &amp;component_param, std::vector&lt; std::vector&lt; uint8_t &gt; *&gt; &amp;component_array)</argsstring>
+        <name>update_system_components</name>
+        <param>
+          <type>size_t</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>delta</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; uint32_t &gt; &amp;</type>
+          <declname>component_types</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="classBaseECSComponent" kindref="compound">BaseECSComponent</ref> *&gt; &amp;</type>
+          <declname>component_param</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; std::vector&lt; uint8_t &gt; *&gt; &amp;</type>
+          <declname>component_array</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.h" line="106" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.cpp" bodystart="155" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="classECS_1a01505bdf8a9d921e6909c677e72aa8a9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ECS::add_component_internal</definition>
+        <argsstring>(EntityHandle handle, std::vector&lt; std::pair&lt; compId_t, uint32_t &gt;&gt; &amp;entity, compId_t component_id, BaseECSComponent *component)</argsstring>
+        <name>add_component_internal</name>
+        <param>
+          <type>EntityHandle</type>
+          <declname>handle</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; std::pair&lt; compId_t, uint32_t &gt;&gt; &amp;</type>
+          <declname>entity</declname>
+        </param>
+        <param>
+          <type>compId_t</type>
+          <declname>component_id</declname>
+        </param>
+        <param>
+          <type><ref refid="classBaseECSComponent" kindref="compound">BaseECSComponent</ref> *</type>
+          <declname>component</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.h" line="110" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.cpp" bodystart="63" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classECS_1a8cd854592e098591822b2e8d81dbb62a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ECS::remove_component_internal</definition>
+        <argsstring>(EntityHandle handle, compId_t component_id)</argsstring>
+        <name>remove_component_internal</name>
+        <param>
+          <type>EntityHandle</type>
+          <declname>handle</declname>
+        </param>
+        <param>
+          <type>compId_t</type>
+          <declname>component_id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.h" line="113" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.cpp" bodystart="101" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="classECS_1a4f4fb88160273d86a3deb1022282dc85" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ECS::delete_component_internal</definition>
+        <argsstring>(compId_t component_id, uint32_t index)</argsstring>
+        <name>delete_component_internal</name>
+        <param>
+          <type>compId_t</type>
+          <declname>component_id</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.h" line="114" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.cpp" bodystart="74" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="classECS_1a6dca0982fa59862e29fb2c8a50bed8a0" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBaseECSComponent" kindref="compound">BaseECSComponent</ref> *</type>
+        <definition>BaseECSComponent * ECS::get_component_internal</definition>
+        <argsstring>(std::vector&lt; std::pair&lt; compId_t, uint32_t &gt;&gt; &amp;entity_components, std::vector&lt; uint8_t &gt; &amp;array, uint32_t component_id) const</argsstring>
+        <name>get_component_internal</name>
+        <param>
+          <type>std::vector&lt; std::pair&lt; compId_t, uint32_t &gt;&gt; &amp;</type>
+          <declname>entity_components</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; uint8_t &gt; &amp;</type>
+          <declname>array</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>component_id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.h" line="116" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.cpp" bodystart="117" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="classECS_1a0df2ea7ff1707d0b180dcef7b0b3e060" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t ECS::find_least_common_component</definition>
+        <argsstring>(const std::vector&lt; uint32_t &gt; &amp;component_types)</argsstring>
+        <name>find_least_common_component</name>
+        <param>
+          <type>const std::vector&lt; uint32_t &gt; &amp;</type>
+          <declname>component_types</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.h" line="118" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.cpp" bodystart="191" bodyend="207"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Main class for Entity Component System </para>    </detaileddescription>
+    <location file="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.h" line="18" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs.h" bodystart="17" bodyend="119"/>
+    <listofallmembers>
+      <member refid="classECS_1a46b26cb09b107d34cfb761e0a30e35d7" prot="public" virt="non-virtual"><scope>ECS</scope><name>add_component</name></member>
+      <member refid="classECS_1a01505bdf8a9d921e6909c677e72aa8a9" prot="private" virt="non-virtual"><scope>ECS</scope><name>add_component_internal</name></member>
+      <member refid="classECS_1af3e5006e5d71622d79c0add84a103e4e" prot="public" virt="non-virtual"><scope>ECS</scope><name>add_system</name></member>
+      <member refid="classECS_1a5da34e4746dabfe83e5b193f0d565aed" prot="private" virt="non-virtual"><scope>ECS</scope><name>components</name></member>
+      <member refid="classECS_1a4f4fb88160273d86a3deb1022282dc85" prot="private" virt="non-virtual"><scope>ECS</scope><name>delete_component_internal</name></member>
+      <member refid="classECS_1a7a5fae6bd6cd38ebcbf209528d911c6a" prot="public" virt="non-virtual"><scope>ECS</scope><name>ECS</name></member>
+      <member refid="classECS_1a316cc3417a9eb09d25c2598b4b352fe0" prot="public" virt="non-virtual"><scope>ECS</scope><name>ECS</name></member>
+      <member refid="classECS_1afc231af38c79ef41625ba428079ba038" prot="public" virt="non-virtual"><scope>ECS</scope><name>ECS</name></member>
+      <member refid="classECS_1aa96df7b66ca9effbd14e1b7e2642ed08" prot="private" virt="non-virtual"><scope>ECS</scope><name>entities</name></member>
+      <member refid="classECS_1a0df2ea7ff1707d0b180dcef7b0b3e060" prot="private" virt="non-virtual"><scope>ECS</scope><name>find_least_common_component</name></member>
+      <member refid="classECS_1a05bf55eb5a0a8d49881fac023b50581e" prot="public" virt="non-virtual"><scope>ECS</scope><name>get_component</name></member>
+      <member refid="classECS_1a6dca0982fa59862e29fb2c8a50bed8a0" prot="private" virt="non-virtual"><scope>ECS</scope><name>get_component_internal</name></member>
+      <member refid="classECS_1aa10a1b068cfcffe20a3f4353c08dd723" prot="private" virt="non-virtual"><scope>ECS</scope><name>handle_to_entity</name></member>
+      <member refid="classECS_1ab9a201a55deb095206c9e92f2e8a3af5" prot="private" virt="non-virtual"><scope>ECS</scope><name>handle_to_entity_index</name></member>
+      <member refid="classECS_1ac261ece310602edb90a51bfe08192fed" prot="private" virt="non-virtual"><scope>ECS</scope><name>handle_to_raw_type</name></member>
+      <member refid="classECS_1aeb3ab746cd0f198cd86631489e438ea6" prot="public" virt="non-virtual"><scope>ECS</scope><name>make_entity</name></member>
+      <member refid="classECS_1adecac823806246bc357bc786bfaf2f0f" prot="public" virt="non-virtual"><scope>ECS</scope><name>operator=</name></member>
+      <member refid="classECS_1a6f7f7d2e973bb4d206b3f8fae0b429d3" prot="public" virt="non-virtual"><scope>ECS</scope><name>operator=</name></member>
+      <member refid="classECS_1a59a523514ddf60755b3cbe7bc5f1ed6f" prot="public" virt="non-virtual"><scope>ECS</scope><name>remove_component</name></member>
+      <member refid="classECS_1a8cd854592e098591822b2e8d81dbb62a" prot="private" virt="non-virtual"><scope>ECS</scope><name>remove_component_internal</name></member>
+      <member refid="classECS_1ab864271724be8395bac46bf276571a3c" prot="public" virt="non-virtual"><scope>ECS</scope><name>remove_entity</name></member>
+      <member refid="classECS_1a5ca1fe0202fe1a59f76ac061bb247fe8" prot="public" virt="non-virtual"><scope>ECS</scope><name>remove_system</name></member>
+      <member refid="classECS_1af6e0cfe95d8f3d1126cbb5138c58d4a4" prot="private" virt="non-virtual"><scope>ECS</scope><name>systems</name></member>
+      <member refid="classECS_1a9c835c0961fc9498864eaaa8425a2962" prot="private" virt="non-virtual"><scope>ECS</scope><name>update_system_components</name></member>
+      <member refid="classECS_1ab565442f53e9175caeac308b2947ccc8" prot="public" virt="non-virtual"><scope>ECS</scope><name>update_systems</name></member>
+      <member refid="classECS_1a7a7a0263b1a68878d5727f35fe6b3a5f" prot="public" virt="non-virtual"><scope>ECS</scope><name>~ECS</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,256 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="sprite__sheet__inst_8h" kind="file" language="C++">
+    <compoundname>sprite_sheet_inst.h</compoundname>
+    <includes refid="debug__utils_8h" local="yes">debug_utils.h</includes>
+    <includes refid="size2d_8h" local="yes">math/size2d.h</includes>
+    <includes refid="transform_8h" local="yes">math/transform.h</includes>
+    <includes refid="vector2_8h" local="yes">math/vector2.h</includes>
+    <includes refid="sc2dTypes_8h" local="yes">sc2dTypes.h</includes>
+    <includes refid="shader_8h" local="yes">shader.h</includes>
+    <includes local="no">vector</includes>
+    <includedby refid="sprite__sheet__inst_8cpp" local="yes">/home/novasurfer/projects/scarecrow2d/src/core/sprite_sheet_inst.cpp</includedby>
+    <includedby refid="tiled__map_8h" local="yes">/home/novasurfer/projects/scarecrow2d/src/core/tiled_map.h</includedby>
+    <incdepgraph>
+      <node id="269">
+        <label>/home/novasurfer/projects/scarecrow2d/src/core/sprite_sheet_inst.h</label>
+        <link refid="sprite__sheet__inst_8h"/>
+        <childnode refid="270" relation="include">
+        </childnode>
+        <childnode refid="277" relation="include">
+        </childnode>
+        <childnode refid="283" relation="include">
+        </childnode>
+        <childnode refid="281" relation="include">
+        </childnode>
+        <childnode refid="289" relation="include">
+        </childnode>
+        <childnode refid="290" relation="include">
+        </childnode>
+        <childnode refid="293" relation="include">
+        </childnode>
+      </node>
+      <node id="271">
+        <label>log2.h</label>
+        <link refid="log2_8h_source"/>
+        <childnode refid="272" relation="include">
+        </childnode>
+        <childnode refid="273" relation="include">
+        </childnode>
+        <childnode refid="274" relation="include">
+        </childnode>
+        <childnode refid="275" relation="include">
+        </childnode>
+        <childnode refid="276" relation="include">
+        </childnode>
+      </node>
+      <node id="287">
+        <label>matrix4.h</label>
+        <link refid="matrix4_8h_source"/>
+        <childnode refid="288" relation="include">
+        </childnode>
+      </node>
+      <node id="280">
+        <label>cmath</label>
+      </node>
+      <node id="272">
+        <label>cstdarg</label>
+      </node>
+      <node id="292">
+        <label>map</label>
+      </node>
+      <node id="279">
+        <label>cfloat</label>
+      </node>
+      <node id="288">
+        <label>vector4.h</label>
+        <link refid="vector4_8h_source"/>
+        <childnode refid="278" relation="include">
+        </childnode>
+        <childnode refid="282" relation="include">
+        </childnode>
+      </node>
+      <node id="282">
+        <label>ostream</label>
+      </node>
+      <node id="270">
+        <label>debug_utils.h</label>
+        <link refid="debug__utils_8h_source"/>
+        <childnode refid="271" relation="include">
+        </childnode>
+      </node>
+      <node id="290">
+        <label>shader.h</label>
+        <link refid="shader_8h_source"/>
+        <childnode refid="287" relation="include">
+        </childnode>
+        <childnode refid="286" relation="include">
+        </childnode>
+        <childnode refid="281" relation="include">
+        </childnode>
+        <childnode refid="291" relation="include">
+        </childnode>
+        <childnode refid="292" relation="include">
+        </childnode>
+      </node>
+      <node id="278">
+        <label>utils.h</label>
+        <link refid="utils_8h_source"/>
+        <childnode refid="279" relation="include">
+        </childnode>
+        <childnode refid="280" relation="include">
+        </childnode>
+      </node>
+      <node id="289">
+        <label>sc2dTypes.h</label>
+        <link refid="sc2dTypes_8h_source"/>
+        <childnode refid="281" relation="include">
+        </childnode>
+      </node>
+      <node id="273">
+        <label>cstdio</label>
+      </node>
+      <node id="275">
+        <label>ctime</label>
+      </node>
+      <node id="293">
+        <label>vector</label>
+      </node>
+      <node id="286">
+        <label>vector3.h</label>
+        <link refid="vector3_8h_source"/>
+        <childnode refid="278" relation="include">
+        </childnode>
+        <childnode refid="282" relation="include">
+        </childnode>
+      </node>
+      <node id="284">
+        <label>matrix2.h</label>
+        <link refid="matrix2_8h_source"/>
+        <childnode refid="281" relation="include">
+        </childnode>
+      </node>
+      <node id="274">
+        <label>cstdlib</label>
+      </node>
+      <node id="291">
+        <label>glad/glad.h</label>
+      </node>
+      <node id="276">
+        <label>mutex</label>
+      </node>
+      <node id="283">
+        <label>math/transform.h</label>
+        <link refid="transform_8h_source"/>
+        <childnode refid="284" relation="include">
+        </childnode>
+        <childnode refid="285" relation="include">
+        </childnode>
+        <childnode refid="287" relation="include">
+        </childnode>
+        <childnode refid="281" relation="include">
+        </childnode>
+        <childnode refid="286" relation="include">
+        </childnode>
+        <childnode refid="288" relation="include">
+        </childnode>
+      </node>
+      <node id="281">
+        <label>vector2.h</label>
+        <link refid="vector2_8h_source"/>
+        <childnode refid="278" relation="include">
+        </childnode>
+        <childnode refid="282" relation="include">
+        </childnode>
+      </node>
+      <node id="285">
+        <label>matrix3.h</label>
+        <link refid="matrix3_8h_source"/>
+        <childnode refid="286" relation="include">
+        </childnode>
+      </node>
+      <node id="277">
+        <label>math/size2d.h</label>
+        <link refid="size2d_8h_source"/>
+        <childnode refid="278" relation="include">
+        </childnode>
+        <childnode refid="281" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="294">
+        <label>/home/novasurfer/projects/scarecrow2d/src/core/sprite_sheet_inst.h</label>
+        <link refid="sprite__sheet__inst_8h"/>
+        <childnode refid="295" relation="include">
+        </childnode>
+      </node>
+      <node id="295">
+        <label>/home/novasurfer/projects/scarecrow2d/src/core/tiled_map.h</label>
+        <link refid="tiled__map_8h_source"/>
+        <childnode refid="296" relation="include">
+        </childnode>
+      </node>
+      <node id="296">
+        <label>/home/novasurfer/projects/scarecrow2d/src/filesystem/resourceHolder.h</label>
+        <link refid="resourceHolder_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structsc2d_1_1SpriteSheetInstanceData" prot="public">sc2d::SpriteSheetInstanceData</innerclass>
+    <innerclass refid="classsc2d_1_1SpriteSheetInstanced" prot="public">sc2d::SpriteSheetInstanced</innerclass>
+    <innernamespace refid="namespacesc2d">sc2d</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Created<sp/>by<sp/>novasurfer<sp/>on<sp/>7/7/19.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>INC_2D_GAME_SPRITE_SHEET_INST_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>INC_2D_GAME_SPRITE_SHEET_INST_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;debug_utils.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;math/size2d.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;math/transform.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;math/vector2.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;sc2dTypes.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;shader.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesc2d" kindref="compound">sc2d</ref></highlight></codeline>
+<codeline lineno="17"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="structsc2d_1_1SpriteSheetInstanceData" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structsc2d_1_1SpriteSheetInstanceData" kindref="compound">SpriteSheetInstanceData</ref></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structsc2d_1_1SpriteSheetInstanceData" kindref="compound">SpriteSheetInstanceData</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>gids,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structmath_1_1vec2" kindref="compound">math::vec2</ref>*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>positions)</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>gid<sp/>{gids}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>pos<sp/>{positions}</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>gid<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structmath_1_1vec2" kindref="compound">math::vec2</ref>*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>pos<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="classsc2d_1_1SpriteSheetInstanced" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsc2d_1_1SpriteSheetInstanced" kindref="compound">SpriteSheetInstanced</ref></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsc2d_1_1SpriteSheetInstanced" kindref="compound">SpriteSheetInstanced</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>init_data(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsc2d_1_1Shader" kindref="compound">sc2d::Shader</ref>&amp;<sp/>spr_shader,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structmath_1_1size2d" kindref="compound">math::size2d</ref>&amp;<sp/>spr_size,</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>spr_count,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsc2d_1_1SpriteSheetInstanceData" kindref="compound">SpriteSheetInstanceData</ref>&amp;<sp/>sid);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>draw(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>GLuint<sp/>tex_id)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="structsc2d_1_1Vertex" kindref="compound">Vertex</ref><sp/>quad_vertices[VERTICES_PER_QUAD];</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsc2d_1_1Shader" kindref="compound">Shader</ref><sp/>shader;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>sprites_count;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GLuint<sp/>quad_vao;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//INC_2D_GAME_SPRITE_SHEET_INST_H</highlight></codeline>
+    </programlisting>
+    <location file="/home/novasurfer/projects/scarecrow2d/src/core/sprite_sheet_inst.h"/>
+  </compounddef>
+</doxygen>

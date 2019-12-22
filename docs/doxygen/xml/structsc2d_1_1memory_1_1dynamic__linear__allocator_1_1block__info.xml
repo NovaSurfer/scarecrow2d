@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structsc2d_1_1memory_1_1dynamic__linear__allocator_1_1block__info" kind="struct" language="C++" prot="public">
+    <compoundname>sc2d::memory::dynamic_linear_allocator::block_info</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structsc2d_1_1memory_1_1dynamic__linear__allocator_1_1block__info_1af910eee8415adf5ee87dbcb9ed4d1e94" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* sc2d::memory::dynamic_linear_allocator::block_info::start</definition>
+        <argsstring></argsstring>
+        <name>start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/dynamic_linear_allocator.cpp" line="14" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/dynamic_linear_allocator.cpp" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsc2d_1_1memory_1_1dynamic__linear__allocator_1_1block__info_1a0dcbe38a5f8af57327962224567e1b93" prot="public" static="no" mutable="no">
+        <type><ref refid="structsc2d_1_1memory_1_1dynamic__linear__allocator_1_1block__info" kindref="compound">block_info</ref> *</type>
+        <definition>block_info* sc2d::memory::dynamic_linear_allocator::block_info::prev_block</definition>
+        <argsstring></argsstring>
+        <name>prev_block</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/dynamic_linear_allocator.cpp" line="15" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/dynamic_linear_allocator.cpp" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsc2d_1_1memory_1_1dynamic__linear__allocator_1_1block__info_1ae482372f28c227528482dbe392b5de99" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t sc2d::memory::dynamic_linear_allocator::block_info::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/dynamic_linear_allocator.cpp" line="16" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/dynamic_linear_allocator.cpp" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsc2d_1_1memory_1_1dynamic__linear__allocator_1_1block__info_1aea05cae9b4090bd20ded4a22b406bac7" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t sc2d::memory::dynamic_linear_allocator::block_info::used_memory</definition>
+        <argsstring></argsstring>
+        <name>used_memory</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/dynamic_linear_allocator.cpp" line="17" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/dynamic_linear_allocator.cpp" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="17">
+        <label>sc2d::memory::dynamic_linear_allocator::block_info</label>
+        <link refid="structsc2d_1_1memory_1_1dynamic__linear__allocator_1_1block__info"/>
+        <childnode refid="17" relation="usage">
+          <edgelabel>prev_block</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/novasurfer/projects/scarecrow2d/src/memory/dynamic_linear_allocator.cpp" line="13" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/dynamic_linear_allocator.cpp" bodystart="12" bodyend="18"/>
+    <listofallmembers>
+      <member refid="structsc2d_1_1memory_1_1dynamic__linear__allocator_1_1block__info_1a0dcbe38a5f8af57327962224567e1b93" prot="public" virt="non-virtual"><scope>sc2d::memory::dynamic_linear_allocator::block_info</scope><name>prev_block</name></member>
+      <member refid="structsc2d_1_1memory_1_1dynamic__linear__allocator_1_1block__info_1ae482372f28c227528482dbe392b5de99" prot="public" virt="non-virtual"><scope>sc2d::memory::dynamic_linear_allocator::block_info</scope><name>size</name></member>
+      <member refid="structsc2d_1_1memory_1_1dynamic__linear__allocator_1_1block__info_1af910eee8415adf5ee87dbcb9ed4d1e94" prot="public" virt="non-virtual"><scope>sc2d::memory::dynamic_linear_allocator::block_info</scope><name>start</name></member>
+      <member refid="structsc2d_1_1memory_1_1dynamic__linear__allocator_1_1block__info_1aea05cae9b4090bd20ded4a22b406bac7" prot="public" virt="non-virtual"><scope>sc2d::memory::dynamic_linear_allocator::block_info</scope><name>used_memory</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

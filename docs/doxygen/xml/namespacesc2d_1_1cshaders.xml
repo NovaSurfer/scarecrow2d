@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="namespacesc2d_1_1cshaders" kind="namespace" language="C++">
+    <compoundname>sc2d::cshaders</compoundname>
+    <innerclass refid="structsc2d_1_1cshaders_1_1ShadersArray" prot="public">sc2d::cshaders::ShadersArray</innerclass>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="shader__files_8h_1a61842f56ba7d08b0896cbd0977536516" prot="public" static="no" mutable="no">
+        <type>constexpr const char *</type>
+        <definition>constexpr const char* sc2d::cshaders::VS_SPRITESHEET</definition>
+        <argsstring></argsstring>
+        <name>VS_SPRITESHEET</name>
+        <initializer>=</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/filesystem/shader_files.h" line="11" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/filesystem/shader_files.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="shader__files_8h_1add9743e0dabd2d47d0f90633068262ff" prot="public" static="no" mutable="no">
+        <type>constexpr const char *</type>
+        <definition>constexpr const char* sc2d::cshaders::FS_SPRITESHEET</definition>
+        <argsstring></argsstring>
+        <name>FS_SPRITESHEET</name>
+        <initializer>=</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/filesystem/shader_files.h" line="15" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/filesystem/shader_files.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="shader__files_8h_1a7fa922727c99992c8182804a60dbd4b1" prot="public" static="no" mutable="no">
+        <type>constexpr const char *</type>
+        <definition>constexpr const char* sc2d::cshaders::VS_SPRITE_DEFAULT</definition>
+        <argsstring></argsstring>
+        <name>VS_SPRITE_DEFAULT</name>
+        <initializer>=</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/filesystem/shader_files.h" line="19" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/filesystem/shader_files.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="shader__files_8h_1a2fc8bb5b005f7ebf5dcda4f9fb6bf829" prot="public" static="no" mutable="no">
+        <type>constexpr const char *</type>
+        <definition>constexpr const char* sc2d::cshaders::FS_SPRITE_DEFAULT</definition>
+        <argsstring></argsstring>
+        <name>FS_SPRITE_DEFAULT</name>
+        <initializer>=</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/filesystem/shader_files.h" line="23" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/filesystem/shader_files.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="shader__files_8h_1a7e1a8501ae586a79cb367a613a3dab0b" prot="public" static="no" mutable="no">
+        <type>constexpr const <ref refid="structsc2d_1_1cshaders_1_1ShadersArray" kindref="compound">ShadersArray</ref></type>
+        <definition>constexpr const ShadersArray sc2d::cshaders::SHADERS_ARRAY[]</definition>
+        <argsstring>[]</argsstring>
+        <name>SHADERS_ARRAY</name>
+        <initializer>{
+        {VS_SPRITESHEET, FS_SPRITESHEET, &quot;spritesheet&quot;},
+        {VS_SPRITE_DEFAULT, FS_SPRITE_DEFAULT, &quot;sprite_default&quot;}}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/filesystem/shader_files.h" line="34" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/filesystem/shader_files.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/novasurfer/projects/scarecrow2d/src/filesystem/shader_files.h" line="9" column="1"/>
+  </compounddef>
+</doxygen>

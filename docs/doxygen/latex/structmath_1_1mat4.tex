@@ -1,0 +1,329 @@
+\hypertarget{structmath_1_1mat4}{}\section{math\+:\+:mat4 Struct Reference}
+\label{structmath_1_1mat4}\index{math\+::mat4@{math\+::mat4}}
+
+
+Four dimensional square matrix.  
+
+
+
+
+{\ttfamily \#include $<$matrix4.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structmath_1_1mat4_af63595005ccac0f4cc9f9b9c100c3902}\label{structmath_1_1mat4_af63595005ccac0f4cc9f9b9c100c3902}} 
+{\bfseries mat4} (float \+\_\+11, float \+\_\+12, float \+\_\+13, float \+\_\+14, float \+\_\+21, float \+\_\+22, float \+\_\+23, float \+\_\+24, float \+\_\+31, float \+\_\+32, float \+\_\+33, float \+\_\+34, float \+\_\+41, float \+\_\+42, float \+\_\+43, float \+\_\+44)
+\item 
+\mbox{\Hypertarget{structmath_1_1mat4_a7edc1633dcdbe66084d5556e938e2621}\label{structmath_1_1mat4_a7edc1633dcdbe66084d5556e938e2621}} 
+{\bfseries mat4} (const \hyperlink{structmath_1_1vec4}{vec4} \&a, const \hyperlink{structmath_1_1vec4}{vec4} \&b, const \hyperlink{structmath_1_1vec4}{vec4} \&c, const \hyperlink{structmath_1_1vec4}{vec4} \&d)
+\item 
+float \& \hyperlink{structmath_1_1mat4_a62ba6a0b72f251fbbdb6b4d1941660bb}{operator()} (int i, int j)
+\item 
+const float \& \hyperlink{structmath_1_1mat4_a920c9499848225190aba4add2cba66bf}{operator()} (int i, int j) const
+\item 
+\hyperlink{structmath_1_1vec4}{vec4} \& \hyperlink{structmath_1_1mat4_af1174463f36d030f31ba088c510e86d5}{operator\mbox{[}$\,$\mbox{]}} (int j)
+\item 
+const \hyperlink{structmath_1_1vec4}{vec4} \& \hyperlink{structmath_1_1mat4_a7206a569f87bd24ee5a851899cf8c5c8}{operator\mbox{[}$\,$\mbox{]}} (int j) const
+\item 
+\hyperlink{structmath_1_1mat4}{mat4} \hyperlink{structmath_1_1mat4_a26e1decc5a95dfa924dfc2fdce10a8ec}{operator$\ast$} (float scalar) const
+\item 
+\hyperlink{structmath_1_1mat4}{mat4} \hyperlink{structmath_1_1mat4_a073575764764cf2eff9e3bc1f2740cf5}{operator$\ast$} (const \hyperlink{structmath_1_1mat4}{mat4} \&o) const
+\item 
+\hyperlink{structmath_1_1mat4}{mat4} \hyperlink{structmath_1_1mat4_a54330fc77b83773e0270c98c3ffb7809}{operator+} (const \hyperlink{structmath_1_1mat4}{mat4} \&other) const
+\item 
+\hyperlink{structmath_1_1mat4}{mat4} \& \hyperlink{structmath_1_1mat4_a0dff7ff836daf55723f1c7b3c6e2a71f}{operator$\ast$=} (float scalar)
+\item 
+\hyperlink{structmath_1_1mat4}{mat4} \& \hyperlink{structmath_1_1mat4_af26f144e357f0c2597afe7c0df3f366d}{operator$\ast$=} (const \hyperlink{structmath_1_1mat4}{mat4} \&other)
+\item 
+\hyperlink{structmath_1_1mat4}{mat4} \& \hyperlink{structmath_1_1mat4_a468b63b10d99f5cff5ab0463a9824eec}{operator+=} (const \hyperlink{structmath_1_1mat4}{mat4} \&other)
+\item 
+bool \hyperlink{structmath_1_1mat4_a9093d3f340dc10c2f36e6a11eb2de64f}{operator==} (const \hyperlink{structmath_1_1mat4}{mat4} \&other) const
+\item 
+bool \hyperlink{structmath_1_1mat4_a71a4c93eb519ac123b7347588a1c5377}{operator!=} (const \hyperlink{structmath_1_1mat4}{mat4} \&other) const
+\item 
+\hyperlink{structmath_1_1mat4}{mat4} \hyperlink{structmath_1_1mat4_a5377071c3eaa45a552c01985babfa169}{transpose} () const
+\item 
+float \hyperlink{structmath_1_1mat4_a743a3f8bbeda33bae529ef7d5e3d9d0c}{determinant} () const
+\item 
+\hyperlink{structmath_1_1mat4}{mat4} \hyperlink{structmath_1_1mat4_a6e50d9526b70bdb83ca5c0d4e163db87}{minor} () const
+\item 
+\hyperlink{structmath_1_1mat4}{mat4} \hyperlink{structmath_1_1mat4_af44ca96fa89e53b4950608b25e2cafe8}{cofactor} () const
+\item 
+\hyperlink{structmath_1_1mat4}{mat4} \hyperlink{structmath_1_1mat4_acc9c38d9696581fdb745f62ddfeb2f43}{adjugate} () const
+\item 
+\hyperlink{structmath_1_1mat4}{mat4} \hyperlink{structmath_1_1mat4_a04aa308993896a68a5aac858b41edb7e}{inverse} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structmath_1_1mat4_aaff459e45a8ccc31db584ca963df334e}\label{structmath_1_1mat4_aaff459e45a8ccc31db584ca963df334e}} 
+float {\bfseries n} \mbox{[}4\mbox{]}\mbox{[}4\mbox{]}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \hyperlink{structmath_1_1mat4_a8cf54e779651b64900748420b9e5137b}{operator$<$$<$} (std\+::ostream \&ostream, const \hyperlink{structmath_1_1mat4}{mat4} \&mat)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Four dimensional square matrix. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{structmath_1_1mat4_acc9c38d9696581fdb745f62ddfeb2f43}\label{structmath_1_1mat4_acc9c38d9696581fdb745f62ddfeb2f43}} 
+\index{math\+::mat4@{math\+::mat4}!adjugate@{adjugate}}
+\index{adjugate@{adjugate}!math\+::mat4@{math\+::mat4}}
+\subsubsection{\texorpdfstring{adjugate()}{adjugate()}}
+{\footnotesize\ttfamily \hyperlink{structmath_1_1mat4}{mat4} math\+::mat4\+::adjugate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adjugates current matrix \begin{DoxyReturn}{Returns}
+calculation result
+\end{DoxyReturn}
+\href{https://en.wikipedia.org/wiki/Adjugate_matrix}{\tt https\+://en.\+wikipedia.\+org/wiki/\+Adjugate\+\_\+matrix} \mbox{\Hypertarget{structmath_1_1mat4_af44ca96fa89e53b4950608b25e2cafe8}\label{structmath_1_1mat4_af44ca96fa89e53b4950608b25e2cafe8}} 
+\index{math\+::mat4@{math\+::mat4}!cofactor@{cofactor}}
+\index{cofactor@{cofactor}!math\+::mat4@{math\+::mat4}}
+\subsubsection{\texorpdfstring{cofactor()}{cofactor()}}
+{\footnotesize\ttfamily \hyperlink{structmath_1_1mat4}{mat4} math\+::mat4\+::cofactor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Calculates matrix cofactor \begin{DoxyReturn}{Returns}
+calculation result
+\end{DoxyReturn}
+\href{https://en.wikipedia.org/wiki/Minor_(linear_algebra)#Cofactor_expansion_of_the_determinant}{\tt https\+://en.\+wikipedia.\+org/wiki/\+Minor\+\_\+(linear\+\_\+algebra)\#\+Cofactor\+\_\+expansion\+\_\+of\+\_\+the\+\_\+determinant} \mbox{\Hypertarget{structmath_1_1mat4_a743a3f8bbeda33bae529ef7d5e3d9d0c}\label{structmath_1_1mat4_a743a3f8bbeda33bae529ef7d5e3d9d0c}} 
+\index{math\+::mat4@{math\+::mat4}!determinant@{determinant}}
+\index{determinant@{determinant}!math\+::mat4@{math\+::mat4}}
+\subsubsection{\texorpdfstring{determinant()}{determinant()}}
+{\footnotesize\ttfamily float math\+::mat4\+::determinant (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Calculates matrix determinant \begin{DoxyReturn}{Returns}
+matrix determinant
+\end{DoxyReturn}
+\href{https://en.wikipedia.org/wiki/Determinant}{\tt https\+://en.\+wikipedia.\+org/wiki/\+Determinant} \begin{DoxyNote}{Note}
+for 3x3 matrix determinant I\textquotesingle{}ve used new method discribed here (Scheme 5)\+: \href{http://m-hikari.com/ija/ija-password-2009/ija-password5-8-2009/hajrizajIJA5-8-2009.pdf}{\tt http\+://m-\/hikari.\+com/ija/ija-\/password-\/2009/ija-\/password5-\/8-\/2009/hajrizaj\+I\+J\+A5-\/8-\/2009.\+pdf} 
+\end{DoxyNote}
+\mbox{\Hypertarget{structmath_1_1mat4_a04aa308993896a68a5aac858b41edb7e}\label{structmath_1_1mat4_a04aa308993896a68a5aac858b41edb7e}} 
+\index{math\+::mat4@{math\+::mat4}!inverse@{inverse}}
+\index{inverse@{inverse}!math\+::mat4@{math\+::mat4}}
+\subsubsection{\texorpdfstring{inverse()}{inverse()}}
+{\footnotesize\ttfamily \hyperlink{structmath_1_1mat4}{mat4} math\+::mat4\+::inverse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Inverses current matrix \begin{DoxyReturn}{Returns}
+inversed matrix
+\end{DoxyReturn}
+\href{https://en.wikipedia.org/wiki/Invertible_matrix}{\tt https\+://en.\+wikipedia.\+org/wiki/\+Invertible\+\_\+matrix} \mbox{\Hypertarget{structmath_1_1mat4_a6e50d9526b70bdb83ca5c0d4e163db87}\label{structmath_1_1mat4_a6e50d9526b70bdb83ca5c0d4e163db87}} 
+\index{math\+::mat4@{math\+::mat4}!minor@{minor}}
+\index{minor@{minor}!math\+::mat4@{math\+::mat4}}
+\subsubsection{\texorpdfstring{minor()}{minor()}}
+{\footnotesize\ttfamily \hyperlink{structmath_1_1mat4}{mat4} math\+::mat4\+::minor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Calculates matrix minor \begin{DoxyReturn}{Returns}
+minor matrix
+\end{DoxyReturn}
+\href{https://en.wikipedia.org/wiki/Minor_(linear_algebra)}{\tt https\+://en.\+wikipedia.\+org/wiki/\+Minor\+\_\+(linear\+\_\+algebra)} \mbox{\Hypertarget{structmath_1_1mat4_a71a4c93eb519ac123b7347588a1c5377}\label{structmath_1_1mat4_a71a4c93eb519ac123b7347588a1c5377}} 
+\index{math\+::mat4@{math\+::mat4}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!math\+::mat4@{math\+::mat4}}
+\subsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool math\+::mat4\+::operator!= (\begin{DoxyParamCaption}\item[{const \hyperlink{structmath_1_1mat4}{mat4} \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Compare current matrix with another 
+\begin{DoxyParams}{Parameters}
+{\em other} & some matrix4 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if one at least one element differ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structmath_1_1mat4_a62ba6a0b72f251fbbdb6b4d1941660bb}\label{structmath_1_1mat4_a62ba6a0b72f251fbbdb6b4d1941660bb}} 
+\index{math\+::mat4@{math\+::mat4}!operator()@{operator()}}
+\index{operator()@{operator()}!math\+::mat4@{math\+::mat4}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily float\& math\+::mat4\+::operator() (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets element value 
+\begin{DoxyParams}{Parameters}
+{\em i} & row number \\
+\hline
+{\em j} & column number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+matrix element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structmath_1_1mat4_a920c9499848225190aba4add2cba66bf}\label{structmath_1_1mat4_a920c9499848225190aba4add2cba66bf}} 
+\index{math\+::mat4@{math\+::mat4}!operator()@{operator()}}
+\index{operator()@{operator()}!math\+::mat4@{math\+::mat4}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const float\& math\+::mat4\+::operator() (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets element value 
+\begin{DoxyParams}{Parameters}
+{\em i} & row number \\
+\hline
+{\em j} & column number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+matrix element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structmath_1_1mat4_a26e1decc5a95dfa924dfc2fdce10a8ec}\label{structmath_1_1mat4_a26e1decc5a95dfa924dfc2fdce10a8ec}} 
+\index{math\+::mat4@{math\+::mat4}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!math\+::mat4@{math\+::mat4}}
+\subsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{structmath_1_1mat4}{mat4} math\+::mat4\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{float}]{scalar }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Multiplication by scalar 
+\begin{DoxyParams}{Parameters}
+{\em scalar} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+calculated matrix 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structmath_1_1mat4_a073575764764cf2eff9e3bc1f2740cf5}\label{structmath_1_1mat4_a073575764764cf2eff9e3bc1f2740cf5}} 
+\index{math\+::mat4@{math\+::mat4}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!math\+::mat4@{math\+::mat4}}
+\subsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{structmath_1_1mat4}{mat4} math\+::mat4\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{const \hyperlink{structmath_1_1mat4}{mat4} \&}]{o }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Multiplication by other matrix4 
+\begin{DoxyParams}{Parameters}
+{\em o} & some matrix4 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+calculated matrix
+\end{DoxyReturn}
+\href{https://en.wikipedia.org/wiki/Matrix_multiplication}{\tt https\+://en.\+wikipedia.\+org/wiki/\+Matrix\+\_\+multiplication} \mbox{\Hypertarget{structmath_1_1mat4_a0dff7ff836daf55723f1c7b3c6e2a71f}\label{structmath_1_1mat4_a0dff7ff836daf55723f1c7b3c6e2a71f}} 
+\index{math\+::mat4@{math\+::mat4}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!math\+::mat4@{math\+::mat4}}
+\subsubsection{\texorpdfstring{operator$\ast$=()}{operator*=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{structmath_1_1mat4}{mat4}\& math\+::mat4\+::operator$\ast$= (\begin{DoxyParamCaption}\item[{float}]{scalar }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Multiplication by scalar 
+\begin{DoxyParams}{Parameters}
+{\em scalar} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+calculated matrix 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structmath_1_1mat4_af26f144e357f0c2597afe7c0df3f366d}\label{structmath_1_1mat4_af26f144e357f0c2597afe7c0df3f366d}} 
+\index{math\+::mat4@{math\+::mat4}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!math\+::mat4@{math\+::mat4}}
+\subsubsection{\texorpdfstring{operator$\ast$=()}{operator*=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{structmath_1_1mat4}{mat4}\& math\+::mat4\+::operator$\ast$= (\begin{DoxyParamCaption}\item[{const \hyperlink{structmath_1_1mat4}{mat4} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Multiplication by other matrix4 
+\begin{DoxyParams}{Parameters}
+{\em other} & some matrix4 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+calculated matrix
+\end{DoxyReturn}
+\href{https://en.wikipedia.org/wiki/Matrix_multiplication}{\tt https\+://en.\+wikipedia.\+org/wiki/\+Matrix\+\_\+multiplication} \mbox{\Hypertarget{structmath_1_1mat4_a54330fc77b83773e0270c98c3ffb7809}\label{structmath_1_1mat4_a54330fc77b83773e0270c98c3ffb7809}} 
+\index{math\+::mat4@{math\+::mat4}!operator+@{operator+}}
+\index{operator+@{operator+}!math\+::mat4@{math\+::mat4}}
+\subsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily \hyperlink{structmath_1_1mat4}{mat4} math\+::mat4\+::operator+ (\begin{DoxyParamCaption}\item[{const \hyperlink{structmath_1_1mat4}{mat4} \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Addition by other matrix4 
+\begin{DoxyParams}{Parameters}
+{\em other} & some matrix4 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+calculated matrix 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structmath_1_1mat4_a468b63b10d99f5cff5ab0463a9824eec}\label{structmath_1_1mat4_a468b63b10d99f5cff5ab0463a9824eec}} 
+\index{math\+::mat4@{math\+::mat4}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!math\+::mat4@{math\+::mat4}}
+\subsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily \hyperlink{structmath_1_1mat4}{mat4}\& math\+::mat4\+::operator+= (\begin{DoxyParamCaption}\item[{const \hyperlink{structmath_1_1mat4}{mat4} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Addition by other matrix4 
+\begin{DoxyParams}{Parameters}
+{\em other} & some matrix4 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+calculated matrix 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structmath_1_1mat4_a9093d3f340dc10c2f36e6a11eb2de64f}\label{structmath_1_1mat4_a9093d3f340dc10c2f36e6a11eb2de64f}} 
+\index{math\+::mat4@{math\+::mat4}!operator==@{operator==}}
+\index{operator==@{operator==}!math\+::mat4@{math\+::mat4}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool math\+::mat4\+::operator== (\begin{DoxyParamCaption}\item[{const \hyperlink{structmath_1_1mat4}{mat4} \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Compare current matrix with other 
+\begin{DoxyParams}{Parameters}
+{\em other} & some matrix4 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if all elements are equal 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structmath_1_1mat4_af1174463f36d030f31ba088c510e86d5}\label{structmath_1_1mat4_af1174463f36d030f31ba088c510e86d5}} 
+\index{math\+::mat4@{math\+::mat4}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!math\+::mat4@{math\+::mat4}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{structmath_1_1vec4}{vec4}\& math\+::mat4\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{j }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets row as vector 
+\begin{DoxyParams}{Parameters}
+{\em j} & row number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+row in \hyperlink{structmath_1_1vec4}{vec4} representation 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structmath_1_1mat4_a7206a569f87bd24ee5a851899cf8c5c8}\label{structmath_1_1mat4_a7206a569f87bd24ee5a851899cf8c5c8}} 
+\index{math\+::mat4@{math\+::mat4}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!math\+::mat4@{math\+::mat4}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const \hyperlink{structmath_1_1vec4}{vec4}\& math\+::mat4\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{j }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets row as vector 
+\begin{DoxyParams}{Parameters}
+{\em j} & row number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+row in \hyperlink{structmath_1_1vec4}{vec4} representation 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structmath_1_1mat4_a5377071c3eaa45a552c01985babfa169}\label{structmath_1_1mat4_a5377071c3eaa45a552c01985babfa169}} 
+\index{math\+::mat4@{math\+::mat4}!transpose@{transpose}}
+\index{transpose@{transpose}!math\+::mat4@{math\+::mat4}}
+\subsubsection{\texorpdfstring{transpose()}{transpose()}}
+{\footnotesize\ttfamily \hyperlink{structmath_1_1mat4}{mat4} math\+::mat4\+::transpose (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Transoses matrix \begin{DoxyReturn}{Returns}
+transposed matrix  \href{https://en.wikipedia.org/wiki/Transpose}{\tt https\+://en.\+wikipedia.\+org/wiki/\+Transpose} 
+\end{DoxyReturn}
+
+
+\subsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{structmath_1_1mat4_a8cf54e779651b64900748420b9e5137b}\label{structmath_1_1mat4_a8cf54e779651b64900748420b9e5137b}} 
+\index{math\+::mat4@{math\+::mat4}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!math\+::mat4@{math\+::mat4}}
+\subsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{ostream,  }\item[{const \hyperlink{structmath_1_1mat4}{mat4} \&}]{mat }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Stream insertion 
+\begin{DoxyParams}{Parameters}
+{\em ostream} & output stream \\
+\hline
+{\em mat} & matrix that will be putted to stream \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+will be removed 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/novasurfer/projects/scarecrow2d/src/math/matrix4.\+h\end{DoxyCompactItemize}

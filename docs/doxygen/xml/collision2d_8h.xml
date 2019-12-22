@@ -1,0 +1,189 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="collision2d_8h" kind="file" language="C++">
+    <compoundname>collision2d.h</compoundname>
+    <includes refid="geometry2d_8h" local="yes">../math/geometry2d.h</includes>
+    <includedby refid="quadtree_8cpp" local="yes">/home/novasurfer/projects/scarecrow2d/src/math/quadtree.cpp</includedby>
+    <incdepgraph>
+      <node id="952">
+        <label>matrix4.h</label>
+        <link refid="matrix4_8h_source"/>
+        <childnode refid="953" relation="include">
+        </childnode>
+      </node>
+      <node id="947">
+        <label>cmath</label>
+      </node>
+      <node id="941">
+        <label>/home/novasurfer/projects/scarecrow2d/src/physics/collision2d.h</label>
+        <link refid="collision2d_8h"/>
+        <childnode refid="942" relation="include">
+        </childnode>
+      </node>
+      <node id="942">
+        <label>../math/geometry2d.h</label>
+        <link refid="geometry2d_8h_source"/>
+        <childnode refid="943" relation="include">
+        </childnode>
+        <childnode refid="949" relation="include">
+        </childnode>
+        <childnode refid="945" relation="include">
+        </childnode>
+        <childnode refid="944" relation="include">
+        </childnode>
+      </node>
+      <node id="946">
+        <label>cfloat</label>
+      </node>
+      <node id="953">
+        <label>vector4.h</label>
+        <link refid="vector4_8h_source"/>
+        <childnode refid="945" relation="include">
+        </childnode>
+        <childnode refid="948" relation="include">
+        </childnode>
+      </node>
+      <node id="948">
+        <label>ostream</label>
+      </node>
+      <node id="945">
+        <label>utils.h</label>
+        <link refid="utils_8h_source"/>
+        <childnode refid="946" relation="include">
+        </childnode>
+        <childnode refid="947" relation="include">
+        </childnode>
+      </node>
+      <node id="951">
+        <label>vector3.h</label>
+        <link refid="vector3_8h_source"/>
+        <childnode refid="945" relation="include">
+        </childnode>
+        <childnode refid="948" relation="include">
+        </childnode>
+      </node>
+      <node id="943">
+        <label>matrix2.h</label>
+        <link refid="matrix2_8h_source"/>
+        <childnode refid="944" relation="include">
+        </childnode>
+      </node>
+      <node id="949">
+        <label>transform.h</label>
+        <link refid="transform_8h_source"/>
+        <childnode refid="943" relation="include">
+        </childnode>
+        <childnode refid="950" relation="include">
+        </childnode>
+        <childnode refid="952" relation="include">
+        </childnode>
+        <childnode refid="944" relation="include">
+        </childnode>
+        <childnode refid="951" relation="include">
+        </childnode>
+        <childnode refid="953" relation="include">
+        </childnode>
+      </node>
+      <node id="944">
+        <label>vector2.h</label>
+        <link refid="vector2_8h_source"/>
+        <childnode refid="945" relation="include">
+        </childnode>
+        <childnode refid="948" relation="include">
+        </childnode>
+      </node>
+      <node id="950">
+        <label>matrix3.h</label>
+        <link refid="matrix3_8h_source"/>
+        <childnode refid="951" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespacephysics_1_1collision2d">physics::collision2d</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Created<sp/>by<sp/>maksim<sp/>on<sp/>8/10/18.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>INC_2D_GAME_COLLISION2D_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>INC_2D_GAME_COLLISION2D_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../math/geometry2d.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacephysics_1_1collision2d" kindref="compound">physics::collision2d</ref></highlight></codeline>
+<codeline lineno="11"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>circle_circle(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structmath_1_1circle" kindref="compound">math::circle</ref>&amp;<sp/>c1,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structmath_1_1circle" kindref="compound">math::circle</ref>&amp;<sp/>c2)</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structmath_1_1line2d" kindref="compound">math::line2d</ref><sp/>line(c1.position,<sp/>c2.position);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>radiiSum<sp/>=<sp/>c1.radius<sp/>+<sp/>c2.radius;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>math::line2d::lengthSq(line)<sp/>&lt;=<sp/>radiiSum<sp/>*<sp/>radiiSum;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>circle_rectangle(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structmath_1_1circle" kindref="compound">math::circle</ref>&amp;<sp/>circle,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structmath_1_1rect2d" kindref="compound">math::rect2d</ref>&amp;<sp/>rect)</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structmath_1_1vec2" kindref="compound">math::vec2</ref><sp/>min<sp/>=<sp/>math::rect2d::get_min(rect);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structmath_1_1vec2" kindref="compound">math::vec2</ref><sp/>max<sp/>=<sp/>math::rect2d::get_max(rect);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structmath_1_1vec2" kindref="compound">math::point2d</ref><sp/>closest_point<sp/>=<sp/>circle.position;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>math::utils::clamp(circle.position.x,<sp/>min.x,<sp/>max.x);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>math::utils::clamp(circle.position.y,<sp/>min.y,<sp/>max.y);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structmath_1_1line2d" kindref="compound">math::line2d</ref><sp/>line(circle.position,<sp/>closest_point);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>math::line2d::lengthSq(line)<sp/>&lt;=<sp/>circle.radius<sp/>*<sp/>circle.radius;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>rectangle_rectangle(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structmath_1_1rect2d" kindref="compound">math::rect2d</ref>&amp;<sp/>rect1,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structmath_1_1rect2d" kindref="compound">math::rect2d</ref>&amp;<sp/>rect2)</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structmath_1_1vec2" kindref="compound">math::vec2</ref><sp/>amin<sp/>=<sp/>math::rect2d::get_min(rect1);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structmath_1_1vec2" kindref="compound">math::vec2</ref><sp/>amax<sp/>=<sp/>math::rect2d::get_max(rect1);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structmath_1_1vec2" kindref="compound">math::vec2</ref><sp/>bmin<sp/>=<sp/>math::rect2d::get_min(rect2);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structmath_1_1vec2" kindref="compound">math::vec2</ref><sp/>bmax<sp/>=<sp/>math::rect2d::get_max(rect2);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>over_x<sp/>=<sp/>((bmin.x<sp/>&lt;=<sp/>amax.x)<sp/>&amp;&amp;<sp/>(amin.x<sp/>&lt;=<sp/>bmax.x));</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>over_y<sp/>=<sp/>((bmin.y<sp/>&lt;=<sp/>amax.y)<sp/>&amp;&amp;<sp/>(amin.y<sp/>&lt;=<sp/>bmax.y));</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>over_x<sp/>&amp;&amp;<sp/>over_y;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>rectange_rectange_sat(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structmath_1_1rect2d" kindref="compound">math::rect2d</ref>&amp;<sp/>rect1,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structmath_1_1rect2d" kindref="compound">math::rect2d</ref>&amp;<sp/>rect2)</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>overlap_on_axis(rect1,<sp/>rect2,<sp/><ref refid="structmath_1_1vec2" kindref="compound">math::vec2</ref>(1,<sp/>0))<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>overlap_on_axis(rect1,<sp/>rect2,<sp/><ref refid="structmath_1_1vec2" kindref="compound">math::vec2</ref>(0,<sp/>1));</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>rectange_orrectangle(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structmath_1_1rect2d" kindref="compound">math::rect2d</ref>&amp;<sp/>rect,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structmath_1_1orrect2d" kindref="compound">math::orrect2d</ref>&amp;<sp/>orrect)</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>theta<sp/>=<sp/><ref refid="structmath_1_1utils_1a321e2eedf82d272a8b92e774f9060c0b" kindref="member">math::utils::deg2rad</ref>(orrect.rotation);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structmath_1_1vec2" kindref="compound">math::vec2</ref><sp/>axis_to_test[]<sp/>{{1,<sp/>0},</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{0,<sp/>1},</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>math::normalize({orrect.half_extends.x,<sp/>0}),</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>math::normalize({0,<sp/>orrect.half_extends.y})};</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structmath_1_1mat2" kindref="compound">math::mat2</ref><sp/>z_rotation<sp/>{cosf(theta),<sp/>sinf(theta),<sp/>-sinf(theta),<sp/>cosf(theta)};</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>axis_to_test[2]<sp/>=<sp/>math::multiply_vector(axis_to_test[2],<sp/>z_rotation);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>axis_to_test[3]<sp/>=<sp/>math::multiply_vector(axis_to_test[3],<sp/>z_rotation);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>math::overlap_on_axis(rect,<sp/>orrect,<sp/>axis_to_test[0])<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>math::overlap_on_axis(rect,<sp/>orrect,<sp/>axis_to_test[1])<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>math::overlap_on_axis(rect,<sp/>orrect,<sp/>axis_to_test[2])<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>math::overlap_on_axis(rect,<sp/>orrect,<sp/>axis_to_test[3]);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>bool<sp/>orrectangle_orrectangle(const<sp/>math::orrect2d&amp;<sp/>orrect1,<sp/>const<sp/>math::orrect2d&amp;<sp/>orrect2)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>math::rect2d<sp/>rect<sp/>{math::point2d(),<sp/>orrect1.half_extends<sp/>*<sp/>2.0f};</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//INC_2D_GAME_COLLISION2D_H</highlight></codeline>
+    </programlisting>
+    <location file="/home/novasurfer/projects/scarecrow2d/src/physics/collision2d.h"/>
+  </compounddef>
+</doxygen>

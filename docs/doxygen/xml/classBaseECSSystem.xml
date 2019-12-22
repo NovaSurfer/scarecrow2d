@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classBaseECSSystem" kind="class" language="C++" prot="public">
+    <compoundname>BaseECSSystem</compoundname>
+    <includes refid="ecs__system_8h" local="no">ecs_system.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBaseECSSystem_1a94c5f0120a54fa3dfbab07eb2bc2ccff" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; compId_t &gt;</type>
+        <definition>std::vector&lt;compId_t&gt; BaseECSSystem::component_types</definition>
+        <argsstring></argsstring>
+        <name>component_types</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs_system.h" line="35" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs_system.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBaseECSSystem_1a49236e9978a881706f566a1c28c6312a" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BaseECSSystem::BaseECSSystem</definition>
+        <argsstring>(const std::vector&lt; uint32_t &gt; &amp;component_types)</argsstring>
+        <name>BaseECSSystem</name>
+        <param>
+          <type>const std::vector&lt; uint32_t &gt; &amp;</type>
+          <declname>component_types</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>component_types</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>component types ids </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs_system.h" line="21" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs_system.h" bodystart="21" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classBaseECSSystem_1a800d68f5d0aa03bf0af63ec62ba2a47c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual BaseECSSystem::~BaseECSSystem</definition>
+        <argsstring>()=default</argsstring>
+        <name>~BaseECSSystem</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs_system.h" line="24" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBaseECSSystem_1aed82b94e1d49e05bbd8088d298de9ffd" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BaseECSSystem::update_components</definition>
+        <argsstring>(float delta, BaseECSComponent **components)</argsstring>
+        <name>update_components</name>
+        <param>
+          <type>float</type>
+          <declname>delta</declname>
+        </param>
+        <param>
+          <type><ref refid="classBaseECSComponent" kindref="compound">BaseECSComponent</ref> **</type>
+          <declname>components</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs_system.h" line="26" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBaseECSSystem_1ae04365a31e7aa78a20b9d6e5d262e884" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::vector&lt; compId_t &gt; &amp;</type>
+        <definition>const std::vector&lt;compId_t&gt;&amp; BaseECSSystem::get_component_types</definition>
+        <argsstring>() const</argsstring>
+        <name>get_component_types</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs_system.h" line="28" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs_system.h" bodystart="28" bodyend="31"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Contains some list of Components </para>    </detaileddescription>
+    <location file="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs_system.h" line="16" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs_system.h" bodystart="15" bodyend="36"/>
+    <listofallmembers>
+      <member refid="classBaseECSSystem_1a49236e9978a881706f566a1c28c6312a" prot="public" virt="non-virtual"><scope>BaseECSSystem</scope><name>BaseECSSystem</name></member>
+      <member refid="classBaseECSSystem_1a94c5f0120a54fa3dfbab07eb2bc2ccff" prot="private" virt="non-virtual"><scope>BaseECSSystem</scope><name>component_types</name></member>
+      <member refid="classBaseECSSystem_1ae04365a31e7aa78a20b9d6e5d262e884" prot="public" virt="non-virtual"><scope>BaseECSSystem</scope><name>get_component_types</name></member>
+      <member refid="classBaseECSSystem_1aed82b94e1d49e05bbd8088d298de9ffd" prot="public" virt="virtual"><scope>BaseECSSystem</scope><name>update_components</name></member>
+      <member refid="classBaseECSSystem_1a800d68f5d0aa03bf0af63ec62ba2a47c" prot="public" virt="virtual"><scope>BaseECSSystem</scope><name>~BaseECSSystem</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

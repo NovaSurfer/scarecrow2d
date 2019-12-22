@@ -1,0 +1,1061 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.13">
+  <compound refid="classsc2d_1_1memory_1_1aligned__allocator" kind="class"><name>sc2d::memory::aligned_allocator</name>
+    <member refid="classsc2d_1_1memory_1_1aligned__allocator_1a7e9544ebe3eb593df8284851c84d8315" kind="typedef"><name>value_type</name></member>
+    <member refid="classsc2d_1_1memory_1_1aligned__allocator_1a119bdc564c328a947c7f48c8a74c7748" kind="typedef"><name>reference</name></member>
+    <member refid="classsc2d_1_1memory_1_1aligned__allocator_1a9f056691a2e1f7b89fab25068753a8cf" kind="typedef"><name>const_reference</name></member>
+    <member refid="classsc2d_1_1memory_1_1aligned__allocator_1a8df04c7b694d1ef7b639556065b57622" kind="typedef"><name>pointer</name></member>
+    <member refid="classsc2d_1_1memory_1_1aligned__allocator_1a44f9e1a4d5b0c7962635108ee9cc7bef" kind="typedef"><name>const_pointer</name></member>
+    <member refid="classsc2d_1_1memory_1_1aligned__allocator_1a798289bfbc510a192c5db9bfc61bda44" kind="typedef"><name>size_type</name></member>
+    <member refid="classsc2d_1_1memory_1_1aligned__allocator_1afa4299d8c782bfdc6b2752762ec238aa" kind="typedef"><name>difference_type</name></member>
+    <member refid="classsc2d_1_1memory_1_1aligned__allocator_1aa4f82a600ea6ce5a4ffc18003552236e" kind="function"><name>address</name></member>
+    <member refid="classsc2d_1_1memory_1_1aligned__allocator_1a3f58fa762584bf3f7b15b16680357949" kind="function"><name>address</name></member>
+    <member refid="classsc2d_1_1memory_1_1aligned__allocator_1a1d8f8fb1805d7bc377229988603a6290" kind="function"><name>allocate</name></member>
+    <member refid="classsc2d_1_1memory_1_1aligned__allocator_1acb35494007514a0f7c20f75b572d6dd3" kind="function"><name>deallocate</name></member>
+    <member refid="classsc2d_1_1memory_1_1aligned__allocator_1aff7dc7874e2184761af3dcbfac027cf3" kind="function"><name>construct</name></member>
+    <member refid="classsc2d_1_1memory_1_1aligned__allocator_1a3e471bbd1e62b8f18780fe4cb6dd5ceb" kind="function"><name>destroy</name></member>
+    <member refid="classsc2d_1_1memory_1_1aligned__allocator_1ad4eff1fd881e2165a00eb7c453d7ecf4" kind="function"><name>max_size</name></member>
+    <member refid="classsc2d_1_1memory_1_1aligned__allocator_1a4302236c69dfdbcb5c15668dac281bb9" kind="function"><name>operator==</name></member>
+    <member refid="classsc2d_1_1memory_1_1aligned__allocator_1a48f93caeb57d9216ebc88f3be87a7ff6" kind="function"><name>operator!=</name></member>
+  </compound>
+  <compound refid="structsc2d_1_1memory_1_1free__list__allocator_1_1allocation__header" kind="struct"><name>sc2d::memory::free_list_allocator::allocation_header</name>
+    <member refid="structsc2d_1_1memory_1_1free__list__allocator_1_1allocation__header_1a845bf6ddcbba538e8a18bdfd2354c2ff" kind="variable"><name>size</name></member>
+    <member refid="structsc2d_1_1memory_1_1free__list__allocator_1_1allocation__header_1a89569bb770159c37991ac5307d2522ee" kind="variable"><name>adjustment</name></member>
+  </compound>
+  <compound refid="classsc2d_1_1memory_1_1allocator" kind="class"><name>sc2d::memory::allocator</name>
+    <member refid="classsc2d_1_1memory_1_1allocator_1a0688f548cd0ef36fff6585fc25e31f30" kind="variable"><name>_start</name></member>
+    <member refid="classsc2d_1_1memory_1_1allocator_1a9d5773c2a51447cf4054203a563f95c2" kind="variable"><name>_size</name></member>
+    <member refid="classsc2d_1_1memory_1_1allocator_1a5d2fa4113436f8046742f274aba6abdf" kind="variable"><name>_used_memory</name></member>
+    <member refid="classsc2d_1_1memory_1_1allocator_1a21c5a6310f1e8feb470870b664b04753" kind="variable"><name>_num_allocations</name></member>
+    <member refid="classsc2d_1_1memory_1_1allocator_1a15fe77378d29ab41a1a44c596166b43a" kind="function"><name>allocator</name></member>
+    <member refid="classsc2d_1_1memory_1_1allocator_1a415be64b44c19c6c08ffc58a20ac2fa2" kind="function"><name>~allocator</name></member>
+    <member refid="classsc2d_1_1memory_1_1allocator_1afefebdf8439e35d7894829af8d653a51" kind="function"><name>allocate</name></member>
+    <member refid="classsc2d_1_1memory_1_1allocator_1ab29524288541651d4bcacc278dc21deb" kind="function"><name>deallocate</name></member>
+    <member refid="classsc2d_1_1memory_1_1allocator_1a849ee42faf7430786e18eae6c5d67551" kind="function"><name>get_start</name></member>
+    <member refid="classsc2d_1_1memory_1_1allocator_1a8265804fb4e665597c134cc96203e63a" kind="function"><name>get_size</name></member>
+    <member refid="classsc2d_1_1memory_1_1allocator_1a7bc5801c3b722c2339a1320028d4828d" kind="function"><name>get_used_memory</name></member>
+    <member refid="classsc2d_1_1memory_1_1allocator_1ad519c09ef37afc903fbd83941697fc91" kind="function"><name>get_num_allocation</name></member>
+  </compound>
+  <compound refid="classBaseECSComponent" kind="class"><name>BaseECSComponent</name>
+    <member refid="classBaseECSComponent_1adcaf0c71c06aa94e59cadc1afcd4032a" kind="variable"><name>entity</name></member>
+    <member refid="classBaseECSComponent_1ac97e2ff0ecdd4f7ace6767dc5df582d3" kind="variable"><name>component_types</name></member>
+    <member refid="classBaseECSComponent_1a913dccda9e4a4fb34f0c254292bca251" kind="function"><name>register_component_type</name></member>
+    <member refid="classBaseECSComponent_1a17c36f475efd8d737ddccd4f9cd24f88" kind="function"><name>get_type_createfn</name></member>
+    <member refid="classBaseECSComponent_1abbfd9dd726db008a35c239384e50b172" kind="function"><name>get_type_freefn</name></member>
+    <member refid="classBaseECSComponent_1a3c894c18497d4c61e50208fbe96a565e" kind="function"><name>get_type_size</name></member>
+    <member refid="classBaseECSComponent_1ad149edd83402b03ba86fec5c51134610" kind="function"><name>is_type_valid</name></member>
+  </compound>
+  <compound refid="classBaseECSSystem" kind="class"><name>BaseECSSystem</name>
+    <member refid="classBaseECSSystem_1a94c5f0120a54fa3dfbab07eb2bc2ccff" kind="variable"><name>component_types</name></member>
+    <member refid="classBaseECSSystem_1a49236e9978a881706f566a1c28c6312a" kind="function"><name>BaseECSSystem</name></member>
+    <member refid="classBaseECSSystem_1a800d68f5d0aa03bf0af63ec62ba2a47c" kind="function"><name>~BaseECSSystem</name></member>
+    <member refid="classBaseECSSystem_1aed82b94e1d49e05bbd8088d298de9ffd" kind="function"><name>update_components</name></member>
+    <member refid="classBaseECSSystem_1ae04365a31e7aa78a20b9d6e5d262e884" kind="function"><name>get_component_types</name></member>
+  </compound>
+  <compound refid="structsc2d_1_1memory_1_1dynamic__linear__allocator_1_1block__info" kind="struct"><name>sc2d::memory::dynamic_linear_allocator::block_info</name>
+    <member refid="structsc2d_1_1memory_1_1dynamic__linear__allocator_1_1block__info_1af910eee8415adf5ee87dbcb9ed4d1e94" kind="variable"><name>start</name></member>
+    <member refid="structsc2d_1_1memory_1_1dynamic__linear__allocator_1_1block__info_1a0dcbe38a5f8af57327962224567e1b93" kind="variable"><name>prev_block</name></member>
+    <member refid="structsc2d_1_1memory_1_1dynamic__linear__allocator_1_1block__info_1ae482372f28c227528482dbe392b5de99" kind="variable"><name>size</name></member>
+    <member refid="structsc2d_1_1memory_1_1dynamic__linear__allocator_1_1block__info_1aea05cae9b4090bd20ded4a22b406bac7" kind="variable"><name>used_memory</name></member>
+  </compound>
+  <compound refid="structmath_1_1bounding__shape" kind="struct"><name>math::bounding_shape</name>
+    <member refid="structmath_1_1bounding__shape_1abf9b97dc44da779d089b3d1122c6f5bc" kind="variable"><name>circles</name></member>
+    <member refid="structmath_1_1bounding__shape_1a834b1f8af09e71a6d50f1a8e38fbb39a" kind="variable"><name>rectangles</name></member>
+    <member refid="structmath_1_1bounding__shape_1a1aedebca8608a6abea355eff49b9f137" kind="function"><name>bounding_shape</name></member>
+  </compound>
+  <compound refid="structmath_1_1circle" kind="struct"><name>math::circle</name>
+    <member refid="structmath_1_1circle_1aa1d666731d5505f95f10580825fe4ab6" kind="variable"><name>position</name></member>
+    <member refid="structmath_1_1circle_1a82a735222f7bf99813b61dd5c1a21864" kind="variable"><name>radius</name></member>
+    <member refid="structmath_1_1circle_1aa61c7942d9f1a5a0e836a48e7140f3fa" kind="function"><name>circle</name></member>
+    <member refid="structmath_1_1circle_1a13f2731f7dc042e85559386828e0e67f" kind="function"><name>circle</name></member>
+  </compound>
+  <compound refid="structsc2d_1_1Color" kind="struct"><name>sc2d::Color</name>
+    <member refid="structsc2d_1_1Color_1a84f517eb6bec1a27f377a5a9ffd52815" kind="variable"><name>r</name></member>
+    <member refid="structsc2d_1_1Color_1a8580190b71b622302a2d95182ce0a4ca" kind="variable"><name>g</name></member>
+    <member refid="structsc2d_1_1Color_1a827d3d2b2da3e3d6d0829f1c8346e93f" kind="variable"><name>b</name></member>
+    <member refid="structsc2d_1_1Color_1aac740ecc4d6a7bde79ff119f5b96c653" kind="variable"><name>a</name></member>
+    <member refid="structsc2d_1_1Color_1ae67b3fda443ec3614e8c84cf11928f3d" kind="function"><name>Color</name></member>
+    <member refid="structsc2d_1_1Color_1af4ad3755aa6aa4c6bd6cc86b28827726" kind="function"><name>Color</name></member>
+  </compound>
+  <compound refid="structsc2d_1_1Config" kind="struct"><name>sc2d::Config</name>
+    <member refid="structsc2d_1_1Config_1a9df99fe248ed7dbdbe8adf571d6d7f2c" kind="function"><name>open</name></member>
+  </compound>
+  <compound refid="structsc2d_1_1tiled_1_1Data" kind="struct"><name>sc2d::tiled::Data</name>
+    <member refid="structsc2d_1_1tiled_1_1Data_1a3f86f88b80495e891963593a06b528de" kind="variable"><name>width</name></member>
+    <member refid="structsc2d_1_1tiled_1_1Data_1ab25eb1991440e32b15ac4b86e742046c" kind="variable"><name>height</name></member>
+    <member refid="structsc2d_1_1tiled_1_1Data_1aac07fb74219d04a2255eb4d9e5c51ec2" kind="variable"><name>tile_width</name></member>
+    <member refid="structsc2d_1_1tiled_1_1Data_1a399ec47b2b3691a5007b158569d70455" kind="variable"><name>tile_height</name></member>
+    <member refid="structsc2d_1_1tiled_1_1Data_1a7824e7c4d1aee3170519687db7197a7e" kind="variable"><name>content_count</name></member>
+    <member refid="structsc2d_1_1tiled_1_1Data_1a0ca0ab74fb9ac2338c621269dacfef1a" kind="variable"><name>layers</name></member>
+    <member refid="structsc2d_1_1tiled_1_1Data_1aa778e89744ce4d82feb2c2dc085705d9" kind="variable"><name>tilesets</name></member>
+    <member refid="structsc2d_1_1tiled_1_1Data_1a435eae5263c94de0bd29cae64edb6feb" kind="function"><name>Data</name></member>
+    <member refid="structsc2d_1_1tiled_1_1Data_1afe701cb3bf7fca0d60dcb79d73aa1fc8" kind="function"><name>Data</name></member>
+  </compound>
+  <compound refid="classsc2d_1_1memory_1_1dynamic__linear__allocator" kind="class"><name>sc2d::memory::dynamic_linear_allocator</name>
+    <member refid="classsc2d_1_1memory_1_1dynamic__linear__allocator_1a2e7da384fc249911bd884078202388ba" kind="variable"><name>backing_allocator</name></member>
+    <member refid="classsc2d_1_1memory_1_1dynamic__linear__allocator_1acce4f2e4f6050b95a125c6b30246a45b" kind="variable"><name>current_pos</name></member>
+    <member refid="classsc2d_1_1memory_1_1dynamic__linear__allocator_1a20ef2c1dcb06c87ba00aba99c4c5faa4" kind="variable"><name>current_block</name></member>
+    <member refid="classsc2d_1_1memory_1_1dynamic__linear__allocator_1a8dc561a7483276183f6cea484da74bbe" kind="variable"><name>block_size</name></member>
+    <member refid="classsc2d_1_1memory_1_1dynamic__linear__allocator_1aff6ed3656bda00c10ad7ad369d5288fc" kind="variable"><name>block_alignment</name></member>
+    <member refid="classsc2d_1_1memory_1_1dynamic__linear__allocator_1a322098fc32440b93c20d5af08fba5c53" kind="function"><name>dynamic_linear_allocator</name></member>
+    <member refid="classsc2d_1_1memory_1_1dynamic__linear__allocator_1adc61b367742498d7f97353870952fd25" kind="function"><name>~dynamic_linear_allocator</name></member>
+    <member refid="classsc2d_1_1memory_1_1dynamic__linear__allocator_1ae73891afb686e35f8a8c4856225801d3" kind="function"><name>allocate</name></member>
+    <member refid="classsc2d_1_1memory_1_1dynamic__linear__allocator_1a5c86c1de6759df60dcf5c3fe1a77f047" kind="function"><name>deallocate</name></member>
+    <member refid="classsc2d_1_1memory_1_1dynamic__linear__allocator_1ab692d139c235af03cbb49513e62ec6ec" kind="function"><name>rewind</name></member>
+    <member refid="classsc2d_1_1memory_1_1dynamic__linear__allocator_1a8194c1e4e1d2d5cbcf4d198d872e9a0a" kind="function"><name>clear</name></member>
+    <member refid="classsc2d_1_1memory_1_1dynamic__linear__allocator_1abed1420b0af04899683655b255466f92" kind="function"><name>allocate_new_block</name></member>
+  </compound>
+  <compound refid="classECS" kind="class"><name>ECS</name>
+    <member refid="classECS_1af6e0cfe95d8f3d1126cbb5138c58d4a4" kind="variable"><name>systems</name></member>
+    <member refid="classECS_1a5da34e4746dabfe83e5b193f0d565aed" kind="variable"><name>components</name></member>
+    <member refid="classECS_1aa96df7b66ca9effbd14e1b7e2642ed08" kind="variable"><name>entities</name></member>
+    <member refid="classECS_1a7a5fae6bd6cd38ebcbf209528d911c6a" kind="function"><name>ECS</name></member>
+    <member refid="classECS_1a7a7a0263b1a68878d5727f35fe6b3a5f" kind="function"><name>~ECS</name></member>
+    <member refid="classECS_1a316cc3417a9eb09d25c2598b4b352fe0" kind="function"><name>ECS</name></member>
+    <member refid="classECS_1afc231af38c79ef41625ba428079ba038" kind="function"><name>ECS</name></member>
+    <member refid="classECS_1adecac823806246bc357bc786bfaf2f0f" kind="function"><name>operator=</name></member>
+    <member refid="classECS_1a6f7f7d2e973bb4d206b3f8fae0b429d3" kind="function"><name>operator=</name></member>
+    <member refid="classECS_1aeb3ab746cd0f198cd86631489e438ea6" kind="function"><name>make_entity</name></member>
+    <member refid="classECS_1ab864271724be8395bac46bf276571a3c" kind="function"><name>remove_entity</name></member>
+    <member refid="classECS_1a46b26cb09b107d34cfb761e0a30e35d7" kind="function"><name>add_component</name></member>
+    <member refid="classECS_1a59a523514ddf60755b3cbe7bc5f1ed6f" kind="function"><name>remove_component</name></member>
+    <member refid="classECS_1a05bf55eb5a0a8d49881fac023b50581e" kind="function"><name>get_component</name></member>
+    <member refid="classECS_1af3e5006e5d71622d79c0add84a103e4e" kind="function"><name>add_system</name></member>
+    <member refid="classECS_1a5ca1fe0202fe1a59f76ac061bb247fe8" kind="function"><name>remove_system</name></member>
+    <member refid="classECS_1ab565442f53e9175caeac308b2947ccc8" kind="function"><name>update_systems</name></member>
+    <member refid="classECS_1ac261ece310602edb90a51bfe08192fed" kind="function"><name>handle_to_raw_type</name></member>
+    <member refid="classECS_1ab9a201a55deb095206c9e92f2e8a3af5" kind="function"><name>handle_to_entity_index</name></member>
+    <member refid="classECS_1aa10a1b068cfcffe20a3f4353c08dd723" kind="function"><name>handle_to_entity</name></member>
+    <member refid="classECS_1a9c835c0961fc9498864eaaa8425a2962" kind="function"><name>update_system_components</name></member>
+    <member refid="classECS_1a01505bdf8a9d921e6909c677e72aa8a9" kind="function"><name>add_component_internal</name></member>
+    <member refid="classECS_1a8cd854592e098591822b2e8d81dbb62a" kind="function"><name>remove_component_internal</name></member>
+    <member refid="classECS_1a4f4fb88160273d86a3deb1022282dc85" kind="function"><name>delete_component_internal</name></member>
+    <member refid="classECS_1a6dca0982fa59862e29fb2c8a50bed8a0" kind="function"><name>get_component_internal</name></member>
+    <member refid="classECS_1a0df2ea7ff1707d0b180dcef7b0b3e060" kind="function"><name>find_least_common_component</name></member>
+  </compound>
+  <compound refid="structECSComponent" kind="struct"><name>ECSComponent</name>
+    <member refid="structECSComponent_1a0f13ee7a0f2f40ceb48f2e7739ee081f" kind="variable"><name>CREATE_FUNCTION</name></member>
+    <member refid="structECSComponent_1a83c38574e296ac5e057c33d589f420ad" kind="variable"><name>FREE_FUNCTION</name></member>
+    <member refid="structECSComponent_1a78eca5a7028a771877355bbe0c57124e" kind="variable"><name>id</name></member>
+    <member refid="structECSComponent_1a307a02bf9d5ea085acc38b6842e6dadf" kind="variable"><name>size</name></member>
+  </compound>
+  <compound refid="structsc2d_1_1memory_1_1free__list__allocator_1_1free__block" kind="struct"><name>sc2d::memory::free_list_allocator::free_block</name>
+    <member refid="structsc2d_1_1memory_1_1free__list__allocator_1_1free__block_1aac6230bf022d20de8a0f07b41cfc9395" kind="variable"><name>size</name></member>
+    <member refid="structsc2d_1_1memory_1_1free__list__allocator_1_1free__block_1a6e4fb5d428a8f9025e3e80b9481b586d" kind="variable"><name>next</name></member>
+  </compound>
+  <compound refid="classsc2d_1_1memory_1_1free__list__allocator" kind="class"><name>sc2d::memory::free_list_allocator</name>
+    <member refid="classsc2d_1_1memory_1_1free__list__allocator_1ab5a1a6ba6973f2841677dfe0b3574e90" kind="variable"><name>free_blocks</name></member>
+    <member refid="classsc2d_1_1memory_1_1free__list__allocator_1a4728d4e67a357edcbe00d3416864a57b" kind="function"><name>free_list_allocator</name></member>
+    <member refid="classsc2d_1_1memory_1_1free__list__allocator_1a96711bb3d12bd74ae50d7fba6c4a2867" kind="function"><name>~free_list_allocator</name></member>
+    <member refid="classsc2d_1_1memory_1_1free__list__allocator_1a66af769394bcbebf67002d5c0ddcfe9b" kind="function"><name>allocate</name></member>
+    <member refid="classsc2d_1_1memory_1_1free__list__allocator_1ade0842119e9583d8c322653dadb417b9" kind="function"><name>deallocate</name></member>
+  </compound>
+  <compound refid="classsc2d_1_1memory_1_1heap__allocator" kind="class"><name>sc2d::memory::heap_allocator</name>
+    <member refid="classsc2d_1_1memory_1_1heap__allocator_1a8fdf52a547f5b711fa1c98ef944482a2" kind="variable"><name>_start</name></member>
+    <member refid="classsc2d_1_1memory_1_1heap__allocator_1a503f6d6e39bffe6d6d7d4abb92f1c1c7" kind="variable"><name>current_pos</name></member>
+    <member refid="classsc2d_1_1memory_1_1heap__allocator_1a0fa3d59366842074cb177867c37b00ec" kind="function"><name>heap_allocator</name></member>
+    <member refid="classsc2d_1_1memory_1_1heap__allocator_1a64b963e2bd785630d1533f50030b9fc3" kind="function"><name>~heap_allocator</name></member>
+    <member refid="classsc2d_1_1memory_1_1heap__allocator_1a1441e163b0489a7f3815e8efe7f3ed27" kind="function"><name>allocate</name></member>
+    <member refid="classsc2d_1_1memory_1_1heap__allocator_1a987dfa94a8b7e1e2b38369d5d25b2ede" kind="function"><name>deallocate</name></member>
+    <member refid="classsc2d_1_1memory_1_1heap__allocator_1ad35c2947bd17e097fc7cf67481704593" kind="function"><name>clear</name></member>
+  </compound>
+  <compound refid="structsc2d_1_1IConfigLoader" kind="struct"><name>sc2d::IConfigLoader</name>
+    <member refid="structsc2d_1_1IConfigLoader_1adc4142d9c020caec590789d5fe8abd69" kind="function"><name>operator()</name></member>
+    <member refid="structsc2d_1_1IConfigLoader_1a2cd4b2edb4e66f31e62c2c0e3c3eb72d" kind="function"><name>~IConfigLoader</name></member>
+  </compound>
+  <compound refid="classIniIO" kind="class"><name>IniIO</name>
+    <member refid="classIniIO_1ad0edac22b9db6655fc078fcfbedbdb27" kind="variable"><name>filename</name></member>
+    <member refid="classIniIO_1a5db5daea22f3624843c688637b33162f" kind="variable"><name>sections</name></member>
+    <member refid="classIniIO_1a8e1bc8c10965ce40a99bedd063ef3c07" kind="function"><name>IniIO</name></member>
+    <member refid="classIniIO_1a617c76e527d94cd85e456cf9240e7a5f" kind="function"><name>get_value</name></member>
+    <member refid="classIniIO_1aba09415198004635daddac951e6372de" kind="function"><name>get_value</name></member>
+    <member refid="classIniIO_1a78b9ecae50b811d52a58e1b5b58faf30" kind="function"><name>get_kvps</name></member>
+    <member refid="classIniIO_1aa24e3e762df97f6d2a5f69fd0bb33bef" kind="function"><name>set_value</name></member>
+    <member refid="classIniIO_1a8d30a28c49c4304b3f95a56b4fa1f0b6" kind="function"><name>save_file</name></member>
+    <member refid="classIniIO_1a7df95965b3c27c76fe4264d137416cf8" kind="function"><name>get_positions</name></member>
+    <member refid="classIniIO_1a9932f5b4840cc5596996ef0be2a3619e" kind="function"><name>get_section_pos</name></member>
+    <member refid="classIniIO_1afa3ca582b76926c0e58611b0c890aadf" kind="function"><name>get_key_pos</name></member>
+    <member refid="classIniIO_1af351c71b23b9ec5a5b68786c5f9e428b" kind="function"><name>is_section</name></member>
+    <member refid="classIniIO_1ab12a6c84a640b92a2173d56d5cae499d" kind="function"><name>is_key_value</name></member>
+    <member refid="classIniIO_1a37cbea5ff1cebb9d48bcbfedcbd60522" kind="function"><name>split_key_value</name></member>
+  </compound>
+  <compound refid="structmath_1_1interval2d" kind="struct"><name>math::interval2d</name>
+    <member refid="structmath_1_1interval2d_1ab22324d1825a2809bdeb2e7c22898e9e" kind="variable"><name>min</name></member>
+    <member refid="structmath_1_1interval2d_1ab97494891c33376c009ececd62d1bfec" kind="variable"><name>max</name></member>
+    <member refid="structmath_1_1interval2d_1a6e391e2dffbfd47c78ccd2667a24fc66" kind="function"><name>get_interval</name></member>
+    <member refid="structmath_1_1interval2d_1a28c98b51fc765684168ac92a7f373de5" kind="function"><name>get_interval</name></member>
+  </compound>
+  <compound refid="classsc2d_1_1tiled_1_1Layer" kind="class"><name>sc2d::tiled::Layer</name>
+    <member refid="classsc2d_1_1tiled_1_1Layer_1a39d05064ccdd83cc0e4551417ed33ceb" kind="variable"><name>data</name></member>
+    <member refid="classsc2d_1_1tiled_1_1Layer_1a0bfa9faa7f0f2e7bbb284f1124c39b11" kind="variable"><name>name</name></member>
+    <member refid="classsc2d_1_1tiled_1_1Layer_1aa0e6c3e453de5a7194da721740a49ce6" kind="function"><name>set_data</name></member>
+    <member refid="classsc2d_1_1tiled_1_1Layer_1aab697561335865c9746d1d05749c0b8f" kind="function"><name>get_data</name></member>
+    <member refid="classsc2d_1_1tiled_1_1Layer_1a0e068cb3d2afcec581e3b7f2683be75f" kind="function"><name>set_name</name></member>
+    <member refid="classsc2d_1_1tiled_1_1Layer_1ae02cb17901359093ec16eab19354a5d5" kind="function"><name>get_name</name></member>
+  </compound>
+  <compound refid="structmath_1_1line2d" kind="struct"><name>math::line2d</name>
+    <member refid="structmath_1_1line2d_1a91eedde3ad982f8d894512b16e1c26fd" kind="variable"><name>start</name></member>
+    <member refid="structmath_1_1line2d_1add697c10964ede05b9ce24786c686fd1" kind="variable"><name>end</name></member>
+    <member refid="structmath_1_1line2d_1afe8bbcaccba58e09623c327a790043fe" kind="function"><name>line2d</name></member>
+    <member refid="structmath_1_1line2d_1a4eaaf4a8a562677c42c7d1cc1ad29c8c" kind="function"><name>line2d</name></member>
+    <member refid="structmath_1_1line2d_1a498c090527b3893a09b81e86d2fb557a" kind="function"><name>length</name></member>
+    <member refid="structmath_1_1line2d_1a58663b6af5156f03f92257fd7539e2d3" kind="function"><name>lengthSq</name></member>
+  </compound>
+  <compound refid="classsc2d_1_1tiled_1_1Map" kind="class"><name>sc2d::tiled::Map</name>
+    <member refid="classsc2d_1_1tiled_1_1Map_1a0978056be79e016b081d7971aaf9c72e" kind="variable"><name>tiled_data</name></member>
+    <member refid="classsc2d_1_1tiled_1_1Map_1aa62a3ae42b412ede913f16f8c4a91ae2" kind="variable"><name>shader</name></member>
+    <member refid="classsc2d_1_1tiled_1_1Map_1ae6276687478254a81f9f36da0f931c63" kind="variable"><name>map_gids</name></member>
+    <member refid="classsc2d_1_1tiled_1_1Map_1a8fba9275bad4707111624a2804e0faed" kind="variable"><name>sprite_sheet</name></member>
+    <member refid="classsc2d_1_1tiled_1_1Map_1a61ed406c7487c659ba2efe39ec58e6ed" kind="function"><name>Map</name></member>
+    <member refid="classsc2d_1_1tiled_1_1Map_1ab9eba13eef207d590c0d472cc4b31914" kind="function"><name>Map</name></member>
+    <member refid="classsc2d_1_1tiled_1_1Map_1a5a477ef9a53dacf9335ac3701799dac5" kind="function"><name>init</name></member>
+    <member refid="classsc2d_1_1tiled_1_1Map_1ab4d594dac29fb48040bc1dde24657110" kind="function"><name>draw_map</name></member>
+    <member refid="classsc2d_1_1tiled_1_1Map_1a03cb08e31126d8e15ac16173b63c6be8" kind="function"><name>crack_layer_data</name></member>
+  </compound>
+  <compound refid="structmath_1_1mat2" kind="struct"><name>math::mat2</name>
+    <member refid="structmath_1_1mat2_1a89819bfffc570afb89d104ca362eee47" kind="variable"><name>n</name></member>
+    <member refid="structmath_1_1mat2_1a2e0ab76709b677b4376d7899b5b28b37" kind="function"><name>mat2</name></member>
+    <member refid="structmath_1_1mat2_1a1ab77b33fecae29dc7167893616ac976" kind="function"><name>mat2</name></member>
+    <member refid="structmath_1_1mat2_1a27d9de18d87c6e3c9c6554e28ceb1609" kind="function"><name>mat2</name></member>
+    <member refid="structmath_1_1mat2_1a59d375076b3309ce5d0054c60a6f1530" kind="function"><name>operator()</name></member>
+    <member refid="structmath_1_1mat2_1af7ba9cf2139642b4cdc7b9332797992b" kind="function"><name>operator()</name></member>
+    <member refid="structmath_1_1mat2_1a551cb5e3066d2012a9efa3f78f261f4e" kind="function"><name>operator[]</name></member>
+    <member refid="structmath_1_1mat2_1ac3a7c6540e29afae00ed93c5c103d3a4" kind="function"><name>operator[]</name></member>
+    <member refid="structmath_1_1mat2_1a5971423e3b33e451df76e4a2a4e47e36" kind="function"><name>operator*</name></member>
+    <member refid="structmath_1_1mat2_1a57bfc3f0f7fdaf172fc6a4fab4b16bf2" kind="function"><name>operator*</name></member>
+    <member refid="structmath_1_1mat2_1a59ef3a67aed221a0bb05c27accc83fec" kind="function"><name>operator+</name></member>
+    <member refid="structmath_1_1mat2_1ab9b8cc4b90979edce51e50228c9b3225" kind="function"><name>operator*=</name></member>
+    <member refid="structmath_1_1mat2_1a908aae05345831bc50a889605c15bd81" kind="function"><name>operator*=</name></member>
+    <member refid="structmath_1_1mat2_1a7266a3b96614a92227581b6ff656021f" kind="function"><name>operator+=</name></member>
+    <member refid="structmath_1_1mat2_1a86e3e0f8ba4337a1ff13069df2ce77b4" kind="function"><name>operator==</name></member>
+    <member refid="structmath_1_1mat2_1aef4aa6b1daded9861c6efd4f5e6366b8" kind="function"><name>operator!=</name></member>
+    <member refid="structmath_1_1mat2_1ad005191511a9be3a91dca76960607394" kind="function"><name>transpose</name></member>
+    <member refid="structmath_1_1mat2_1ac4f7c1b4967c8f9c9857eb346ff8c0e3" kind="function"><name>determinant</name></member>
+    <member refid="structmath_1_1mat2_1a960118b3ee04534dd99d5577496193f4" kind="function"><name>minor</name></member>
+    <member refid="structmath_1_1mat2_1ac3be1c005e806fc3a517c09c37be44ba" kind="function"><name>cofactor</name></member>
+    <member refid="structmath_1_1mat2_1a3690044fe3bbd155a1298a6b3f047705" kind="function"><name>adjugate</name></member>
+    <member refid="structmath_1_1mat2_1aa3e143e6c1338df92888a623b2ace226" kind="function"><name>inverse</name></member>
+    <member refid="structmath_1_1mat2_1a651162fc04bdf7d98bdf9b7586443e5c" kind="friend"><name>operator&lt;&lt;</name></member>
+  </compound>
+  <compound refid="structmath_1_1mat3" kind="struct"><name>math::mat3</name>
+    <member refid="structmath_1_1mat3_1af2ea003ef97664ec69b9ebfccbc734cd" kind="variable"><name>n</name></member>
+    <member refid="structmath_1_1mat3_1ab981aebe7c87c9612b8dbc0bf5e80e2a" kind="function"><name>mat3</name></member>
+    <member refid="structmath_1_1mat3_1ac55b962307f7719824ba6ffe374720c3" kind="function"><name>mat3</name></member>
+    <member refid="structmath_1_1mat3_1a56b2a802665b507847d72ab1bea75600" kind="function"><name>mat3</name></member>
+    <member refid="structmath_1_1mat3_1a3eebeb880c3004739ddeba140795a251" kind="function"><name>operator()</name></member>
+    <member refid="structmath_1_1mat3_1af4211016916b51064cb63ca8154556cb" kind="function"><name>operator()</name></member>
+    <member refid="structmath_1_1mat3_1a0e79a421b93c08169b6df3961426825e" kind="function"><name>operator[]</name></member>
+    <member refid="structmath_1_1mat3_1ace87c667cada9740a99e70c7f7181c3b" kind="function"><name>operator[]</name></member>
+    <member refid="structmath_1_1mat3_1a91f1b69ebda27ee6865e0b1ea5c6c6fb" kind="function"><name>operator*</name></member>
+    <member refid="structmath_1_1mat3_1ac2b79520ded1348a8daaa11cada2a633" kind="function"><name>operator*</name></member>
+    <member refid="structmath_1_1mat3_1a643b20e5dae6db81c2912901b02b055a" kind="function"><name>operator+</name></member>
+    <member refid="structmath_1_1mat3_1a9cf55c93334087cdbece61620de3e68a" kind="function"><name>operator*=</name></member>
+    <member refid="structmath_1_1mat3_1ab1e15ead9ade7f9d51a5cec22a569df2" kind="function"><name>operator*=</name></member>
+    <member refid="structmath_1_1mat3_1a7517611ee9bfdee69f05000296afa06c" kind="function"><name>operator+=</name></member>
+    <member refid="structmath_1_1mat3_1a48229882fcbf1ed5c8e4a04080ce4953" kind="function"><name>operator==</name></member>
+    <member refid="structmath_1_1mat3_1a7c066c801ee697d900546606676b976a" kind="function"><name>operator!=</name></member>
+    <member refid="structmath_1_1mat3_1a9b381439856d95b51c8b87f80ece05dc" kind="function"><name>transpose</name></member>
+    <member refid="structmath_1_1mat3_1a46cd8291370c457e4a7395b03f46588a" kind="function"><name>determinant</name></member>
+    <member refid="structmath_1_1mat3_1a023a7c3f0beababef2e8637fd008d20f" kind="function"><name>minor</name></member>
+    <member refid="structmath_1_1mat3_1a5b556e78be410428a8e74036fb6b8529" kind="function"><name>cofactor</name></member>
+    <member refid="structmath_1_1mat3_1a382378d1fb1e2fd8201da87ccb63f3e8" kind="function"><name>adjugate</name></member>
+    <member refid="structmath_1_1mat3_1af25e86e0941c58e80aa3f9c7c06567d9" kind="function"><name>inverse</name></member>
+    <member refid="structmath_1_1mat3_1a1c28931c2fc172608795255611dea691" kind="friend"><name>operator&lt;&lt;</name></member>
+  </compound>
+  <compound refid="structmath_1_1mat4" kind="struct"><name>math::mat4</name>
+    <member refid="structmath_1_1mat4_1aaff459e45a8ccc31db584ca963df334e" kind="variable"><name>n</name></member>
+    <member refid="structmath_1_1mat4_1aef5a8235ee77380ec057762025f07fe8" kind="function"><name>mat4</name></member>
+    <member refid="structmath_1_1mat4_1af63595005ccac0f4cc9f9b9c100c3902" kind="function"><name>mat4</name></member>
+    <member refid="structmath_1_1mat4_1a7edc1633dcdbe66084d5556e938e2621" kind="function"><name>mat4</name></member>
+    <member refid="structmath_1_1mat4_1a62ba6a0b72f251fbbdb6b4d1941660bb" kind="function"><name>operator()</name></member>
+    <member refid="structmath_1_1mat4_1a920c9499848225190aba4add2cba66bf" kind="function"><name>operator()</name></member>
+    <member refid="structmath_1_1mat4_1af1174463f36d030f31ba088c510e86d5" kind="function"><name>operator[]</name></member>
+    <member refid="structmath_1_1mat4_1a7206a569f87bd24ee5a851899cf8c5c8" kind="function"><name>operator[]</name></member>
+    <member refid="structmath_1_1mat4_1a26e1decc5a95dfa924dfc2fdce10a8ec" kind="function"><name>operator*</name></member>
+    <member refid="structmath_1_1mat4_1a073575764764cf2eff9e3bc1f2740cf5" kind="function"><name>operator*</name></member>
+    <member refid="structmath_1_1mat4_1a54330fc77b83773e0270c98c3ffb7809" kind="function"><name>operator+</name></member>
+    <member refid="structmath_1_1mat4_1a0dff7ff836daf55723f1c7b3c6e2a71f" kind="function"><name>operator*=</name></member>
+    <member refid="structmath_1_1mat4_1af26f144e357f0c2597afe7c0df3f366d" kind="function"><name>operator*=</name></member>
+    <member refid="structmath_1_1mat4_1a468b63b10d99f5cff5ab0463a9824eec" kind="function"><name>operator+=</name></member>
+    <member refid="structmath_1_1mat4_1a9093d3f340dc10c2f36e6a11eb2de64f" kind="function"><name>operator==</name></member>
+    <member refid="structmath_1_1mat4_1a71a4c93eb519ac123b7347588a1c5377" kind="function"><name>operator!=</name></member>
+    <member refid="structmath_1_1mat4_1a5377071c3eaa45a552c01985babfa169" kind="function"><name>transpose</name></member>
+    <member refid="structmath_1_1mat4_1a743a3f8bbeda33bae529ef7d5e3d9d0c" kind="function"><name>determinant</name></member>
+    <member refid="structmath_1_1mat4_1a6e50d9526b70bdb83ca5c0d4e163db87" kind="function"><name>minor</name></member>
+    <member refid="structmath_1_1mat4_1af44ca96fa89e53b4950608b25e2cafe8" kind="function"><name>cofactor</name></member>
+    <member refid="structmath_1_1mat4_1acc9c38d9696581fdb745f62ddfeb2f43" kind="function"><name>adjugate</name></member>
+    <member refid="structmath_1_1mat4_1a04aa308993896a68a5aac858b41edb7e" kind="function"><name>inverse</name></member>
+    <member refid="structmath_1_1mat4_1a8cf54e779651b64900748420b9e5137b" kind="friend"><name>operator&lt;&lt;</name></member>
+  </compound>
+  <compound refid="structmath_1_1orrect2d" kind="struct"><name>math::orrect2d</name>
+    <member refid="structmath_1_1orrect2d_1a7c32a3ca429b96456d61772e6427f7e1" kind="variable"><name>position</name></member>
+    <member refid="structmath_1_1orrect2d_1a89d9061f7f9397075f56180c30085453" kind="variable"><name>half_extends</name></member>
+    <member refid="structmath_1_1orrect2d_1a5ebadfa6b5fea4288d29e8c43dcd427e" kind="variable"><name>rotation</name></member>
+    <member refid="structmath_1_1orrect2d_1a6a17b4b283ce7958a029f915f659a7d6" kind="function"><name>orrect2d</name></member>
+    <member refid="structmath_1_1orrect2d_1adbdedb710b9bfd2f91af799461325d88" kind="function"><name>orrect2d</name></member>
+    <member refid="structmath_1_1orrect2d_1a01faa7444f7b11cf17c4beee87333f43" kind="function"><name>orrect2d</name></member>
+  </compound>
+  <compound refid="classsc2d_1_1memory_1_1pool__allocator" kind="class"><name>sc2d::memory::pool_allocator</name>
+    <member refid="classsc2d_1_1memory_1_1pool__allocator_1a2e04baf33c43689ad08746f193cb306c" kind="friend"><name>sc2d::vec</name></member>
+    <member refid="classsc2d_1_1memory_1_1pool__allocator_1a341cbf0ef1c4dffd3e34abad527d5ab5" kind="variable"><name>num_of_blocks</name></member>
+    <member refid="classsc2d_1_1memory_1_1pool__allocator_1a5fa09e5e114a8cc2cf75dfa091ff0986" kind="variable"><name>size_of_block</name></member>
+    <member refid="classsc2d_1_1memory_1_1pool__allocator_1a434eb1142c11df6a67d81e67dc5b4768" kind="variable"><name>num_of_free_blocks</name></member>
+    <member refid="classsc2d_1_1memory_1_1pool__allocator_1a21238c51065ccf118cf5f9a0b86ae1ee" kind="variable"><name>num_of_initialized</name></member>
+    <member refid="classsc2d_1_1memory_1_1pool__allocator_1a811d8a3814f48df52245d414a321e3ea" kind="variable"><name>p_start</name></member>
+    <member refid="classsc2d_1_1memory_1_1pool__allocator_1abe6c5863394a24706ad82f3523882e2f" kind="variable"><name>p_next</name></member>
+    <member refid="classsc2d_1_1memory_1_1pool__allocator_1a0e3596bd1acdb2ae4be45872add7146b" kind="function"><name>~pool_allocator</name></member>
+    <member refid="classsc2d_1_1memory_1_1pool__allocator_1a91c77a66c8e6c74c9dae87dc5ad7956a" kind="function"><name>create</name></member>
+    <member refid="classsc2d_1_1memory_1_1pool__allocator_1ab313582eae462597924ad43cce564ed4" kind="function"><name>destroy</name></member>
+    <member refid="classsc2d_1_1memory_1_1pool__allocator_1a927cfc82bd3dbf089d3b2a20b4260e6a" kind="function"><name>allocate</name></member>
+    <member refid="classsc2d_1_1memory_1_1pool__allocator_1a223110342f8987b6637800a34f692010" kind="function"><name>resize</name></member>
+    <member refid="classsc2d_1_1memory_1_1pool__allocator_1a700f43f95cdf86714a4df5bc727d8919" kind="function"><name>deallocate</name></member>
+    <member refid="classsc2d_1_1memory_1_1pool__allocator_1a9d6c4623e47051e497b5deb8f0cfbdb9" kind="function"><name>get_start</name></member>
+    <member refid="classsc2d_1_1memory_1_1pool__allocator_1ac2326a5a29b93d5aaa1ef552a43408b4" kind="function"><name>get_intialized_num</name></member>
+    <member refid="classsc2d_1_1memory_1_1pool__allocator_1a0bb6d57bf2b24b374e96ca12d7557e3f" kind="function"><name>get_num_of_blocks</name></member>
+    <member refid="classsc2d_1_1memory_1_1pool__allocator_1a810067c759de7746fdd3ee564230d1b3" kind="function"><name>addr_from_index</name></member>
+    <member refid="classsc2d_1_1memory_1_1pool__allocator_1a9ee7ac3369f3292d0452ed48d6d87c2e" kind="function"><name>index_from_addr</name></member>
+  </compound>
+  <compound refid="structsc2d_1_1Quad" kind="struct"><name>sc2d::Quad</name>
+    <member refid="structsc2d_1_1Quad_1a780fa9360b1f3266955712eba45d7a97" kind="variable"><name>tr</name></member>
+    <member refid="structsc2d_1_1Quad_1a38bc4e538282453d933633870989569c" kind="variable"><name>br</name></member>
+    <member refid="structsc2d_1_1Quad_1a7b36a9cd77ed9b645494e1e5b15ea98b" kind="variable"><name>bl</name></member>
+    <member refid="structsc2d_1_1Quad_1a7c6b1532ddd46bb9f0993c769a0e66b3" kind="variable"><name>tl</name></member>
+  </compound>
+  <compound refid="structmath_1_1QuadTreeData" kind="struct"><name>math::QuadTreeData</name>
+    <member refid="structmath_1_1QuadTreeData_1ab0dc4a5b878c81d4f8ab0eb7d1cbd22a" kind="variable"><name>object</name></member>
+    <member refid="structmath_1_1QuadTreeData_1af07af2ba2e8651d8069a924148943866" kind="variable"><name>bounds</name></member>
+    <member refid="structmath_1_1QuadTreeData_1ab59d5d953f4b2bb5359695bc817068d0" kind="variable"><name>flag</name></member>
+    <member refid="structmath_1_1QuadTreeData_1a7c3182a7e326751bc339c18d6660571d" kind="function"><name>QuadTreeData</name></member>
+  </compound>
+  <compound refid="classmath_1_1QuadTreeNode" kind="class"><name>math::QuadTreeNode</name>
+    <member refid="classmath_1_1QuadTreeNode_1ad0b2904ebd85b6dd7b6f2980c403c12c" kind="variable"><name>childrens</name></member>
+    <member refid="classmath_1_1QuadTreeNode_1aa514f7874d7d9264d93c0a3c8b47059b" kind="variable"><name>content</name></member>
+    <member refid="classmath_1_1QuadTreeNode_1ac16ab7f2119e0840dcb72acdf491ecb3" kind="variable"><name>node_bounds</name></member>
+    <member refid="classmath_1_1QuadTreeNode_1adfd91e685760990b62d0b65756501c9b" kind="variable"><name>current_depth</name></member>
+    <member refid="classmath_1_1QuadTreeNode_1a9f1e04c0b0e5a51d5e3e5992d961a5b6" kind="variable"><name>max_depth</name></member>
+    <member refid="classmath_1_1QuadTreeNode_1acebeac7f242cd5673a01924efc3321f4" kind="variable"><name>max_objects_per_node</name></member>
+    <member refid="classmath_1_1QuadTreeNode_1a45378c1fc9229e035a40ed9c06fe121d" kind="function"><name>QuadTreeNode</name></member>
+    <member refid="classmath_1_1QuadTreeNode_1a37e417c86117060dfe7874247baf0626" kind="function"><name>is_leaf</name></member>
+    <member refid="classmath_1_1QuadTreeNode_1add813eb0fcafbc6cf14368dddbb749b4" kind="function"><name>size</name></member>
+    <member refid="classmath_1_1QuadTreeNode_1a14b91136aa6577fa0266b8028faa0e03" kind="function"><name>insert</name></member>
+    <member refid="classmath_1_1QuadTreeNode_1a35cb167bcdbb4ce608752d3faa71903a" kind="function"><name>remove</name></member>
+    <member refid="classmath_1_1QuadTreeNode_1a4075c9bf883c79abaed52dae6ecb2b36" kind="function"><name>update</name></member>
+    <member refid="classmath_1_1QuadTreeNode_1a3e490921d9547c6f3481396ff1f917bb" kind="function"><name>snake</name></member>
+    <member refid="classmath_1_1QuadTreeNode_1a49f85405ae85f29030cdf2f29764097e" kind="function"><name>split</name></member>
+    <member refid="classmath_1_1QuadTreeNode_1a14dc470d9d9f45a3685228d40571d53e" kind="function"><name>reset</name></member>
+    <member refid="classmath_1_1QuadTreeNode_1a4f3dc18628e9487f04987afcacad12b7" kind="function"><name>query</name></member>
+  </compound>
+  <compound refid="structsc2d_1_1memory_1_1aligned__allocator_1_1rebind" kind="struct"><name>sc2d::memory::aligned_allocator::rebind</name>
+    <member refid="structsc2d_1_1memory_1_1aligned__allocator_1_1rebind_1ad4ff2139cd9fb9ab35bf39a8d7b3977a" kind="typedef"><name>other</name></member>
+  </compound>
+  <compound refid="structmath_1_1rect2d" kind="struct"><name>math::rect2d</name>
+    <member refid="structmath_1_1rect2d_1a73a4f01bf1cf7c9e52f1eaddc3fd0f97" kind="variable"><name>origin</name></member>
+    <member refid="structmath_1_1rect2d_1a2df7e605efb547ebeb47ae70876a7bbb" kind="variable"><name>size</name></member>
+    <member refid="structmath_1_1rect2d_1a1b4ad9e5957d6e97e33df39c5d5d72ba" kind="function"><name>rect2d</name></member>
+    <member refid="structmath_1_1rect2d_1a44078d7fa94e50da83cd4e5602e34d16" kind="function"><name>rect2d</name></member>
+    <member refid="structmath_1_1rect2d_1a4a596ea9c6a9400d8bd9bff22a300967" kind="function"><name>get_min</name></member>
+    <member refid="structmath_1_1rect2d_1a3a3179b3b551720e5d87b6a160be1407" kind="function"><name>get_max</name></member>
+    <member refid="structmath_1_1rect2d_1aaf11cea257a3ed2a89b82f368cec9550" kind="function"><name>from_min_max</name></member>
+  </compound>
+  <compound refid="classsc2d_1_1ResourceHolder" kind="class"><name>sc2d::ResourceHolder</name>
+    <member refid="classsc2d_1_1ResourceHolder_1a7e3c604bcb1f0028698365937ce6fbe4" kind="variable"><name>shaders</name></member>
+    <member refid="classsc2d_1_1ResourceHolder_1a49ac7b91c2ab3dc4def2ef623562f6b7" kind="variable"><name>textures</name></member>
+    <member refid="classsc2d_1_1ResourceHolder_1ad9e0e67175a04d16d9c10a7bff9eb95b" kind="variable"><name>tilemaps</name></member>
+    <member refid="classsc2d_1_1ResourceHolder_1ac94a6482d8737f619de1bf221c240947" kind="variable"><name>texture_atlases</name></member>
+    <member refid="classsc2d_1_1ResourceHolder_1a002e8ce4a2234d910ac958b3ee6fccc9" kind="function"><name>load_shader_program</name></member>
+    <member refid="classsc2d_1_1ResourceHolder_1a30cd14f405e3a3757b60ab5e51749c4d" kind="function"><name>get_shader</name></member>
+    <member refid="classsc2d_1_1ResourceHolder_1ae9a326d5aec50519aab43ef1e7768775" kind="function"><name>load_texture</name></member>
+    <member refid="classsc2d_1_1ResourceHolder_1abc05dbde621341b1731d34a6e3aa48ab" kind="function"><name>get_texture</name></member>
+    <member refid="classsc2d_1_1ResourceHolder_1a50f13bfe2c89d66c54747a0d101cf32b" kind="function"><name>load_tiled_map</name></member>
+    <member refid="classsc2d_1_1ResourceHolder_1a1fb1920d009bd23afa147aa519703918" kind="function"><name>get_tiled_map</name></member>
+    <member refid="classsc2d_1_1ResourceHolder_1a7496cdf8932acadf40621e5cdae7c035" kind="function"><name>get_texture_atlas</name></member>
+    <member refid="classsc2d_1_1ResourceHolder_1a6d6cea634ac3849645703e8162067ed4" kind="function"><name>load_texture_atlas</name></member>
+    <member refid="classsc2d_1_1ResourceHolder_1a4893cc969c61ab4f0664cad5859f4c69" kind="function"><name>clean</name></member>
+    <member refid="classsc2d_1_1ResourceHolder_1a0fe3e86c78e934c25e5cae0c3f66b19f" kind="function"><name>ResourceHolder</name></member>
+    <member refid="classsc2d_1_1ResourceHolder_1ab8c7cdbde6ce7381c9948ed647ef60d2" kind="function"><name>ResourceHolder</name></member>
+    <member refid="classsc2d_1_1ResourceHolder_1a5c48b0ad19439188dd068e72822370ac" kind="function"><name>ResourceHolder</name></member>
+    <member refid="classsc2d_1_1ResourceHolder_1af334a2d9cc92db91173df1df44331caa" kind="function"><name>operator=</name></member>
+    <member refid="classsc2d_1_1ResourceHolder_1a28e7f3db026b0316d6d5b4af6cf2edf3" kind="function"><name>operator=</name></member>
+    <member refid="classsc2d_1_1ResourceHolder_1a5f62ebe28a3292f2b4027f2f6ca2c741" kind="function"><name>load_shader</name></member>
+  </compound>
+  <compound refid="structsc2d_1_1ResourcesConfigLoad" kind="struct"><name>sc2d::ResourcesConfigLoad</name>
+    <member refid="structsc2d_1_1ResourcesConfigLoad_1a7e6fc312fa6e36b5f9b8bd234845faee" kind="function"><name>operator()</name></member>
+  </compound>
+  <compound refid="classsc2d_1_1Result" kind="class"><name>sc2d::Result</name>
+    <member refid="classsc2d_1_1Result_1a3e3e702e91b958ae685fd4ab752d60b9" kind="variable"><name>result</name></member>
+    <member refid="classsc2d_1_1Result_1ace629349316dd3344eec89c899e72005" kind="variable"><name>error</name></member>
+    <member refid="classsc2d_1_1Result_1af268ee592b30f6c7334bd86f9a31cdeb" kind="variable"><name>@1</name></member>
+    <member refid="classsc2d_1_1Result_1a09485b20039caa982c5e955f43a3be4f" kind="variable"><name>has</name></member>
+    <member refid="classsc2d_1_1Result_1ae9e62244455bedadeafed1720ae0e7d7" kind="function"><name>Result</name></member>
+    <member refid="classsc2d_1_1Result_1ad3c17196336b973fd271c4759bd27289" kind="function"><name>Result</name></member>
+    <member refid="classsc2d_1_1Result_1a39371e29d9a428fa2fd0eb5335ffe0d9" kind="function"><name>Result</name></member>
+    <member refid="classsc2d_1_1Result_1ac7dcc532d979dbf9aecf3190107c0a6c" kind="function"><name>Result</name></member>
+    <member refid="classsc2d_1_1Result_1aab25f940b1b459720ae0deaf185a74bf" kind="function"><name>Result</name></member>
+    <member refid="classsc2d_1_1Result_1a170808841b5545b3e1d81fbafbb2098b" kind="function"><name>Result</name></member>
+    <member refid="classsc2d_1_1Result_1af278b58bc91fa8350e954f244df73998" kind="function"><name>~Result</name></member>
+    <member refid="classsc2d_1_1Result_1ac76a138b6bf2b49dab8b7abdc32f5d24" kind="function"><name>operator=</name></member>
+    <member refid="classsc2d_1_1Result_1ac54c2e911d9f7af4060ec003d0e47b22" kind="function"><name>operator=</name></member>
+    <member refid="classsc2d_1_1Result_1adbec291066fcd4d76fb91b3930a0557e" kind="function"><name>val</name></member>
+    <member refid="classsc2d_1_1Result_1ad98b0e5377de8f6a9b19e808aa7b38a4" kind="function"><name>val</name></member>
+    <member refid="classsc2d_1_1Result_1ac53ded8037e3f259782b10f61a4b6291" kind="function"><name>val</name></member>
+    <member refid="classsc2d_1_1Result_1ad13360c1bb6ef0001e7f3a2b149b42ff" kind="function"><name>val</name></member>
+    <member refid="classsc2d_1_1Result_1a952b7cc36442049e7f86aa654c23647c" kind="function"><name>err</name></member>
+    <member refid="classsc2d_1_1Result_1af49dc802cc45fe7a6451999f10efdf11" kind="function"><name>err</name></member>
+    <member refid="classsc2d_1_1Result_1aab413ceab94861119442fff13a9664b7" kind="function"><name>err</name></member>
+    <member refid="classsc2d_1_1Result_1aa8a0fd1987035dc93c6549bf600dc00b" kind="function"><name>err</name></member>
+    <member refid="classsc2d_1_1Result_1affda3e94a952eff5c076c22c5570a200" kind="function"><name>operator bool</name></member>
+    <member refid="classsc2d_1_1Result_1a93d2a76f5e090a49c197148555ae8d32" kind="function"><name>success</name></member>
+    <member refid="classsc2d_1_1Result_1ac8037070cbbe32cf483eebcf8d672634" kind="function"><name>throw_err</name></member>
+    <member refid="classsc2d_1_1Result_1a157cf6dfe658e8862350dae14af9d281" kind="function"><name>swap</name></member>
+  </compound>
+  <compound refid="structsc2d_1_1SceneConfigLoad" kind="struct"><name>sc2d::SceneConfigLoad</name>
+    <member refid="structsc2d_1_1SceneConfigLoad_1a8aba456fd72b4dabc1a4a396f2596150" kind="function"><name>operator()</name></member>
+  </compound>
+  <compound refid="structSectionUnit" kind="struct"><name>SectionUnit</name>
+    <member refid="structSectionUnit_1a4ffe8614d592effc23e4153d6e2bb2ac" kind="variable"><name>section_name</name></member>
+    <member refid="structSectionUnit_1a1e22c3fb60abe22805384c3d6c6b876d" kind="variable"><name>kv_pairs</name></member>
+  </compound>
+  <compound refid="classsc2d_1_1tiled_1_1Set" kind="class"><name>sc2d::tiled::Set</name>
+    <member refid="classsc2d_1_1tiled_1_1Set_1a74b9934f5b7f82efd454d038285f595e" kind="variable"><name>img_path</name></member>
+    <member refid="classsc2d_1_1tiled_1_1Set_1a0410e35e455cb9707ef48662ef17f4d4" kind="function"><name>set_img_path</name></member>
+    <member refid="classsc2d_1_1tiled_1_1Set_1adf4cb92857539132d6ab6a524f4a7e75" kind="function"><name>get_data_path</name></member>
+  </compound>
+  <compound refid="classsc2d_1_1Shader" kind="class"><name>sc2d::Shader</name>
+    <member refid="classsc2d_1_1Shader_1a1d16752d5929dab15dcc7759010c11ad" kind="variable"><name>shader_types</name></member>
+    <member refid="classsc2d_1_1Shader_1a86c4364be861154bf2bc420193908965" kind="variable"><name>program</name></member>
+    <member refid="classsc2d_1_1Shader_1aef37c27fd94bb88666c4be6f22de5d64" kind="function"><name>get_program</name></member>
+    <member refid="classsc2d_1_1Shader_1ad46388fe322cfc0f8dc075707764cf7e" kind="function"><name>run</name></member>
+    <member refid="classsc2d_1_1Shader_1a254eeaebe093ccca13c1f59a35e530c4" kind="function"><name>compile</name></member>
+    <member refid="classsc2d_1_1Shader_1a63d583ae227b8407f54cbcf8403034ef" kind="function"><name>set_mat4</name></member>
+    <member refid="classsc2d_1_1Shader_1a6b4705b88448e2a7d2f7a4c271c12999" kind="function"><name>set_vec3</name></member>
+    <member refid="classsc2d_1_1Shader_1a53f445adf5cfb80ef103984563c2c91c" kind="function"><name>set_vec2</name></member>
+    <member refid="classsc2d_1_1Shader_1a627d78334aeb0b21f0cec7e54a665b0a" kind="function"><name>set_int</name></member>
+    <member refid="classsc2d_1_1Shader_1ab40d02e56f8429037544228c6ed380d5" kind="function"><name>error_checking</name></member>
+    <member refid="classsc2d_1_1Shader_1a2ffe5c20e46fd94d8900bef66e3ca859" kind="function"><name>make_shader</name></member>
+  </compound>
+  <compound refid="structsc2d_1_1cshaders_1_1ShadersArray" kind="struct"><name>sc2d::cshaders::ShadersArray</name>
+    <member refid="structsc2d_1_1cshaders_1_1ShadersArray_1a81dff3456b312f137ba8237fdb9662c4" kind="variable"><name>vs_src</name></member>
+    <member refid="structsc2d_1_1cshaders_1_1ShadersArray_1af9595ccf3a6239f39acc05a7394010de" kind="variable"><name>fs_src</name></member>
+    <member refid="structsc2d_1_1cshaders_1_1ShadersArray_1aa1e865acb2891ae36d700abc5fd7b23f" kind="variable"><name>name</name></member>
+  </compound>
+  <compound refid="structmath_1_1size2d" kind="struct"><name>math::size2d</name>
+    <member refid="structmath_1_1size2d_1a65ea5646d7d17842ee951eefa70d798d" kind="variable"><name>width</name></member>
+    <member refid="structmath_1_1size2d_1a718eb82ed740406ff06576231cb5e7d2" kind="variable"><name>height</name></member>
+    <member refid="structmath_1_1size2d_1a87ca5e01f5da7b162b2bf3d43d24ad7b" kind="function"><name>size2d</name></member>
+    <member refid="structmath_1_1size2d_1acb7fbddb753387e117cae5daffc5059f" kind="function"><name>size2d</name></member>
+    <member refid="structmath_1_1size2d_1aa7c5c30aff365719608223dbddf522af" kind="function"><name>size2d</name></member>
+    <member refid="structmath_1_1size2d_1a1034064f1d022597ca4bce6c63818391" kind="function"><name>size2d</name></member>
+    <member refid="structmath_1_1size2d_1ae8d0fe581967431e71cf9ea2c57fbb3f" kind="function"><name>operator vec2</name></member>
+    <member refid="structmath_1_1size2d_1af348be7d277b5280273c0a73a964e6e2" kind="function"><name>operator=</name></member>
+    <member refid="structmath_1_1size2d_1a71198379024693e9064381be6791102c" kind="function"><name>operator=</name></member>
+    <member refid="structmath_1_1size2d_1a08f9a5ae799d5c3bb2be5851704079e3" kind="function"><name>operator+</name></member>
+    <member refid="structmath_1_1size2d_1aacb7e43c291c4c828b3d48dd27f28b70" kind="function"><name>operator-</name></member>
+    <member refid="structmath_1_1size2d_1acd697b9b78e2edf6e3131dd7c2e0d016" kind="function"><name>operator*</name></member>
+    <member refid="structmath_1_1size2d_1ae6199c29b41042fe992be6f8b160e332" kind="function"><name>operator/</name></member>
+    <member refid="structmath_1_1size2d_1a8d8e2b6c6a58856e2007dc0cc2b4d158" kind="function"><name>operator==</name></member>
+    <member refid="structmath_1_1size2d_1ae5f8c8ddf8ccf35a27bf245af88802ce" kind="function"><name>set_size</name></member>
+  </compound>
+  <compound refid="classsc2d_1_1Sprite" kind="class"><name>sc2d::Sprite</name>
+    <member refid="classsc2d_1_1Sprite_1a2ab78fda918f7de1a4362f41f2a77a90" kind="variable"><name>quad_vertices</name></member>
+    <member refid="classsc2d_1_1Sprite_1a1ddfdb886f20d8ec396083a523fdc1b6" kind="variable"><name>shader</name></member>
+    <member refid="classsc2d_1_1Sprite_1a7c54af0c9229fdf712b830747ec4e290" kind="variable"><name>quad_vao</name></member>
+    <member refid="classsc2d_1_1Sprite_1a23f96ea9abf85e1c02fb97dfdbecba76" kind="function"><name>Sprite</name></member>
+    <member refid="classsc2d_1_1Sprite_1a4ecd3b1fe1e5a34d7ebbf3f79b1ec8ca" kind="function"><name>draw</name></member>
+    <member refid="classsc2d_1_1Sprite_1a8b22663836ea4aae41305d0115d048b0" kind="function"><name>init_data</name></member>
+  </compound>
+  <compound refid="classsc2d_1_1SpriteSheetInstanced" kind="class"><name>sc2d::SpriteSheetInstanced</name>
+    <member refid="classsc2d_1_1SpriteSheetInstanced_1a893ea59b26d47284231ff40d0634f9f5" kind="variable"><name>quad_vertices</name></member>
+    <member refid="classsc2d_1_1SpriteSheetInstanced_1a8e3e75f63531925ec551d40740c9b9d9" kind="variable"><name>shader</name></member>
+    <member refid="classsc2d_1_1SpriteSheetInstanced_1a0333a3ba0b308016c493b92cc09dea26" kind="variable"><name>sprites_count</name></member>
+    <member refid="classsc2d_1_1SpriteSheetInstanced_1a600c88686c5323bb4310454b3d055283" kind="function"><name>SpriteSheetInstanced</name></member>
+    <member refid="classsc2d_1_1SpriteSheetInstanced_1a1cb9e9e8a6d0798b0db2dfa42e9b5620" kind="function"><name>init_data</name></member>
+    <member refid="classsc2d_1_1SpriteSheetInstanced_1ab743df9b3587a86a619d9c61eca8ba64" kind="function"><name>draw</name></member>
+  </compound>
+  <compound refid="structsc2d_1_1SpriteSheetInstanceData" kind="struct"><name>sc2d::SpriteSheetInstanceData</name>
+    <member refid="structsc2d_1_1SpriteSheetInstanceData_1ad635a9c930675ec8287a9b88cb62399c" kind="variable"><name>gid</name></member>
+    <member refid="structsc2d_1_1SpriteSheetInstanceData_1a69c41cf74f4a5a95e9fc4da5431dfce0" kind="variable"><name>pos</name></member>
+    <member refid="structsc2d_1_1SpriteSheetInstanceData_1a2e5e608260c8e1536c947150b9affe88" kind="function"><name>SpriteSheetInstanceData</name></member>
+  </compound>
+  <compound refid="structTestComponent" kind="struct"><name>TestComponent</name>
+    <member refid="structTestComponent_1a89cab128ebdf0c3ac0382dbe77f0051a" kind="variable"><name>x</name></member>
+    <member refid="structTestComponent_1a0af7d6c9a73690ec23135af2e0c8ec06" kind="variable"><name>y</name></member>
+  </compound>
+  <compound refid="classsc2d_1_1Texture2d" kind="class"><name>sc2d::Texture2d</name>
+    <member refid="classsc2d_1_1Texture2d_1a1dec1540e97e153bff91efc448ee48f8" kind="variable"><name>obj_id</name></member>
+    <member refid="classsc2d_1_1Texture2d_1a48a44ebe6fa8fb76bf61cb538c2cd48d" kind="variable"><name>width</name></member>
+    <member refid="classsc2d_1_1Texture2d_1ab817a482af442c026ee89ecfdb71077f" kind="variable"><name>height</name></member>
+    <member refid="classsc2d_1_1Texture2d_1a457633113d179377446b0bd8c9131396" kind="variable"><name>internal_format</name></member>
+    <member refid="classsc2d_1_1Texture2d_1a3893da30574cc1999e1731f15e16b37e" kind="variable"><name>image_format</name></member>
+    <member refid="classsc2d_1_1Texture2d_1a87916104d3d5cc87151d838006de5b83" kind="variable"><name>wrap_s</name></member>
+    <member refid="classsc2d_1_1Texture2d_1a1aedb81b8f7448b69389ab58feb59d73" kind="variable"><name>wrap_t</name></member>
+    <member refid="classsc2d_1_1Texture2d_1a613743f543ed17364f26c05615fb4fca" kind="variable"><name>filter_min</name></member>
+    <member refid="classsc2d_1_1Texture2d_1a39b1a21a614e8f9efa25e4e1dfc45a48" kind="variable"><name>filter_max</name></member>
+    <member refid="classsc2d_1_1Texture2d_1a156a72ee4022efac2570a8794b469193" kind="variable"><name>data</name></member>
+    <member refid="classsc2d_1_1Texture2d_1a52d8bde75ca98942812ec32f356359da" kind="function"><name>Texture2d</name></member>
+    <member refid="classsc2d_1_1Texture2d_1a77d5a2fb4eefdce514844127680f2688" kind="function"><name>Texture2d</name></member>
+    <member refid="classsc2d_1_1Texture2d_1a93f00eee473909d927427e5329410175" kind="function"><name>bind</name></member>
+    <member refid="classsc2d_1_1Texture2d_1a4e47938f401846701f048fcf93cde4c5" kind="function"><name>get_obj_id</name></member>
+    <member refid="classsc2d_1_1Texture2d_1ac65f91d22ace9ec4beaa4f0ec10fb197" kind="function"><name>generate</name></member>
+  </compound>
+  <compound refid="classsc2d_1_1TextureAtlas" kind="class"><name>sc2d::TextureAtlas</name>
+    <member refid="classsc2d_1_1TextureAtlas_1ae212e483a69428e8680b1aa3437860d1" kind="variable"><name>data</name></member>
+    <member refid="classsc2d_1_1TextureAtlas_1a237c4504bc43afe11e3a3b76f53e2d05" kind="variable"><name>obj_id</name></member>
+    <member refid="classsc2d_1_1TextureAtlas_1aadb93d6a4d0e42bb1bf923e6ea7664e7" kind="variable"><name>width</name></member>
+    <member refid="classsc2d_1_1TextureAtlas_1a8ef57c2334f0d267ece5cea1f70a7ca4" kind="variable"><name>height</name></member>
+    <member refid="classsc2d_1_1TextureAtlas_1acab7bd2cc6dcd563c55d9ef2530537b8" kind="variable"><name>rows</name></member>
+    <member refid="classsc2d_1_1TextureAtlas_1a291dd32264b51cd11a0198f88a0a7cd8" kind="variable"><name>columns</name></member>
+    <member refid="classsc2d_1_1TextureAtlas_1a566aba83836f0ab6c99d4498d15b4eaf" kind="variable"><name>internal_format</name></member>
+    <member refid="classsc2d_1_1TextureAtlas_1aabeb2a16a31fc053701646f91882d6cd" kind="variable"><name>image_format</name></member>
+    <member refid="classsc2d_1_1TextureAtlas_1a6471b73c44bba0fabd1ecd68824406ed" kind="variable"><name>wrap_s</name></member>
+    <member refid="classsc2d_1_1TextureAtlas_1ad26d92c42b74bc6ca090f2066dd759c4" kind="variable"><name>wrap_t</name></member>
+    <member refid="classsc2d_1_1TextureAtlas_1a9332f575272e788f175603cf9e59251c" kind="variable"><name>filter_min</name></member>
+    <member refid="classsc2d_1_1TextureAtlas_1a6e88971144564710f3f9468c97df892e" kind="variable"><name>filter_max</name></member>
+    <member refid="classsc2d_1_1TextureAtlas_1a7b86cb70f39ffa5ad6b2516b5ce5407c" kind="function"><name>TextureAtlas</name></member>
+    <member refid="classsc2d_1_1TextureAtlas_1a7e0aa19b8e9e13a25cf04387f4bc0ff9" kind="function"><name>TextureAtlas</name></member>
+    <member refid="classsc2d_1_1TextureAtlas_1a7936963dc3a6e8334d07bcaf0d514439" kind="function"><name>bind</name></member>
+    <member refid="classsc2d_1_1TextureAtlas_1af442ca460381b9c13d8880d1fac06da7" kind="function"><name>get_obj_id</name></member>
+    <member refid="classsc2d_1_1TextureAtlas_1ae0467d0019b4c591297c8a204dc79214" kind="function"><name>generate</name></member>
+  </compound>
+  <compound refid="structmath_1_1utils" kind="struct"><name>math::utils</name>
+    <member refid="structmath_1_1utils_1ac138b736f332b03adfac51baaad6027a" kind="function"><name>cmp</name></member>
+    <member refid="structmath_1_1utils_1a265204da63fa1192c173c4944ec67363" kind="function"><name>absolute</name></member>
+    <member refid="structmath_1_1utils_1ae8c19c230a03b2a8b8ca6f3604fa4648" kind="function"><name>relative</name></member>
+    <member refid="structmath_1_1utils_1aea1d3fa9a81bce6626a0bb6d2ef3d982" kind="function"><name>rad2deg</name></member>
+    <member refid="structmath_1_1utils_1a321e2eedf82d272a8b92e774f9060c0b" kind="function"><name>deg2rad</name></member>
+    <member refid="structmath_1_1utils_1ab7925a5c5edb6a7c6afb60c9a0e13777" kind="function"><name>clamp</name></member>
+    <member refid="structmath_1_1utils_1aa5fb0b44f2916e472e48b5a0c77e7550" kind="function"><name>max</name></member>
+  </compound>
+  <compound refid="classsc2d_1_1vec" kind="class"><name>sc2d::vec</name>
+    <member refid="classsc2d_1_1vec_1ab6c903e0f0b443d34d1c0e4392771ba3" kind="typedef"><name>value_type</name></member>
+    <member refid="classsc2d_1_1vec_1a666420d51dc57d3cb47f8fea7cb4eb61" kind="typedef"><name>reference</name></member>
+    <member refid="classsc2d_1_1vec_1a9ca0060222e65609a9a095e8864ae2c5" kind="typedef"><name>const_reference</name></member>
+    <member refid="classsc2d_1_1vec_1a245def5128e4dfaedc7ee67d128added" kind="typedef"><name>pointer</name></member>
+    <member refid="classsc2d_1_1vec_1a9cce337645596edb51a9746c38df9825" kind="typedef"><name>const_pointer</name></member>
+    <member refid="classsc2d_1_1vec_1a888c701b439a5ebadc8e87c1a0ec976c" kind="typedef"><name>iterator</name></member>
+    <member refid="classsc2d_1_1vec_1ac783480885792fff20407dee2510496c" kind="typedef"><name>const_iterator</name></member>
+    <member refid="classsc2d_1_1vec_1a47201f522d785dcc94dd21bcc95083b1" kind="typedef"><name>reverse_iterator</name></member>
+    <member refid="classsc2d_1_1vec_1a72356d64d1ce70c76960450ced3c910e" kind="typedef"><name>const_reverse_iterator</name></member>
+    <member refid="classsc2d_1_1vec_1ac0b76a37a881547569fafede977f4e3a" kind="typedef"><name>difference_type</name></member>
+    <member refid="classsc2d_1_1vec_1afd3f823ff9c119233468f7faf9891362" kind="typedef"><name>size_type</name></member>
+    <member refid="classsc2d_1_1vec_1abeec1f33a18a56daa31212b8c5aaa036" kind="typedef"><name>IS_T_TRIVIAL</name></member>
+    <member refid="classsc2d_1_1vec_1a97e30845ff6df0325ddd318d8771fa87" kind="variable"><name>initial_size</name></member>
+    <member refid="classsc2d_1_1vec_1a20362d20173a8315d294034d6e64dacc" kind="variable"><name>array</name></member>
+    <member refid="classsc2d_1_1vec_1a7fda4a7fecccf1263a80d62d3e9d2ad8" kind="variable"><name>pool_alloc</name></member>
+    <member refid="classsc2d_1_1vec_1afcefd06d5906ac222d11e08855311154" kind="function"><name>vec</name></member>
+    <member refid="classsc2d_1_1vec_1a0ff942dd9738e936122675eebf2ba719" kind="function"><name>vec</name></member>
+    <member refid="classsc2d_1_1vec_1ab7c841a3ee71ad3f9a15d703328daa43" kind="function"><name>vec</name></member>
+    <member refid="classsc2d_1_1vec_1a0009d1ca75442e5ddf6385fac67222d0" kind="function"><name>vec</name></member>
+    <member refid="classsc2d_1_1vec_1a3b9057afc21027aaf672a58a6c8312e4" kind="function"><name>vec</name></member>
+    <member refid="classsc2d_1_1vec_1accf4a70d3f70ad041ebca4bf1b26b06a" kind="function"><name>vec</name></member>
+    <member refid="classsc2d_1_1vec_1ab588eeb4161c7acb6108bbf893ec01f8" kind="function"><name>vec</name></member>
+    <member refid="classsc2d_1_1vec_1a2df01894c53abb4b106c0ace020d1e6f" kind="function"><name>~vec</name></member>
+    <member refid="classsc2d_1_1vec_1a4bfee2e7b5eed4915bc47847aa65d1d7" kind="function"><name>operator=</name></member>
+    <member refid="classsc2d_1_1vec_1a08491e66fc10434252723533c4e8774c" kind="function"><name>operator=</name></member>
+    <member refid="classsc2d_1_1vec_1ac5a80b4e4bd064b874be5e13f589c4c9" kind="function"><name>operator=</name></member>
+    <member refid="classsc2d_1_1vec_1a7994842384d31bbfd3f616c66cf8e533" kind="function"><name>assign</name></member>
+    <member refid="classsc2d_1_1vec_1a6e56c1055426cd82032aa24cd62586e6" kind="function"><name>assign</name></member>
+    <member refid="classsc2d_1_1vec_1a8c96a9f298f50b7771fdd702f1e550e3" kind="function"><name>assign</name></member>
+    <member refid="classsc2d_1_1vec_1a1fe031bc1c9e337be5659e0ce9e2f94f" kind="function"><name>begin</name></member>
+    <member refid="classsc2d_1_1vec_1a57bbe25b45f96c553b6777483016e0ce" kind="function"><name>end</name></member>
+    <member refid="classsc2d_1_1vec_1a9aa99ff55102601946ba57a7a439b873" kind="function"><name>cbegin</name></member>
+    <member refid="classsc2d_1_1vec_1a993f1b1b0afcd05c68f7aa3f02db7c9a" kind="function"><name>cend</name></member>
+    <member refid="classsc2d_1_1vec_1a640d1aaa377f66df633d381797f706cc" kind="function"><name>rbegin</name></member>
+    <member refid="classsc2d_1_1vec_1aee893d81cabfc7e371f072ca2569843c" kind="function"><name>rend</name></member>
+    <member refid="classsc2d_1_1vec_1a39e8c5111a220b88ccd5de345ded8142" kind="function"><name>crbegin</name></member>
+    <member refid="classsc2d_1_1vec_1ac01b2e763a46984eefd2d7fb336960df" kind="function"><name>crend</name></member>
+    <member refid="classsc2d_1_1vec_1a64cb948512a741a434fd4959d73a12b9" kind="function"><name>empty</name></member>
+    <member refid="classsc2d_1_1vec_1aac87428778f8596670f97f3b3e6c38cb" kind="function"><name>size</name></member>
+    <member refid="classsc2d_1_1vec_1a178f50e8a6c0df98e755b2ecea890e56" kind="function"><name>max_size</name></member>
+    <member refid="classsc2d_1_1vec_1aeb1b9e68ab05c7c9127cf966edbf66b9" kind="function"><name>capacity</name></member>
+    <member refid="classsc2d_1_1vec_1a2003dfac46df0dfc2bc03a698a32d6ef" kind="function"><name>resize</name></member>
+    <member refid="classsc2d_1_1vec_1a3d1f93fd89be61cebd141a9263f6b07f" kind="function"><name>resize</name></member>
+    <member refid="classsc2d_1_1vec_1a899b4e56c49c62563ce84916d7e6257d" kind="function"><name>reverse</name></member>
+    <member refid="classsc2d_1_1vec_1a996dd3cdba84ae7a763b9a93055d2bdf" kind="function"><name>shrink_to_fit</name></member>
+    <member refid="classsc2d_1_1vec_1a0d395697c7d00a0f27082bf03bbbbc44" kind="function"><name>operator[]</name></member>
+    <member refid="classsc2d_1_1vec_1afb4bd9bba8dc46d5ada84262e0d78da3" kind="function"><name>operator[]</name></member>
+    <member refid="classsc2d_1_1vec_1a99d379f5618838a334a8307faaa07e65" kind="function"><name>at</name></member>
+    <member refid="classsc2d_1_1vec_1a4a5aa1823d60a97d8d28d0c609c9ac27" kind="function"><name>at</name></member>
+    <member refid="classsc2d_1_1vec_1aa5b1ea957bc93492631dd36030aee3da" kind="function"><name>front</name></member>
+    <member refid="classsc2d_1_1vec_1a01f287663e9110eeda340ec77a3e81c0" kind="function"><name>front</name></member>
+    <member refid="classsc2d_1_1vec_1ae9888026a04841a1ea6124adb5180bd9" kind="function"><name>back</name></member>
+    <member refid="classsc2d_1_1vec_1aff639dd01ca63e73010714aa3c7392b9" kind="function"><name>back</name></member>
+    <member refid="classsc2d_1_1vec_1a9a8ad99a5a004450a678f6fef8ac7e0c" kind="function"><name>data</name></member>
+    <member refid="classsc2d_1_1vec_1a6d9402b5b931c48154ca5cf5f51cb922" kind="function"><name>data</name></member>
+    <member refid="classsc2d_1_1vec_1aecf851156dca24530bf1593637c80eda" kind="function"><name>emplace_back</name></member>
+    <member refid="classsc2d_1_1vec_1a88916af1bddbe758af2ec38a557a0372" kind="function"><name>push_back</name></member>
+    <member refid="classsc2d_1_1vec_1a3ffa00b8c4fd29c80da1032bf3245d72" kind="function"><name>push_back</name></member>
+    <member refid="classsc2d_1_1vec_1a4a8286863d21254d801e88eac0f5c805" kind="function"><name>pop_back</name></member>
+    <member refid="classsc2d_1_1vec_1aba1b2880be5e4e5925d1534279949d65" kind="function"><name>emplace</name></member>
+    <member refid="classsc2d_1_1vec_1add0f30278a01f084d3f297af00998b79" kind="function"><name>insert</name></member>
+    <member refid="classsc2d_1_1vec_1a4b9d0592341fc6a955d6b80ec68ad10c" kind="function"><name>insert</name></member>
+    <member refid="classsc2d_1_1vec_1ac728f5ada6a294f72798c90e0029353a" kind="function"><name>insert</name></member>
+    <member refid="classsc2d_1_1vec_1ae4bbd60812916bd3c75e227143a28e55" kind="function"><name>insert</name></member>
+    <member refid="classsc2d_1_1vec_1a07f3f0153a60827b03a80c491788a665" kind="function"><name>insert</name></member>
+    <member refid="classsc2d_1_1vec_1a174295463d9a1491a1e9aeb3802c5ffc" kind="function"><name>erase</name></member>
+    <member refid="classsc2d_1_1vec_1a73565575f5957283b9208383800d0adb" kind="function"><name>erase</name></member>
+    <member refid="classsc2d_1_1vec_1a12409b21d101c2238fcb1b9230d5c793" kind="function"><name>swap</name></member>
+    <member refid="classsc2d_1_1vec_1a3b51edf6156943d1b639edd6d450d923" kind="function"><name>clear</name></member>
+    <member refid="classsc2d_1_1vec_1a555f4c2aa083197f3b69301f1c2f34d1" kind="function"><name>operator==</name></member>
+    <member refid="classsc2d_1_1vec_1ac8cc26445a265b01bb91d4e1d9761ddd" kind="function"><name>operator!=</name></member>
+    <member refid="classsc2d_1_1vec_1abfa83631155411bcbee637fda8b550f9" kind="function"><name>operator&lt;</name></member>
+    <member refid="classsc2d_1_1vec_1ad75a494b7d7dc7186b6a0d7168f62413" kind="function"><name>operator&lt;=</name></member>
+    <member refid="classsc2d_1_1vec_1a22cad5f6bcd649d67d9f25ee42559c05" kind="function"><name>operator&gt;</name></member>
+    <member refid="classsc2d_1_1vec_1ab5dd148da364716d3c2372b61941be2b" kind="function"><name>operator&gt;=</name></member>
+    <member refid="classsc2d_1_1vec_1ab9a8ecbae50623509eaa22e5eae36b1a" kind="function"><name>emplace</name></member>
+    <member refid="classsc2d_1_1vec_1a019f9dae80bc5dd30789afee3ef661f4" kind="function"><name>allocate</name></member>
+  </compound>
+  <compound refid="structmath_1_1vec2" kind="struct"><name>math::vec2</name>
+    <member refid="structmath_1_1vec2_1a80b10d5dce55f531250dc88c9afd2d2b" kind="variable"><name>x</name></member>
+    <member refid="structmath_1_1vec2_1aec0b4a209674ce9a5fba6f76f514f777" kind="variable"><name>y</name></member>
+    <member refid="structmath_1_1vec2_1a4ee399d6f002c4ec24f406e04d52e281" kind="function"><name>vec2</name></member>
+    <member refid="structmath_1_1vec2_1a7c9641e308af00f8e875de6cd07da88e" kind="function"><name>vec2</name></member>
+    <member refid="structmath_1_1vec2_1a1ffee39907a0aa106ac5b8a5faa3d7b0" kind="function"><name>operator[]</name></member>
+    <member refid="structmath_1_1vec2_1a62d6627cb78093fe11107ea52c284583" kind="function"><name>operator[]</name></member>
+    <member refid="structmath_1_1vec2_1a29bcd05742fc42c3cce9883693e81b75" kind="function"><name>operator*=</name></member>
+    <member refid="structmath_1_1vec2_1a5a1153001cba3493edd3a2d8d6060ae2" kind="function"><name>operator/=</name></member>
+    <member refid="structmath_1_1vec2_1af99deb7c62b5c3e494854e6ba83f7422" kind="function"><name>operator+=</name></member>
+    <member refid="structmath_1_1vec2_1a9c6705809a9bfa54e6cde070f10a4984" kind="function"><name>operator-=</name></member>
+    <member refid="structmath_1_1vec2_1acd0ced7ddd62abdb2a2afb8a37392037" kind="friend"><name>operator&lt;&lt;</name></member>
+  </compound>
+  <compound refid="structmath_1_1vec3" kind="struct"><name>math::vec3</name>
+    <member refid="structmath_1_1vec3_1ac81d749b495547ce99fd0e92a2d7cfd9" kind="variable"><name>x</name></member>
+    <member refid="structmath_1_1vec3_1a4df2cecd37051e9e67392d41a9348958" kind="variable"><name>y</name></member>
+    <member refid="structmath_1_1vec3_1a776b1be89ea22b7adc32b499e34873b4" kind="variable"><name>z</name></member>
+    <member refid="structmath_1_1vec3_1a0c7c6df94835c81e59a8b2532baac72b" kind="function"><name>vec3</name></member>
+    <member refid="structmath_1_1vec3_1a56041c7d4745ffbeb12df19ffd228e7a" kind="function"><name>vec3</name></member>
+    <member refid="structmath_1_1vec3_1ab44d4240ab19e9c9905e26ce192029b0" kind="function"><name>operator[]</name></member>
+    <member refid="structmath_1_1vec3_1aa3618efa56c52bafa76101a4c614bed6" kind="function"><name>operator[]</name></member>
+    <member refid="structmath_1_1vec3_1ad585c0077344f18e19adf83ff1a9b714" kind="function"><name>operator*=</name></member>
+    <member refid="structmath_1_1vec3_1a33aaa0796a55338a5a9ccc126a4c396c" kind="function"><name>operator/=</name></member>
+    <member refid="structmath_1_1vec3_1a46cf290e5c6454b514e96b8d6bffdf2d" kind="function"><name>operator+=</name></member>
+    <member refid="structmath_1_1vec3_1a4a9e71942931cebe75ca6c4a59e38e44" kind="function"><name>operator-=</name></member>
+    <member refid="structmath_1_1vec3_1a4bd64a414e31d04644f4caec34fcb8af" kind="friend"><name>operator&lt;&lt;</name></member>
+  </compound>
+  <compound refid="structmath_1_1vec4" kind="struct"><name>math::vec4</name>
+    <member refid="structmath_1_1vec4_1a4fdbdf4663033c52af87921a30db1952" kind="variable"><name>x</name></member>
+    <member refid="structmath_1_1vec4_1afacd49516ee40dc7972f7ee3704cad04" kind="variable"><name>y</name></member>
+    <member refid="structmath_1_1vec4_1a3346f6924554c251c32fea4b95ea7402" kind="variable"><name>z</name></member>
+    <member refid="structmath_1_1vec4_1a260d5e49ff0b66b99db21df283d1cea1" kind="variable"><name>w</name></member>
+    <member refid="structmath_1_1vec4_1ae8174c4249d30ecacb1976a0eb5303d2" kind="function"><name>vec4</name></member>
+    <member refid="structmath_1_1vec4_1adf056554f6db3e629d32909ebc4e71c5" kind="function"><name>vec4</name></member>
+    <member refid="structmath_1_1vec4_1af467f0f57b5071d1dba3e5ddc1dc1c15" kind="function"><name>operator[]</name></member>
+    <member refid="structmath_1_1vec4_1a001a7e67abbd893ba55b74f43e31f554" kind="function"><name>operator[]</name></member>
+    <member refid="structmath_1_1vec4_1a1308a1344a9c95b9e74ffe0cf991c3ca" kind="function"><name>operator*=</name></member>
+    <member refid="structmath_1_1vec4_1a659b3011316a6d357be57dd69a1f7217" kind="function"><name>operator/=</name></member>
+    <member refid="structmath_1_1vec4_1ac3c42d2c2cb0c72a7d53f86c9a16016e" kind="function"><name>operator+=</name></member>
+    <member refid="structmath_1_1vec4_1a2ab8d4652ee7f7d4150d669b188fd70f" kind="function"><name>operator-=</name></member>
+    <member refid="structmath_1_1vec4_1a1926ce7e95f766e792f64c9d7cc6f3f2" kind="friend"><name>operator&lt;&lt;</name></member>
+  </compound>
+  <compound refid="structsc2d_1_1Vertex" kind="struct"><name>sc2d::Vertex</name>
+    <member refid="structsc2d_1_1Vertex_1a01188c98be7ce285dce3d35e8c786e51" kind="variable"><name>pos</name></member>
+    <member refid="structsc2d_1_1Vertex_1ab38c25d9d4d1d584927a1e7d498486fe" kind="variable"><name>uv</name></member>
+  </compound>
+  <compound refid="classsc2d_1_1Window" kind="class"><name>sc2d::Window</name>
+    <member refid="classsc2d_1_1Window_1a1664d992d73ac3f06762a47ecdeacfab" kind="variable"><name>window_data</name></member>
+    <member refid="classsc2d_1_1Window_1ae39001b5756a90cae384ffec85463215" kind="variable"><name>window</name></member>
+    <member refid="classsc2d_1_1Window_1a57eae413436389086cab23df70c1ee5f" kind="function"><name>Window</name></member>
+    <member refid="classsc2d_1_1Window_1a3ec821ef0028b7b6a98b3931d44c95c8" kind="function"><name>get_window</name></member>
+  </compound>
+  <compound refid="structsc2d_1_1WindowData" kind="struct"><name>sc2d::WindowData</name>
+    <member refid="structsc2d_1_1WindowData_1a329927b97d37a7039b04a003444e099a" kind="variable"><name>context_version_min</name></member>
+    <member refid="structsc2d_1_1WindowData_1a241f55fe0787d8bd9b879304e68c597c" kind="variable"><name>context_version_max</name></member>
+    <member refid="structsc2d_1_1WindowData_1a725afa79d23cc1bcc1c9aaa56d11c5a4" kind="variable"><name>opengl_profile</name></member>
+    <member refid="structsc2d_1_1WindowData_1acd449e0527c50a1aa8856ce8a3d7b015" kind="variable"><name>screen_width</name></member>
+    <member refid="structsc2d_1_1WindowData_1a0eb4d71f46f60e04e4c8bfef06b61082" kind="variable"><name>screen_height</name></member>
+    <member refid="structsc2d_1_1WindowData_1ac590af28b89a6e785d9065125012dee2" kind="variable"><name>window_name</name></member>
+    <member refid="structsc2d_1_1WindowData_1ae8e59cd551270fb8aa306f8a01db3c78" kind="variable"><name>frame_buffer_size_callback</name></member>
+    <member refid="structsc2d_1_1WindowData_1a503aa995fc885844bc4bca1c979c7990" kind="variable"><name>key_callback</name></member>
+  </compound>
+  <compound refid="namespaceallocs" kind="namespace"><name>allocs</name>
+    <member refid="allocator_8inl_1ab06704c73066d03e068b2c9cb36d6169" kind="function"><name>allocate_new</name></member>
+    <member refid="allocator_8inl_1a4b58d56fbaf05621a779479eb74ac4dd" kind="function"><name>deallocate_delete</name></member>
+    <member refid="allocator_8inl_1af13a4c318d2a73cd275a8fa4ca8653bb" kind="function"><name>allocate_array</name></member>
+    <member refid="allocator_8inl_1ada43263d108cad440b8ef5c82f89b78b" kind="function"><name>allocate_array_no_construct</name></member>
+    <member refid="allocator_8inl_1acfa9935f78921672631beec261352c3a" kind="function"><name>deallocate_array</name></member>
+    <member refid="allocator_8inl_1ac6f64cf4869f080c7cb417a4e83ad2d4" kind="function"><name>deallocate_array_no_destuct</name></member>
+  </compound>
+  <compound refid="namespacemath" kind="namespace"><name>math</name>
+    <member refid="geometry2d_8h_1ab387442ef71f95e173b48b73fb790dd4" kind="typedef"><name>point2d</name></member>
+    <member refid="geometry2d_8h_1aa1eda969688fcf769dd0eed1f20d6af3" kind="function"><name>point_on_line</name></member>
+    <member refid="geometry2d_8h_1aaf0d7de01a4f23a72659390682be9d7b" kind="function"><name>point_in_circle</name></member>
+    <member refid="geometry2d_8h_1adf7f80f971356579d3cc323b3d4fe162" kind="function"><name>point_in_rect</name></member>
+    <member refid="geometry2d_8h_1ab78172093915db8f2eab13fa4d4d1761" kind="function"><name>point_in_orrect</name></member>
+    <member refid="geometry2d_8h_1a41c131a0fbbac4981b19214522e10a73" kind="function"><name>line_circle</name></member>
+    <member refid="geometry2d_8h_1a3c2212241dd44d19078a7258d38b52e3" kind="function"><name>line_rect</name></member>
+    <member refid="geometry2d_8h_1a1d5bcfd1bdb04d83e6fd89111c6c5331" kind="function"><name>line_orrect</name></member>
+    <member refid="geometry2d_8h_1abd1ac50421fa724ee737898232754fe5" kind="function"><name>overlap_on_axis</name></member>
+    <member refid="geometry2d_8h_1a2c4e315cd75e1e33144598a3a4055af9" kind="function"><name>overlap_on_axis</name></member>
+    <member refid="geometry2d_8h_1ab08e8a95f5cecde0ef35bdb0ea6276a2" kind="function"><name>containing_circle</name></member>
+    <member refid="geometry2d_8h_1aec0c5a521073e77f8f1716e9366d8b72" kind="function"><name>containing_rectangle</name></member>
+    <member refid="geometry2d_8h_1ab7c9055609a47184efb427f3d641de8e" kind="function"><name>point_in_shape</name></member>
+    <member refid="transform_8cpp_1a24e2c2ede7c5140bd30d24f6649657c8" kind="function"><name>translation</name></member>
+    <member refid="transform_8cpp_1aa0c43ddcd2e2594c54ff8af2c483c481" kind="function"><name>translation</name></member>
+    <member refid="transform_8cpp_1af1e713c78634cd2a593ecfdbca35f7dd" kind="function"><name>get_translation</name></member>
+    <member refid="transform_8cpp_1a3df55746994ce2ef128d8b2bd61aea43" kind="function"><name>scale</name></member>
+    <member refid="transform_8cpp_1aca79ce04db0ff573b988716881c5386b" kind="function"><name>scale</name></member>
+    <member refid="transform_8cpp_1adbabb6d9e9074e4f4c2f2284abcc20bd" kind="function"><name>get_scale</name></member>
+    <member refid="transform_8cpp_1a263d983cd366d975b532c2a070d63d14" kind="function"><name>rotation</name></member>
+    <member refid="transform_8cpp_1ab03ba00106039894b0cd1904c631081e" kind="function"><name>rotation3x3</name></member>
+    <member refid="transform_8cpp_1a07c1c2643765f76ba23599252f25af28" kind="function"><name>z_rotation</name></member>
+    <member refid="transform_8cpp_1aee697a9ae1031a21f16e2350c033d367" kind="function"><name>z_rotation3x3</name></member>
+    <member refid="transform_8cpp_1a42c2db3fad0a02aa66f683b26f75a1e5" kind="function"><name>y_rotation</name></member>
+    <member refid="transform_8cpp_1a240713179d7570578f5ee245f5ba0643" kind="function"><name>y_rotation3x3</name></member>
+    <member refid="transform_8cpp_1acd8379e4f0de408168812d06673247d4" kind="function"><name>x_rotation</name></member>
+    <member refid="transform_8cpp_1a5b6eebd193e9bb01a3cd16a89574adf9" kind="function"><name>x_rotation3x3</name></member>
+    <member refid="transform_8cpp_1acc0259c1d6819b13bc674c2475a0b0a8" kind="function"><name>axis_angle</name></member>
+    <member refid="transform_8cpp_1addf9414517610067caf7360a446ee4e3" kind="function"><name>axis_angle3x3</name></member>
+    <member refid="transform_8cpp_1a0414738219225821e4131382fdf4eb6e" kind="function"><name>multiply_vector</name></member>
+    <member refid="transform_8cpp_1aab03f919c50045605479ab1ac1ec5064" kind="function"><name>multiply_vector</name></member>
+    <member refid="transform_8cpp_1a12e24e0db6a1f251311d8ee87767e533" kind="function"><name>multiply_vector</name></member>
+    <member refid="transform_8cpp_1a809f51492eb1c67c1ee51c23e1b18eb2" kind="function"><name>transform</name></member>
+    <member refid="transform_8cpp_1a48dffd469cae004baa43936dade61ae2" kind="function"><name>transform</name></member>
+    <member refid="transform_8cpp_1a636acaa39c81312d7ad44ee3c1e335c3" kind="function"><name>look_at</name></member>
+    <member refid="transform_8cpp_1a0edaa7dec1069e1bfccc4a21bcba5e15" kind="function"><name>perspective</name></member>
+    <member refid="transform_8cpp_1aa3ff8d30c68f676a642cccc976dd49d9" kind="function"><name>ortho</name></member>
+    <member refid="vector2_8h_1a3456527eba6606d605f25d01db67a921" kind="function"><name>operator==</name></member>
+    <member refid="vector2_8h_1a6eb9f8aab29175369238ad875261e6e3" kind="function"><name>operator!=</name></member>
+    <member refid="vector2_8h_1ad88d3b53b174728c8940b3038aef9141" kind="function"><name>operator*</name></member>
+    <member refid="vector2_8h_1a2302678aa415c7ee32c699b90997beb6" kind="function"><name>operator*</name></member>
+    <member refid="vector2_8h_1a16d49073076106b44f452b7b7550fd76" kind="function"><name>operator/</name></member>
+    <member refid="vector2_8h_1a3dbe67d4733a19991cf39ca186c85209" kind="function"><name>operator+</name></member>
+    <member refid="vector2_8h_1a8e8171b9d634370e32cc25fae556b4bc" kind="function"><name>operator-</name></member>
+    <member refid="vector2_8h_1a93f7f9084e149e42193f7909ee99a2c7" kind="function"><name>dot</name></member>
+    <member refid="vector2_8h_1a51788ba9f4525d6bd45e411b7b186793" kind="function"><name>magnitude</name></member>
+    <member refid="vector2_8h_1ad2d695e6a1bd5f184c6221db9e2350a2" kind="function"><name>magnitudeSq</name></member>
+    <member refid="vector2_8h_1a45f6d1075aaa2fc3a9c5acaf7c79116b" kind="function"><name>distance</name></member>
+    <member refid="vector2_8h_1a40e2576eed9b3b236dbd701800f06cba" kind="function"><name>normalize</name></member>
+    <member refid="vector2_8h_1ade9fefbcc586a94034ae83f74177d00f" kind="function"><name>angle</name></member>
+    <member refid="vector2_8h_1ae4e1e92d04d458a30682e2720dfee71a" kind="function"><name>project</name></member>
+    <member refid="vector2_8h_1ae8bb619a793429b0cf523beb2a84f92e" kind="function"><name>perpendicular</name></member>
+    <member refid="vector2_8h_1aa21ce35b4699217def78487e13ee6502" kind="function"><name>reflection</name></member>
+    <member refid="vector3_8h_1a6be9646f339b92faea19313a45bdb23a" kind="function"><name>operator==</name></member>
+    <member refid="vector3_8h_1a665070c39d73b09ba4d92efda459a363" kind="function"><name>operator!=</name></member>
+    <member refid="vector3_8h_1aa35437d6be71b38f0148d636f61c4393" kind="function"><name>operator*</name></member>
+    <member refid="vector3_8h_1ae9f0e297ac74bc706a717a46e73fd61c" kind="function"><name>operator*</name></member>
+    <member refid="vector3_8h_1a6b75c9bed1c0d9f9a7fa1d68f72025ca" kind="function"><name>operator/</name></member>
+    <member refid="vector3_8h_1abc34bc848b45b39cdaf34561ed7af937" kind="function"><name>operator+</name></member>
+    <member refid="vector3_8h_1afbcbd5bc5a31b4cc3b99f471193cf87d" kind="function"><name>operator-</name></member>
+    <member refid="vector3_8h_1a6735f00f1570fba22efbbcd1e325f46d" kind="function"><name>dot</name></member>
+    <member refid="vector3_8h_1acf2cabba80b724d8de8b464dddad07b9" kind="function"><name>magnitude</name></member>
+    <member refid="vector3_8h_1a5f874c3f25db1e2306e3d2d929d096f2" kind="function"><name>magnitudeSq</name></member>
+    <member refid="vector3_8h_1aa43ca9e7acb84c4aa7837ba9501fff6c" kind="function"><name>distance</name></member>
+    <member refid="vector3_8h_1a237e71d3334e2412f5dfb04f99975bf7" kind="function"><name>normalize</name></member>
+    <member refid="vector3_8h_1aee2ac0ed9899f1feb7d90d5cbbb22747" kind="function"><name>cross</name></member>
+    <member refid="vector3_8h_1a9756c54e04a73def490b9cc9be069185" kind="function"><name>angle</name></member>
+    <member refid="vector3_8h_1a4c5c35138d3a0ecadc46fbdba17ed433" kind="function"><name>project</name></member>
+    <member refid="vector3_8h_1aa4a87b25abf7ea925f45a0ee511b36da" kind="function"><name>perpendicular</name></member>
+    <member refid="vector3_8h_1ac48af7c8e433ad42517851cf07a46c77" kind="function"><name>reflection</name></member>
+    <member refid="vector4_8h_1a081e7f5384ba4d55a9e123cb4550a7d3" kind="function"><name>operator==</name></member>
+    <member refid="vector4_8h_1a2a9f748934841afb5edcbf932d05e084" kind="function"><name>operator!=</name></member>
+    <member refid="vector4_8h_1a908bf03500ea4115f25fa42451f68684" kind="function"><name>operator*</name></member>
+    <member refid="vector4_8h_1a52233f08807e6058c0896f5017d6f368" kind="function"><name>operator*</name></member>
+    <member refid="vector4_8h_1afdb13c933fbb8b73f3fbf69c576ea5d8" kind="function"><name>operator/</name></member>
+    <member refid="vector4_8h_1a9a9796354825c26c329056316fd0de5e" kind="function"><name>operator+</name></member>
+    <member refid="vector4_8h_1a9b01988d8b1e1bb16de9908773fab39a" kind="function"><name>operator-</name></member>
+    <member refid="vector4_8h_1a21734a037ef5bb00b3e75d41152fec61" kind="function"><name>dot</name></member>
+    <member refid="vector4_8h_1a477f512320fd36356719463914046431" kind="function"><name>magnitude</name></member>
+    <member refid="vector4_8h_1ae285364f0dca70f653930e71f04b65f2" kind="function"><name>magnitudeSq</name></member>
+    <member refid="vector4_8h_1ac9eccf08f34e25a7c7464279d4229d48" kind="function"><name>distance</name></member>
+    <member refid="vector4_8h_1a99aa6e309af4ee2e87289835a1158e92" kind="function"><name>normalize</name></member>
+    <member refid="vector4_8h_1a934c8b5839fa6324e4e2aeb00e19c50e" kind="function"><name>cross</name></member>
+    <member refid="vector4_8h_1a8fb3f8d8cd7c235539e2dbc7faf789c7" kind="function"><name>angle</name></member>
+    <member refid="vector4_8h_1ac0773addd37b375b346e1dc0fcc47758" kind="function"><name>project</name></member>
+    <member refid="vector4_8h_1ad65b6d60469f77bc2ec90abf3c9372e5" kind="function"><name>perpendicular</name></member>
+    <member refid="vector4_8h_1ab258438e8e264d0eb40cb916fc8db654" kind="function"><name>reflection</name></member>
+  </compound>
+  <compound refid="namespacephysics" kind="namespace"><name>physics</name>
+  </compound>
+  <compound refid="namespacephysics_1_1collision2d" kind="namespace"><name>physics::collision2d</name>
+    <member refid="collision2d_8h_1aa28ff05203122c0d8e0238ec6f3aef44" kind="function"><name>circle_circle</name></member>
+    <member refid="collision2d_8h_1ac90d2067cf51d199066e797ecb47453f" kind="function"><name>circle_rectangle</name></member>
+    <member refid="collision2d_8h_1ab5b75496a252dc83414c556ccfdb2d15" kind="function"><name>rectangle_rectangle</name></member>
+    <member refid="collision2d_8h_1a518b4722f4fe50fd78f236a243ce38f3" kind="function"><name>rectange_rectange_sat</name></member>
+    <member refid="collision2d_8h_1aabf6faaed54bef0a0d20d3ec073ebd31" kind="function"><name>rectange_orrectangle</name></member>
+  </compound>
+  <compound refid="namespacesc2d" kind="namespace"><name>sc2d</name>
+    <member refid="error__types_8h_1a935218a52de75c7187faf1fae163f1c1" kind="enum"><name>Err</name></member>
+    <member refid="shader_8h_1af9644249d5ca924b1fc136272192daa2" kind="enum"><name>ShaderType</name></member>
+    <member refid="dummy_1af9644249d5ca924b1fc136272192daa2a0c3e47aef93a7f244f41ab309a33634b" kind="enumvalue"><name>VERTEX</name></member>
+    <member refid="dummy_1af9644249d5ca924b1fc136272192daa2a7345a249ed5c2f850d85dc1727c24716" kind="enumvalue"><name>FRAGMENT</name></member>
+    <member refid="dummy_1af9644249d5ca924b1fc136272192daa2ab22957ad8078e8d73de61aef53d13a74" kind="enumvalue"><name>GEOMETRY</name></member>
+    <member refid="dummy_1af9644249d5ca924b1fc136272192daa2ab50339a10e1de285ac99d4c3990b8693" kind="enumvalue"><name>NONE</name></member>
+    <member refid="resourceHolder_8h_1a3ea0152ee07135484090539a5eb143d8" kind="enum"><name>ShaderSource</name></member>
+    <member refid="dummy_1a3ea0152ee07135484090539a5eb143d8afbb600bf3200d9d665bf61bb07f29472" kind="enumvalue"><name>BUILTIN</name></member>
+    <member refid="dummy_1a3ea0152ee07135484090539a5eb143d8a9fc5887c030f7a3e19821ebec457e719" kind="enumvalue"><name>FILE</name></member>
+    <member refid="result_8h_1a5d3f05752965717d4c793a517cc1cb9e" kind="typedef"><name>ResultBool</name></member>
+    <member refid="configLoader_8h_1a933665c53b7e112812b4fa9dac2454b7" kind="typedef"><name>json</name></member>
+    <member refid="resourceHolder_8h_1aa2ae232512dd82c972bc33709ed7aaaf" kind="typedef"><name>string_view</name></member>
+    <member refid="error__types_8h_1a9fbdbf63f4ea1f5c6166bc175578975c" kind="variable"><name>ERR_STR</name></member>
+    <member refid="sc2dTypes_8h_1a4fbf1cb284461e4b9cb61c9a3aea718a" kind="variable"><name>VERTICES_PER_QUAD</name></member>
+    <member refid="sc2dTypes_8h_1aef60473fd86a74d3df50291729a593a4" kind="variable"><name>QUAD_INDICES</name></member>
+    <member refid="sc2dTypes_8h_1a30b5de35cb76fb38da896e59d6ee9ee4" kind="variable"><name>SPRITE_QUAD</name></member>
+    <member refid="terminate_8h_1a0cc59a7debf5bf4f28faa9964aea613a" kind="function"><name>terminate</name></member>
+  </compound>
+  <compound refid="namespacesc2d_1_1cshaders" kind="namespace"><name>sc2d::cshaders</name>
+    <member refid="shader__files_8h_1a61842f56ba7d08b0896cbd0977536516" kind="variable"><name>VS_SPRITESHEET</name></member>
+    <member refid="shader__files_8h_1add9743e0dabd2d47d0f90633068262ff" kind="variable"><name>FS_SPRITESHEET</name></member>
+    <member refid="shader__files_8h_1a7fa922727c99992c8182804a60dbd4b1" kind="variable"><name>VS_SPRITE_DEFAULT</name></member>
+    <member refid="shader__files_8h_1a2fc8bb5b005f7ebf5dcda4f9fb6bf829" kind="variable"><name>FS_SPRITE_DEFAULT</name></member>
+    <member refid="shader__files_8h_1a7e1a8501ae586a79cb367a613a3dab0b" kind="variable"><name>SHADERS_ARRAY</name></member>
+  </compound>
+  <compound refid="namespacesc2d_1_1debug" kind="namespace"><name>sc2d::debug</name>
+    <member refid="debug__utils_8cpp_1a9cd7ce56d112b7065609568fe19329a8" kind="function"><name>check_gl_error</name></member>
+  </compound>
+  <compound refid="namespacesc2d_1_1fs__const" kind="namespace"><name>sc2d::fs_const</name>
+    <member refid="fs__constants_8h_1a59cbb0005c6d1e01d42678ad71fe5b1b" kind="variable"><name>RES_CONFIG_PATH</name></member>
+    <member refid="fs__constants_8h_1addea2e2d770f5b96329c8463c9f72862" kind="variable"><name>RES_SPRITE</name></member>
+    <member refid="fs__constants_8h_1a4a80010c86c8fab9c25660ea2257bc0f" kind="variable"><name>RES_SHADER</name></member>
+    <member refid="fs__constants_8h_1a68e6e31831a522889f2dabcfadad216e" kind="variable"><name>SCN_LAYERS</name></member>
+    <member refid="fs__constants_8h_1a63d2c409bf5a848a3b54a8deede17575" kind="variable"><name>SCN_TILESETS</name></member>
+    <member refid="fs__constants_8h_1a261142e8db4eb56aeccfa8059feb72ec" kind="variable"><name>SCN_LAYERS_DATA</name></member>
+    <member refid="fs__constants_8h_1ac08ae6b31a734ff9da5f0ba8c8bd892b" kind="variable"><name>SCN_LAYERS_NAME</name></member>
+    <member refid="fs__constants_8h_1ad52df1a8002611c4244181801e45d40a" kind="variable"><name>SCN_WIDTH</name></member>
+    <member refid="fs__constants_8h_1a81868d81684ddca7170450ee2c026a86" kind="variable"><name>SCN_HEIGHT</name></member>
+    <member refid="fs__constants_8h_1a40638519c5e38a5123c27107e9aaff5f" kind="variable"><name>SCN_TILE_WIDTH</name></member>
+    <member refid="fs__constants_8h_1ab68196f29d74ea73967450b9d1fa02f1" kind="variable"><name>SCN_TILE_HEIGHT</name></member>
+    <member refid="fs__constants_8h_1a266a40b8af2f449b453c516c33fbd5a8" kind="variable"><name>SCN_TILESETS_IMAGE</name></member>
+  </compound>
+  <compound refid="namespacesc2d_1_1logging" kind="namespace"><name>sc2d::logging</name>
+    <member refid="log2_8h_1a63aa26c237c9f93cffaf655a9fad8dde" kind="enum"><name>LogLevel</name></member>
+    <member refid="log2_8h_1a63aa26c237c9f93cffaf655a9fad8ddeaef91ae95c2226df4fe08ac227cd0af68" kind="enumvalue"><name>INFO</name></member>
+    <member refid="log2_8h_1a63aa26c237c9f93cffaf655a9fad8ddea6d2cb05ae74fd5ac29d2deb78767fd58" kind="enumvalue"><name>WARN</name></member>
+    <member refid="log2_8h_1a63aa26c237c9f93cffaf655a9fad8ddea148b09319ef740d0a1bba49d94335654" kind="enumvalue"><name>ERR</name></member>
+    <member refid="log2_8h_1a623d76669634f0eec6dce80b419cc563" kind="enum"><name>LogType</name></member>
+    <member refid="log2_8h_1a623d76669634f0eec6dce80b419cc563a574836f283db442a40c5493a37e1ebf2" kind="enumvalue"><name>CONSOLE</name></member>
+    <member refid="log2_8h_1a623d76669634f0eec6dce80b419cc563af20adbcce3db12000255b08e90d35ac9" kind="enumvalue"><name>FILE_S</name></member>
+    <member refid="log2_8h_1a5ee1a427021d9640b69a4be941d4d440" kind="variable"><name>lvl_names</name></member>
+    <member refid="log2_8h_1ab003fd325e16a7a6e3fc75e8729cf2e8" kind="variable"><name>lvl_colors</name></member>
+    <member refid="log2_8cpp_1ae0d3f14545203208a0ddc52f953ed21e" kind="function"><name>log</name></member>
+    <member refid="log2_8h_1a0351d16e8ff7fd4e08e1340834c9b3cc" kind="function"><name>check_gl_error</name></member>
+  </compound>
+  <compound refid="namespacesc2d_1_1memory" kind="namespace"><name>sc2d::memory</name>
+    <member refid="allocator_8h_1a98a473807dad78910101cd01c5caa83e" kind="variable"><name>DEFAULT_ALIGNMENT</name></member>
+    <member refid="aligned__allocator_8cpp_1a5b50ac060ab079b1f3dd2214bb0f2ae8" kind="function"><name>_aligned_malloc</name></member>
+    <member refid="aligned__allocator_8cpp_1ac1b498294984599f1f62d471eb664163" kind="function"><name>aligned_malloc</name></member>
+    <member refid="aligned__allocator_8cpp_1a76ed59c3220b461be8c5f5f599855774" kind="function"><name>_aligned_free</name></member>
+    <member refid="aligned__allocator_8cpp_1a6e8e6af36e424973de11a530b67f065d" kind="function"><name>aligned_free</name></member>
+    <member refid="aligners_8h_1a4057fd41539cea1822409861ef124c8a" kind="function"><name>align_forward</name></member>
+    <member refid="aligners_8h_1a83975c5357305ad9065d3f8eb0ec72e7" kind="function"><name>align_forward_adjustment</name></member>
+    <member refid="aligners_8h_1aad4bb9561dacf2f2f3806dd5f5be28af" kind="function"><name>align_forward_adjustment_with_header</name></member>
+    <member refid="aligners_8h_1a12f5090871fa6470863f8c57d768c3d6" kind="function"><name>is_aligned</name></member>
+    <member refid="memory_8cpp_1a60bff374ba572d184f9d6f0ed8f6cfb2" kind="function"><name>main_allocator</name></member>
+    <member refid="memory_8h_1a18cc9828b0fcda0e5413706dbcae467c" kind="function"><name>default_allocator</name></member>
+  </compound>
+  <compound refid="namespacesc2d_1_1memory_1_1allocs" kind="namespace"><name>sc2d::memory::allocs</name>
+    <member refid="allocator_8h_1a0164009f1283f099c98201befc999b20" kind="function"><name>allocate_new</name></member>
+    <member refid="allocator_8h_1a2eaa9b5a8152a4b82118073bb4323210" kind="function"><name>deallocate_delete</name></member>
+    <member refid="allocator_8h_1aa3dc2ffac88040f9801d85a7a480aa4e" kind="function"><name>allocate_array</name></member>
+    <member refid="allocator_8h_1ada22e110bcaed9fa97a7face3228c177" kind="function"><name>allocate_array_no_construct</name></member>
+    <member refid="allocator_8h_1a439680cc57e575f81a983ead462d4b67" kind="function"><name>deallocate_array</name></member>
+    <member refid="allocator_8h_1a58e9e8d2a5f1e44283b626f0cad0b90d" kind="function"><name>deallocate_array_no_destuct</name></member>
+  </compound>
+  <compound refid="namespacesc2d_1_1memory_1_1main" kind="namespace"><name>sc2d::memory::main</name>
+    <member refid="memory_8cpp_1a1aba5627cd16d186326471c8043a8693" kind="variable"><name>_memory_size</name></member>
+    <member refid="memory_8cpp_1a0101d0c0ea0efa3e677078002256009d" kind="variable"><name>_buffer</name></member>
+    <member refid="memory_8cpp_1a9430433b339522087375fcb365e2808c" kind="variable"><name>_main_allocator</name></member>
+    <member refid="memory_8cpp_1a8b6ca8b96d09c75d9e22a652eaaabc9a" kind="function"><name>init</name></member>
+    <member refid="memory_8cpp_1a8e48515fb2662104bc03551ae5dd8658" kind="function"><name>destroy</name></member>
+  </compound>
+  <compound refid="namespacesc2d_1_1tiled" kind="namespace"><name>sc2d::tiled</name>
+    <member refid="tiled__map_8h_1a5c71d29706abc4f172f3574c4eb9d394" kind="variable"><name>FLIPPED_HORIZONTALLY_FLAG</name></member>
+    <member refid="tiled__map_8h_1aff781ac663e0ca49f9d19d51257e576d" kind="variable"><name>FLIPPED_VERTICALLY_FLAG</name></member>
+    <member refid="tiled__map_8h_1aa4abb44c7d0e4f30aa3ebfe3dd4ee429" kind="variable"><name>FLIPPED_DIAGONALLY_FLAG</name></member>
+  </compound>
+  <compound refid="vec_8h" kind="file"><name>vec.h</name>
+  </compound>
+  <compound refid="compiler_8h" kind="file"><name>compiler.h</name>
+  </compound>
+  <compound refid="debug__utils_8cpp" kind="file"><name>debug_utils.cpp</name>
+  </compound>
+  <compound refid="debug__utils_8h" kind="file"><name>debug_utils.h</name>
+    <member refid="debug__utils_8h_1ab817b0b338df8b6c5c23b88071755e28" kind="define"><name>log_gl_error_cmd</name></member>
+    <member refid="debug__utils_8h_1a2f1264e75c019c24c81fe30c10d801c7" kind="define"><name>log_gl_error_file</name></member>
+  </compound>
+  <compound refid="ecs_8cpp" kind="file"><name>ecs.cpp</name>
+  </compound>
+  <compound refid="ecs_8h" kind="file"><name>ecs.h</name>
+  </compound>
+  <compound refid="ecs__component_8cpp" kind="file"><name>ecs_component.cpp</name>
+  </compound>
+  <compound refid="ecs__component_8h" kind="file"><name>ecs_component.h</name>
+    <member refid="ecs__component_8h_1a54492293082dd10a98e4c5e1900b1479" kind="typedef"><name>EntityHandle</name></member>
+    <member refid="ecs__component_8h_1a77afc6554c28c27194e4548d5423f9b7" kind="typedef"><name>compId_t</name></member>
+    <member refid="ecs__component_8h_1aaeed4d55039951037f9d1279052c05eb" kind="typedef"><name>ECSComponentFreeFunction</name></member>
+    <member refid="ecs__component_8h_1abd721b4b08bd8cd83b4b12cfdb0730a0" kind="typedef"><name>ECSComponentCreateFunction</name></member>
+    <member refid="ecs__component_8h_1ac81e66c9e209fcbdc11271b43b8921c0" kind="function"><name>ECSComponentCreate</name></member>
+    <member refid="ecs__component_8h_1a912ea7c4540a5100a5f07f9969d806bc" kind="function"><name>ECSComponentFree</name></member>
+  </compound>
+  <compound refid="ecs__system_8cpp" kind="file"><name>ecs_system.cpp</name>
+  </compound>
+  <compound refid="ecs__system_8h" kind="file"><name>ecs_system.h</name>
+  </compound>
+  <compound refid="log2_8cpp" kind="file"><name>log2.cpp</name>
+  </compound>
+  <compound refid="log2_8h" kind="file"><name>log2.h</name>
+    <member refid="log2_8h_1a87b5dd80fe5451cc59d75bddd4def375" kind="define"><name>log_info_cmd</name></member>
+    <member refid="log2_8h_1a3ba0c0913b6110ff13616a6994708155" kind="define"><name>log_info_file</name></member>
+    <member refid="log2_8h_1a6632db171bd2c1225d356cd42aafebf5" kind="define"><name>log_warn_cmd</name></member>
+    <member refid="log2_8h_1a5f8643977acb8daa17404dadbcb9ce33" kind="define"><name>log_warn_file</name></member>
+    <member refid="log2_8h_1a7946892bd866eed396427b00ce441dc3" kind="define"><name>log_err_cmd</name></member>
+    <member refid="log2_8h_1adc218d7bd82ab0c748f064e146ea01a0" kind="define"><name>log_err_file</name></member>
+  </compound>
+  <compound refid="error__types_8h" kind="file"><name>error_types.h</name>
+    <member refid="error__types_8h_1a16dcea9628eadb2f800b2ca75b9e8759" kind="define"><name>FOREACH_ERROR</name></member>
+    <member refid="error__types_8h_1aed8760364c7992625d06c93d12b2496d" kind="define"><name>GENERATE_ENUM</name></member>
+    <member refid="error__types_8h_1adf58d994c35f18ec84b628d8321f52e5" kind="define"><name>GENERATE_STRING</name></member>
+  </compound>
+  <compound refid="stacktrace_8cpp" kind="file"><name>stacktrace.cpp</name>
+    <member refid="stacktrace_8cpp_1a24c2a1c1959cf30212914078a7d75205" kind="function"><name>Backtrace</name></member>
+  </compound>
+  <compound refid="stacktrace_8h" kind="file"><name>stacktrace.h</name>
+    <member refid="stacktrace_8h_1a51fe88f3cb1995627f0a17ad33b9efc0" kind="function"><name>Backtrace</name></member>
+  </compound>
+  <compound refid="terminate_8h" kind="file"><name>terminate.h</name>
+  </compound>
+  <compound refid="result_8h" kind="file"><name>result.h</name>
+  </compound>
+  <compound refid="sc2dTypes_8h" kind="file"><name>sc2dTypes.h</name>
+  </compound>
+  <compound refid="shader_8cpp" kind="file"><name>shader.cpp</name>
+  </compound>
+  <compound refid="shader_8h" kind="file"><name>shader.h</name>
+  </compound>
+  <compound refid="sprite_8cpp" kind="file"><name>sprite.cpp</name>
+  </compound>
+  <compound refid="sprite_8h" kind="file"><name>sprite.h</name>
+  </compound>
+  <compound refid="sprite__sheet__inst_8cpp" kind="file"><name>sprite_sheet_inst.cpp</name>
+  </compound>
+  <compound refid="sprite__sheet__inst_8h" kind="file"><name>sprite_sheet_inst.h</name>
+  </compound>
+  <compound refid="texture_8cpp" kind="file"><name>texture.cpp</name>
+  </compound>
+  <compound refid="texture_8h" kind="file"><name>texture.h</name>
+  </compound>
+  <compound refid="texture__atlas_8cpp" kind="file"><name>texture_atlas.cpp</name>
+  </compound>
+  <compound refid="texture__atlas_8h" kind="file"><name>texture_atlas.h</name>
+  </compound>
+  <compound refid="tiled__map_8cpp" kind="file"><name>tiled_map.cpp</name>
+  </compound>
+  <compound refid="tiled__map_8h" kind="file"><name>tiled_map.h</name>
+  </compound>
+  <compound refid="window_8cpp" kind="file"><name>window.cpp</name>
+  </compound>
+  <compound refid="window_8h" kind="file"><name>window.h</name>
+  </compound>
+  <compound refid="configLoader_8cpp" kind="file"><name>configLoader.cpp</name>
+  </compound>
+  <compound refid="configLoader_8h" kind="file"><name>configLoader.h</name>
+  </compound>
+  <compound refid="fs__constants_8h" kind="file"><name>fs_constants.h</name>
+  </compound>
+  <compound refid="resourceHolder_8cpp" kind="file"><name>resourceHolder.cpp</name>
+  </compound>
+  <compound refid="resourceHolder_8h" kind="file"><name>resourceHolder.h</name>
+  </compound>
+  <compound refid="shader__files_8h" kind="file"><name>shader_files.h</name>
+  </compound>
+  <compound refid="main_8cpp" kind="file"><name>main.cpp</name>
+    <member refid="main_8cpp_1a84f7ac2c5b4819ae7e4f380a6d6b9fad" kind="variable"><name>window</name></member>
+    <member refid="main_8cpp_1adec52e1373dc2287e79a28f3b61e7aee" kind="variable"><name>tiled_map</name></member>
+    <member refid="main_8cpp_1a6d0b64e3a5351d6605e55f3a77f0ea50" kind="variable"><name>tex_atlas</name></member>
+    <member refid="main_8cpp_1aa48aaf412b9e33386433680c25b3883c" kind="function"><name>key_callback</name></member>
+    <member refid="main_8cpp_1a5180f7bf2b71421af837035824a8c8ac" kind="function"><name>framebuffer_size_callback</name></member>
+    <member refid="main_8cpp_1a3fb6c92482f9fa7e3c9ac8c7e0b23034" kind="function"><name>engine_init</name></member>
+    <member refid="main_8cpp_1a7edf5c922e9b1780fe8a71a780d1dc6b" kind="function"><name>program_init</name></member>
+    <member refid="main_8cpp_1a41db0fcfd9b3911f8bddd924bcf9233d" kind="function"><name>poll_events</name></member>
+    <member refid="main_8cpp_1a56c5cf8a568cff737ff95520cbe6b405" kind="function"><name>draw</name></member>
+    <member refid="main_8cpp_1ad7fd6e3a217c528602a8e714d982fa75" kind="function"><name>update</name></member>
+    <member refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="geometry2d_8h" kind="file"><name>geometry2d.h</name>
+  </compound>
+  <compound refid="matrix2_8h" kind="file"><name>matrix2.h</name>
+  </compound>
+  <compound refid="matrix3_8h" kind="file"><name>matrix3.h</name>
+  </compound>
+  <compound refid="matrix4_8h" kind="file"><name>matrix4.h</name>
+  </compound>
+  <compound refid="quadtree_8cpp" kind="file"><name>quadtree.cpp</name>
+  </compound>
+  <compound refid="quadtree_8h" kind="file"><name>quadtree.h</name>
+  </compound>
+  <compound refid="size2d_8h" kind="file"><name>size2d.h</name>
+  </compound>
+  <compound refid="transform_8cpp" kind="file"><name>transform.cpp</name>
+  </compound>
+  <compound refid="transform_8h" kind="file"><name>transform.h</name>
+  </compound>
+  <compound refid="utils_8h" kind="file"><name>utils.h</name>
+  </compound>
+  <compound refid="vector2_8h" kind="file"><name>vector2.h</name>
+  </compound>
+  <compound refid="vector3_8h" kind="file"><name>vector3.h</name>
+  </compound>
+  <compound refid="vector4_8h" kind="file"><name>vector4.h</name>
+  </compound>
+  <compound refid="aligned__allocator_8cpp" kind="file"><name>aligned_allocator.cpp</name>
+  </compound>
+  <compound refid="aligned__allocator_8h" kind="file"><name>aligned_allocator.h</name>
+    <member refid="aligned__allocator_8h_1adf5386c7738c3f6fccde600a8bf53128" kind="define"><name>GLIBC_MALLOC_ALREADY_ALIGNED</name></member>
+    <member refid="aligned__allocator_8h_1a186c9684cfbe180918fddb1337abeb00" kind="define"><name>FREEBSD_MALLOC_ALREADY_ALIGNED</name></member>
+    <member refid="aligned__allocator_8h_1abdde78b9029155827d9af3d53f6d3259" kind="define"><name>MALLOC_ALREADY_ALIGNED</name></member>
+    <member refid="aligned__allocator_8h_1a1654a34554ed89b7be07be324202a5ac" kind="define"><name>HAS_POSIX_MEMALIGN</name></member>
+    <member refid="aligned__allocator_8h_1a40aef22bff4c935329d4073d85d07c66" kind="define"><name>HAS_MM_MALLOC</name></member>
+  </compound>
+  <compound refid="aligners_8h" kind="file"><name>aligners.h</name>
+  </compound>
+  <compound refid="allocator_8h" kind="file"><name>allocator.h</name>
+  </compound>
+  <compound refid="allocator_8inl" kind="file"><name>allocator.inl</name>
+    <member refid="allocator_8h_1a2057e4216509aaa5b358c5797fcc1b47" kind="define"><name>INC_2D_GAME_ALLOCATOR_INL</name></member>
+    <member refid="allocator_8inl_1a2057e4216509aaa5b358c5797fcc1b47" kind="define"><name>INC_2D_GAME_ALLOCATOR_INL</name></member>
+  </compound>
+  <compound refid="dynamic__linear__allocator_8cpp" kind="file"><name>dynamic_linear_allocator.cpp</name>
+  </compound>
+  <compound refid="dynamic__linear__allocator_8h" kind="file"><name>dynamic_linear_allocator.h</name>
+  </compound>
+  <compound refid="free__list__allocator_8cpp" kind="file"><name>free_list_allocator.cpp</name>
+  </compound>
+  <compound refid="free__list__allocator_8h" kind="file"><name>free_list_allocator.h</name>
+  </compound>
+  <compound refid="heap__allocator_8cpp" kind="file"><name>heap_allocator.cpp</name>
+  </compound>
+  <compound refid="heap__allocator_8h" kind="file"><name>heap_allocator.h</name>
+  </compound>
+  <compound refid="memory_8cpp" kind="file"><name>memory.cpp</name>
+  </compound>
+  <compound refid="memory_8h" kind="file"><name>memory.h</name>
+  </compound>
+  <compound refid="pool__allocator_8cpp" kind="file"><name>pool_allocator.cpp</name>
+  </compound>
+  <compound refid="pool__allocator_8h" kind="file"><name>pool_allocator.h</name>
+  </compound>
+  <compound refid="collision2d_8h" kind="file"><name>collision2d.h</name>
+  </compound>
+  <compound refid="ini__io_8cpp" kind="file"><name>ini_io.cpp</name>
+  </compound>
+  <compound refid="ini__io_8h" kind="file"><name>ini_io.h</name>
+  </compound>
+  <compound refid="dir_e20f5f050a3be480293532e15537c055" kind="dir"><name>/home/novasurfer/projects/scarecrow2d/src/collections</name>
+  </compound>
+  <compound refid="dir_aebb8dcc11953d78e620bbef0b9e2183" kind="dir"><name>/home/novasurfer/projects/scarecrow2d/src/core</name>
+  </compound>
+  <compound refid="dir_c8c3ff6b05158fd79f5b56d1302fd8f6" kind="dir"><name>/home/novasurfer/projects/scarecrow2d/src/core/esc</name>
+  </compound>
+  <compound refid="dir_475521bcc5d72920903fa03272aee527" kind="dir"><name>/home/novasurfer/projects/scarecrow2d/src/filesystem</name>
+  </compound>
+  <compound refid="dir_ae9a93452e2a84339148a16bcf2eb561" kind="dir"><name>/home/novasurfer/projects/scarecrow2d/src/math</name>
+  </compound>
+  <compound refid="dir_94d7edf6f8f3d9af5fd63c44172da41c" kind="dir"><name>/home/novasurfer/projects/scarecrow2d/src/memory</name>
+  </compound>
+  <compound refid="dir_edc293472eb92afef45520a5c5fa6bbc" kind="dir"><name>/home/novasurfer/projects/scarecrow2d/src/core/os</name>
+  </compound>
+  <compound refid="dir_8250e12e5a19acb8ece30f1703b6dc16" kind="dir"><name>/home/novasurfer/projects/scarecrow2d/src/physics</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>/home/novasurfer/projects/scarecrow2d/src</name>
+  </compound>
+  <compound refid="dir_313caf1132e152dd9b58bea13a4052ca" kind="dir"><name>/home/novasurfer/projects/scarecrow2d/src/utils</name>
+  </compound>
+</doxygenindex>

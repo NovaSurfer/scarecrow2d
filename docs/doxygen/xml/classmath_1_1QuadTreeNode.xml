@@ -1,0 +1,265 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classmath_1_1QuadTreeNode" kind="class" language="C++" prot="public">
+    <compoundname>math::QuadTreeNode</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmath_1_1QuadTreeNode_1ad0b2904ebd85b6dd7b6f2980c403c12c" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classmath_1_1QuadTreeNode" kindref="compound">QuadTreeNode</ref> &gt;</type>
+        <definition>std::vector&lt;QuadTreeNode&gt; math::QuadTreeNode::childrens</definition>
+        <argsstring></argsstring>
+        <name>childrens</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.h" line="44" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmath_1_1QuadTreeNode_1aa514f7874d7d9264d93c0a3c8b47059b" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structmath_1_1QuadTreeData" kindref="compound">QuadTreeData</ref> * &gt;</type>
+        <definition>std::vector&lt;QuadTreeData*&gt; math::QuadTreeNode::content</definition>
+        <argsstring></argsstring>
+        <name>content</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.h" line="45" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmath_1_1QuadTreeNode_1ac16ab7f2119e0840dcb72acdf491ecb3" prot="private" static="no" mutable="no">
+        <type><ref refid="structmath_1_1rect2d" kindref="compound">rect2d</ref></type>
+        <definition>rect2d math::QuadTreeNode::node_bounds</definition>
+        <argsstring></argsstring>
+        <name>node_bounds</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.h" line="46" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmath_1_1QuadTreeNode_1adfd91e685760990b62d0b65756501c9b" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t math::QuadTreeNode::current_depth</definition>
+        <argsstring></argsstring>
+        <name>current_depth</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.h" line="47" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classmath_1_1QuadTreeNode_1a9f1e04c0b0e5a51d5e3e5992d961a5b6" prot="private" static="yes" mutable="no">
+        <type>size_t</type>
+        <definition>size_t math::QuadTreeNode::max_depth</definition>
+        <argsstring></argsstring>
+        <name>max_depth</name>
+        <initializer>= 5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.h" line="48" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmath_1_1QuadTreeNode_1acebeac7f242cd5673a01924efc3321f4" prot="private" static="yes" mutable="no">
+        <type>size_t</type>
+        <definition>size_t math::QuadTreeNode::max_objects_per_node</definition>
+        <argsstring></argsstring>
+        <name>max_objects_per_node</name>
+        <initializer>= 15</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.h" line="49" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmath_1_1QuadTreeNode_1a45378c1fc9229e035a40ed9c06fe121d" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>math::QuadTreeNode::QuadTreeNode</definition>
+        <argsstring>(const rect2d &amp;bounds)</argsstring>
+        <name>QuadTreeNode</name>
+        <param>
+          <type>const <ref refid="structmath_1_1rect2d" kindref="compound">rect2d</ref> &amp;</type>
+          <declname>bounds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.h" line="29" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.h" bodystart="29" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classmath_1_1QuadTreeNode_1a37e417c86117060dfe7874247baf0626" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool math::QuadTreeNode::is_leaf</definition>
+        <argsstring>()</argsstring>
+        <name>is_leaf</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.h" line="33" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.cpp" bodystart="13" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classmath_1_1QuadTreeNode_1add813eb0fcafbc6cf14368dddbb749b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t math::QuadTreeNode::size</definition>
+        <argsstring>()</argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.h" line="34" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.cpp" bodystart="18" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classmath_1_1QuadTreeNode_1a14b91136aa6577fa0266b8028faa0e03" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void math::QuadTreeNode::insert</definition>
+        <argsstring>(QuadTreeData &amp;data)</argsstring>
+        <name>insert</name>
+        <param>
+          <type><ref refid="structmath_1_1QuadTreeData" kindref="compound">QuadTreeData</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.h" line="35" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.cpp" bodystart="55" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classmath_1_1QuadTreeNode_1a35cb167bcdbb4ce608752d3faa71903a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void math::QuadTreeNode::remove</definition>
+        <argsstring>(QuadTreeData &amp;data)</argsstring>
+        <name>remove</name>
+        <param>
+          <type><ref refid="structmath_1_1QuadTreeData" kindref="compound">QuadTreeData</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.h" line="36" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.cpp" bodystart="68" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classmath_1_1QuadTreeNode_1a4075c9bf883c79abaed52dae6ecb2b36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void math::QuadTreeNode::update</definition>
+        <argsstring>(QuadTreeData &amp;data)</argsstring>
+        <name>update</name>
+        <param>
+          <type><ref refid="structmath_1_1QuadTreeData" kindref="compound">QuadTreeData</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.h" line="37" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.cpp" bodystart="87" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="classmath_1_1QuadTreeNode_1a3e490921d9547c6f3481396ff1f917bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void math::QuadTreeNode::snake</definition>
+        <argsstring>()</argsstring>
+        <name>snake</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.h" line="38" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.cpp" bodystart="93" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="classmath_1_1QuadTreeNode_1a49f85405ae85f29030cdf2f29764097e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void math::QuadTreeNode::split</definition>
+        <argsstring>()</argsstring>
+        <name>split</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.h" line="39" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.cpp" bodystart="119" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="function" id="classmath_1_1QuadTreeNode_1a14dc470d9d9f45a3685228d40571d53e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void math::QuadTreeNode::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.h" line="40" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.cpp" bodystart="149" bodyend="158"/>
+      </memberdef>
+      <memberdef kind="function" id="classmath_1_1QuadTreeNode_1a4f3dc18628e9487f04987afcacad12b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="structmath_1_1QuadTreeData" kindref="compound">QuadTreeData</ref> * &gt;</type>
+        <definition>std::vector&lt; QuadTreeData * &gt; math::QuadTreeNode::query</definition>
+        <argsstring>(const rect2d &amp;area)</argsstring>
+        <name>query</name>
+        <param>
+          <type>const <ref refid="structmath_1_1rect2d" kindref="compound">rect2d</ref> &amp;</type>
+          <declname>area</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.h" line="41" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.cpp" bodystart="160" bodyend="180"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.h" line="27" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/math/quadtree.h" bodystart="26" bodyend="50"/>
+    <listofallmembers>
+      <member refid="classmath_1_1QuadTreeNode_1ad0b2904ebd85b6dd7b6f2980c403c12c" prot="private" virt="non-virtual"><scope>math::QuadTreeNode</scope><name>childrens</name></member>
+      <member refid="classmath_1_1QuadTreeNode_1aa514f7874d7d9264d93c0a3c8b47059b" prot="private" virt="non-virtual"><scope>math::QuadTreeNode</scope><name>content</name></member>
+      <member refid="classmath_1_1QuadTreeNode_1adfd91e685760990b62d0b65756501c9b" prot="private" virt="non-virtual"><scope>math::QuadTreeNode</scope><name>current_depth</name></member>
+      <member refid="classmath_1_1QuadTreeNode_1a14b91136aa6577fa0266b8028faa0e03" prot="public" virt="non-virtual"><scope>math::QuadTreeNode</scope><name>insert</name></member>
+      <member refid="classmath_1_1QuadTreeNode_1a37e417c86117060dfe7874247baf0626" prot="public" virt="non-virtual"><scope>math::QuadTreeNode</scope><name>is_leaf</name></member>
+      <member refid="classmath_1_1QuadTreeNode_1a9f1e04c0b0e5a51d5e3e5992d961a5b6" prot="private" virt="non-virtual"><scope>math::QuadTreeNode</scope><name>max_depth</name></member>
+      <member refid="classmath_1_1QuadTreeNode_1acebeac7f242cd5673a01924efc3321f4" prot="private" virt="non-virtual"><scope>math::QuadTreeNode</scope><name>max_objects_per_node</name></member>
+      <member refid="classmath_1_1QuadTreeNode_1ac16ab7f2119e0840dcb72acdf491ecb3" prot="private" virt="non-virtual"><scope>math::QuadTreeNode</scope><name>node_bounds</name></member>
+      <member refid="classmath_1_1QuadTreeNode_1a45378c1fc9229e035a40ed9c06fe121d" prot="public" virt="non-virtual"><scope>math::QuadTreeNode</scope><name>QuadTreeNode</name></member>
+      <member refid="classmath_1_1QuadTreeNode_1a4f3dc18628e9487f04987afcacad12b7" prot="public" virt="non-virtual"><scope>math::QuadTreeNode</scope><name>query</name></member>
+      <member refid="classmath_1_1QuadTreeNode_1a35cb167bcdbb4ce608752d3faa71903a" prot="public" virt="non-virtual"><scope>math::QuadTreeNode</scope><name>remove</name></member>
+      <member refid="classmath_1_1QuadTreeNode_1a14dc470d9d9f45a3685228d40571d53e" prot="public" virt="non-virtual"><scope>math::QuadTreeNode</scope><name>reset</name></member>
+      <member refid="classmath_1_1QuadTreeNode_1add813eb0fcafbc6cf14368dddbb749b4" prot="public" virt="non-virtual"><scope>math::QuadTreeNode</scope><name>size</name></member>
+      <member refid="classmath_1_1QuadTreeNode_1a3e490921d9547c6f3481396ff1f917bb" prot="public" virt="non-virtual"><scope>math::QuadTreeNode</scope><name>snake</name></member>
+      <member refid="classmath_1_1QuadTreeNode_1a49f85405ae85f29030cdf2f29764097e" prot="public" virt="non-virtual"><scope>math::QuadTreeNode</scope><name>split</name></member>
+      <member refid="classmath_1_1QuadTreeNode_1a4075c9bf883c79abaed52dae6ecb2b36" prot="public" virt="non-virtual"><scope>math::QuadTreeNode</scope><name>update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

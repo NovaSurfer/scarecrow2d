@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="namespacesc2d_1_1tiled" kind="namespace" language="C++">
+    <compoundname>sc2d::tiled</compoundname>
+    <innerclass refid="structsc2d_1_1tiled_1_1Data" prot="public">sc2d::tiled::Data</innerclass>
+    <innerclass refid="classsc2d_1_1tiled_1_1Layer" prot="public">sc2d::tiled::Layer</innerclass>
+    <innerclass refid="classsc2d_1_1tiled_1_1Map" prot="public">sc2d::tiled::Map</innerclass>
+    <innerclass refid="classsc2d_1_1tiled_1_1Set" prot="public">sc2d::tiled::Set</innerclass>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="tiled__map_8h_1a5c71d29706abc4f172f3574c4eb9d394" prot="public" static="no" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned sc2d::tiled::FLIPPED_HORIZONTALLY_FLAG</definition>
+        <argsstring></argsstring>
+        <name>FLIPPED_HORIZONTALLY_FLAG</name>
+        <initializer>= 0x80000000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/tiled_map.h" line="18" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/tiled_map.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="tiled__map_8h_1aff781ac663e0ca49f9d19d51257e576d" prot="public" static="no" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned sc2d::tiled::FLIPPED_VERTICALLY_FLAG</definition>
+        <argsstring></argsstring>
+        <name>FLIPPED_VERTICALLY_FLAG</name>
+        <initializer>= 0x40000000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/tiled_map.h" line="19" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/tiled_map.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="tiled__map_8h_1aa4abb44c7d0e4f30aa3ebfe3dd4ee429" prot="public" static="no" mutable="no">
+        <type>constexpr unsigned</type>
+        <definition>constexpr unsigned sc2d::tiled::FLIPPED_DIAGONALLY_FLAG</definition>
+        <argsstring></argsstring>
+        <name>FLIPPED_DIAGONALLY_FLAG</name>
+        <initializer>= 0x20000000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/tiled_map.h" line="20" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/tiled_map.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/novasurfer/projects/scarecrow2d/src/core/tiled_map.cpp" line="12" column="1"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,171 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classsc2d_1_1memory_1_1heap__allocator" kind="class" language="C++" prot="public">
+    <compoundname>sc2d::memory::heap_allocator</compoundname>
+    <basecompoundref refid="classsc2d_1_1memory_1_1allocator" prot="public" virt="non-virtual">sc2d::memory::allocator</basecompoundref>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classsc2d_1_1memory_1_1heap__allocator_1a8fdf52a547f5b711fa1c98ef944482a2" prot="protected" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* sc2d::memory::heap_allocator::_start</definition>
+        <argsstring></argsstring>
+        <name>_start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/heap_allocator.h" line="33" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/heap_allocator.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsc2d_1_1memory_1_1heap__allocator_1a503f6d6e39bffe6d6d7d4abb92f1c1c7" prot="protected" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* sc2d::memory::heap_allocator::current_pos</definition>
+        <argsstring></argsstring>
+        <name>current_pos</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/heap_allocator.h" line="34" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/heap_allocator.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsc2d_1_1memory_1_1heap__allocator_1a0fa3d59366842074cb177867c37b00ec" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>sc2d::memory::heap_allocator::heap_allocator</definition>
+        <argsstring>(size_t size, void *start)</argsstring>
+        <name>heap_allocator</name>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>start</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/heap_allocator.h" line="16" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/heap_allocator.h" bodystart="16" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classsc2d_1_1memory_1_1heap__allocator_1a64b963e2bd785630d1533f50030b9fc3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>sc2d::memory::heap_allocator::~heap_allocator</definition>
+        <argsstring>()</argsstring>
+        <name>~heap_allocator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/heap_allocator.h" line="23" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/heap_allocator.h" bodystart="23" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classsc2d_1_1memory_1_1heap__allocator_1a1441e163b0489a7f3815e8efe7f3ed27" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void *</type>
+        <definition>void * sc2d::memory::heap_allocator::allocate</definition>
+        <argsstring>(size_t size, uint8_t alignment) override</argsstring>
+        <name>allocate</name>
+        <reimplements refid="classsc2d_1_1memory_1_1allocator_1afefebdf8439e35d7894829af8d653a51">allocate</reimplements>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>alignment</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/heap_allocator.h" line="28" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/heap_allocator.cpp" bodystart="11" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classsc2d_1_1memory_1_1heap__allocator_1a987dfa94a8b7e1e2b38369d5d25b2ede" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void sc2d::memory::heap_allocator::deallocate</definition>
+        <argsstring>(void *p) override</argsstring>
+        <name>deallocate</name>
+        <reimplements refid="classsc2d_1_1memory_1_1allocator_1ab29524288541651d4bcacc278dc21deb">deallocate</reimplements>
+        <param>
+          <type>void *</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/heap_allocator.h" line="29" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/heap_allocator.cpp" bodystart="27" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classsc2d_1_1memory_1_1heap__allocator_1ad35c2947bd17e097fc7cf67481704593" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sc2d::memory::heap_allocator::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/heap_allocator.h" line="30" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/heap_allocator.cpp" bodystart="29" bodyend="34"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="50">
+        <label>sc2d::memory::heap_allocator</label>
+        <link refid="classsc2d_1_1memory_1_1heap__allocator"/>
+        <childnode refid="51" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="51">
+        <label>sc2d::memory::allocator</label>
+        <link refid="classsc2d_1_1memory_1_1allocator"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="52">
+        <label>sc2d::memory::heap_allocator</label>
+        <link refid="classsc2d_1_1memory_1_1heap__allocator"/>
+        <childnode refid="53" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="53">
+        <label>sc2d::memory::allocator</label>
+        <link refid="classsc2d_1_1memory_1_1allocator"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/novasurfer/projects/scarecrow2d/src/memory/heap_allocator.h" line="14" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/heap_allocator.h" bodystart="13" bodyend="35"/>
+    <listofallmembers>
+      <member refid="classsc2d_1_1memory_1_1allocator_1a21c5a6310f1e8feb470870b664b04753" prot="protected" virt="non-virtual"><scope>sc2d::memory::heap_allocator</scope><name>_num_allocations</name></member>
+      <member refid="classsc2d_1_1memory_1_1allocator_1a9d5773c2a51447cf4054203a563f95c2" prot="protected" virt="non-virtual"><scope>sc2d::memory::heap_allocator</scope><name>_size</name></member>
+      <member refid="classsc2d_1_1memory_1_1heap__allocator_1a8fdf52a547f5b711fa1c98ef944482a2" prot="protected" virt="non-virtual"><scope>sc2d::memory::heap_allocator</scope><name>_start</name></member>
+      <member refid="classsc2d_1_1memory_1_1allocator_1a5d2fa4113436f8046742f274aba6abdf" prot="protected" virt="non-virtual"><scope>sc2d::memory::heap_allocator</scope><name>_used_memory</name></member>
+      <member refid="classsc2d_1_1memory_1_1heap__allocator_1a1441e163b0489a7f3815e8efe7f3ed27" prot="public" virt="virtual"><scope>sc2d::memory::heap_allocator</scope><name>allocate</name></member>
+      <member refid="classsc2d_1_1memory_1_1allocator_1a15fe77378d29ab41a1a44c596166b43a" prot="public" virt="non-virtual"><scope>sc2d::memory::heap_allocator</scope><name>allocator</name></member>
+      <member refid="classsc2d_1_1memory_1_1heap__allocator_1ad35c2947bd17e097fc7cf67481704593" prot="public" virt="non-virtual"><scope>sc2d::memory::heap_allocator</scope><name>clear</name></member>
+      <member refid="classsc2d_1_1memory_1_1heap__allocator_1a503f6d6e39bffe6d6d7d4abb92f1c1c7" prot="protected" virt="non-virtual"><scope>sc2d::memory::heap_allocator</scope><name>current_pos</name></member>
+      <member refid="classsc2d_1_1memory_1_1heap__allocator_1a987dfa94a8b7e1e2b38369d5d25b2ede" prot="public" virt="virtual"><scope>sc2d::memory::heap_allocator</scope><name>deallocate</name></member>
+      <member refid="classsc2d_1_1memory_1_1allocator_1ad519c09ef37afc903fbd83941697fc91" prot="public" virt="non-virtual"><scope>sc2d::memory::heap_allocator</scope><name>get_num_allocation</name></member>
+      <member refid="classsc2d_1_1memory_1_1allocator_1a8265804fb4e665597c134cc96203e63a" prot="public" virt="non-virtual"><scope>sc2d::memory::heap_allocator</scope><name>get_size</name></member>
+      <member refid="classsc2d_1_1memory_1_1allocator_1a849ee42faf7430786e18eae6c5d67551" prot="public" virt="non-virtual"><scope>sc2d::memory::heap_allocator</scope><name>get_start</name></member>
+      <member refid="classsc2d_1_1memory_1_1allocator_1a7bc5801c3b722c2339a1320028d4828d" prot="public" virt="non-virtual"><scope>sc2d::memory::heap_allocator</scope><name>get_used_memory</name></member>
+      <member refid="classsc2d_1_1memory_1_1heap__allocator_1a0fa3d59366842074cb177867c37b00ec" prot="public" virt="non-virtual"><scope>sc2d::memory::heap_allocator</scope><name>heap_allocator</name></member>
+      <member refid="classsc2d_1_1memory_1_1allocator_1a415be64b44c19c6c08ffc58a20ac2fa2" prot="public" virt="virtual"><scope>sc2d::memory::heap_allocator</scope><name>~allocator</name></member>
+      <member refid="classsc2d_1_1memory_1_1heap__allocator_1a64b963e2bd785630d1533f50030b9fc3" prot="public" virt="non-virtual"><scope>sc2d::memory::heap_allocator</scope><name>~heap_allocator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

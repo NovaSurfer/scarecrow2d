@@ -1,0 +1,227 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="namespacesc2d_1_1memory" kind="namespace" language="C++">
+    <compoundname>sc2d::memory</compoundname>
+    <innerclass refid="classsc2d_1_1memory_1_1aligned__allocator" prot="public">sc2d::memory::aligned_allocator</innerclass>
+    <innerclass refid="classsc2d_1_1memory_1_1allocator" prot="public">sc2d::memory::allocator</innerclass>
+    <innerclass refid="classsc2d_1_1memory_1_1dynamic__linear__allocator" prot="public">sc2d::memory::dynamic_linear_allocator</innerclass>
+    <innerclass refid="classsc2d_1_1memory_1_1free__list__allocator" prot="public">sc2d::memory::free_list_allocator</innerclass>
+    <innerclass refid="classsc2d_1_1memory_1_1heap__allocator" prot="public">sc2d::memory::heap_allocator</innerclass>
+    <innerclass refid="classsc2d_1_1memory_1_1pool__allocator" prot="public">sc2d::memory::pool_allocator</innerclass>
+    <innernamespace refid="namespacesc2d_1_1memory_1_1allocs">sc2d::memory::allocs</innernamespace>
+    <innernamespace refid="namespacesc2d_1_1memory_1_1main">sc2d::memory::main</innernamespace>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="allocator_8h_1a98a473807dad78910101cd01c5caa83e" prot="public" static="no" mutable="no">
+        <type>constexpr uint8_t</type>
+        <definition>constexpr uint8_t sc2d::memory::DEFAULT_ALIGNMENT</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_ALIGNMENT</name>
+        <initializer>= 8</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/allocator.h" line="18" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/allocator.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="aligned__allocator_8cpp_1a5b50ac060ab079b1f3dd2214bb0f2ae8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void * sc2d::memory::_aligned_malloc</definition>
+        <argsstring>(size_t size, size_t alignment)</argsstring>
+        <name>_aligned_malloc</name>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>alignment</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/aligned_allocator.cpp" line="9" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/aligned_allocator.cpp" bodystart="9" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="aligned__allocator_8cpp_1ac1b498294984599f1f62d471eb664163" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void * sc2d::memory::aligned_malloc</definition>
+        <argsstring>(size_t size, size_t alignment)</argsstring>
+        <name>aligned_malloc</name>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>alignment</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/aligned_allocator.cpp" line="21" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/aligned_allocator.cpp" bodystart="21" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="aligned__allocator_8cpp_1a76ed59c3220b461be8c5f5f599855774" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sc2d::memory::_aligned_free</definition>
+        <argsstring>(void *ptr)</argsstring>
+        <name>_aligned_free</name>
+        <param>
+          <type>void *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/aligned_allocator.cpp" line="30" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/aligned_allocator.cpp" bodystart="30" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="aligned__allocator_8cpp_1a6e8e6af36e424973de11a530b67f065d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sc2d::memory::aligned_free</definition>
+        <argsstring>(void *ptr)</argsstring>
+        <name>aligned_free</name>
+        <param>
+          <type>void *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/aligned_allocator.cpp" line="36" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/aligned_allocator.cpp" bodystart="36" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="aligners_8h_1a4057fd41539cea1822409861ef124c8a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* sc2d::memory::align_forward</definition>
+        <argsstring>(void *address, uint8_t alignment)</argsstring>
+        <name>align_forward</name>
+        <param>
+          <type>void *</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>alignment</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/aligners.h" line="14" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/aligners.h" bodystart="14" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="aligners_8h_1a83975c5357305ad9065d3f8eb0ec72e7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t sc2d::memory::align_forward_adjustment</definition>
+        <argsstring>(const void *address, uint8_t alignment)</argsstring>
+        <name>align_forward_adjustment</name>
+        <param>
+          <type>const void *</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>alignment</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/aligners.h" line="21" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/aligners.h" bodystart="21" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="aligners_8h_1aad4bb9561dacf2f2f3806dd5f5be28af" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t sc2d::memory::align_forward_adjustment_with_header</definition>
+        <argsstring>(const void *address, uint8_t alignment, uint8_t header_size)</argsstring>
+        <name>align_forward_adjustment_with_header</name>
+        <param>
+          <type>const void *</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>alignment</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>header_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/aligners.h" line="31" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/aligners.h" bodystart="31" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="aligners_8h_1a12f5090871fa6470863f8c57d768c3d6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool sc2d::memory::is_aligned</definition>
+        <argsstring>(const void *address, uint8_t alignment)</argsstring>
+        <name>is_aligned</name>
+        <param>
+          <type>const void *</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>alignment</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/aligners.h" line="48" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/aligners.h" bodystart="48" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="memory_8cpp_1a60bff374ba572d184f9d6f0ed8f6cfb2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsc2d_1_1memory_1_1allocator" kindref="compound">allocator</ref> &amp;</type>
+        <definition>allocator&amp; sc2d::memory::main_allocator</definition>
+        <argsstring>()</argsstring>
+        <name>main_allocator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/memory.cpp" line="34" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/memory/memory.cpp" bodystart="34" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="memory_8h_1a18cc9828b0fcda0e5413706dbcae467c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsc2d_1_1memory_1_1allocator" kindref="compound">allocator</ref> &amp;</type>
+        <definition>allocator&amp; sc2d::memory::default_allocator</definition>
+        <argsstring>()</argsstring>
+        <name>default_allocator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/memory/memory.h" line="12" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/novasurfer/projects/scarecrow2d/src/memory/aligned_allocator.cpp" line="7" column="1"/>
+  </compounddef>
+</doxygen>

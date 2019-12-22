@@ -1,0 +1,384 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classsc2d_1_1ResourceHolder" kind="class" language="C++" prot="public">
+    <compoundname>sc2d::ResourceHolder</compoundname>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classsc2d_1_1ResourceHolder_1a7e3c604bcb1f0028698365937ce6fbe4" prot="private" static="yes" mutable="no">
+        <type>std::unordered_map&lt; std::string, <ref refid="classsc2d_1_1Shader" kindref="compound">Shader</ref> &gt;</type>
+        <definition>std::unordered_map&lt; std::string, Shader &gt; sc2d::ResourceHolder::shaders</definition>
+        <argsstring></argsstring>
+        <name>shaders</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/filesystem/resourceHolder.h" line="54" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/filesystem/resourceHolder.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsc2d_1_1ResourceHolder_1a49ac7b91c2ab3dc4def2ef623562f6b7" prot="private" static="yes" mutable="no">
+        <type>std::unordered_map&lt; std::string, <ref refid="classsc2d_1_1Texture2d" kindref="compound">Texture2d</ref> &gt;</type>
+        <definition>std::unordered_map&lt; std::string, Texture2d &gt; sc2d::ResourceHolder::textures</definition>
+        <argsstring></argsstring>
+        <name>textures</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/filesystem/resourceHolder.h" line="55" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/filesystem/resourceHolder.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsc2d_1_1ResourceHolder_1ad9e0e67175a04d16d9c10a7bff9eb95b" prot="private" static="yes" mutable="no">
+        <type>std::unordered_map&lt; std::string, <ref refid="classsc2d_1_1tiled_1_1Map" kindref="compound">tiled::Map</ref> &gt;</type>
+        <definition>std::unordered_map&lt; std::string, tiled::Map &gt; sc2d::ResourceHolder::tilemaps</definition>
+        <argsstring></argsstring>
+        <name>tilemaps</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/filesystem/resourceHolder.h" line="56" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/filesystem/resourceHolder.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsc2d_1_1ResourceHolder_1ac94a6482d8737f619de1bf221c240947" prot="private" static="yes" mutable="no">
+        <type>std::unordered_map&lt; std::string, <ref refid="classsc2d_1_1TextureAtlas" kindref="compound">TextureAtlas</ref> &gt;</type>
+        <definition>std::unordered_map&lt; std::string, TextureAtlas &gt; sc2d::ResourceHolder::texture_atlases</definition>
+        <argsstring></argsstring>
+        <name>texture_atlases</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/filesystem/resourceHolder.h" line="57" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/filesystem/resourceHolder.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classsc2d_1_1ResourceHolder_1a002e8ce4a2234d910ac958b3ee6fccc9" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sc2d::ResourceHolder::load_shader_program</definition>
+        <argsstring>(ShaderSource shader_source, const std::string &amp;name, const GLchar *vert_file, const GLchar *frag_file, const GLchar *geom_file=nullptr)</argsstring>
+        <name>load_shader_program</name>
+        <param>
+          <type>ShaderSource</type>
+          <declname>shader_source</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const GLchar *</type>
+          <declname>vert_file</declname>
+        </param>
+        <param>
+          <type>const GLchar *</type>
+          <declname>frag_file</declname>
+        </param>
+        <param>
+          <type>const GLchar *</type>
+          <declname>geom_file</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/filesystem/resourceHolder.h" line="33" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/filesystem/resourceHolder.cpp" bodystart="17" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classsc2d_1_1ResourceHolder_1a30cd14f405e3a3757b60ab5e51749c4d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classsc2d_1_1Shader" kindref="compound">Shader</ref> &amp;</type>
+        <definition>const Shader &amp; sc2d::ResourceHolder::get_shader</definition>
+        <argsstring>(const std::string &amp;shader_name)</argsstring>
+        <name>get_shader</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>shader_name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/filesystem/resourceHolder.h" line="36" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/filesystem/resourceHolder.cpp" bodystart="36" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classsc2d_1_1ResourceHolder_1ae9a326d5aec50519aab43ef1e7768775" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sc2d::ResourceHolder::load_texture</definition>
+        <argsstring>(const std::string &amp;img_file, bool alpha, const std::string &amp;name)</argsstring>
+        <name>load_texture</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>img_file</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>alpha</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/filesystem/resourceHolder.h" line="37" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/filesystem/resourceHolder.cpp" bodystart="41" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classsc2d_1_1ResourceHolder_1abc05dbde621341b1731d34a6e3aa48ab" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classsc2d_1_1Texture2d" kindref="compound">Texture2d</ref> &amp;</type>
+        <definition>const Texture2d &amp; sc2d::ResourceHolder::get_texture</definition>
+        <argsstring>(const std::string &amp;texture_name)</argsstring>
+        <name>get_texture</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>texture_name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/filesystem/resourceHolder.h" line="38" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/filesystem/resourceHolder.cpp" bodystart="51" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="classsc2d_1_1ResourceHolder_1a50f13bfe2c89d66c54747a0d101cf32b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sc2d::ResourceHolder::load_tiled_map</definition>
+        <argsstring>(const std::string &amp;name, const tiled::Data &amp;tiled_data)</argsstring>
+        <name>load_tiled_map</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsc2d_1_1tiled_1_1Data" kindref="compound">tiled::Data</ref> &amp;</type>
+          <declname>tiled_data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/filesystem/resourceHolder.h" line="39" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/filesystem/resourceHolder.cpp" bodystart="80" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classsc2d_1_1ResourceHolder_1a1fb1920d009bd23afa147aa519703918" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classsc2d_1_1tiled_1_1Map" kindref="compound">tiled::Map</ref> &amp;</type>
+        <definition>const tiled::Map &amp; sc2d::ResourceHolder::get_tiled_map</definition>
+        <argsstring>(const std::string &amp;map_name)</argsstring>
+        <name>get_tiled_map</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>map_name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/filesystem/resourceHolder.h" line="40" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/filesystem/resourceHolder.cpp" bodystart="86" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="classsc2d_1_1ResourceHolder_1a7496cdf8932acadf40621e5cdae7c035" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classsc2d_1_1TextureAtlas" kindref="compound">TextureAtlas</ref> &amp;</type>
+        <definition>const TextureAtlas &amp; sc2d::ResourceHolder::get_texture_atlas</definition>
+        <argsstring>(const std::string &amp;name)</argsstring>
+        <name>get_texture_atlas</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/filesystem/resourceHolder.h" line="41" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/filesystem/resourceHolder.cpp" bodystart="100" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classsc2d_1_1ResourceHolder_1a6d6cea634ac3849645703e8162067ed4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sc2d::ResourceHolder::load_texture_atlas</definition>
+        <argsstring>(const std::string &amp;img_file, const uint rows, const uint columns, bool alpha, const std::string &amp;name)</argsstring>
+        <name>load_texture_atlas</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>img_file</declname>
+        </param>
+        <param>
+          <type>const uint</type>
+          <declname>rows</declname>
+        </param>
+        <param>
+          <type>const uint</type>
+          <declname>columns</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>alpha</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/filesystem/resourceHolder.h" line="42" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/filesystem/resourceHolder.cpp" bodystart="90" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="classsc2d_1_1ResourceHolder_1a4893cc969c61ab4f0664cad5859f4c69" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sc2d::ResourceHolder::clean</definition>
+        <argsstring>()</argsstring>
+        <name>clean</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/filesystem/resourceHolder.h" line="45" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/filesystem/resourceHolder.cpp" bodystart="56" bodyend="62"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsc2d_1_1ResourceHolder_1a0fe3e86c78e934c25e5cae0c3f66b19f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>sc2d::ResourceHolder::ResourceHolder</definition>
+        <argsstring>()=delete</argsstring>
+        <name>ResourceHolder</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/filesystem/resourceHolder.h" line="47" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classsc2d_1_1ResourceHolder_1ab8c7cdbde6ce7381c9948ed647ef60d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>sc2d::ResourceHolder::ResourceHolder</definition>
+        <argsstring>(const ResourceHolder &amp;other)=delete</argsstring>
+        <name>ResourceHolder</name>
+        <param>
+          <type>const <ref refid="classsc2d_1_1ResourceHolder" kindref="compound">ResourceHolder</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/filesystem/resourceHolder.h" line="48" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classsc2d_1_1ResourceHolder_1a5c48b0ad19439188dd068e72822370ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>sc2d::ResourceHolder::ResourceHolder</definition>
+        <argsstring>(ResourceHolder &amp;&amp;other)=delete</argsstring>
+        <name>ResourceHolder</name>
+        <param>
+          <type><ref refid="classsc2d_1_1ResourceHolder" kindref="compound">ResourceHolder</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/filesystem/resourceHolder.h" line="49" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classsc2d_1_1ResourceHolder_1af334a2d9cc92db91173df1df44331caa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsc2d_1_1ResourceHolder" kindref="compound">ResourceHolder</ref> &amp;</type>
+        <definition>ResourceHolder&amp; sc2d::ResourceHolder::operator=</definition>
+        <argsstring>(const ResourceHolder &amp;other)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classsc2d_1_1ResourceHolder" kindref="compound">ResourceHolder</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/filesystem/resourceHolder.h" line="50" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classsc2d_1_1ResourceHolder_1a28e7f3db026b0316d6d5b4af6cf2edf3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsc2d_1_1ResourceHolder" kindref="compound">ResourceHolder</ref> &amp;</type>
+        <definition>ResourceHolder&amp; sc2d::ResourceHolder::operator=</definition>
+        <argsstring>(ResourceHolder &amp;&amp;other)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classsc2d_1_1ResourceHolder" kindref="compound">ResourceHolder</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/filesystem/resourceHolder.h" line="51" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classsc2d_1_1ResourceHolder_1a5f62ebe28a3292f2b4027f2f6ca2c741" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string sc2d::ResourceHolder::load_shader</definition>
+        <argsstring>(const GLchar *file_path)</argsstring>
+        <name>load_shader</name>
+        <param>
+          <type>const GLchar *</type>
+          <declname>file_path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/filesystem/resourceHolder.h" line="59" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/filesystem/resourceHolder.cpp" bodystart="65" bodyend="78"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/novasurfer/projects/scarecrow2d/src/filesystem/resourceHolder.h" line="31" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/filesystem/resourceHolder.h" bodystart="30" bodyend="60"/>
+    <listofallmembers>
+      <member refid="classsc2d_1_1ResourceHolder_1a4893cc969c61ab4f0664cad5859f4c69" prot="public" virt="non-virtual"><scope>sc2d::ResourceHolder</scope><name>clean</name></member>
+      <member refid="classsc2d_1_1ResourceHolder_1a30cd14f405e3a3757b60ab5e51749c4d" prot="public" virt="non-virtual"><scope>sc2d::ResourceHolder</scope><name>get_shader</name></member>
+      <member refid="classsc2d_1_1ResourceHolder_1abc05dbde621341b1731d34a6e3aa48ab" prot="public" virt="non-virtual"><scope>sc2d::ResourceHolder</scope><name>get_texture</name></member>
+      <member refid="classsc2d_1_1ResourceHolder_1a7496cdf8932acadf40621e5cdae7c035" prot="public" virt="non-virtual"><scope>sc2d::ResourceHolder</scope><name>get_texture_atlas</name></member>
+      <member refid="classsc2d_1_1ResourceHolder_1a1fb1920d009bd23afa147aa519703918" prot="public" virt="non-virtual"><scope>sc2d::ResourceHolder</scope><name>get_tiled_map</name></member>
+      <member refid="classsc2d_1_1ResourceHolder_1a5f62ebe28a3292f2b4027f2f6ca2c741" prot="private" virt="non-virtual"><scope>sc2d::ResourceHolder</scope><name>load_shader</name></member>
+      <member refid="classsc2d_1_1ResourceHolder_1a002e8ce4a2234d910ac958b3ee6fccc9" prot="public" virt="non-virtual"><scope>sc2d::ResourceHolder</scope><name>load_shader_program</name></member>
+      <member refid="classsc2d_1_1ResourceHolder_1ae9a326d5aec50519aab43ef1e7768775" prot="public" virt="non-virtual"><scope>sc2d::ResourceHolder</scope><name>load_texture</name></member>
+      <member refid="classsc2d_1_1ResourceHolder_1a6d6cea634ac3849645703e8162067ed4" prot="public" virt="non-virtual"><scope>sc2d::ResourceHolder</scope><name>load_texture_atlas</name></member>
+      <member refid="classsc2d_1_1ResourceHolder_1a50f13bfe2c89d66c54747a0d101cf32b" prot="public" virt="non-virtual"><scope>sc2d::ResourceHolder</scope><name>load_tiled_map</name></member>
+      <member refid="classsc2d_1_1ResourceHolder_1af334a2d9cc92db91173df1df44331caa" prot="public" virt="non-virtual"><scope>sc2d::ResourceHolder</scope><name>operator=</name></member>
+      <member refid="classsc2d_1_1ResourceHolder_1a28e7f3db026b0316d6d5b4af6cf2edf3" prot="public" virt="non-virtual"><scope>sc2d::ResourceHolder</scope><name>operator=</name></member>
+      <member refid="classsc2d_1_1ResourceHolder_1a0fe3e86c78e934c25e5cae0c3f66b19f" prot="public" virt="non-virtual"><scope>sc2d::ResourceHolder</scope><name>ResourceHolder</name></member>
+      <member refid="classsc2d_1_1ResourceHolder_1ab8c7cdbde6ce7381c9948ed647ef60d2" prot="public" virt="non-virtual"><scope>sc2d::ResourceHolder</scope><name>ResourceHolder</name></member>
+      <member refid="classsc2d_1_1ResourceHolder_1a5c48b0ad19439188dd068e72822370ac" prot="public" virt="non-virtual"><scope>sc2d::ResourceHolder</scope><name>ResourceHolder</name></member>
+      <member refid="classsc2d_1_1ResourceHolder_1a7e3c604bcb1f0028698365937ce6fbe4" prot="private" virt="non-virtual"><scope>sc2d::ResourceHolder</scope><name>shaders</name></member>
+      <member refid="classsc2d_1_1ResourceHolder_1ac94a6482d8737f619de1bf221c240947" prot="private" virt="non-virtual"><scope>sc2d::ResourceHolder</scope><name>texture_atlases</name></member>
+      <member refid="classsc2d_1_1ResourceHolder_1a49ac7b91c2ab3dc4def2ef623562f6b7" prot="private" virt="non-virtual"><scope>sc2d::ResourceHolder</scope><name>textures</name></member>
+      <member refid="classsc2d_1_1ResourceHolder_1ad9e0e67175a04d16d9c10a7bff9eb95b" prot="private" virt="non-virtual"><scope>sc2d::ResourceHolder</scope><name>tilemaps</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

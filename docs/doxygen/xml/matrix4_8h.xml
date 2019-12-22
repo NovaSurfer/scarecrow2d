@@ -1,0 +1,460 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="matrix4_8h" kind="file" language="C++">
+    <compoundname>matrix4.h</compoundname>
+    <includes refid="vector4_8h" local="yes">vector4.h</includes>
+    <includedby refid="shader_8h" local="yes">/home/novasurfer/projects/scarecrow2d/src/core/shader.h</includedby>
+    <includedby refid="transform_8h" local="yes">/home/novasurfer/projects/scarecrow2d/src/math/transform.h</includedby>
+    <incdepgraph>
+      <node id="676">
+        <label>/home/novasurfer/projects/scarecrow2d/src/math/matrix4.h</label>
+        <link refid="matrix4_8h"/>
+        <childnode refid="677" relation="include">
+        </childnode>
+      </node>
+      <node id="680">
+        <label>cmath</label>
+      </node>
+      <node id="679">
+        <label>cfloat</label>
+      </node>
+      <node id="677">
+        <label>vector4.h</label>
+        <link refid="vector4_8h_source"/>
+        <childnode refid="678" relation="include">
+        </childnode>
+        <childnode refid="681" relation="include">
+        </childnode>
+      </node>
+      <node id="681">
+        <label>ostream</label>
+      </node>
+      <node id="678">
+        <label>utils.h</label>
+        <link refid="utils_8h_source"/>
+        <childnode refid="679" relation="include">
+        </childnode>
+        <childnode refid="680" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="685">
+        <label>/home/novasurfer/projects/scarecrow2d/src/core/sprite_sheet_inst.h</label>
+        <link refid="sprite__sheet__inst_8h_source"/>
+        <childnode refid="686" relation="include">
+        </childnode>
+      </node>
+      <node id="686">
+        <label>/home/novasurfer/projects/scarecrow2d/src/core/tiled_map.h</label>
+        <link refid="tiled__map_8h_source"/>
+        <childnode refid="687" relation="include">
+        </childnode>
+      </node>
+      <node id="682">
+        <label>/home/novasurfer/projects/scarecrow2d/src/math/matrix4.h</label>
+        <link refid="matrix4_8h"/>
+        <childnode refid="683" relation="include">
+        </childnode>
+        <childnode refid="688" relation="include">
+        </childnode>
+      </node>
+      <node id="687">
+        <label>/home/novasurfer/projects/scarecrow2d/src/filesystem/resourceHolder.h</label>
+        <link refid="resourceHolder_8h_source"/>
+      </node>
+      <node id="691">
+        <label>/home/novasurfer/projects/scarecrow2d/src/physics/collision2d.h</label>
+        <link refid="collision2d_8h_source"/>
+      </node>
+      <node id="689">
+        <label>/home/novasurfer/projects/scarecrow2d/src/math/geometry2d.h</label>
+        <link refid="geometry2d_8h_source"/>
+        <childnode refid="690" relation="include">
+        </childnode>
+        <childnode refid="691" relation="include">
+        </childnode>
+      </node>
+      <node id="683">
+        <label>/home/novasurfer/projects/scarecrow2d/src/core/shader.h</label>
+        <link refid="shader_8h_source"/>
+        <childnode refid="684" relation="include">
+        </childnode>
+        <childnode refid="685" relation="include">
+        </childnode>
+        <childnode refid="686" relation="include">
+        </childnode>
+        <childnode refid="687" relation="include">
+        </childnode>
+      </node>
+      <node id="690">
+        <label>/home/novasurfer/projects/scarecrow2d/src/math/quadtree.h</label>
+        <link refid="quadtree_8h_source"/>
+      </node>
+      <node id="688">
+        <label>/home/novasurfer/projects/scarecrow2d/src/math/transform.h</label>
+        <link refid="transform_8h_source"/>
+        <childnode refid="685" relation="include">
+        </childnode>
+        <childnode refid="689" relation="include">
+        </childnode>
+      </node>
+      <node id="684">
+        <label>/home/novasurfer/projects/scarecrow2d/src/core/sprite.h</label>
+        <link refid="sprite_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structmath_1_1mat4" prot="public">math::mat4</innerclass>
+    <innernamespace refid="namespacemath">math</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Created<sp/>by<sp/>maksim<sp/>on<sp/>6/27/18.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>INC_2D_ENGINE_matrix4_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>INC_2D_ENGINE_matrix4_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;vector4.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//<sp/>clang-format<sp/>off</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacemath" kindref="compound">math</ref><sp/>{</highlight></codeline>
+<codeline lineno="14" refid="structmath_1_1mat4" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref><sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>n[4][4];</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref>()<sp/>:<sp/>n{{0,<sp/>0,<sp/>0,<sp/>0},<sp/>{0,<sp/>0,<sp/>0,<sp/>0},<sp/>{0,<sp/>0,<sp/>0,<sp/>0},<sp/>{0,<sp/>0,<sp/>0,<sp/>0}}<sp/>{};</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>_11,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>_12,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>_13,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>_14,</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>_21,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>_22,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>_23,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>_24,</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>_31,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>_32,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>_33,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>_34,</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>_41,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>_42,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>_43,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>_44)</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>n{{_11,<sp/>_12,<sp/>_13,<sp/>_14},</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{_21,<sp/>_22,<sp/>_23,<sp/>_24},</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{_31,<sp/>_32,<sp/>_33,<sp/>_34},</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{_41,<sp/>_42,<sp/>_43,<sp/>_44}}<sp/>{};</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structmath_1_1vec4" kindref="compound">vec4</ref><sp/>&amp;a,</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structmath_1_1vec4" kindref="compound">vec4</ref><sp/>&amp;b,</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structmath_1_1vec4" kindref="compound">vec4</ref><sp/>&amp;c,</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structmath_1_1vec4" kindref="compound">vec4</ref><sp/>&amp;d)</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>n{{a.x,<sp/>a.y,<sp/>a.z,<sp/>a.w},</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{b.x,<sp/>b.y,<sp/>b.z,<sp/>b.w},</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{c.x,<sp/>c.y,<sp/>c.z,<sp/>c.w},</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{d.x,<sp/>d.y,<sp/>d.z,<sp/>d.w}}<sp/>{};</highlight></codeline>
+<codeline lineno="42" refid="structmath_1_1mat4_1a62ba6a0b72f251fbbdb6b4d1941660bb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>&amp;<ref refid="structmath_1_1mat4_1a62ba6a0b72f251fbbdb6b4d1941660bb" kindref="member">operator()</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j)</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>n[i][j];</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53" refid="structmath_1_1mat4_1a920c9499848225190aba4add2cba66bf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>&amp;<ref refid="structmath_1_1mat4_1a920c9499848225190aba4add2cba66bf" kindref="member">operator()</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="54"><highlight class="keyword"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>n[j][i];</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63" refid="structmath_1_1mat4_1af1174463f36d030f31ba088c510e86d5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structmath_1_1vec4" kindref="compound">vec4</ref><sp/>&amp;<ref refid="structmath_1_1mat4_1af1174463f36d030f31ba088c510e86d5" kindref="member">operator[]</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j)</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(*reinterpret_cast&lt;vec4<sp/>*&gt;(n[j]));</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73" refid="structmath_1_1mat4_1a7206a569f87bd24ee5a851899cf8c5c8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structmath_1_1vec4" kindref="compound">vec4</ref><sp/>&amp;<ref refid="structmath_1_1mat4_1a7206a569f87bd24ee5a851899cf8c5c8" kindref="member">operator[]</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="74"><highlight class="keyword"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(*reinterpret_cast&lt;const<sp/>vec4<sp/>*&gt;(n[j]));</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83" refid="structmath_1_1mat4_1a26e1decc5a95dfa924dfc2fdce10a8ec" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref><sp/><ref refid="structmath_1_1mat4_1a26e1decc5a95dfa924dfc2fdce10a8ec" kindref="member">operator*</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>scalar)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="84"><highlight class="keyword"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref><sp/>result;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[0][0]<sp/>=<sp/>n[0][0]<sp/>*<sp/>scalar;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[0][1]<sp/>=<sp/>n[0][1]<sp/>*<sp/>scalar;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[0][2]<sp/>=<sp/>n[0][2]<sp/>*<sp/>scalar;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[0][3]<sp/>=<sp/>n[0][3]<sp/>*<sp/>scalar;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[1][0]<sp/>=<sp/>n[1][0]<sp/>*<sp/>scalar;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[1][1]<sp/>=<sp/>n[1][1]<sp/>*<sp/>scalar;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[1][2]<sp/>=<sp/>n[1][2]<sp/>*<sp/>scalar;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[1][3]<sp/>=<sp/>n[1][3]<sp/>*<sp/>scalar;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[2][0]<sp/>=<sp/>n[2][0]<sp/>*<sp/>scalar;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[2][1]<sp/>=<sp/>n[2][1]<sp/>*<sp/>scalar;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[2][2]<sp/>=<sp/>n[2][2]<sp/>*<sp/>scalar;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[2][3]<sp/>=<sp/>n[2][3]<sp/>*<sp/>scalar;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[3][0]<sp/>=<sp/>n[3][0]<sp/>*<sp/>scalar;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[3][1]<sp/>=<sp/>n[3][1]<sp/>*<sp/>scalar;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[3][2]<sp/>=<sp/>n[3][2]<sp/>*<sp/>scalar;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[3][3]<sp/>=<sp/>n[3][3]<sp/>*<sp/>scalar;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>result;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114" refid="structmath_1_1mat4_1a073575764764cf2eff9e3bc1f2740cf5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref><sp/><ref refid="structmath_1_1mat4_1a073575764764cf2eff9e3bc1f2740cf5" kindref="member">operator*</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref><sp/>&amp;o)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="115"><highlight class="keyword"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structmath_1_1mat4" kindref="compound">math::mat4</ref><sp/>result;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[0][0]<sp/>=<sp/>n[0][0]<sp/>*<sp/>o.n[0][0]<sp/>+<sp/>n[0][1]<sp/>*<sp/>o.n[1][0]<sp/>+<sp/>n[0][2]<sp/>*<sp/>o.n[2][0]<sp/>+<sp/>n[0][3]<sp/>*<sp/>o.n[3][0];</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[0][1]<sp/>=<sp/>n[0][0]<sp/>*<sp/>o.n[0][1]<sp/>+<sp/>n[0][1]<sp/>*<sp/>o.n[1][1]<sp/>+<sp/>n[0][2]<sp/>*<sp/>o.n[2][1]<sp/>+<sp/>n[0][3]<sp/>*<sp/>o.n[3][1];</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[0][2]<sp/>=<sp/>n[0][0]<sp/>*<sp/>o.n[0][2]<sp/>+<sp/>n[0][1]<sp/>*<sp/>o.n[1][2]<sp/>+<sp/>n[0][2]<sp/>*<sp/>o.n[2][2]<sp/>+<sp/>n[0][3]<sp/>*<sp/>o.n[3][2];</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[0][3]<sp/>=<sp/>n[0][0]<sp/>*<sp/>o.n[0][3]<sp/>+<sp/>n[0][1]<sp/>*<sp/>o.n[1][3]<sp/>+<sp/>n[0][2]<sp/>*<sp/>o.n[2][3]<sp/>+<sp/>n[0][3]<sp/>*<sp/>o.n[3][3];</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[1][0]<sp/>=<sp/>n[1][0]<sp/>*<sp/>o.n[0][0]<sp/>+<sp/>n[1][1]<sp/>*<sp/>o.n[1][0]<sp/>+<sp/>n[1][2]<sp/>*<sp/>o.n[2][0]<sp/>+<sp/>n[1][3]<sp/>*<sp/>o.n[3][0];</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[1][1]<sp/>=<sp/>n[1][0]<sp/>*<sp/>o.n[0][1]<sp/>+<sp/>n[1][1]<sp/>*<sp/>o.n[1][1]<sp/>+<sp/>n[1][2]<sp/>*<sp/>o.n[2][1]<sp/>+<sp/>n[1][3]<sp/>*<sp/>o.n[3][1];</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[1][2]<sp/>=<sp/>n[1][0]<sp/>*<sp/>o.n[0][2]<sp/>+<sp/>n[1][1]<sp/>*<sp/>o.n[1][2]<sp/>+<sp/>n[1][2]<sp/>*<sp/>o.n[2][2]<sp/>+<sp/>n[1][3]<sp/>*<sp/>o.n[3][2];</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[1][3]<sp/>=<sp/>n[1][0]<sp/>*<sp/>o.n[0][3]<sp/>+<sp/>n[1][1]<sp/>*<sp/>o.n[1][3]<sp/>+<sp/>n[1][2]<sp/>*<sp/>o.n[2][3]<sp/>+<sp/>n[1][3]<sp/>*<sp/>o.n[3][3];</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[2][0]<sp/>=<sp/>n[2][0]<sp/>*<sp/>o.n[0][0]<sp/>+<sp/>n[2][1]<sp/>*<sp/>o.n[1][0]<sp/>+<sp/>n[2][2]<sp/>*<sp/>o.n[2][0]<sp/>+<sp/>n[2][3]<sp/>*<sp/>o.n[3][0];</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[2][1]<sp/>=<sp/>n[2][0]<sp/>*<sp/>o.n[0][1]<sp/>+<sp/>n[2][1]<sp/>*<sp/>o.n[1][1]<sp/>+<sp/>n[2][2]<sp/>*<sp/>o.n[2][1]<sp/>+<sp/>n[2][3]<sp/>*<sp/>o.n[3][1];</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[2][2]<sp/>=<sp/>n[2][0]<sp/>*<sp/>o.n[0][2]<sp/>+<sp/>n[2][1]<sp/>*<sp/>o.n[1][2]<sp/>+<sp/>n[2][2]<sp/>*<sp/>o.n[2][2]<sp/>+<sp/>n[2][3]<sp/>*<sp/>o.n[3][2];</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[2][3]<sp/>=<sp/>n[2][0]<sp/>*<sp/>o.n[0][3]<sp/>+<sp/>n[2][1]<sp/>*<sp/>o.n[1][3]<sp/>+<sp/>n[2][2]<sp/>*<sp/>o.n[2][3]<sp/>+<sp/>n[2][3]<sp/>*<sp/>o.n[3][3];</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[3][0]<sp/>=<sp/>n[3][0]<sp/>*<sp/>o.n[0][0]<sp/>+<sp/>n[3][1]<sp/>*<sp/>o.n[1][0]<sp/>+<sp/>n[3][3]<sp/>*<sp/>o.n[2][0]<sp/>+<sp/>n[3][3]<sp/>*<sp/>o.n[3][0];</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[3][1]<sp/>=<sp/>n[3][0]<sp/>*<sp/>o.n[0][1]<sp/>+<sp/>n[3][1]<sp/>*<sp/>o.n[1][1]<sp/>+<sp/>n[3][3]<sp/>*<sp/>o.n[2][1]<sp/>+<sp/>n[3][3]<sp/>*<sp/>o.n[3][1];</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[3][2]<sp/>=<sp/>n[3][0]<sp/>*<sp/>o.n[0][2]<sp/>+<sp/>n[3][1]<sp/>*<sp/>o.n[1][2]<sp/>+<sp/>n[3][3]<sp/>*<sp/>o.n[2][2]<sp/>+<sp/>n[3][3]<sp/>*<sp/>o.n[3][2];</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[3][3]<sp/>=<sp/>n[3][0]<sp/>*<sp/>o.n[0][3]<sp/>+<sp/>n[3][1]<sp/>*<sp/>o.n[1][3]<sp/>+<sp/>n[3][3]<sp/>*<sp/>o.n[2][3]<sp/>+<sp/>n[3][3]<sp/>*<sp/>o.n[3][3];</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>result;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144" refid="structmath_1_1mat4_1a54330fc77b83773e0270c98c3ffb7809" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref><sp/><ref refid="structmath_1_1mat4_1a54330fc77b83773e0270c98c3ffb7809" kindref="member">operator+</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref><sp/>&amp;other)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="145"><highlight class="keyword"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structmath_1_1mat4" kindref="compound">math::mat4</ref><sp/>result;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[0][0]<sp/>=<sp/>n[0][0]<sp/>+<sp/>other.n[0][0];</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[0][1]<sp/>=<sp/>n[0][1]<sp/>+<sp/>other.n[0][1];</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[0][2]<sp/>=<sp/>n[0][2]<sp/>+<sp/>other.n[0][2];</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[0][3]<sp/>=<sp/>n[0][3]<sp/>+<sp/>other.n[0][3];</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[1][0]<sp/>=<sp/>n[1][0]<sp/>+<sp/>other.n[1][0];</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[1][1]<sp/>=<sp/>n[1][1]<sp/>+<sp/>other.n[1][1];</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[1][2]<sp/>=<sp/>n[1][2]<sp/>+<sp/>other.n[1][2];</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[1][3]<sp/>=<sp/>n[1][3]<sp/>+<sp/>other.n[1][3];</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[2][0]<sp/>=<sp/>n[2][0]<sp/>+<sp/>other.n[2][0];</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[2][1]<sp/>=<sp/>n[2][1]<sp/>+<sp/>other.n[2][1];</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[2][2]<sp/>=<sp/>n[2][2]<sp/>+<sp/>other.n[2][2];</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[2][3]<sp/>=<sp/>n[2][3]<sp/>+<sp/>other.n[2][3];</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[3][0]<sp/>=<sp/>n[3][0]<sp/>+<sp/>other.n[3][0];</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[3][1]<sp/>=<sp/>n[3][1]<sp/>+<sp/>other.n[3][1];</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[3][2]<sp/>=<sp/>n[3][2]<sp/>+<sp/>other.n[3][2];</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[3][3]<sp/>=<sp/>n[3][3]<sp/>+<sp/>other.n[3][3];</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>result;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174" refid="structmath_1_1mat4_1a0dff7ff836daf55723f1c7b3c6e2a71f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref><sp/>&amp;<ref refid="structmath_1_1mat4_1a0dff7ff836daf55723f1c7b3c6e2a71f" kindref="member">operator*=</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>scalar)</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal"><sp/>=<sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal"><sp/>*<sp/>scalar;</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="186" refid="structmath_1_1mat4_1af26f144e357f0c2597afe7c0df3f366d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref><sp/>&amp;<ref refid="structmath_1_1mat4_1af26f144e357f0c2597afe7c0df3f366d" kindref="member">operator*=</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref><sp/>&amp;other)</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal"><sp/>=<sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal"><sp/>*<sp/>other;</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197" refid="structmath_1_1mat4_1a468b63b10d99f5cff5ab0463a9824eec" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref><sp/>&amp;<ref refid="structmath_1_1mat4_1a468b63b10d99f5cff5ab0463a9824eec" kindref="member">operator+=</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref><sp/>&amp;other)</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal"><sp/>=<sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal"><sp/>+<sp/>other;</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="208" refid="structmath_1_1mat4_1a9093d3f340dc10c2f36e6a11eb2de64f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structmath_1_1mat4_1a9093d3f340dc10c2f36e6a11eb2de64f" kindref="member">operator==</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref><sp/>&amp;other)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="209"><highlight class="keyword"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(n[0][0]<sp/>==<sp/>other.n[0][0]<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[0][1]<sp/>==<sp/>other.n[0][1]<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[0][2]<sp/>==<sp/>other.n[0][2]<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[0][3]<sp/>==<sp/>other.n[0][3]<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[1][0]<sp/>==<sp/>other.n[1][0]<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[1][1]<sp/>==<sp/>other.n[1][1]<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[1][2]<sp/>==<sp/>other.n[1][2]<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[1][3]<sp/>==<sp/>other.n[1][3]<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[2][0]<sp/>==<sp/>other.n[2][0]<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[2][1]<sp/>==<sp/>other.n[2][1]<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[2][2]<sp/>==<sp/>other.n[2][2]<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[2][3]<sp/>==<sp/>other.n[2][3]<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[3][0]<sp/>==<sp/>other.n[3][0]<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[3][1]<sp/>==<sp/>other.n[3][1]<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[3][2]<sp/>==<sp/>other.n[3][2]<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[3][3]<sp/>==<sp/>other.n[3][3]<sp/>);</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight></codeline>
+<codeline lineno="236" refid="structmath_1_1mat4_1a71a4c93eb519ac123b7347588a1c5377" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structmath_1_1mat4_1a71a4c93eb519ac123b7347588a1c5377" kindref="member">operator!=</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref><sp/>&amp;other)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="237"><highlight class="keyword"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>!(*</highlight><highlight class="keyword">this</highlight><highlight class="normal"><sp/>==<sp/>other);</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight></codeline>
+<codeline lineno="248" refid="structmath_1_1mat4_1a8cf54e779651b64900748420b9e5137b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">friend</highlight><highlight class="normal"><sp/>std::ostream<sp/>&amp;<ref refid="structmath_1_1mat4_1a8cf54e779651b64900748420b9e5137b" kindref="member">operator&lt;&lt;</ref>(std::ostream<sp/>&amp;ostream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref><sp/>&amp;mat)</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ostream<sp/>&lt;&lt;<sp/>mat.n[0][0]<sp/>&lt;&lt;<sp/></highlight><highlight class="charliteral">&apos;\t&apos;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>mat.n[0][1]<sp/>&lt;&lt;<sp/></highlight><highlight class="charliteral">&apos;\t&apos;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>mat.n[0][2]<sp/>&lt;&lt;<sp/></highlight><highlight class="charliteral">&apos;\t&apos;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>mat.n[0][3]<sp/>&lt;&lt;<sp/></highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>mat.n[1][0]<sp/>&lt;&lt;<sp/></highlight><highlight class="charliteral">&apos;\t&apos;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>mat.n[1][1]<sp/>&lt;&lt;<sp/></highlight><highlight class="charliteral">&apos;\t&apos;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>mat.n[1][2]<sp/>&lt;&lt;<sp/></highlight><highlight class="charliteral">&apos;\t&apos;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>mat.n[1][3]<sp/>&lt;&lt;<sp/></highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>mat.n[2][0]<sp/>&lt;&lt;<sp/></highlight><highlight class="charliteral">&apos;\t&apos;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>mat.n[2][1]<sp/>&lt;&lt;<sp/></highlight><highlight class="charliteral">&apos;\t&apos;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>mat.n[2][2]<sp/>&lt;&lt;<sp/></highlight><highlight class="charliteral">&apos;\t&apos;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>mat.n[2][3]<sp/>&lt;&lt;<sp/></highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>mat.n[3][0]<sp/>&lt;&lt;<sp/></highlight><highlight class="charliteral">&apos;\t&apos;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>mat.n[3][1]<sp/>&lt;&lt;<sp/></highlight><highlight class="charliteral">&apos;\t&apos;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>mat.n[3][2]<sp/>&lt;&lt;<sp/></highlight><highlight class="charliteral">&apos;\t&apos;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>mat.n[3][3]<sp/>&lt;&lt;<sp/></highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ostream;</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"></highlight></codeline>
+<codeline lineno="262" refid="structmath_1_1mat4_1a5377071c3eaa45a552c01985babfa169" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[[nodiscard]]<sp/><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref><sp/><ref refid="structmath_1_1mat4_1a5377071c3eaa45a552c01985babfa169" kindref="member">transpose</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="263"><highlight class="keyword"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref><sp/>result;</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[0][0]<sp/>=<sp/>n[0][0];</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[0][1]<sp/>=<sp/>n[1][0];</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[0][2]<sp/>=<sp/>n[2][0];</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[0][3]<sp/>=<sp/>n[3][0];</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"></highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[1][0]<sp/>=<sp/>n[0][1];</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[1][1]<sp/>=<sp/>n[1][1];</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[1][2]<sp/>=<sp/>n[2][1];</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[1][3]<sp/>=<sp/>n[3][1];</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"></highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[2][0]<sp/>=<sp/>n[0][2];</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[2][1]<sp/>=<sp/>n[1][2];</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[2][2]<sp/>=<sp/>n[2][2];</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[2][3]<sp/>=<sp/>n[3][2];</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"></highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[3][0]<sp/>=<sp/>n[0][3];</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[3][1]<sp/>=<sp/>n[1][3];</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[3][2]<sp/>=<sp/>n[2][3];</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[3][3]<sp/>=<sp/>n[3][3];</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>result;</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"></highlight></codeline>
+<codeline lineno="294" refid="structmath_1_1mat4_1a743a3f8bbeda33bae529ef7d5e3d9d0c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[[nodiscard]]<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structmath_1_1mat4_1a743a3f8bbeda33bae529ef7d5e3d9d0c" kindref="member">determinant</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="295"><highlight class="keyword"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[0][0]<sp/>*<sp/>(n[1][3]<sp/>*<sp/>n[2][1]<sp/>*<sp/>n[3][2]<sp/>+<sp/>n[1][1]<sp/>*<sp/>n[2][2]<sp/>*<sp/>n[3][3]<sp/>+</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[1][2]<sp/>*<sp/>n[2][3]<sp/>*<sp/>n[3][1]<sp/>-<sp/>n[3][3]<sp/>*<sp/>n[2][1]<sp/>*<sp/>n[1][2]<sp/>-</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[3][1]<sp/>*<sp/>n[2][2]<sp/>*<sp/>n[1][3]<sp/>-<sp/>n[3][2]<sp/>*<sp/>n[2][3]<sp/>*<sp/>n[1][1])</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"></highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-n[0][1]<sp/>*<sp/>(n[1][3]<sp/>*<sp/>n[2][0]<sp/>*<sp/>n[3][2]<sp/>+<sp/>n[1][0]<sp/>*<sp/>n[2][2]<sp/>*<sp/>n[3][3]<sp/>+</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[1][2]<sp/>*<sp/>n[2][3]<sp/>*<sp/>n[3][0]<sp/>-<sp/>n[3][3]<sp/>*<sp/>n[2][0]<sp/>*<sp/>n[1][2]<sp/>-</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[3][0]<sp/>*<sp/>n[2][2]<sp/>*<sp/>n[1][3]<sp/>-<sp/>n[3][2]<sp/>*<sp/>n[2][3]<sp/>*<sp/>n[1][0])</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"></highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+n[0][2]<sp/>*<sp/>(n[1][3]<sp/>*<sp/>n[2][0]<sp/>*<sp/>n[3][1]<sp/>+<sp/>n[1][0]<sp/>*<sp/>n[2][1]<sp/>*<sp/>n[3][3]<sp/>+</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[1][1]<sp/>*<sp/>n[2][3]<sp/>*<sp/>n[3][0]<sp/>-<sp/>n[1][1]<sp/>*<sp/>n[2][0]<sp/>*<sp/>n[3][3]<sp/>-</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[1][3]<sp/>*<sp/>n[2][1]<sp/>*<sp/>n[3][0]<sp/>-<sp/>n[3][1]<sp/>*<sp/>n[2][3]<sp/>*<sp/>n[1][0])</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"></highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-n[0][3]<sp/>*<sp/>(n[1][2]<sp/>*<sp/>n[2][0]<sp/>*<sp/>n[3][1]<sp/>+<sp/>n[1][0]<sp/>*<sp/>n[2][1]<sp/>*<sp/>n[3][2]<sp/>+</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[1][1]<sp/>*<sp/>n[2][2]<sp/>*<sp/>n[3][0]<sp/>-<sp/>n[3][2]<sp/>*<sp/>n[2][0]<sp/>*<sp/>n[1][1]<sp/>-</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[3][0]<sp/>*<sp/>n[2][1]<sp/>*<sp/>n[1][2]<sp/>-<sp/>n[3][1]<sp/>*<sp/>n[2][2]<sp/>*<sp/>n[1][0]);</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"></highlight></codeline>
+<codeline lineno="319" refid="structmath_1_1mat4_1a6e50d9526b70bdb83ca5c0d4e163db87" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[[nodiscard]]<sp/><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref><sp/><ref refid="structmath_1_1mat4_1a6e50d9526b70bdb83ca5c0d4e163db87" kindref="member">minor</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="320"><highlight class="keyword"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>M<sp/>(0,0)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref>(n[1][1]<sp/>*<sp/>n[2][2]<sp/>*<sp/>n[3][3]<sp/>+<sp/>n[1][2]<sp/>*<sp/>n[2][3]<sp/>*<sp/>n[3][1]<sp/>+</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[1][3]<sp/>*<sp/>n[2][1]<sp/>*<sp/>n[3][2]<sp/>-<sp/>n[1][3]<sp/>*<sp/>n[2][2]<sp/>*<sp/>n[3][1]<sp/>-</highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[1][2]<sp/>*<sp/>n[2][1]<sp/>*<sp/>n[3][3]<sp/>-<sp/>n[1][1]<sp/>*<sp/>n[2][3]<sp/>*<sp/>n[3][2]<sp/>,</highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>M<sp/>(0,1)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="325"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[1][0]<sp/>*<sp/>n[2][2]<sp/>*<sp/>n[3][3]<sp/>+<sp/>n[1][2]<sp/>*<sp/>n[2][3]<sp/>*<sp/>n[3][0]<sp/>+</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[1][3]<sp/>*<sp/>n[2][0]<sp/>*<sp/>n[3][2]<sp/>-<sp/>n[1][3]<sp/>*<sp/>n[2][2]<sp/>*<sp/>n[3][0]<sp/>-</highlight></codeline>
+<codeline lineno="327"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[1][2]<sp/>*<sp/>n[2][0]<sp/>*<sp/>n[3][3]<sp/>-<sp/>n[1][0]<sp/>*<sp/>n[2][3]<sp/>*<sp/>n[3][2]<sp/>,</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>M<sp/>(0,2)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[1][0]<sp/>*<sp/>n[2][1]<sp/>*<sp/>n[3][3]<sp/>+<sp/>n[1][1]<sp/>*<sp/>n[2][3]<sp/>*<sp/>n[3][0]<sp/>+</highlight></codeline>
+<codeline lineno="330"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[1][3]<sp/>*<sp/>n[2][0]<sp/>*<sp/>n[3][1]<sp/>-<sp/>n[1][3]<sp/>*<sp/>n[2][1]<sp/>*<sp/>n[3][0]<sp/>-</highlight></codeline>
+<codeline lineno="331"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[1][1]<sp/>*<sp/>n[2][0]<sp/>*<sp/>n[3][3]<sp/>-<sp/>n[1][0]<sp/>*<sp/>n[2][3]<sp/>*<sp/>n[3][1]<sp/>,</highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>M<sp/>(0,3)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="333"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[1][0]<sp/>*<sp/>n[2][1]<sp/>*<sp/>n[3][2]<sp/>+<sp/>n[1][1]<sp/>*<sp/>n[2][2]<sp/>*<sp/>n[3][0]<sp/>+</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[1][2]<sp/>*<sp/>n[2][0]<sp/>*<sp/>n[3][1]<sp/>-<sp/>n[1][2]<sp/>*<sp/>n[2][1]<sp/>*<sp/>n[3][0]<sp/>-</highlight></codeline>
+<codeline lineno="335"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[1][1]<sp/>*<sp/>n[2][0]<sp/>*<sp/>n[3][2]<sp/>-<sp/>n[1][0]<sp/>*<sp/>n[2][2]<sp/>*<sp/>n[3][1]<sp/>,</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>--------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="337"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>M<sp/>(1,0)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[0][1]<sp/>*<sp/>n[2][2]<sp/>*<sp/>n[3][3]<sp/>+<sp/>n[0][2]<sp/>*<sp/>n[2][3]<sp/>*<sp/>n[3][1]<sp/>+</highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[0][3]<sp/>*<sp/>n[2][1]<sp/>*<sp/>n[3][2]<sp/>-<sp/>n[0][3]<sp/>*<sp/>n[2][2]<sp/>*<sp/>n[3][1]<sp/>-</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[0][2]<sp/>*<sp/>n[2][1]<sp/>*<sp/>n[3][3]<sp/>-<sp/>n[0][1]<sp/>*<sp/>n[2][3]<sp/>*<sp/>n[3][2]<sp/>,</highlight></codeline>
+<codeline lineno="341"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>M<sp/>(1,1)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="342"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[0][0]<sp/>*<sp/>n[2][2]<sp/>*<sp/>n[3][3]<sp/>+<sp/>n[0][2]<sp/>*<sp/>n[2][3]<sp/>*<sp/>n[3][0]<sp/>+</highlight></codeline>
+<codeline lineno="343"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[0][3]<sp/>*<sp/>n[2][0]<sp/>*<sp/>n[3][2]<sp/>-<sp/>n[0][3]<sp/>*<sp/>n[2][2]<sp/>*<sp/>n[3][0]<sp/>-</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[0][2]<sp/>*<sp/>n[2][0]<sp/>*<sp/>n[3][3]<sp/>-<sp/>n[0][0]<sp/>*<sp/>n[2][3]<sp/>*<sp/>n[3][2]<sp/>,</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>M<sp/>(1,2)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[0][0]<sp/>*<sp/>n[2][1]<sp/>*<sp/>n[3][3]<sp/>+<sp/>n[0][1]<sp/>*<sp/>n[2][3]<sp/>*<sp/>n[3][0]<sp/>+</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[0][3]<sp/>*<sp/>n[2][0]<sp/>*<sp/>n[3][1]<sp/>-<sp/>n[0][3]<sp/>*<sp/>n[2][1]<sp/>*<sp/>n[3][0]<sp/>-</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[0][1]<sp/>*<sp/>n[2][0]<sp/>*<sp/>n[3][3]<sp/>-<sp/>n[0][0]<sp/>*<sp/>n[2][3]<sp/>*<sp/>n[3][1]<sp/>,</highlight></codeline>
+<codeline lineno="349"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>M<sp/>(1,3)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="350"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[0][0]<sp/>*<sp/>n[2][1]<sp/>*<sp/>n[3][2]<sp/>+<sp/>n[0][1]<sp/>*<sp/>n[2][2]<sp/>*<sp/>n[3][0]<sp/>+</highlight></codeline>
+<codeline lineno="351"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[0][2]<sp/>*<sp/>n[2][0]<sp/>*<sp/>n[3][1]<sp/>-<sp/>n[0][2]<sp/>*<sp/>n[2][1]<sp/>*<sp/>n[3][0]<sp/>-</highlight></codeline>
+<codeline lineno="352"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[0][1]<sp/>*<sp/>n[2][0]<sp/>*<sp/>n[3][2]<sp/>-<sp/>n[0][0]<sp/>*<sp/>n[2][2]<sp/>*<sp/>n[3][1]<sp/>,</highlight></codeline>
+<codeline lineno="353"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>--------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="354"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>M<sp/>(2,0)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="355"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[0][1]<sp/>*<sp/>n[1][2]<sp/>*<sp/>n[3][3]<sp/>+<sp/>n[0][2]<sp/>*<sp/>n[1][3]<sp/>*<sp/>n[3][1]<sp/>+</highlight></codeline>
+<codeline lineno="356"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[0][3]<sp/>*<sp/>n[1][1]<sp/>*<sp/>n[3][2]<sp/>-<sp/>n[0][3]<sp/>*<sp/>n[1][2]<sp/>*<sp/>n[3][1]<sp/>-</highlight></codeline>
+<codeline lineno="357"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[0][2]<sp/>*<sp/>n[1][1]<sp/>*<sp/>n[3][3]<sp/>-<sp/>n[0][1]<sp/>*<sp/>n[1][3]<sp/>*<sp/>n[3][2]<sp/>,</highlight></codeline>
+<codeline lineno="358"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>M<sp/>(2,1)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="359"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[0][0]<sp/>*<sp/>n[1][2]<sp/>*<sp/>n[3][3]<sp/>+<sp/>n[0][2]<sp/>*<sp/>n[1][3]<sp/>*<sp/>n[3][0]<sp/>+</highlight></codeline>
+<codeline lineno="360"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[0][3]<sp/>*<sp/>n[1][0]<sp/>*<sp/>n[3][2]<sp/>-<sp/>n[0][3]<sp/>*<sp/>n[1][2]<sp/>*<sp/>n[3][0]<sp/>-</highlight></codeline>
+<codeline lineno="361"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[0][2]<sp/>*<sp/>n[1][0]<sp/>*<sp/>n[3][3]<sp/>-<sp/>n[0][0]<sp/>*<sp/>n[1][3]<sp/>*<sp/>n[3][2]<sp/>,</highlight></codeline>
+<codeline lineno="362"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>M<sp/>(2,2)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="363"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[0][0]<sp/>*<sp/>n[1][1]<sp/>*<sp/>n[3][3]<sp/>+<sp/>n[0][1]<sp/>*<sp/>n[1][3]<sp/>*<sp/>n[3][0]<sp/>+</highlight></codeline>
+<codeline lineno="364"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[0][3]<sp/>*<sp/>n[1][0]<sp/>*<sp/>n[3][1]<sp/>-<sp/>n[0][3]<sp/>*<sp/>n[1][1]<sp/>*<sp/>n[3][0]<sp/>-</highlight></codeline>
+<codeline lineno="365"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[0][1]<sp/>*<sp/>n[1][0]<sp/>*<sp/>n[3][3]<sp/>-<sp/>n[0][0]<sp/>*<sp/>n[1][3]<sp/>*<sp/>n[3][1]<sp/>,</highlight></codeline>
+<codeline lineno="366"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>M<sp/>(2,3)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="367"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[0][0]<sp/>*<sp/>n[1][1]<sp/>*<sp/>n[3][2]<sp/>+<sp/>n[0][1]<sp/>*<sp/>n[1][2]<sp/>*<sp/>n[3][0]<sp/>+</highlight></codeline>
+<codeline lineno="368"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[0][2]<sp/>*<sp/>n[1][0]<sp/>*<sp/>n[3][1]<sp/>-<sp/>n[0][2]<sp/>*<sp/>n[1][1]<sp/>*<sp/>n[3][0]<sp/>-</highlight></codeline>
+<codeline lineno="369"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[0][1]<sp/>*<sp/>n[1][0]<sp/>*<sp/>n[3][2]<sp/>-<sp/>n[0][0]<sp/>*<sp/>n[1][2]<sp/>*<sp/>n[3][1]<sp/>,</highlight></codeline>
+<codeline lineno="370"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>--------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="371"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>M<sp/>(3,0)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="372"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[0][1]<sp/>*<sp/>n[1][2]<sp/>*<sp/>n[2][3]<sp/>+<sp/>n[0][2]<sp/>*<sp/>n[1][3]<sp/>*<sp/>n[2][1]<sp/>+</highlight></codeline>
+<codeline lineno="373"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[0][3]<sp/>*<sp/>n[1][1]<sp/>*<sp/>n[2][2]<sp/>-<sp/>n[0][3]<sp/>*<sp/>n[1][2]<sp/>*<sp/>n[2][1]<sp/>-</highlight></codeline>
+<codeline lineno="374"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[0][2]<sp/>*<sp/>n[1][1]<sp/>*<sp/>n[2][3]<sp/>-<sp/>n[0][1]<sp/>*<sp/>n[1][3]<sp/>*<sp/>n[2][2]<sp/>,</highlight></codeline>
+<codeline lineno="375"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>M<sp/>(3,1)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="376"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[0][0]<sp/>*<sp/>n[1][2]<sp/>*<sp/>n[2][3]<sp/>+<sp/>n[0][2]<sp/>*<sp/>n[1][3]<sp/>*<sp/>n[2][0]<sp/>+</highlight></codeline>
+<codeline lineno="377"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[0][3]<sp/>*<sp/>n[1][0]<sp/>*<sp/>n[2][2]<sp/>-<sp/>n[0][3]<sp/>*<sp/>n[1][2]<sp/>*<sp/>n[2][0]<sp/>-</highlight></codeline>
+<codeline lineno="378"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[0][2]<sp/>*<sp/>n[1][0]<sp/>*<sp/>n[2][3]<sp/>-<sp/>n[0][0]<sp/>*<sp/>n[1][3]<sp/>*<sp/>n[2][2]<sp/>,</highlight></codeline>
+<codeline lineno="379"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>M<sp/>(3,2)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="380"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[0][0]<sp/>*<sp/>n[1][1]<sp/>*<sp/>n[2][3]<sp/>+<sp/>n[0][1]<sp/>*<sp/>n[1][3]<sp/>*<sp/>n[2][0]<sp/>+</highlight></codeline>
+<codeline lineno="381"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[0][3]<sp/>*<sp/>n[1][0]<sp/>*<sp/>n[2][1]<sp/>-<sp/>n[0][3]<sp/>*<sp/>n[1][1]<sp/>*<sp/>n[2][0]<sp/>-</highlight></codeline>
+<codeline lineno="382"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[0][1]<sp/>*<sp/>n[1][0]<sp/>*<sp/>n[2][3]<sp/>-<sp/>n[0][0]<sp/>*<sp/>n[1][3]<sp/>*<sp/>n[2][1]<sp/>,</highlight></codeline>
+<codeline lineno="383"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>M<sp/>(3,3)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="384"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[0][0]<sp/>*<sp/>n[1][1]<sp/>*<sp/>n[2][2]<sp/>+<sp/>n[0][1]<sp/>*<sp/>n[1][2]<sp/>*<sp/>n[2][0]<sp/>+</highlight></codeline>
+<codeline lineno="385"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[0][2]<sp/>*<sp/>n[1][0]<sp/>*<sp/>n[2][1]<sp/>-<sp/>n[0][2]<sp/>*<sp/>n[1][1]<sp/>*<sp/>n[2][0]<sp/>-</highlight></codeline>
+<codeline lineno="386"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n[0][1]<sp/>*<sp/>n[1][0]<sp/>*<sp/>n[2][2]<sp/>-<sp/>n[0][0]<sp/>*<sp/>n[1][2]<sp/>*<sp/>n[2][1]);</highlight></codeline>
+<codeline lineno="387"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="388"><highlight class="normal"></highlight></codeline>
+<codeline lineno="394" refid="structmath_1_1mat4_1af44ca96fa89e53b4950608b25e2cafe8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[[nodiscard]]<sp/><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref><sp/><ref refid="structmath_1_1mat4_1af44ca96fa89e53b4950608b25e2cafe8" kindref="member">cofactor</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="395"><highlight class="keyword"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="396"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref><sp/>result;</highlight></codeline>
+<codeline lineno="397"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref><sp/>minor_mat<sp/>=<sp/><ref refid="structmath_1_1mat4_1a6e50d9526b70bdb83ca5c0d4e163db87" kindref="member">minor</ref>();</highlight></codeline>
+<codeline lineno="398"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[0][0]<sp/>=<sp/><sp/>minor_mat.n[0][0];</highlight></codeline>
+<codeline lineno="399"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[0][1]<sp/>=<sp/>-minor_mat.n[0][1];</highlight></codeline>
+<codeline lineno="400"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[0][2]<sp/>=<sp/><sp/>minor_mat.n[0][2];</highlight></codeline>
+<codeline lineno="401"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[0][3]<sp/>=<sp/>-minor_mat.n[0][3];</highlight></codeline>
+<codeline lineno="402"><highlight class="normal"></highlight></codeline>
+<codeline lineno="403"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[1][0]<sp/>=<sp/>-minor_mat.n[1][0];</highlight></codeline>
+<codeline lineno="404"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[1][1]<sp/>=<sp/><sp/>minor_mat.n[1][1];</highlight></codeline>
+<codeline lineno="405"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[1][2]<sp/>=<sp/>-minor_mat.n[1][2];</highlight></codeline>
+<codeline lineno="406"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[1][3]<sp/>=<sp/><sp/>minor_mat.n[1][3];</highlight></codeline>
+<codeline lineno="407"><highlight class="normal"></highlight></codeline>
+<codeline lineno="408"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[2][0]<sp/>=<sp/><sp/>minor_mat.n[2][0];</highlight></codeline>
+<codeline lineno="409"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[2][1]<sp/>=<sp/>-minor_mat.n[2][1];</highlight></codeline>
+<codeline lineno="410"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[2][2]<sp/>=<sp/><sp/>minor_mat.n[2][2];</highlight></codeline>
+<codeline lineno="411"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[2][3]<sp/>=<sp/>-minor_mat.n[2][3];</highlight></codeline>
+<codeline lineno="412"><highlight class="normal"></highlight></codeline>
+<codeline lineno="413"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[3][0]<sp/>=<sp/>-minor_mat.n[3][0];</highlight></codeline>
+<codeline lineno="414"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[3][1]<sp/>=<sp/><sp/>minor_mat.n[3][1];</highlight></codeline>
+<codeline lineno="415"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[3][2]<sp/>=<sp/>-minor_mat.n[3][2];</highlight></codeline>
+<codeline lineno="416"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.n[3][3]<sp/>=<sp/><sp/>minor_mat.n[3][3];</highlight></codeline>
+<codeline lineno="417"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>result;</highlight></codeline>
+<codeline lineno="418"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="419"><highlight class="normal"></highlight></codeline>
+<codeline lineno="425" refid="structmath_1_1mat4_1acc9c38d9696581fdb745f62ddfeb2f43" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[[nodiscard]]<sp/><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref><sp/><ref refid="structmath_1_1mat4_1acc9c38d9696581fdb745f62ddfeb2f43" kindref="member">adjugate</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="426"><highlight class="keyword"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="427"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref><sp/>transposed<sp/>=<sp/><ref refid="structmath_1_1mat4_1a5377071c3eaa45a552c01985babfa169" kindref="member">transpose</ref>();</highlight></codeline>
+<codeline lineno="428"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>transposed.<ref refid="structmath_1_1mat4_1af44ca96fa89e53b4950608b25e2cafe8" kindref="member">cofactor</ref>();</highlight></codeline>
+<codeline lineno="429"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="430"><highlight class="normal"></highlight></codeline>
+<codeline lineno="436" refid="structmath_1_1mat4_1a04aa308993896a68a5aac858b41edb7e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref><sp/><ref refid="structmath_1_1mat4_1a04aa308993896a68a5aac858b41edb7e" kindref="member">inverse</ref>()</highlight></codeline>
+<codeline lineno="437"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="438"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>det<sp/>=<sp/><ref refid="structmath_1_1mat4_1a743a3f8bbeda33bae529ef7d5e3d9d0c" kindref="member">determinant</ref>();</highlight></codeline>
+<codeline lineno="439"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="structmath_1_1utils_1ac138b736f332b03adfac51baaad6027a" kindref="member">utils::cmp</ref>(det,<sp/>0.0f))</highlight></codeline>
+<codeline lineno="440"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structmath_1_1mat4" kindref="compound">mat4</ref>();</highlight></codeline>
+<codeline lineno="441"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structmath_1_1mat4_1acc9c38d9696581fdb745f62ddfeb2f43" kindref="member">adjugate</ref>()<sp/>*<sp/>(1.0f<sp/>/<sp/>det);</highlight></codeline>
+<codeline lineno="442"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="443"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="444"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="445"><highlight class="normal"></highlight></codeline>
+<codeline lineno="446"><highlight class="normal"></highlight></codeline>
+<codeline lineno="447"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//INC_2D_ENGINE_matrix4_H</highlight></codeline>
+    </programlisting>
+    <location file="/home/novasurfer/projects/scarecrow2d/src/math/matrix4.h"/>
+  </compounddef>
+</doxygen>

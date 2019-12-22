@@ -1,0 +1,82 @@
+\hypertarget{structECSComponent}{}\section{E\+C\+S\+Component$<$ T $>$ Struct Template Reference}
+\label{structECSComponent}\index{E\+C\+S\+Component$<$ T $>$@{E\+C\+S\+Component$<$ T $>$}}
+
+
+{\ttfamily \#include $<$ecs\+\_\+component.\+h$>$}
+
+
+
+Inheritance diagram for E\+C\+S\+Component$<$ T $>$\+:
+% FIG 0
+
+
+Collaboration diagram for E\+C\+S\+Component$<$ T $>$\+:
+% FIG 1
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const E\+C\+S\+Component\+Create\+Function \hyperlink{structECSComponent_a0f13ee7a0f2f40ceb48f2e7739ee081f}{C\+R\+E\+A\+T\+E\+\_\+\+F\+U\+N\+C\+T\+I\+ON}
+\item 
+static const E\+C\+S\+Component\+Free\+Function \hyperlink{structECSComponent_a83c38574e296ac5e057c33d589f420ad}{F\+R\+E\+E\+\_\+\+F\+U\+N\+C\+T\+I\+ON}
+\item 
+\mbox{\Hypertarget{structECSComponent_a78eca5a7028a771877355bbe0c57124e}\label{structECSComponent_a78eca5a7028a771877355bbe0c57124e}} 
+static const comp\+Id\+\_\+t {\bfseries id}
+\item 
+static const size\+\_\+t \hyperlink{structECSComponent_a307a02bf9d5ea085acc38b6842e6dadf}{size}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+struct E\+C\+S\+Component$<$ T $>$}
+
+\hyperlink{classECS}{E\+CS} Component We are using \textquotesingle{}Curiously recurring template pattern\textquotesingle{} In order to get static variables in every derived component class 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & the component class itself \\
+\hline
+\end{DoxyTemplParams}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{structECSComponent_a0f13ee7a0f2f40ceb48f2e7739ee081f}\label{structECSComponent_a0f13ee7a0f2f40ceb48f2e7739ee081f}} 
+\index{E\+C\+S\+Component@{E\+C\+S\+Component}!C\+R\+E\+A\+T\+E\+\_\+\+F\+U\+N\+C\+T\+I\+ON@{C\+R\+E\+A\+T\+E\+\_\+\+F\+U\+N\+C\+T\+I\+ON}}
+\index{C\+R\+E\+A\+T\+E\+\_\+\+F\+U\+N\+C\+T\+I\+ON@{C\+R\+E\+A\+T\+E\+\_\+\+F\+U\+N\+C\+T\+I\+ON}!E\+C\+S\+Component@{E\+C\+S\+Component}}
+\subsubsection{\texorpdfstring{C\+R\+E\+A\+T\+E\+\_\+\+F\+U\+N\+C\+T\+I\+ON}{CREATE\_FUNCTION}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+const E\+C\+S\+Component\+Create\+Function \hyperlink{structECSComponent}{E\+C\+S\+Component}$<$ T $>$\+::C\+R\+E\+A\+T\+E\+\_\+\+F\+U\+N\+C\+T\+I\+ON\hspace{0.3cm}{\ttfamily [static]}}
+
+Init create function pointer 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & component class \\
+\hline
+\end{DoxyTemplParams}
+\mbox{\Hypertarget{structECSComponent_a83c38574e296ac5e057c33d589f420ad}\label{structECSComponent_a83c38574e296ac5e057c33d589f420ad}} 
+\index{E\+C\+S\+Component@{E\+C\+S\+Component}!F\+R\+E\+E\+\_\+\+F\+U\+N\+C\+T\+I\+ON@{F\+R\+E\+E\+\_\+\+F\+U\+N\+C\+T\+I\+ON}}
+\index{F\+R\+E\+E\+\_\+\+F\+U\+N\+C\+T\+I\+ON@{F\+R\+E\+E\+\_\+\+F\+U\+N\+C\+T\+I\+ON}!E\+C\+S\+Component@{E\+C\+S\+Component}}
+\subsubsection{\texorpdfstring{F\+R\+E\+E\+\_\+\+F\+U\+N\+C\+T\+I\+ON}{FREE\_FUNCTION}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+const E\+C\+S\+Component\+Free\+Function \hyperlink{structECSComponent}{E\+C\+S\+Component}$<$ T $>$\+::F\+R\+E\+E\+\_\+\+F\+U\+N\+C\+T\+I\+ON\hspace{0.3cm}{\ttfamily [static]}}
+
+Init free function pointer 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & component class \\
+\hline
+\end{DoxyTemplParams}
+\mbox{\Hypertarget{structECSComponent_a307a02bf9d5ea085acc38b6842e6dadf}\label{structECSComponent_a307a02bf9d5ea085acc38b6842e6dadf}} 
+\index{E\+C\+S\+Component@{E\+C\+S\+Component}!size@{size}}
+\index{size@{size}!E\+C\+S\+Component@{E\+C\+S\+Component}}
+\subsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+const size\+\_\+t \hyperlink{structECSComponent}{E\+C\+S\+Component}$<$ T $>$\+::size\hspace{0.3cm}{\ttfamily [static]}}
+
+Size of Component, needed for Component allocation 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Component \\
+\hline
+\end{DoxyTemplParams}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs\+\_\+component.\+h\end{DoxyCompactItemize}

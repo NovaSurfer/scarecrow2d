@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structsc2d_1_1SceneConfigLoad" kind="struct" language="C++" prot="public">
+    <compoundname>sc2d::SceneConfigLoad</compoundname>
+    <basecompoundref refid="structsc2d_1_1IConfigLoader" prot="public" virt="non-virtual">sc2d::IConfigLoader</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structsc2d_1_1SceneConfigLoad_1a8aba456fd72b4dabc1a4a396f2596150" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void sc2d::SceneConfigLoad::operator()</definition>
+        <argsstring>(const json &amp;obj_json) override</argsstring>
+        <name>operator()</name>
+        <reimplements refid="structsc2d_1_1IConfigLoader_1adc4142d9c020caec590789d5fe8abd69">operator()</reimplements>
+        <param>
+          <type>const json &amp;</type>
+          <declname>obj_json</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/filesystem/configLoader.h" line="27" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/filesystem/configLoader.cpp" bodystart="78" bodyend="119"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="103">
+        <label>sc2d::SceneConfigLoad</label>
+        <link refid="structsc2d_1_1SceneConfigLoad"/>
+        <childnode refid="104" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="104">
+        <label>sc2d::IConfigLoader</label>
+        <link refid="structsc2d_1_1IConfigLoader"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="105">
+        <label>sc2d::SceneConfigLoad</label>
+        <link refid="structsc2d_1_1SceneConfigLoad"/>
+        <childnode refid="106" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="106">
+        <label>sc2d::IConfigLoader</label>
+        <link refid="structsc2d_1_1IConfigLoader"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/novasurfer/projects/scarecrow2d/src/filesystem/configLoader.h" line="26" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/filesystem/configLoader.h" bodystart="25" bodyend="28"/>
+    <listofallmembers>
+      <member refid="structsc2d_1_1SceneConfigLoad_1a8aba456fd72b4dabc1a4a396f2596150" prot="public" virt="virtual"><scope>sc2d::SceneConfigLoad</scope><name>operator()</name></member>
+      <member refid="structsc2d_1_1IConfigLoader_1a2cd4b2edb4e66f31e62c2c0e3c3eb72d" prot="public" virt="virtual"><scope>sc2d::SceneConfigLoad</scope><name>~IConfigLoader</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

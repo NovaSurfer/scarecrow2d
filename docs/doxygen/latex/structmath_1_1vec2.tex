@@ -1,0 +1,160 @@
+\hypertarget{structmath_1_1vec2}{}\section{math\+:\+:vec2 Struct Reference}
+\label{structmath_1_1vec2}\index{math\+::vec2@{math\+::vec2}}
+
+
+Two dimensional vector.  
+
+
+
+
+{\ttfamily \#include $<$vector2.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structmath_1_1vec2_a7c9641e308af00f8e875de6cd07da88e}\label{structmath_1_1vec2_a7c9641e308af00f8e875de6cd07da88e}} 
+{\bfseries vec2} (float x, float y)
+\item 
+float \& \hyperlink{structmath_1_1vec2_a1ffee39907a0aa106ac5b8a5faa3d7b0}{operator\mbox{[}$\,$\mbox{]}} (int i)
+\item 
+const float \& \hyperlink{structmath_1_1vec2_a62d6627cb78093fe11107ea52c284583}{operator\mbox{[}$\,$\mbox{]}} (int i) const
+\item 
+\hyperlink{structmath_1_1vec2}{vec2} \& \hyperlink{structmath_1_1vec2_a29bcd05742fc42c3cce9883693e81b75}{operator$\ast$=} (float s)
+\item 
+\hyperlink{structmath_1_1vec2}{vec2} \& \hyperlink{structmath_1_1vec2_a5a1153001cba3493edd3a2d8d6060ae2}{operator/=} (float s)
+\item 
+\hyperlink{structmath_1_1vec2}{vec2} \& \hyperlink{structmath_1_1vec2_af99deb7c62b5c3e494854e6ba83f7422}{operator+=} (const \hyperlink{structmath_1_1vec2}{vec2} \&v)
+\item 
+\hyperlink{structmath_1_1vec2}{vec2} \hyperlink{structmath_1_1vec2_a9c6705809a9bfa54e6cde070f10a4984}{operator-\/=} (const \hyperlink{structmath_1_1vec2}{vec2} \&v)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structmath_1_1vec2_a80b10d5dce55f531250dc88c9afd2d2b}\label{structmath_1_1vec2_a80b10d5dce55f531250dc88c9afd2d2b}} 
+float {\bfseries x}
+\item 
+\mbox{\Hypertarget{structmath_1_1vec2_aec0b4a209674ce9a5fba6f76f514f777}\label{structmath_1_1vec2_aec0b4a209674ce9a5fba6f76f514f777}} 
+float {\bfseries y}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \hyperlink{structmath_1_1vec2_acd0ced7ddd62abdb2a2afb8a37392037}{operator$<$$<$} (std\+::ostream \&ostream, const \hyperlink{structmath_1_1vec2}{vec2} \&v)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Two dimensional vector. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{structmath_1_1vec2_a29bcd05742fc42c3cce9883693e81b75}\label{structmath_1_1vec2_a29bcd05742fc42c3cce9883693e81b75}} 
+\index{math\+::vec2@{math\+::vec2}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!math\+::vec2@{math\+::vec2}}
+\subsubsection{\texorpdfstring{operator$\ast$=()}{operator*=()}}
+{\footnotesize\ttfamily \hyperlink{structmath_1_1vec2}{vec2}\& math\+::vec2\+::operator$\ast$= (\begin{DoxyParamCaption}\item[{float}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Multiplication by scalar 
+\begin{DoxyParams}{Parameters}
+{\em s} & scalar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+current vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structmath_1_1vec2_af99deb7c62b5c3e494854e6ba83f7422}\label{structmath_1_1vec2_af99deb7c62b5c3e494854e6ba83f7422}} 
+\index{math\+::vec2@{math\+::vec2}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!math\+::vec2@{math\+::vec2}}
+\subsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily \hyperlink{structmath_1_1vec2}{vec2}\& math\+::vec2\+::operator+= (\begin{DoxyParamCaption}\item[{const \hyperlink{structmath_1_1vec2}{vec2} \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Addition by other vector2 
+\begin{DoxyParams}{Parameters}
+{\em v} & some vector2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+current vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structmath_1_1vec2_a9c6705809a9bfa54e6cde070f10a4984}\label{structmath_1_1vec2_a9c6705809a9bfa54e6cde070f10a4984}} 
+\index{math\+::vec2@{math\+::vec2}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!math\+::vec2@{math\+::vec2}}
+\subsubsection{\texorpdfstring{operator-\/=()}{operator-=()}}
+{\footnotesize\ttfamily \hyperlink{structmath_1_1vec2}{vec2} math\+::vec2\+::operator-\/= (\begin{DoxyParamCaption}\item[{const \hyperlink{structmath_1_1vec2}{vec2} \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Subtraction by other vector2 
+\begin{DoxyParams}{Parameters}
+{\em v} & some vector2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+current vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structmath_1_1vec2_a5a1153001cba3493edd3a2d8d6060ae2}\label{structmath_1_1vec2_a5a1153001cba3493edd3a2d8d6060ae2}} 
+\index{math\+::vec2@{math\+::vec2}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!math\+::vec2@{math\+::vec2}}
+\subsubsection{\texorpdfstring{operator/=()}{operator/=()}}
+{\footnotesize\ttfamily \hyperlink{structmath_1_1vec2}{vec2}\& math\+::vec2\+::operator/= (\begin{DoxyParamCaption}\item[{float}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Division by scalar 
+\begin{DoxyParams}{Parameters}
+{\em s} & scalar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+current vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structmath_1_1vec2_a1ffee39907a0aa106ac5b8a5faa3d7b0}\label{structmath_1_1vec2_a1ffee39907a0aa106ac5b8a5faa3d7b0}} 
+\index{math\+::vec2@{math\+::vec2}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!math\+::vec2@{math\+::vec2}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily float\& math\+::vec2\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets element as array 
+\begin{DoxyParams}{Parameters}
+{\em i} & index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structmath_1_1vec2_a62d6627cb78093fe11107ea52c284583}\label{structmath_1_1vec2_a62d6627cb78093fe11107ea52c284583}} 
+\index{math\+::vec2@{math\+::vec2}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!math\+::vec2@{math\+::vec2}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const float\& math\+::vec2\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets element as array 
+\begin{DoxyParams}{Parameters}
+{\em i} & index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the element 
+\end{DoxyReturn}
+
+
+\subsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{structmath_1_1vec2_acd0ced7ddd62abdb2a2afb8a37392037}\label{structmath_1_1vec2_acd0ced7ddd62abdb2a2afb8a37392037}} 
+\index{math\+::vec2@{math\+::vec2}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!math\+::vec2@{math\+::vec2}}
+\subsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{ostream,  }\item[{const \hyperlink{structmath_1_1vec2}{vec2} \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Stream insertion 
+\begin{DoxyParams}{Parameters}
+{\em ostream} & output stream \\
+\hline
+{\em v} & vector that will be putted to stream \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+will be removed 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/novasurfer/projects/scarecrow2d/src/math/vector2.\+h\end{DoxyCompactItemize}

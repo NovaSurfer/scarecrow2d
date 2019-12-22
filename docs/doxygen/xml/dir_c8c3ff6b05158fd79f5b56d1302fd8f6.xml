@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="dir_c8c3ff6b05158fd79f5b56d1302fd8f6" kind="dir">
+    <compoundname>/home/novasurfer/projects/scarecrow2d/src/core/esc</compoundname>
+    <innerfile refid="ecs_8cpp">ecs.cpp</innerfile>
+    <innerfile refid="ecs_8h">ecs.h</innerfile>
+    <innerfile refid="ecs__component_8cpp">ecs_component.cpp</innerfile>
+    <innerfile refid="ecs__component_8h">ecs_component.h</innerfile>
+    <innerfile refid="ecs__system_8cpp">ecs_system.cpp</innerfile>
+    <innerfile refid="ecs__system_8h">ecs_system.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/novasurfer/projects/scarecrow2d/src/core/esc/"/>
+  </compounddef>
+</doxygen>

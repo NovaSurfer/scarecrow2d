@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="dir_94d7edf6f8f3d9af5fd63c44172da41c" kind="dir">
+    <compoundname>/home/novasurfer/projects/scarecrow2d/src/memory</compoundname>
+    <innerfile refid="aligned__allocator_8cpp">aligned_allocator.cpp</innerfile>
+    <innerfile refid="aligned__allocator_8h">aligned_allocator.h</innerfile>
+    <innerfile refid="aligners_8h">aligners.h</innerfile>
+    <innerfile refid="allocator_8h">allocator.h</innerfile>
+    <innerfile refid="allocator_8inl">allocator.inl</innerfile>
+    <innerfile refid="dynamic__linear__allocator_8cpp">dynamic_linear_allocator.cpp</innerfile>
+    <innerfile refid="dynamic__linear__allocator_8h">dynamic_linear_allocator.h</innerfile>
+    <innerfile refid="free__list__allocator_8cpp">free_list_allocator.cpp</innerfile>
+    <innerfile refid="free__list__allocator_8h">free_list_allocator.h</innerfile>
+    <innerfile refid="heap__allocator_8cpp">heap_allocator.cpp</innerfile>
+    <innerfile refid="heap__allocator_8h">heap_allocator.h</innerfile>
+    <innerfile refid="memory_8cpp">memory.cpp</innerfile>
+    <innerfile refid="memory_8h">memory.h</innerfile>
+    <innerfile refid="pool__allocator_8cpp">pool_allocator.cpp</innerfile>
+    <innerfile refid="pool__allocator_8h">pool_allocator.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/novasurfer/projects/scarecrow2d/src/memory/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structTestComponent" kind="struct" language="C++" prot="public">
+    <compoundname>TestComponent</compoundname>
+    <basecompoundref refid="structECSComponent" prot="public" virt="non-virtual">ECSComponent&lt; TestComponent &gt;</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structTestComponent_1a89cab128ebdf0c3ac0382dbe77f0051a" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float TestComponent::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs_component.h" line="135" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs_component.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structTestComponent_1a0af7d6c9a73690ec23135af2e0c8ec06" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float TestComponent::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs_component.h" line="136" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs_component.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="126">
+        <label>BaseECSComponent</label>
+        <link refid="classBaseECSComponent"/>
+      </node>
+      <node id="124">
+        <label>TestComponent</label>
+        <link refid="structTestComponent"/>
+        <childnode refid="125" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="125">
+        <label>ECSComponent&lt; TestComponent &gt;</label>
+        <link refid="structECSComponent"/>
+        <childnode refid="126" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="129">
+        <label>BaseECSComponent</label>
+        <link refid="classBaseECSComponent"/>
+      </node>
+      <node id="127">
+        <label>TestComponent</label>
+        <link refid="structTestComponent"/>
+        <childnode refid="128" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="128">
+        <label>ECSComponent&lt; TestComponent &gt;</label>
+        <link refid="structECSComponent"/>
+        <childnode refid="129" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs_component.h" line="134" column="1" bodyfile="/home/novasurfer/projects/scarecrow2d/src/core/esc/ecs_component.h" bodystart="133" bodyend="137"/>
+    <listofallmembers>
+      <member refid="structECSComponent_1a0f13ee7a0f2f40ceb48f2e7739ee081f" prot="public" virt="non-virtual"><scope>TestComponent</scope><name>CREATE_FUNCTION</name></member>
+      <member refid="classBaseECSComponent_1adcaf0c71c06aa94e59cadc1afcd4032a" prot="public" virt="non-virtual"><scope>TestComponent</scope><name>entity</name></member>
+      <member refid="structECSComponent_1a83c38574e296ac5e057c33d589f420ad" prot="public" virt="non-virtual"><scope>TestComponent</scope><name>FREE_FUNCTION</name></member>
+      <member refid="classBaseECSComponent_1a17c36f475efd8d737ddccd4f9cd24f88" prot="public" virt="non-virtual"><scope>TestComponent</scope><name>get_type_createfn</name></member>
+      <member refid="classBaseECSComponent_1abbfd9dd726db008a35c239384e50b172" prot="public" virt="non-virtual"><scope>TestComponent</scope><name>get_type_freefn</name></member>
+      <member refid="classBaseECSComponent_1a3c894c18497d4c61e50208fbe96a565e" prot="public" virt="non-virtual"><scope>TestComponent</scope><name>get_type_size</name></member>
+      <member refid="structECSComponent_1a78eca5a7028a771877355bbe0c57124e" prot="public" virt="non-virtual"><scope>TestComponent</scope><name>id</name></member>
+      <member refid="classBaseECSComponent_1ad149edd83402b03ba86fec5c51134610" prot="public" virt="non-virtual"><scope>TestComponent</scope><name>is_type_valid</name></member>
+      <member refid="classBaseECSComponent_1a913dccda9e4a4fb34f0c254292bca251" prot="public" virt="non-virtual"><scope>TestComponent</scope><name>register_component_type</name></member>
+      <member refid="structECSComponent_1a307a02bf9d5ea085acc38b6842e6dadf" prot="public" virt="non-virtual"><scope>TestComponent</scope><name>size</name></member>
+      <member refid="structTestComponent_1a89cab128ebdf0c3ac0382dbe77f0051a" prot="public" virt="non-virtual"><scope>TestComponent</scope><name>x</name></member>
+      <member refid="structTestComponent_1a0af7d6c9a73690ec23135af2e0c8ec06" prot="public" virt="non-virtual"><scope>TestComponent</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
