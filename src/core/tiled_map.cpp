@@ -71,7 +71,7 @@ namespace sc2d::tiled
                 }
             }
 
-            SpriteSheetInstanceData sids(data_gids, data_pos);
+            SpriteSheetInstData sids(data_gids, data_pos);
             sprite_sheet.init_data(
                 shader, math::size2d(tiled_data.tile_width, tiled_data.tile_height),
                 tiled_data.content_count, sids);

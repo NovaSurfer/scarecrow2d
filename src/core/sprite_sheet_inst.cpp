@@ -12,9 +12,9 @@ namespace sc2d
 
     void SpriteSheetInstanced::init_data(const sc2d::Shader& spr_shader,
                                          const math::size2d& spr_size, const size_t spr_count,
-                                         const SpriteSheetInstanceData& sid)
+                                         const SpriteSheetInstData& sid)
     {
-        shader = spr_shader;
+        shader = &spr_shader;
         sprites_count = spr_count;
 
         GLuint vbo;
@@ -91,8 +91,8 @@ namespace sc2d
 
     void SpriteSheetInstanced::draw(const GLuint tex_id) const
     {
-        shader.run();
-        shader.set_vec3("spriteColor", math::vec3(1.0f, 1.0f, 1.0f));
+        shader->run();
+        shader->set_vec3("spriteColor", math::vec3(1.0f, 1.0f, 1.0f));
         glActiveTexture(GL_TEXTURE0 + tex_id);
         glBindTexture(GL_TEXTURE_2D_ARRAY, tex_id);
         glDrawElementsInstanced(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr, sprites_count);

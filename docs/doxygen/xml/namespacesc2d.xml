@@ -13,7 +13,7 @@
     <innerclass refid="classsc2d_1_1Shader" prot="public">sc2d::Shader</innerclass>
     <innerclass refid="classsc2d_1_1Sprite" prot="public">sc2d::Sprite</innerclass>
     <innerclass refid="classsc2d_1_1SpriteSheetInstanced" prot="public">sc2d::SpriteSheetInstanced</innerclass>
-    <innerclass refid="structsc2d_1_1SpriteSheetInstanceData" prot="public">sc2d::SpriteSheetInstanceData</innerclass>
+    <innerclass refid="structsc2d_1_1SpriteSheetInstanceData" prot="public">sc2d::SpriteSheetInstData</innerclass>
     <innerclass refid="classsc2d_1_1Texture2d" prot="public">sc2d::Texture2d</innerclass>
     <innerclass refid="classsc2d_1_1TextureAtlas" prot="public">sc2d::TextureAtlas</innerclass>
     <innerclass refid="classsc2d_1_1vec" prot="public">sc2d::vec</innerclass>

@@ -64,7 +64,7 @@
       <memberdef kind="function" id="classsc2d_1_1SpriteSheetInstanced_1a1cb9e9e8a6d0798b0db2dfa42e9b5620" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void sc2d::SpriteSheetInstanced::init_data</definition>
-        <argsstring>(const sc2d::Shader &amp;spr_shader, const math::size2d &amp;spr_size, const size_t spr_count, const SpriteSheetInstanceData &amp;sid)</argsstring>
+        <argsstring>(const sc2d::Shader &amp;spr_shader, const math::size2d &amp;spr_size, const size_t spr_count, const SpriteSheetInstData &amp;sid)</argsstring>
         <name>init_data</name>
         <param>
           <type>const <ref refid="classsc2d_1_1Shader" kindref="compound">sc2d::Shader</ref> &amp;</type>
@@ -79,7 +79,7 @@
           <declname>spr_count</declname>
         </param>
         <param>
-          <type>const <ref refid="structsc2d_1_1SpriteSheetInstanceData" kindref="compound">SpriteSheetInstanceData</ref> &amp;</type>
+          <type>const <ref refid="structsc2d_1_1SpriteSheetInstanceData" kindref="compound">SpriteSheetInstData</ref> &amp;</type>
           <declname>sid</declname>
         </param>
         <briefdescription>

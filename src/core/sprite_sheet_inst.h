@@ -15,10 +15,16 @@
 
 namespace sc2d
 {
-
-    struct SpriteSheetInstanceData
+    /**
+     * Sprite sheet instance data
+     */
+    struct SpriteSheetInstData
     {
-        SpriteSheetInstanceData(const uint32_t* const gids, const math::vec2* const positions)
+        /**
+         * @param gids array of global map IDs
+         * @param positions array of positions
+         */
+        SpriteSheetInstData(const uint32_t* const gids, const math::vec2* const positions)
             : gid {gids}
             , pos {positions}
         {}
@@ -31,15 +37,24 @@ namespace sc2d
     {
     public:
         SpriteSheetInstanced() = default;
+        /**
+         * Initialize data
+         * @param spr_shader shader
+         * @param spr_size tile size
+         * @param spr_count number of sprites
+         * @param sid reference to sprite sheet instance data
+         */
         void init_data(const sc2d::Shader& spr_shader, const math::size2d& spr_size,
-                       const size_t spr_count, const SpriteSheetInstanceData& sid);
+                       const size_t spr_count, const SpriteSheetInstData& sid);
+        /**
+         * @param tex_id texture id (name)
+         */
         void draw(const GLuint tex_id) const;
 
     private:
         static Vertex quad_vertices[VERTICES_PER_QUAD];
-        Shader shader;
+        const Shader* shader;
         size_t sprites_count;
-//        GLuint quad_vao;
     };
 }
 

@@ -471,10 +471,10 @@
     <member refid="classsc2d_1_1SpriteSheetInstanced_1a1cb9e9e8a6d0798b0db2dfa42e9b5620" kind="function"><name>init_data</name></member>
     <member refid="classsc2d_1_1SpriteSheetInstanced_1ab743df9b3587a86a619d9c61eca8ba64" kind="function"><name>draw</name></member>
   </compound>
-  <compound refid="structsc2d_1_1SpriteSheetInstanceData" kind="struct"><name>sc2d::SpriteSheetInstanceData</name>
+  <compound refid="structsc2d_1_1SpriteSheetInstanceData" kind="struct"><name>sc2d::SpriteSheetInstData</name>
     <member refid="structsc2d_1_1SpriteSheetInstanceData_1ad635a9c930675ec8287a9b88cb62399c" kind="variable"><name>gid</name></member>
     <member refid="structsc2d_1_1SpriteSheetInstanceData_1a69c41cf74f4a5a95e9fc4da5431dfce0" kind="variable"><name>pos</name></member>
-    <member refid="structsc2d_1_1SpriteSheetInstanceData_1a2e5e608260c8e1536c947150b9affe88" kind="function"><name>SpriteSheetInstanceData</name></member>
+    <member refid="structsc2d_1_1SpriteSheetInstanceData_1a2e5e608260c8e1536c947150b9affe88" kind="function"><name>SpriteSheetInstData</name></member>
   </compound>
   <compound refid="structTestComponent" kind="struct"><name>TestComponent</name>
     <member refid="structTestComponent_1a89cab128ebdf0c3ac0382dbe77f0051a" kind="variable"><name>x</name></member>
