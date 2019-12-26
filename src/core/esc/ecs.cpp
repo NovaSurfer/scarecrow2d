@@ -88,14 +88,20 @@ void ECS::delete_component_internal(compId_t component_id, uint32_t index)
         array.resize(src_index);
         return;
     }
+
     memcpy(dest_component, src_component, type_size);
     auto& src_components = handle_to_entity(src_component->entity);
+    // update the entities that refer to the component that we are moving,
+    // so they are pointing to the new index
     for(auto& c : src_components) {
+        // if component types are the same && indices form components vector and index of component in components array
         if(component_id == c.first && src_index == c.second) {
             c.second = index;
             break;
         }
     }
+
+    array.resize(src_index);
 }
 
 void ECS::remove_component_internal(EntityHandle handle, uint32_t component_id)
