@@ -14,6 +14,9 @@
 #include "math/transform.h"
 #include <GLFW/glfw3.h>
 #include <glad/glad.h>
+#include <freetype2/ft2build.h>
+#include FT_FREETYPE_H
+
 
 std::unique_ptr<sc2d::Window> window;
 //std::unique_ptr<sc2d::Sprite> sprite;
@@ -54,6 +57,10 @@ sc2d::ResultBool program_init()
     if(!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
         return sc2d::ResultBool::throw_err(sc2d::Err::FAILED_TO_INIT_GLAD);
     }
+
+    FT_Library ft;
+    if (FT_Init_FreeType(&ft))
+        sc2d::terminate(sc2d::Err::FAILED);
 
     // Loading engine systems
     engine_init();
