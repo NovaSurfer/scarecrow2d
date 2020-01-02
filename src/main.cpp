@@ -14,8 +14,7 @@
 #include "math/transform.h"
 #include <GLFW/glfw3.h>
 #include <glad/glad.h>
-#include <freetype2/ft2build.h>
-#include FT_FREETYPE_H
+#include "core/text_ft2.h"
 
 
 std::unique_ptr<sc2d::Window> window;
@@ -24,6 +23,7 @@ std::unique_ptr<sc2d::Window> window;
 
 sc2d::tiled::Map tiled_map;
 sc2d::TextureAtlas tex_atlas;
+sc2d::Text_ft2 text_ft2;
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
@@ -58,10 +58,6 @@ sc2d::ResultBool program_init()
         return sc2d::ResultBool::throw_err(sc2d::Err::FAILED_TO_INIT_GLAD);
     }
 
-    FT_Library ft;
-    if (FT_Init_FreeType(&ft))
-        sc2d::terminate(sc2d::Err::FAILED);
-
     // Loading engine systems
     engine_init();
 
@@ -72,6 +68,9 @@ sc2d::ResultBool program_init()
     glEnable(GL_BLEND);
     glDisable(GL_DEPTH_TEST);
     glDisable(GL_SCISSOR_TEST);
+
+    const sc2d::Shader* font_shader = nullptr;
+    text_ft2.init(*font_shader, "data/fonts/04B_03__.TTF", 16);
 
     math::mat4 proj =
         math::ortho(0.0f, static_cast<GLfloat>(window_data.screen_width),
