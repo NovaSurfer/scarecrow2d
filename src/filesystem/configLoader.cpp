@@ -57,7 +57,7 @@ namespace sc2d
             }
         }
 
-        // Builtint shaders
+        // Builtin shaders
         for(const auto& shader : sc2d::cshaders::SHADERS_ARRAY) {
             ResourceHolder::load_shader_program(ShaderSource::BUILTIN, shader.name, shader.vs_src,
                                                 shader.fs_src);

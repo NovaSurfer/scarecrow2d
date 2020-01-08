@@ -62,7 +62,7 @@ namespace sc2d
     }
 
     // TODO: remove C++ streams and exceptions
-    std::string ResourceHolder::load_shader(const GLchar* file_path)
+    std::string ResourceHolder::load_shader(const char* file_path)
     {
         //        try {
         std::ifstream shader_file(file_path);
