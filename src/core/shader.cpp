@@ -106,4 +106,9 @@ namespace sc2d
     {
         glUniform1i(glGetUniformLocation(program, name), value);
     }
+
+    void Shader::set_uint(const GLchar* name, GLuint value) const
+    {
+        glUniform1ui(glGetUniformLocation(program, name), value);
+    }
 }

@@ -23,7 +23,8 @@ std::unique_ptr<sc2d::Window> window;
 
 sc2d::tiled::Map tiled_map;
 sc2d::TextureAtlas tex_atlas;
-sc2d::Text_ft2 text_ft2;
+sc2d::Ft2Font128 fnt_04b_03;
+sc2d::TextFt2 text_ft2;
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
@@ -64,13 +65,10 @@ sc2d::ResultBool program_init()
     glViewport(0, 0, window_data.screen_width, window_data.screen_height);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glEnable(GL_CULL_FACE);
-    //    glFrontFace(GL_CCW);
+//        glFrontFace(GL_CCW);
     glEnable(GL_BLEND);
     glDisable(GL_DEPTH_TEST);
     glDisable(GL_SCISSOR_TEST);
-
-    const sc2d::Shader* font_shader = nullptr;
-    text_ft2.init(*font_shader, "data/fonts/04B_03__.TTF", 16);
 
     math::mat4 proj =
         math::ortho(0.0f, static_cast<GLfloat>(window_data.screen_width),
@@ -83,14 +81,21 @@ sc2d::ResultBool program_init()
     //        sprite = std::make_unique<sc2d::Sprite>(sc2d::ResourceHolder::get_shader("sprite-default"));
     //    log_err_cmd("0x%x", glGetError());
     //
-    const sc2d::Shader& sprite_sheet_shader = sc2d::ResourceHolder::get_shader("spritesheet");
-    tex_atlas = sc2d::ResourceHolder::get_texture_atlas("tilemap");
-    sprite_sheet_shader.run();
-    sprite_sheet_shader.set_int("image_array", tex_atlas.get_obj_id());
-    log_gl_error_cmd()
-    sprite_sheet_shader.set_mat4("projection", proj);
-    tiled_map = sc2d::ResourceHolder::get_tiled_map("wasd");
-    tiled_map.init(sprite_sheet_shader);
+
+    // SPRITE_SHEEEEEEEEEEET
+//    const sc2d::Shader& sprite_sheet_shader = sc2d::ResourceHolder::get_shader("spritesheet");
+//    tex_atlas = sc2d::ResourceHolder::get_texture_atlas("tilemap");
+//    sprite_sheet_shader.run();
+//    sprite_sheet_shader.set_int("image_array", tex_atlas.get_obj_id());
+//    log_gl_error_cmd()
+//    sprite_sheet_shader.set_mat4("projection", proj);
+//    tiled_map = sc2d::ResourceHolder::get_tiled_map("wasd");
+//    tiled_map.init(sprite_sheet_shader);
+
+    const sc2d::Shader& font_shader = sc2d::ResourceHolder::get_shader("text_ft2");
+    fnt_04b_03.init("data/fonts/04B_03__.TTF", 16);
+    text_ft2.init(font_shader, fnt_04b_03);
+
     log_gl_error_cmd()
         //    spritesheet = std::make_unique<sc2d::SpriteSheetInstanced>(sprite_sheet_shader);
 
@@ -106,13 +111,16 @@ void poll_events()
 
 void draw()
 {
-    glClearColor(0.0f, 0.3f, 0.3f, 1.0f);
+    glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
     //        sprite->draw(sc2d::ResourceHolder::get_texture("logo"), math::vec2(0, 0),
     //                     math::size2d(111, 148), 0);
     //    spritesheet->draw(sc2d::ResourceHolder::get_texture_atlas("tilemap"), math::vec2(0, 0),
     //                     math::size2d(16, 16), 0);
-    tiled_map.draw_map(tex_atlas.get_obj_id());
+
+//    tiled_map.draw_map(tex_atlas.get_obj_id());
+    text_ft2.draw(math::vec2(100,100), 0);
+
     glfwSwapBuffers(window->get_window());
 }
 
@@ -148,6 +156,7 @@ int main()
     }
 
     glfwTerminate();
+    text_ft2.destroy();
     return 0;
 }
 

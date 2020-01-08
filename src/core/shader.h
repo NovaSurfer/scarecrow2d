@@ -33,6 +33,7 @@ namespace sc2d
         void set_vec3(const GLchar* name, const math::vec3& value) const;
         void set_vec2(const GLchar* name, const math::vec2& value) const;
         void set_int(const GLchar* name, GLint value) const;
+        void set_uint(const GLchar* name, GLuint value) const;
 
     private:
         static const std::map<ShaderType, GLenum> shader_types;
