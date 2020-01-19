@@ -23,6 +23,7 @@ std::unique_ptr<sc2d::Window> window;
 
 sc2d::tiled::Map tiled_map;
 sc2d::TextureAtlas tex_atlas;
+//sc2d::Texture2d logo_texture;
 sc2d::Ft2Font128 fnt_04b_03;
 sc2d::TextFt2 text_ft2;
 
@@ -74,13 +75,13 @@ sc2d::ResultBool program_init()
         math::ortho(0.0f, static_cast<GLfloat>(window_data.screen_width),
                     static_cast<GLfloat>(window_data.screen_height), 0.0f, -1.0f, 1.0f);
 
-    //        sc2d::ResourceHolder::get_shader("sprite-default")
-    //            .set_int("image", sc2d::ResourceHolder::get_texture("engineer").get_obj_id());
-    //        sc2d::ResourceHolder::get_shader("sprite-default").run().set_mat4("projection", proj);
-    //        log_err_cmd("0x%x", glGetError());
-    //        sprite = std::make_unique<sc2d::Sprite>(sc2d::ResourceHolder::get_shader("sprite-default"));
-    //    log_err_cmd("0x%x", glGetError());
-    //
+    // REGULAR SPRITE
+//        const sc2d::Shader& sprite_shader = sc2d::ResourceHolder::get_shader("sprite_default");
+//        logo_texture = sc2d::ResourceHolder::get_texture("logo");
+//        sprite_shader.run();
+//        sprite_shader.set_int("image", logo_texture.get_obj_id());
+//        sprite_shader.set_mat4("projection", proj);
+//        sprite = std::make_unique<sc2d::Sprite>(sprite_shader);
 
     // SPRITE_SHEEEEEEEEEEET
 //    const sc2d::Shader& sprite_sheet_shader = sc2d::ResourceHolder::get_shader("spritesheet");
@@ -93,6 +94,10 @@ sc2d::ResultBool program_init()
 //    tiled_map.init(sprite_sheet_shader);
 
     const sc2d::Shader& font_shader = sc2d::ResourceHolder::get_shader("text_ft2");
+    font_shader.run();
+    font_shader.set_mat4("projection", proj);
+    font_shader.set_vec3("spriteColor", math::vec3(0.9f, 0.0f, 1.0f));
+    font_shader.set_uint("glyph_id", 109);
     fnt_04b_03.init("data/fonts/04B_03__.TTF", 16);
     text_ft2.init(font_shader, fnt_04b_03);
 
@@ -113,8 +118,8 @@ void draw()
 {
     glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
-    //        sprite->draw(sc2d::ResourceHolder::get_texture("logo"), math::vec2(0, 0),
-    //                     math::size2d(111, 148), 0);
+//            sprite->draw(logo_texture.get_obj_id(), math::vec2(0, 0),
+//                         math::size2d(111, 148), 0);
     //    spritesheet->draw(sc2d::ResourceHolder::get_texture_atlas("tilemap"), math::vec2(0, 0),
     //                     math::size2d(16, 16), 0);
 

@@ -15,6 +15,9 @@ namespace sc2d
 
     void Ft2Font128::init(const char* font_path, uint8_t font_size)
     {
+
+        height = font_size;
+
         if(FT_Init_FreeType(&ft))
             log_err_cmd("CAN NOT INIT FREETYPE.");
 
@@ -23,7 +26,7 @@ namespace sc2d
         if(FT_New_Face(ft, font_path, 0, &face))
             log_info_cmd("FAILED TO LOAD FONT.");
 
-        FT_Set_Char_Size(face, 0, font_size << 6, 96, 96);
+        FT_Set_Pixel_Sizes(face, 0, font_size);
 
         // quick and dirty max texture size estimate
         uint32_t max_dim = (1 + (face->size->metrics.height >> 6)) * ceilf(sqrtf(128));
@@ -37,7 +40,8 @@ namespace sc2d
         uint32_t pen_x = 0, pen_y = 0;
 
         for(uint8_t i = 32; i < 128; ++i) {
-            FT_Load_Char(face, i, FT_LOAD_RENDER | FT_LOAD_FORCE_AUTOHINT | FT_LOAD_TARGET_LIGHT);
+            // Maybe its better to use FL_LOAD_TARGET_LIGHT for regular, non-pixelart fonts.
+            FT_Load_Char(face, i, FT_LOAD_RENDER);
             FT_Bitmap* bmp = &face->glyph->bitmap;
 
             if(pen_x + bmp->width >= tex_width) {
@@ -53,14 +57,15 @@ namespace sc2d
                 }
             }
 
-            glyph_data[i].x0 = pen_x;
-            glyph_data[i].y0 = pen_y;
-            glyph_data[i].x1 = pen_x + bmp->width;
-            glyph_data[i].y1 = pen_y + bmp->rows;
+            glyph[i].x0 = pen_x;
+            glyph[i].y0 = pen_y;
+            glyph[i].x1 = pen_x + bmp->width;
+            glyph[i].y1 = pen_y + bmp->rows;
 
-            glyph_data[i].x_offset = face->glyph->bitmap_left;
-            glyph_data[i].y_offset = face->glyph->bitmap_top;
-            glyph_data[i].advance = face->glyph->advance.x >> 6;
+            //            glyph[i].x_offset = face->glyph->bitmap_left;
+            //            glyph[i].y_offset = face->glyph->bitmap_top;
+            //            glyph[i].advance_x = face->glyph->advance.x >> 6;
+            //            glyph[i].advance_y = face->glyph->advance.y >> 6;
 
             pen_x += bmp->width + 1;
         }
@@ -69,6 +74,7 @@ namespace sc2d
     void TextFt2::init(const Shader& txt_shader, const Ft2Font128& font)
     {
         shader = &txt_shader;
+        font_size = font.height;
         glGenTextures(1, &obj_id);
         glBindTexture(GL_TEXTURE_2D_ARRAY, obj_id);
 
@@ -76,27 +82,27 @@ namespace sc2d
         glPixelStorei(GL_UNPACK_ROW_LENGTH, font.tex_width);
         glPixelStorei(GL_UNPACK_IMAGE_HEIGHT, font.tex_width);
 
-        glTexImage3D(GL_TEXTURE_2D_ARRAY, 0, GL_RED, 32, 32, 128, 0, GL_RED, GL_UNSIGNED_BYTE,
+        glTexImage3D(GL_TEXTURE_2D_ARRAY, 0, GL_RED, font_size, font_size, 128, 0, GL_RED, GL_UNSIGNED_BYTE,
                      nullptr);
         log_gl_error_cmd();
 
-        for(uint8_t i = 32; i < 128; ++i) {
-            uint32_t char_w = font.glyph_data[i].x1 - font.glyph_data[i].x0;
-            uint32_t char_h = font.glyph_data[i].y1 - font.glyph_data[i].y0;
-            glTexSubImage3D(GL_TEXTURE_2D_ARRAY, 0, font.glyph_data[i].x_offset,
-                            font.glyph_data[i].y_offset, i, char_w, char_h, 1, GL_RED,
-                            GL_UNSIGNED_BYTE, font.pixels);
+        for(uint8_t i = 0; i < 128; ++i) {
+            uint32_t char_w = font.glyph[i].x1 - font.glyph[i].x0;
+            uint32_t char_h = font.glyph[i].y1 - font.glyph[i].y0;
+            glTexSubImage3D(
+                GL_TEXTURE_2D_ARRAY, 0, 0, 0, i, char_w, char_h, 1, GL_RED, GL_UNSIGNED_BYTE,
+                &font.pixels[font.glyph[i].y0 * font.tex_width + font.glyph[i].x0]);
 
             log_gl_error_cmd();
-            log_warn_cmd("\nx_offset: %d\ny_offset: %d\nindex(0-128): %d\nwidth: %d\nheight: %d",
-                         font.glyph_data[i].x_offset, font.glyph_data[i].y_offset, i, char_w,
-                         char_h);
+            //            log_warn_cmd("\nx_offset: %d\ny_offset: %d\nindex(0-128): %d\nwidth: %d\nheight: %d",
+            //                         font.glyph[i].x_offset, font.glyph[i].y_offset, i, char_w,
+            //                         char_h);
         }
 
         glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_BASE_LEVEL, 0);
         glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_MAX_LEVEL, 1);
-        glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-        glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+        glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
         glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
         glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 
@@ -136,20 +142,18 @@ namespace sc2d
     {
         shader->run();
         math::mat4 model =
-            math::transform(math::vec3(50.0f, 50.0f, 50.0f), math::vec3(0.0f, 0.0f, 1.0f), rotation,
-                            math::vec3(pos.x, pos.y, 0.0f));
+            math::transform(math::vec3(font_size, font_size, 1.0f), math::vec3(0.0f, 0.0f, 1.0f),
+                            rotation, math::vec3(pos.x, pos.y, 0.0f));
 
         shader->set_mat4("model", model);
-        shader->set_vec3("spriteColor", math::vec3(0.9f, 0.0f, 1.0f));
         shader->set_int("image_array", obj_id);
-        shader->set_uint("glyph_id", 64);
-                log_gl_error_cmd();
+        log_gl_error_cmd();
         glActiveTexture(GL_TEXTURE0 + obj_id);
-                log_gl_error_cmd();
+        log_gl_error_cmd();
         glBindTexture(GL_TEXTURE_2D_ARRAY, obj_id);
-                log_gl_error_cmd();
+        log_gl_error_cmd();
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
-                log_gl_error_cmd();
-//        glBindVertexArray(0);
+        log_gl_error_cmd();
+        //        glBindVertexArray(0);
     }
 }

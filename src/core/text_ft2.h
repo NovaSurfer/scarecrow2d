@@ -27,10 +27,11 @@ namespace sc2d
         uint32_t x1;
         uint32_t y1;
         // left & top bearing
-        uint32_t x_offset;
-        uint32_t y_offset;
+//        uint32_t x_offset;
+//        uint32_t y_offset;
         // x advance
-        uint32_t advance;
+//        uint32_t advance_x;
+//        uint32_t advance_y;
     };
 
     /**
@@ -46,8 +47,9 @@ namespace sc2d
         }
 
         uint32_t tex_width;
+        uint32_t height;
         unsigned char* pixels;
-        GlyphInfo glyph_data[128];
+        GlyphInfo glyph[128];
     private:
         FT_Library ft;
     };
@@ -68,6 +70,7 @@ namespace sc2d
 
     private:
         static Vertex quad_vertices[VERTICES_PER_QUAD];
+        uint32_t font_size;
         GLuint obj_id;
         const Shader* shader;
     };
