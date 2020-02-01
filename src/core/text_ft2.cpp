@@ -13,7 +13,7 @@ namespace sc2d
     Vertex TextFt2::quad_vertices[VERTICES_PER_QUAD] {SPRITE_QUAD.tr, SPRITE_QUAD.br,
                                                       SPRITE_QUAD.bl, SPRITE_QUAD.tl};
 
-    void Ft2Font128::init(const char* font_path, uint8_t font_size)
+    void Ft2Font128::init(const char* font_path, uint32_t font_size)
     {
 
         height = font_size;
@@ -64,34 +64,35 @@ namespace sc2d
 
             //            glyph[i].x_offset = face->glyph->bitmap_left;
             //            glyph[i].y_offset = face->glyph->bitmap_top;
-            //            glyph[i].advance_x = face->glyph->advance.x >> 6;
-            //            glyph[i].advance_y = face->glyph->advance.y >> 6;
+            glyph[i].advance_x = face->glyph->advance.x >> 6;
+            glyph[i].advance_y = face->glyph->advance.y >> 6;
 
             pen_x += bmp->width + 1;
         }
     }
 
-    void TextFt2::init(const Shader& txt_shader, const Ft2Font128& font)
+    void TextFt2::init(const Shader& txt_shader, const Ft2Font128& fnt)
     {
         shader = &txt_shader;
-        font_size = font.height;
+        font = &fnt;
+
         glGenTextures(1, &obj_id);
         glBindTexture(GL_TEXTURE_2D_ARRAY, obj_id);
 
         glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-        glPixelStorei(GL_UNPACK_ROW_LENGTH, font.tex_width);
-        glPixelStorei(GL_UNPACK_IMAGE_HEIGHT, font.tex_width);
+        glPixelStorei(GL_UNPACK_ROW_LENGTH, font->tex_width);
+        glPixelStorei(GL_UNPACK_IMAGE_HEIGHT, font->tex_width);
 
-        glTexImage3D(GL_TEXTURE_2D_ARRAY, 0, GL_RED, font_size, font_size, 128, 0, GL_RED, GL_UNSIGNED_BYTE,
-                     nullptr);
+        glTexImage3D(GL_TEXTURE_2D_ARRAY, 0, GL_RED, font->height, font->height, 128, 0, GL_RED,
+                     GL_UNSIGNED_BYTE, nullptr);
         log_gl_error_cmd();
 
         for(uint8_t i = 0; i < 128; ++i) {
-            uint32_t char_w = font.glyph[i].x1 - font.glyph[i].x0;
-            uint32_t char_h = font.glyph[i].y1 - font.glyph[i].y0;
-            glTexSubImage3D(
-                GL_TEXTURE_2D_ARRAY, 0, 0, 0, i, char_w, char_h, 1, GL_RED, GL_UNSIGNED_BYTE,
-                &font.pixels[font.glyph[i].y0 * font.tex_width + font.glyph[i].x0]);
+            uint32_t char_w = font->glyph[i].x1 - font->glyph[i].x0;
+            uint32_t char_h = font->glyph[i].y1 - font->glyph[i].y0;
+            glTexSubImage3D(GL_TEXTURE_2D_ARRAY, 0, 0, 0, i, char_w, char_h, 1, GL_RED,
+                            GL_UNSIGNED_BYTE,
+                            &font->pixels[font->glyph[i].y0 * font->tex_width + font->glyph[i].x0]);
 
             log_gl_error_cmd();
             //            log_warn_cmd("\nx_offset: %d\ny_offset: %d\nindex(0-128): %d\nwidth: %d\nheight: %d",
@@ -101,8 +102,8 @@ namespace sc2d
 
         glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_BASE_LEVEL, 0);
         glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_MAX_LEVEL, 1);
-        glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-        glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+        glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
         glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
         glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 
@@ -136,23 +137,88 @@ namespace sc2d
         log_gl_error_cmd();
     }
 
-    void TextFt2::set_text(const char* text) {}
+    // TODO: refactor this
+    void TextFt2::set_text(const char* text)
+    {
+        const size_t chars_num = strlen(text);
+        if(!chars_num) {
+            log_warn_cmd("Setting empty string.");
+            return;
+        }
+
+        lenght = chars_num;
+        uint32_t char_indices[chars_num];
+        math::mat4 model_matrices[chars_num];
+        math::vec3 poss[chars_num];
+        GLuint glyph_vbo;
+        GLuint model_vbo;
+        size_t i = 0;
+
+        poss[0] = {100.f, 100.f, 0.f};
+        for(const auto* ch = (const uint8_t*)text; *ch; ++ch) {
+            uint8_t id = *ch;
+
+            char_indices[i] = id;
+            uint32_t char_w = font->glyph[id].x1 - font->glyph[id].x0;
+            uint32_t char_h = font->glyph[id].y1 - font->glyph[id].y0;
+            if(i > 0)
+                poss[i] = math::vec3(poss[i-1].x + font->glyph[id].advance_x,
+                                     100.f + font->glyph[id].advance_y, 0.f);
+
+            model_matrices[i] = math::transform(math::vec3(32, 32, 1.0f),
+                                                math::vec3(0.0f, 0.0f, 1.0f), 0.0f, poss[i]);
+            ++i;
+        }
+
+        // setting 'l_glyphid' attribute located in 'glyph_vbo' buffer
+        glGenBuffers(1, &glyph_vbo);
+        glBindBuffer(GL_ARRAY_BUFFER, glyph_vbo);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(uint32_t) * chars_num, char_indices, GL_STATIC_DRAW);
+        glVertexAttribIPointer(2, 1, GL_UNSIGNED_INT, sizeof(uint32_t), (GLvoid*)nullptr);
+        glEnableVertexAttribArray(2);
+        glVertexAttribDivisor(2, 1);
+
+        // setting 'l_model' attribute, located in 'model_vbo' buffer
+        glGenBuffers(1, &model_vbo);
+        glBindBuffer(GL_ARRAY_BUFFER, model_vbo);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(math::mat4) * chars_num, model_matrices,
+                     GL_STATIC_DRAW);
+
+        // FIXME: copied from "sprite_sheet_inst.cpp : 67"
+        size_t matrow_size = sizeof(float) * 4;
+        for(size_t j = 0; j < chars_num; ++j) {
+            glVertexAttribPointer(3, 4, GL_FLOAT, GL_FALSE, 4 * matrow_size, (GLvoid*)nullptr);
+            glVertexAttribPointer(4, 4, GL_FLOAT, GL_FALSE, 4 * matrow_size,
+                                  (GLvoid*)(matrow_size));
+            glVertexAttribPointer(5, 4, GL_FLOAT, GL_FALSE, 4 * matrow_size,
+                                  (GLvoid*)(2 * matrow_size));
+            glVertexAttribPointer(6, 4, GL_FLOAT, GL_FALSE, 4 * matrow_size,
+                                  (GLvoid*)(3 * matrow_size));
+
+            glEnableVertexAttribArray(3);
+            glEnableVertexAttribArray(4);
+            glEnableVertexAttribArray(5);
+            glEnableVertexAttribArray(6);
+
+            glVertexAttribDivisor(3, 1);
+            glVertexAttribDivisor(4, 1);
+            glVertexAttribDivisor(5, 1);
+            glVertexAttribDivisor(6, 1);
+        }
+
+        log_gl_error_cmd();
+    }
 
     void TextFt2::draw(const math::vec2& pos, const float rotation)
     {
         shader->run();
-        math::mat4 model =
-            math::transform(math::vec3(font_size, font_size, 1.0f), math::vec3(0.0f, 0.0f, 1.0f),
-                            rotation, math::vec3(pos.x, pos.y, 0.0f));
-
-        shader->set_mat4("model", model);
-        shader->set_int("image_array", obj_id);
         log_gl_error_cmd();
         glActiveTexture(GL_TEXTURE0 + obj_id);
         log_gl_error_cmd();
         glBindTexture(GL_TEXTURE_2D_ARRAY, obj_id);
         log_gl_error_cmd();
-        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
+        //        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
+        glDrawElementsInstanced(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr, lenght);
         log_gl_error_cmd();
         //        glBindVertexArray(0);
     }

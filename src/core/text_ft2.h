@@ -30,8 +30,8 @@ namespace sc2d
 //        uint32_t x_offset;
 //        uint32_t y_offset;
         // x advance
-//        uint32_t advance_x;
-//        uint32_t advance_y;
+        uint32_t advance_x;
+        uint32_t advance_y;
     };
 
     /**
@@ -40,14 +40,14 @@ namespace sc2d
     class Ft2Font128
     {
     public:
-        void init(const char* font_path, uint8_t font_size);
+        void init(const char* font_path, uint32_t font_size);
         void destroy() const
         {
             FT_Done_FreeType(ft);
         }
 
         uint32_t tex_width;
-        uint32_t height;
+        uint32_t height;    // font height (size)
         unsigned char* pixels;
         GlyphInfo glyph[128];
     private:
@@ -70,9 +70,10 @@ namespace sc2d
 
     private:
         static Vertex quad_vertices[VERTICES_PER_QUAD];
-        uint32_t font_size;
+        uint32_t lenght;
         GLuint obj_id;
         const Shader* shader;
+        const Ft2Font128* font;
     };
 }
 #endif //SCARECROW2D_TEXT_FT2_H

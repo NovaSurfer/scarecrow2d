@@ -97,9 +97,10 @@ sc2d::ResultBool program_init()
     font_shader.run();
     font_shader.set_mat4("projection", proj);
     font_shader.set_vec3("spriteColor", math::vec3(0.9f, 0.0f, 1.0f));
-    font_shader.set_uint("glyph_id", 109);
-    fnt_04b_03.init("data/fonts/04B_03__.TTF", 16);
+//    font_shader.set_uint("glyph_id", 109);
+    fnt_04b_03.init("data/fonts/Anton-Regular.ttf", 48);
     text_ft2.init(font_shader, fnt_04b_03);
+    text_ft2.set_text("Nu privet epta.");
 
     log_gl_error_cmd()
         //    spritesheet = std::make_unique<sc2d::SpriteSheetInstanced>(sprite_sheet_shader);
