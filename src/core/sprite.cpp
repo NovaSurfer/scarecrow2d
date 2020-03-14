@@ -4,6 +4,7 @@
 
 #include "sprite.h"
 #include "core/log2.h"
+#include "debug_utils.h"
 #include "math/transform.h"
 #include "texture.h"
 
@@ -36,11 +37,8 @@ namespace sc2d
 
         glActiveTexture(GL_TEXTURE0 + tex_id);
         glBindTexture(GL_TEXTURE_2D, tex_id);
-
         glBindVertexArray(quad_vao);
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-
-        glBindVertexArray(0);
     }
 
     void Sprite::init_data()

@@ -21,7 +21,6 @@ namespace sc2d
         GLuint model_vbo;
         GLuint gid_vbo;
         GLuint ebo;
-        GLuint quad_vao;
 
         glGenVertexArrays(1, &quad_vao);
         glGenBuffers(1, &vbo);
@@ -95,7 +94,7 @@ namespace sc2d
         shader->set_vec3("spriteColor", math::vec3(1.0f, 1.0f, 1.0f));
         glActiveTexture(GL_TEXTURE0 + tex_id);
         glBindTexture(GL_TEXTURE_2D_ARRAY, tex_id);
+        glBindVertexArray(quad_vao);
         glDrawElementsInstanced(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr, sprites_count);
-        log_gl_error_cmd();
     }
 }

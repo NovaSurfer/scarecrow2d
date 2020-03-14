@@ -85,7 +85,7 @@ namespace sc2d
 
         glTexImage3D(GL_TEXTURE_2D_ARRAY, 0, GL_RED, font->height, font->height,
                      font->chars_table_lenght, 0, GL_RED, GL_UNSIGNED_BYTE, nullptr);
-        log_gl_error_cmd();
+//        log_gl_error_cmd();
 
         for(uint8_t i = 0; i < font->chars_table_lenght; ++i) {
             uint32_t char_w = font->glyph[i].x1 - font->glyph[i].x0;
@@ -94,7 +94,7 @@ namespace sc2d
                 GL_TEXTURE_2D_ARRAY, 0, 0, 0, i, char_w, char_h, 1, GL_RED, GL_UNSIGNED_BYTE,
                 &font->pixels[font->glyph[i].y0 * font->texture_width + font->glyph[i].x0]);
 
-            log_gl_error_cmd();
+//            log_gl_error_cmd();
         }
 
         glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_BASE_LEVEL, 0);
@@ -104,12 +104,11 @@ namespace sc2d
         glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
         glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 
-        log_gl_error_cmd();
+//        log_gl_error_cmd();
 
         // Setting up buffers and attributes
         GLuint vbo;
         GLuint ebo;
-        GLuint quad_vao;
 
         glGenVertexArrays(1, &quad_vao);
         glGenBuffers(1, &vbo);
@@ -132,7 +131,7 @@ namespace sc2d
         glEnableVertexAttribArray(0);
         glEnableVertexAttribArray(1);
 
-        log_gl_error_cmd();
+//        log_gl_error_cmd();
     }
 
     void TextFt2::set_text(const char* txt)
@@ -221,7 +220,7 @@ namespace sc2d
             glVertexAttribDivisor(6, 1);
         }
 
-        log_gl_error_cmd();
+//        log_gl_error_cmd();
     }
 
     void TextFt2::draw()
@@ -229,6 +228,7 @@ namespace sc2d
         shader->run();
         glActiveTexture(GL_TEXTURE0 + obj_id);
         glBindTexture(GL_TEXTURE_2D_ARRAY, obj_id);
+        glBindVertexArray(quad_vao);
         glDrawElementsInstanced(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr, lenght);
     }
 }

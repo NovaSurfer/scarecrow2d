@@ -81,6 +81,7 @@ namespace sc2d
         static Vertex quad_vertices[VERTICES_PER_QUAD];
         uint32_t lenght = 0;
         GLuint obj_id;
+        GLuint quad_vao;
         const Shader* shader;
         const Ft2Font* font;
         std::string text;
