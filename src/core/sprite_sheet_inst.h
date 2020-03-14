@@ -53,6 +53,7 @@ namespace sc2d
 
     private:
         static Vertex quad_vertices[VERTICES_PER_QUAD];
+        GLuint quad_vao;
         const Shader* shader;
         size_t sprites_count;
     };

@@ -64,6 +64,7 @@ include(CTest)
 include(ParseAndAddCatchTests)
 add_subdirectory(tests)
 
+# GLFW
 set(GLFW_DIR "${LIB_DIR}/glfw")
 set(BUILD_SHARED_LIBS ON CACHE INTERNAL "Build the GLFW DLL / shared library / dynamic library")
 set(GLFW_BUILD_EXAMPLES OFF CACHE INTERNAL "Build the GLFW example programs")
@@ -86,6 +87,13 @@ target_include_directories("glad" PRIVATE "${GLAD_DIR}/include")
 target_include_directories(${PROJECT_NAME} PRIVATE "${GLAD_DIR}/include")
 target_link_libraries(${PROJECT_NAME} "glad" "${CMAKE_DL_LIBS}")
 target_compile_definitions(glad PUBLIC GLAD_GLAPI_EXPORT PRIVATE GLAD_GLAPI_EXPORT_BUILD)
+
+# FREETYPE
+set(FREETYPE_DIR "${LIB_DIR}/freetype2")
+set(FREETYPE_INCLUDE_DIRS "${FREETYPE_DIR}")
+find_package(Freetype REQUIRED)
+target_link_libraries(${PROJECT_NAME} ${FREETYPE_LIBRARIES})
+target_include_directories(${PROJECT_NAME} PRIVATE ${FREETYPE_INCLUDE_DIRS})
 
 install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION "/")
 

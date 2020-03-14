@@ -5,6 +5,9 @@
 #ifndef SCARECROW2D_SHADER_FILES_H
 #define SCARECROW2D_SHADER_FILES_H
 
+/**
+ * Constant (built-in) shaders
+ */
 namespace sc2d::cshaders
 {
 
@@ -24,6 +27,14 @@ namespace sc2d::cshaders
 #include "shaders/sprite_default.frag"
         ;
 
+    constexpr const char* VS_TEXT_FT2 =
+#include "shaders/text_ft2.vert"
+        ;
+
+    constexpr const char* FS_TEXT_FT2 =
+#include "shaders/text_ft2.frag"
+        ;
+
     struct ShadersArray
     {
         const char* vs_src;
@@ -33,6 +44,7 @@ namespace sc2d::cshaders
 
     constexpr const ShadersArray SHADERS_ARRAY[] {
         {VS_SPRITESHEET, FS_SPRITESHEET, "spritesheet"},
-        {VS_SPRITE_DEFAULT, FS_SPRITE_DEFAULT, "sprite_default"}};
+        {VS_SPRITE_DEFAULT, FS_SPRITE_DEFAULT, "sprite_default"},
+        {VS_TEXT_FT2, FS_TEXT_FT2, "text_ft2"}};
 };
 #endif //SCARECROW2D_SHADER_FILES_H

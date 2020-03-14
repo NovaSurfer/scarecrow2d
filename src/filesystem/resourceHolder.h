@@ -6,10 +6,8 @@
 #define INC_2D_GAME_FILE_MANAGER_H
 
 #include <fstream>
-#include <glad/glad.h>
 #include <sstream>
 #include <string>
-#include <string_view>
 #include <unordered_map>
 
 #include "core/shader.h"
@@ -19,7 +17,6 @@
 
 namespace sc2d
 {
-    using string_view = std::string_view;
 
     enum class ShaderSource
     {
