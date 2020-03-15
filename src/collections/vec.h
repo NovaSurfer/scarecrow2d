@@ -113,13 +113,17 @@ namespace sc2d
             std::make_unique<memory::pool_allocator>()};
 
         inline void allocate();
+        inline void update_array_address()
+        {
+            array = (T*)pool_alloc->p_start;
+        }
     };
 
     template <typename T>
     void vec<T>::allocate()
     {
-        pool_alloc->create(sizeof(T), initial_size << 1, alignof(T*));
-        array = (T*)pool_alloc->p_start;
+        pool_alloc->create(sizeof(T), initial_size << 1u, alignof(T*));
+        update_array_address();
     }
 
     template <typename T>
@@ -130,14 +134,14 @@ namespace sc2d
 
     template <typename T>
     vec<T>::vec(vec::size_type size)
-        : initial_size{size}
+        : initial_size(size)
     {
         allocate();
     }
 
     template <typename T>
     vec<T>::vec(vec::size_type size, const T& data)
-        : initial_size{size}
+        : initial_size(size)
     {
         allocate();
         for(size_t i = 0; i < size; ++i)
@@ -146,16 +150,16 @@ namespace sc2d
 
     template <typename T>
     vec<T>::vec(typename vec<T>::iterator first, typename vec<T>::iterator last)
-        : initial_size{(last - first) >> 1}
+        : initial_size((last - first) >> 1u)
     {
         allocate();
-        for(size_t i = 0; i < initial_size; ++i, ++first)
+        for(; first != last; ++first)
             push_back(*first);
     }
 
     template <typename T>
     vec<T>::vec(std::initializer_list<T> ilist)
-        : initial_size{ilist.size()}
+        : initial_size(ilist.size())
     {
         allocate();
         for(const auto& i : ilist)
@@ -164,7 +168,7 @@ namespace sc2d
 
     template <typename T>
     vec<T>::vec(const vec<T>& v)
-        : initial_size{v.capacity() >> 1}
+        : initial_size(v.capacity() >> 1u)
     {
         allocate();
         for(size_t i = 0; i < v.initial_size; ++i)
@@ -173,7 +177,7 @@ namespace sc2d
 
     template <typename T>
     vec<T>::vec(vec<T>&& v) noexcept
-        : initial_size{v.capacity() >> 1}
+        : initial_size(v.capacity() >> 1u)
     {
         allocate();
         for(size_t i = 0; i < v.size(); ++i)
@@ -195,6 +199,7 @@ namespace sc2d
             other_capacity > pool_alloc->num_of_blocks) {
             pool_alloc->resize(other_capacity);
             pool_alloc->num_of_free_blocks = other_capacity - pool_alloc->num_of_initialized;
+            update_array_address();
         }
 
         for(size_t i = 0; i < other.pool_alloc->num_of_initialized; ++i)
@@ -208,6 +213,7 @@ namespace sc2d
             other_capacity > pool_alloc->num_of_blocks) {
             pool_alloc->resize(other_capacity);
             pool_alloc->num_of_free_blocks = other_capacity - pool_alloc->num_of_initialized;
+            update_array_address();
         }
 
         for(size_t i = 0; i < other.initial_size; ++i)
@@ -219,8 +225,9 @@ namespace sc2d
     {
         if(size_t ilist_size = ilist.size();
             ilist_size > pool_alloc->num_of_blocks) {
-            pool_alloc->resize(ilist_size << 1);
+            pool_alloc->resize(ilist_size << 1u);
             pool_alloc->num_of_free_blocks = ilist_size - pool_alloc->num_of_initialized;
+            update_array_address();
         }
 
         size_t i = 0;
@@ -267,7 +274,7 @@ namespace sc2d
     template <typename T>
     typename vec<T>::iterator vec<T>::end() noexcept
     {
-        return array + pool_alloc->num_of_blocks;
+        return array + pool_alloc->num_of_initialized;
     }
 
     template <typename T>
@@ -279,13 +286,13 @@ namespace sc2d
     template <typename T>
     typename vec<T>::const_iterator vec<T>::cend() const noexcept
     {
-        return array + pool_alloc->num_of_blocks;
+        return array + pool_alloc->num_of_initialized;
     }
 
     template <typename T>
     typename vec<T>::reverse_iterator vec<T>::rbegin() noexcept
     {
-        return reverse_iterator(array + pool_alloc->num_of_blocks);
+        return reverse_iterator(array + pool_alloc->num_of_initialized);
     }
 
     template <typename T>
@@ -297,7 +304,7 @@ namespace sc2d
     template <typename T>
     typename vec<T>::const_reverse_iterator vec<T>::crbegin() const noexcept
     {
-        return reverse_iterator(array + pool_alloc->num_of_blocks);
+        return reverse_iterator(array + pool_alloc->num_of_initialized);
     }
 
     template <typename T>
@@ -392,7 +399,7 @@ namespace sc2d
             return array[index];
 
         // TODO: Deal with this exception
-        throw std::out_of_range("Vector's index out of range!");
+//        throw std::out_of_range("Vector's index out of range!");
     }
 
     template <typename T>
@@ -402,7 +409,7 @@ namespace sc2d
             return array[index];
 
         // TODO: Deal with this exception
-        throw std::out_of_range("Vector's index out of range");
+//        throw std::out_of_range("Vector's index out of range");
     }
 
     template <typename T>
@@ -444,16 +451,27 @@ namespace sc2d
     template <typename T>
     void vec<T>::push_back(const T& cref_data)
     {
-        T& item = *(T*)pool_alloc->allocate();
+        memory::alloc_result res = pool_alloc->allocate();
+        T& item = *(T*)res.ptr;
         item = cref_data;
+
+        if(res.resized == memory::is_resized::YES)
+            update_array_address();
+
+        //        array = (T*)pool_alloc->p_start;
         //        array[pool_alloc->num_of_initialized] = item;
     }
 
     template <typename T>
     void vec<T>::push_back(T&& lvref_data)
     {
-        T& item = *(T*)pool_alloc->allocate();
+        memory::alloc_result res = pool_alloc->allocate();
+        T& item = *(T*)res.ptr;
         item = std::move(lvref_data);
+
+        if(res.resized == memory::is_resized::YES)
+            update_array_address();
+
         //        array[pool_alloc->num_of_initialized] = std::move(*item);
     }
 
@@ -461,8 +479,13 @@ namespace sc2d
     template <typename... Args>
     void vec<T>::emplace_back(Args&&... args)
     {
-        T& item = *(T*)pool_alloc->allocate();
+        memory::alloc_result res = pool_alloc->allocate();
+        T& item = *(T*)res.ptr;
         item = std::move(T(std::forward<Args>(args)...));
+
+        if(res.resized == memory::is_resized::YES)
+            update_array_address();
+
         //        array[pool_alloc->num_of_initialized] = std::move(*item);
     }
 
@@ -477,7 +500,7 @@ namespace sc2d
     typename vec<T>::iterator vec<T>::emplace(vec::const_iterator c_iter, Args&&... args)
     {
         if(pool_alloc->num_of_free_blocks == 0)
-            pool_alloc->resize(pool_alloc->num_of_blocks << 1);
+            pool_alloc->resize(pool_alloc->num_of_blocks << 1u);
 
         iterator iter = &array[c_iter - array];
         memmove(iter + 1, iter, (pool_alloc->num_of_initialized - (c_iter - array)) * sizeof(T));
@@ -491,7 +514,7 @@ namespace sc2d
     typename vec<T>::iterator vec<T>::insert(vec::const_iterator c_iter, const T& cref_type)
     {
         if(pool_alloc->num_of_free_blocks == 0)
-            pool_alloc->resize(pool_alloc->num_of_blocks << 1);
+            pool_alloc->resize(pool_alloc->num_of_blocks << 1u);
 
         iterator iter = &array[c_iter - array];
         memmove(iter + 1, iter, (pool_alloc->num_of_initialized - (c_iter - array)) * sizeof(T));
@@ -505,7 +528,7 @@ namespace sc2d
     typename vec<T>::iterator vec<T>::insert(vec::const_iterator c_iter, T&& uref_type)
     {
         if(pool_alloc->num_of_free_blocks == 0)
-            pool_alloc->resize(pool_alloc->num_of_blocks << 1);
+            pool_alloc->resize(pool_alloc->num_of_blocks << 1u);
 
         iterator iter = &array[c_iter - array];
         memmove(iter + 1, iter, (pool_alloc->num_of_initialized - (c_iter - array)) * sizeof(T));
@@ -524,7 +547,7 @@ namespace sc2d
             return iter;
 
         if(pool_alloc->num_of_free_blocks - count <= 0)
-            pool_alloc->resize((pool_alloc->num_of_blocks + count) << 1);
+            pool_alloc->resize((pool_alloc->num_of_blocks + count) << 1u);
 
         memmove(iter + count, iter, (pool_alloc->num_of_initialized - (pos - array)) * sizeof(T));
         for(iterator i = iter; count--; ++i)
@@ -545,7 +568,7 @@ namespace sc2d
             return iter;
 
         if(pool_alloc->num_of_free_blocks - count <= 0)
-            pool_alloc->resize((pool_alloc->num_of_blocks + count) << 1);
+            pool_alloc->resize((pool_alloc->num_of_blocks + count) << 1u);
 
         memmove(iter + count, iter, (pool_alloc->num_of_initialized - (pos - array)) * sizeof(T));
         for(iterator i = first; first != last; ++first, ++last)
@@ -565,7 +588,7 @@ namespace sc2d
             return iter;
 
         if(pool_alloc->num_of_free_blocks - count <= 0)
-            pool_alloc->resize((pool_alloc->num_of_blocks + count) << 1);
+            pool_alloc->resize((pool_alloc->num_of_blocks + count) << 1u);
 
         memmove(iter + count, iter, (pool_alloc->num_of_initialized - (pos - array)) * sizeof(T));
 

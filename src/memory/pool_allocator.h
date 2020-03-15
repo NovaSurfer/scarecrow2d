@@ -18,6 +18,17 @@ namespace sc2d
 
     namespace memory
     {
+        enum class is_resized
+        {
+            NO,
+            YES
+        };
+
+        struct alloc_result
+        {
+            const void* ptr = nullptr;
+            is_resized resized = is_resized::NO;
+        };
 
         class pool_allocator
         {
@@ -33,7 +44,7 @@ namespace sc2d
 
             void create(size_t block_size, size_t num_of_blocks, size_t alignment);
             void destroy();
-            const void* allocate();
+            alloc_result allocate();
             void resize(size_t new_size);
             void deallocate(void* ptr);
 

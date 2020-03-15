@@ -26,30 +26,32 @@ namespace sc2d::memory
         p_start = nullptr;
     }
 
-    const void* pool_allocator::allocate()
+    alloc_result pool_allocator::allocate()
     {
+        alloc_result result;
+
         if(num_of_initialized < num_of_blocks) {
             size_t* ptr = (size_t*)addr_from_index(num_of_initialized);
             *ptr = num_of_initialized + 1;
             num_of_initialized++;
         }
 
-        void* ptr = nullptr;
         if(num_of_free_blocks > 0) {
-            ptr = (void*)p_next;
+            result.ptr = (void*)p_next;
             --num_of_free_blocks;
             if(num_of_free_blocks != 0) {
                 p_next = addr_from_index(*(size_t*)p_next);
             }
         } else {
-            resize(num_of_blocks << 1);
-            ptr = addr_from_index(num_of_initialized);
+            resize(num_of_blocks << 1u);
+            result.resized = is_resized::YES;
+            result.ptr = addr_from_index(num_of_initialized);
             num_of_initialized++;
             num_of_free_blocks--;
             p_next = addr_from_index(num_of_initialized);
         }
 
-        return ptr;
+        return result;
     }
 
     void pool_allocator::resize(size_t new_size)
