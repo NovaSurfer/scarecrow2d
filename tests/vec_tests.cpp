@@ -4,6 +4,7 @@
 #include "../src/collections/vec.h"
 #include "../src/memory/pool_allocator.h"
 #include "doctest/doctest.h"
+#include <vector>
 
 TEST_CASE("vector-operations")
 {
@@ -189,5 +190,40 @@ TEST_CASE("vector-operations")
         CHECK(v[0] == 2.99);
         CHECK(v[1] == 3.99);
         CHECK(v[2] == 4.99);
+    }
+
+    SUBCASE("size()")
+    {
+        sc2d::vec<double> v({1.1});
+        v.push_back(2.2);
+        v.push_back(3.3);
+        CHECK(v.size() == 3);
+        CHECK(v.capacity() == 4);
+    }
+
+    SUBCASE("resize()")
+    {
+        sc2d::vec<double> v({1.1});
+        MESSAGE(v.capacity());
+        v.push_back(2.2);
+        MESSAGE(v.capacity());
+        v.push_back(3.3);
+        MESSAGE(v.capacity());
+        CHECK(v.size() == 3);
+
+        // Increasing size
+        v.resize(5);
+
+        CHECK(v.size() == 5);
+        CHECK(v[0] == 1.1);
+        CHECK(v[1] == 2.2);
+        CHECK(v[2] == 3.3);
+
+        v.push_back(4.4);
+        v.push_back(5.5);
+        v.push_back(6.6);
+
+        MESSAGE(v.capacity());
+        CHECK(v.size() == 8);
     }
 }

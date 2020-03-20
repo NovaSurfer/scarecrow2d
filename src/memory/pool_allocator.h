@@ -67,7 +67,7 @@ namespace sc2d
 
             size_t num_of_blocks = 0;
             size_t size_of_block = 0;
-            size_t num_of_free_blocks = 0;
+//            size_t num_of_free_blocks = 0;
             size_t num_of_initialized = 0;
             unsigned char* p_start = nullptr;
             unsigned char* p_next = nullptr;

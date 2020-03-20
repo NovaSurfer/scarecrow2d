@@ -16,7 +16,7 @@ namespace sc2d::memory
         num_of_blocks = blocks_numb;
         p_start = reinterpret_cast<unsigned char*>(
             std::aligned_alloc(alignment, block_size * blocks_numb));
-        num_of_free_blocks = num_of_blocks;
+//        num_of_free_blocks = num_of_blocks;
         p_next = p_start;
     }
 
@@ -33,21 +33,19 @@ namespace sc2d::memory
         if(num_of_initialized < num_of_blocks) {
             size_t* ptr = (size_t*)addr_from_index(num_of_initialized);
             *ptr = num_of_initialized + 1;
-            num_of_initialized++;
-        }
+            ++num_of_initialized;
 
-        if(num_of_free_blocks > 0) {
             result.ptr = (void*)p_next;
-            --num_of_free_blocks;
-            if(num_of_free_blocks != 0) {
+//            --num_of_free_blocks;
+            if(num_of_blocks - num_of_initialized > 0) {
                 p_next = addr_from_index(*(size_t*)p_next);
             }
         } else {
+//            num_of_free_blocks = (num_of_blocks << 1u) - num_of_initialized - 1;
             resize(num_of_blocks << 1u);
             result.resized = is_resized::YES;
             result.ptr = addr_from_index(num_of_initialized);
             num_of_initialized++;
-            num_of_free_blocks--;
             p_next = addr_from_index(num_of_initialized);
         }
 
@@ -56,8 +54,8 @@ namespace sc2d::memory
 
     void pool_allocator::resize(size_t new_size)
     {
-        num_of_free_blocks = num_of_blocks;
         num_of_blocks = new_size;
+        //TODO: Fix realloc breaks alignment
         if(void* p_new_start = std::realloc(p_start, size_of_block * num_of_blocks))
             p_start = reinterpret_cast<unsigned char*>(p_new_start);
         else {
@@ -74,7 +72,7 @@ namespace sc2d::memory
             (*(size_t*)ptr) = num_of_blocks;
             p_next = (unsigned char*)ptr;
         }
-        num_of_free_blocks++;
+//        num_of_free_blocks++;
         num_of_initialized--;
     }
 
