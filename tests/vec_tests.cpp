@@ -204,11 +204,8 @@ TEST_CASE("vector-operations")
     SUBCASE("resize()")
     {
         sc2d::vec<double> v({1.1});
-        MESSAGE(v.capacity());
         v.push_back(2.2);
-        MESSAGE(v.capacity());
         v.push_back(3.3);
-        MESSAGE(v.capacity());
         CHECK(v.size() == 3);
 
         // Increasing size
@@ -223,7 +220,70 @@ TEST_CASE("vector-operations")
         v.push_back(5.5);
         v.push_back(6.6);
 
-        MESSAGE(v.capacity());
         CHECK(v.size() == 8);
+
+        // Decreasing size
+        v.resize(2);
+        CHECK(v[0] == 1.1);
+        CHECK(v[1] == 2.2);
+    }
+
+    SUBCASE("reserve()")
+    {
+        sc2d::vec<double> v({1.1});
+        v.reserve(5);
+        CHECK(v.size() == 1);
+        CHECK(v.capacity() == 5);
+    }
+
+    SUBCASE("shrink_to_fit()")
+    {
+        sc2d::vec<double> v({1.1});
+        v.push_back(2.2);
+        v.push_back(3.3);
+        CHECK(v.size() == 3);
+        CHECK(v.capacity() == 4);
+        v.shrink_to_fit();
+
+        CHECK(v.size() == 3);
+        CHECK(v.capacity() == 3);
+    }
+
+    SUBCASE("at()")
+    {
+        sc2d::vec<double> v({1.1, 2.2, 3.3});
+        CHECK(v.at(1) == 2.2);
+    }
+
+    SUBCASE("front() & back()")
+    {
+        sc2d::vec<double> v({1.1, 2.2, 3.3});
+        CHECK(v.front() == 1.1);
+        CHECK(v.back() == 3.3);
+    }
+
+    SUBCASE("data()")
+    {
+        sc2d::vec<double> v({1.1, 2.2, 3.3});
+        CHECK(v[0] == *v.data());
+    }
+
+    SUBCASE("emplace_back()")
+    {
+        sc2d::vec<double> v;
+        v.emplace_back(1.1);
+        v.emplace_back(2.1);
+        v.emplace_back(3.1);
+
+        CHECK(v[0] == 1.1);
+        CHECK(v[1] == 2.1);
+        CHECK(v[2] == 3.1);
+    }
+
+    SUBCASE("pop_back()")
+    {
+        sc2d::vec<double> v({1.1, 2.2, 3.3, 4.4});
+        v.pop_back();
+        CHECK(v.back() == v[2]);
     }
 }

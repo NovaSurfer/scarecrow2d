@@ -16,7 +16,6 @@ namespace sc2d::memory
         num_of_blocks = blocks_numb;
         p_start = reinterpret_cast<unsigned char*>(
             std::aligned_alloc(alignment, block_size * blocks_numb));
-//        num_of_free_blocks = num_of_blocks;
         p_next = p_start;
     }
 
@@ -36,12 +35,10 @@ namespace sc2d::memory
             ++num_of_initialized;
 
             result.ptr = (void*)p_next;
-//            --num_of_free_blocks;
             if(num_of_blocks - num_of_initialized > 0) {
                 p_next = addr_from_index(*(size_t*)p_next);
             }
         } else {
-//            num_of_free_blocks = (num_of_blocks << 1u) - num_of_initialized - 1;
             resize(num_of_blocks << 1u);
             result.resized = is_resized::YES;
             result.ptr = addr_from_index(num_of_initialized);
@@ -72,7 +69,6 @@ namespace sc2d::memory
             (*(size_t*)ptr) = num_of_blocks;
             p_next = (unsigned char*)ptr;
         }
-//        num_of_free_blocks++;
         num_of_initialized--;
     }
 
