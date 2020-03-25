@@ -7,6 +7,7 @@
 
 #include "core/log2.h"
 #include "memory/pool_allocator.h"
+#include <cstring>
 #include <iterator>
 #include <type_traits>
 
@@ -115,7 +116,7 @@ namespace sc2d
 
         size_type initial_size = 1;
         T* array;
-        std::unique_ptr<memory::pool_allocator> pool_alloc{
+        std::unique_ptr<memory::pool_allocator> pool_alloc {
             std::make_unique<memory::pool_allocator>()};
     };
 
@@ -196,9 +197,8 @@ namespace sc2d
     vec<T>& vec<T>::operator=(const vec<T>& other)
     {
         if(size_t other_capacity = other.pool_alloc->num_of_blocks;
-            other_capacity > pool_alloc->num_of_blocks) {
+           other_capacity > pool_alloc->num_of_blocks) {
             pool_alloc->resize(other_capacity);
-//            pool_alloc->num_of_free_blocks = other_capacity - pool_alloc->num_of_initialized;
             update_array_address();
         }
 
@@ -210,9 +210,8 @@ namespace sc2d
     vec<T>& vec<T>::operator=(vec<T>&& other)
     {
         if(size_t other_capacity = other.pool_alloc->num_of_blocks;
-            other_capacity > pool_alloc->num_of_blocks) {
+           other_capacity > pool_alloc->num_of_blocks) {
             pool_alloc->resize(other_capacity);
-//            pool_alloc->num_of_free_blocks = other_capacity - pool_alloc->num_of_initialized;
             update_array_address();
         }
 
@@ -223,16 +222,13 @@ namespace sc2d
     template <typename T>
     vec<T>& vec<T>::operator=(std::initializer_list<T> ilist)
     {
-        if(size_t ilist_size = ilist.size();
-            ilist_size > pool_alloc->num_of_blocks) {
+        if(size_t ilist_size = ilist.size(); ilist_size > pool_alloc->num_of_blocks) {
             pool_alloc->resize(ilist_size << 1u);
-//            pool_alloc->num_of_free_blocks = ilist_size - pool_alloc->num_of_initialized;
             update_array_address();
         }
 
         size_t i = 0;
-        for(auto j = ilist.begin(); j != ilist.end(); ++j, ++i)
-        {
+        for(auto j = ilist.begin(); j != ilist.end(); ++j, ++i) {
             array[i] = *j;
         }
     }
@@ -340,7 +336,7 @@ namespace sc2d
         if(new_size > current_size) {
             // If new size if bigger than current capacity of vector
             if(new_size > pool_alloc->num_of_blocks) {
-//                pool_alloc->num_of_free_blocks = new_size - pool_alloc->num_of_initialized;
+                //                pool_alloc->num_of_free_blocks = new_size - pool_alloc->num_of_initialized;
                 pool_alloc->resize(new_size);
             }
         } else {
@@ -407,7 +403,7 @@ namespace sc2d
             return array[index];
 
         // TODO: Deal with this exception
-//        throw std::out_of_range("Vector's index out of range!");
+        //        throw std::out_of_range("Vector's index out of range!");
     }
 
     template <typename T>
@@ -417,7 +413,7 @@ namespace sc2d
             return array[index];
 
         // TODO: Deal with this exception
-//        throw std::out_of_range("Vector's index out of range");
+        //        throw std::out_of_range("Vector's index out of range");
     }
 
     template <typename T>
@@ -500,11 +496,14 @@ namespace sc2d
     template <typename... Args>
     typename vec<T>::iterator vec<T>::emplace(vec::const_iterator c_iter, Args&&... args)
     {
-        if(pool_alloc->num_of_blocks - pool_alloc->num_of_initialized <= 0)
+        if((ptrdiff_t)(pool_alloc->num_of_blocks - pool_alloc->num_of_initialized) <= 0)
             pool_alloc->resize(pool_alloc->num_of_blocks << 1u);
 
         iterator iter = &array[c_iter - array];
-        memmove(iter + 1, iter, (pool_alloc->num_of_initialized - (c_iter - array)) * sizeof(T));
+        // Bug for non-POD types
+        size_t sz = (pool_alloc->num_of_initialized - (c_iter - array)) * sizeof(T);
+        if(sz > 0)
+            memmove(iter + 1, iter, sz);
         (*iter) = std::move(T(std::forward<Args>(args)...));
         pool_alloc->num_of_initialized++;
         return iter;
@@ -513,11 +512,14 @@ namespace sc2d
     template <typename T>
     typename vec<T>::iterator vec<T>::insert(vec::const_iterator c_iter, const T& cref_type)
     {
-        if(pool_alloc->num_of_blocks - pool_alloc->num_of_initialized <= 0)
+        if((ptrdiff_t)(pool_alloc->num_of_blocks - pool_alloc->num_of_initialized) <= 0)
             pool_alloc->resize(pool_alloc->num_of_blocks << 1u);
 
         iterator iter = &array[c_iter - array];
-        memmove(iter + 1, iter, (pool_alloc->num_of_initialized - (c_iter - array)) * sizeof(T));
+        // Bug for non-POD types
+        size_t sz = (pool_alloc->num_of_initialized - (c_iter - array)) * sizeof(T);
+        if(sz > 0)
+            memmove(iter + 1, iter, sz);
         *iter = cref_type;
         pool_alloc->num_of_initialized++;
         return iter;
@@ -526,11 +528,14 @@ namespace sc2d
     template <typename T>
     typename vec<T>::iterator vec<T>::insert(vec::const_iterator c_iter, T&& uref_type)
     {
-        if(pool_alloc->num_of_blocks - pool_alloc->num_of_initialized <= 0)
+        if((ptrdiff_t)(pool_alloc->num_of_blocks - pool_alloc->num_of_initialized) <= 0)
             pool_alloc->resize(pool_alloc->num_of_blocks << 1u);
 
         iterator iter = &array[c_iter - array];
-        memmove(iter + 1, iter, (pool_alloc->num_of_initialized - (c_iter - array)) * sizeof(T));
+        // Bug for non-POD types
+        size_t sz = (pool_alloc->num_of_initialized - (c_iter - array)) * sizeof(T);
+        if(sz > 0)
+            memmove(iter + 1, iter, sz);
         *iter = std::move(uref_type);
         pool_alloc->num_of_initialized++;
         return iter;
@@ -541,13 +546,16 @@ namespace sc2d
                                              const T& value)
     {
         iterator iter = &array[pos - array];
-        if(count == 0)
+        if(count <= 0)
             return iter;
 
-        if((pool_alloc->num_of_blocks - pool_alloc->num_of_initialized) - count <= 0)
+        if((ptrdiff_t)(pool_alloc->num_of_blocks - pool_alloc->num_of_initialized - count) <= 0)
             pool_alloc->resize((pool_alloc->num_of_blocks + count) << 1u);
 
-        memmove(iter + count, iter, (pool_alloc->num_of_initialized - (pos - array)) * sizeof(T));
+        // Bug for non-POD types
+        size_t sz = (pool_alloc->num_of_initialized - (pos - array)) * sizeof(T);
+        if(sz > 0)
+            memmove(iter + count, iter, sz);
         for(iterator i = iter; count--; ++i)
             (*i) = value;
         pool_alloc->num_of_initialized += count;
@@ -560,16 +568,21 @@ namespace sc2d
                                              InputIter last)
     {
         iterator iter = &array[pos - array];
-        size_t count = last - first;
-        if(count == 0)
+        ptrdiff_t count = last - first;
+        if(count <= 0)
             return iter;
 
-        if((pool_alloc->num_of_blocks - pool_alloc->num_of_initialized) - count <= 0)
+        if((ptrdiff_t)(pool_alloc->num_of_blocks - pool_alloc->num_of_initialized - count) <= 0)
             pool_alloc->resize((pool_alloc->num_of_blocks + count) << 1u);
 
-        memmove(iter + count, iter, (pool_alloc->num_of_initialized - (pos - array)) * sizeof(T));
-        for(iterator i = first; first != last; ++first, ++last)
+        // Bug for non-POD types
+        size_t sz = (pool_alloc->num_of_initialized - (pos - array)) * sizeof(T);
+        if(sz > 0)
+            memmove(iter + count, iter, sz);
+        size_t j = 0;
+        for(iterator i = iter; first != last; ++i, ++first, ++j){
             (*i) = (*first);
+        }
         pool_alloc->num_of_initialized += count;
         return nullptr;
     }
@@ -580,14 +593,16 @@ namespace sc2d
     {
         size_t count = ilist.size();
         iterator iter = &array[pos - array];
-        if(count == 0)
+        if(count <= 0)
             return iter;
 
-        if((pool_alloc->num_of_blocks - pool_alloc->num_of_initialized) - count <= 0)
+        if((ptrdiff_t)(pool_alloc->num_of_blocks - pool_alloc->num_of_initialized - count) <= 0)
             pool_alloc->resize((pool_alloc->num_of_blocks + count) << 1u);
 
-        memmove(iter + count, iter, (pool_alloc->num_of_initialized - (pos - array)) * sizeof(T));
-
+        // Bug for non-POD types
+        size_t sz = (pool_alloc->num_of_initialized - (pos - array)) * sizeof(T);
+        if(sz > 0)
+            memmove(iter + count, iter, sz);
         iterator i = iter;
         for(auto& item : ilist) {
             (*i) = item;
@@ -624,7 +639,7 @@ namespace sc2d
 
         memmove(iter, last, (pool_alloc->num_of_initialized - (last - array)) * sizeof(T));
         pool_alloc->num_of_initialized -= last - first;
-//        pool_alloc->num_of_free_blocks -= last - first;
+        //        pool_alloc->num_of_free_blocks -= last - first;
 
         return iter;
     }

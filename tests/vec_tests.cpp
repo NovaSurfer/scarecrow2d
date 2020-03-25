@@ -286,4 +286,84 @@ TEST_CASE("vector-operations")
         v.pop_back();
         CHECK(v.back() == v[2]);
     }
+
+    SUBCASE("emplace()")
+    {
+        sc2d::vec<double> v({1.1, 2.2, 3.3});
+        v.emplace(v.cbegin(), 5.5);
+        v.emplace(v.end(), 7.7);
+
+        CHECK(v.size() == 5);
+        CHECK(v.capacity() == 6);
+        CHECK(v[0] == 5.5);
+        CHECK(v[1] == 1.1);
+        CHECK(v[2] == 2.2);
+        CHECK(v[3] == 3.3);
+        CHECK(v[4] == 7.7);
+    }
+
+    SUBCASE("insert()")
+    {
+        sc2d::vec<double> v({1.1, 2.2, 3.3});
+        v.insert(v.cbegin(), 5.5);
+        v.insert(v.end(), 7.7);
+
+        CHECK(v.size() == 5);
+        CHECK(v.capacity() == 6);
+        CHECK(v[0] == 5.5);
+        CHECK(v[1] == 1.1);
+        CHECK(v[2] == 2.2);
+        CHECK(v[3] == 3.3);
+        CHECK(v[4] == 7.7);
+    }
+
+    SUBCASE("insert(T&&)")
+    {
+        sc2d::vec<double> v({1.1, 2.2, 3.3});
+        //trivially-copyable type, no effect
+        v.insert(v.cbegin(), std::move(5.5));
+        v.insert(v.end(), std::move(7.7));
+
+        CHECK(v.size() == 5);
+        CHECK(v.capacity() == 6);
+        CHECK(v[0] == 5.5);
+        CHECK(v[1] == 1.1);
+        CHECK(v[2] == 2.2);
+        CHECK(v[3] == 3.3);
+        CHECK(v[4] == 7.7);
+    }
+
+    SUBCASE("insert(first, last iterators)")
+    {
+        sc2d::vec<double> v({1.1, 2.2, 3.3});
+        v.insert(v.cbegin(), v.begin(), v.begin() + 2);
+        v.insert(v.end(), v.end() - 2, v.end());
+
+        CHECK(v.size() == 7);
+        CHECK(v.capacity() == 16);
+        CHECK(v[0] == 1.1);
+        CHECK(v[1] == 2.2);
+        CHECK(v[2] == 1.1);
+        CHECK(v[3] == 2.2);
+        CHECK(v[4] == 3.3);
+        CHECK(v[5] == 2.2);
+        CHECK(v[6] == 3.3);
+    }
+
+    SUBCASE("insert(std::initializer_list<T>)")
+    {
+        sc2d::vec<double> v({1.1, 2.2, 3.3});
+        v.insert(v.cbegin(), {5.5, 5.5});
+        v.insert(v.end(), {7.7, 7.7});
+
+        CHECK(v.size() == 7);
+        CHECK(v.capacity() == 16);
+        CHECK(v[0] == 5.5);
+        CHECK(v[1] == 5.5);
+        CHECK(v[2] == 1.1);
+        CHECK(v[3] == 2.2);
+        CHECK(v[4] == 3.3);
+        CHECK(v[5] == 7.7);
+        CHECK(v[6] == 7.7);
+    }
 }
