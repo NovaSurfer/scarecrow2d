@@ -3,6 +3,7 @@
 //
 
 #include "pool_allocator.h"
+#include "memory.h"
 #include "core/log2.h"
 
 //Pool allocator reference: http://www.thinkmind.org/download.php?articleid=computation_tools_2012_1_10_80006
@@ -15,13 +16,13 @@ namespace sc2d::memory
         size_of_block = block_size;
         num_of_blocks = blocks_numb;
         p_start = reinterpret_cast<unsigned char*>(
-            std::aligned_alloc(alignment, block_size * blocks_numb));
+            malloc_aligned(block_size * blocks_numb, alignment));
         p_next = p_start;
     }
 
     void pool_allocator::destroy()
     {
-        std::free(p_start);
+        free_aligned(p_start);
         p_start = nullptr;
     }
 

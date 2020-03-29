@@ -11,8 +11,8 @@
       "file": "data/sprites/private/platformer_tilemap.png",
       "alpha": true,
       "atlas": true,
-      "rows": 3,
-      "columns": 3
+      "rows": 8,
+      "columns": 8
     }
   ],
   "shaders": []
