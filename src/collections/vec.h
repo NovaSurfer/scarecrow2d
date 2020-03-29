@@ -632,13 +632,13 @@ namespace sc2d
             return iter;
 
         while(first != last) {
-            ++first;
             //            (*first).~T();
-            pool_alloc->deallocate(first);
+            pool_alloc->deallocate((iterator)first);
+            ++first;
         }
 
-        memmove(iter, last, (pool_alloc->num_of_initialized - (last - array)) * sizeof(T));
-        pool_alloc->num_of_initialized -= last - first;
+//        memmove(iter, last, (pool_alloc->num_of_initialized - (last - array)) * sizeof(T));
+//        pool_alloc->num_of_initialized -= last - first;
         //        pool_alloc->num_of_free_blocks -= last - first;
 
         return iter;
@@ -647,15 +647,15 @@ namespace sc2d
     template <typename T>
     void vec<T>::swap(vec<T>& other)
     {
-        std::swap(*array, *other.array);
+        std::swap(array, other.array);
         pool_alloc.swap(other.pool_alloc);
     }
 
     template <typename T>
     void vec<T>::clear() noexcept
     {
-        for(size_t i = 0; i < pool_alloc->num_of_initialized; ++i) {
-            pool_alloc->deallocate(array[i]);
+        while(pool_alloc->num_of_initialized){
+            pool_alloc->deallocate(&array[pool_alloc->num_of_initialized]);
         }
     }
 

@@ -2,9 +2,7 @@
 // Created by maksim.ruts on 3.4.19.
 //
 #include "../src/collections/vec.h"
-#include "../src/memory/pool_allocator.h"
 #include "doctest/doctest.h"
-#include <vector>
 
 TEST_CASE("vector-operations")
 {
@@ -365,5 +363,122 @@ TEST_CASE("vector-operations")
         CHECK(v[4] == 3.3);
         CHECK(v[5] == 7.7);
         CHECK(v[6] == 7.7);
+    }
+
+    SUBCASE("erase(pos)")
+    {
+        sc2d::vec<double> v({1.1, 2.2, 3.3});
+        CHECK(v.size() == 3);
+        CHECK(v.capacity() == 6);
+
+        v.erase(v.begin());
+
+        CHECK(v.size() == 2);
+        CHECK(v.capacity() == 6);
+        CHECK(v[0] != 1.1);
+        CHECK(v[1] == 2.2);
+        CHECK(v[2] == 3.3);
+    }
+
+    SUBCASE("erase(first, last)")
+    {
+        sc2d::vec<double> v({1.1, 2.2, 3.3});
+        CHECK(v.size() == 3);
+        CHECK(v.capacity() == 6);
+
+        v.erase(v.begin(), v.end());
+
+        CHECK(v.size() == 0);
+        CHECK(v.capacity() == 6);
+        CHECK(v[0] != 1.1);
+        CHECK(v[1] != 2.2);
+        CHECK(v[2] != 3.3);
+    }
+
+    SUBCASE("swap(other)")
+    {
+        sc2d::vec<double> v({1.1, 2.2, 3.3});
+        sc2d::vec<double> vv({4.4, 5.5, 6.6, 7.7, 8.8});
+
+        CHECK(v.size() == 3);
+        CHECK(v.capacity() == 6);
+        CHECK(vv.size() == 5);
+        CHECK(vv.capacity() == 10);
+
+        v.swap(vv);
+
+        CHECK(vv.size() == 3);
+        CHECK(vv.capacity() == 6);
+        CHECK(v.size() == 5);
+        CHECK(v.capacity() == 10);
+
+        CHECK(v[0] == 4.4);
+        CHECK(v[1] == 5.5);
+        CHECK(v[2] == 6.6);
+        CHECK(v[3] == 7.7);
+        CHECK(v[4] == 8.8);
+
+        CHECK(vv[0] == 1.1);
+        CHECK(vv[1] == 2.2);
+        CHECK(vv[2] == 3.3);
+
+        v.push_back(55.55);
+        vv.push_back(55.55);
+        CHECK(vv.size() == 4);
+        CHECK(vv.capacity() == 6);
+        CHECK(v.size() == 6);
+        CHECK(v.capacity() == 10);
+        CHECK(v[5] == 55.55);
+        CHECK(vv[3] == 55.55);
+    }
+
+    SUBCASE("clear()")
+    {
+        sc2d::vec<double> v({1.1, 2.2, 3.3, 4.4, 5.5, 6.6, 7.7, 8.8});
+        v.clear();
+        CHECK(v.size() == 0);
+        CHECK(v.capacity() == 16);
+    }
+
+    SUBCASE("operator==")
+    {
+        sc2d::vec<double> v({1.1, 2.2, 3.3, 4.4, 5.5});
+        sc2d::vec<double> vv({1.1, 2.2, 3.3, 4.4, 5.5});
+        CHECK(vv == v);
+    }
+
+    SUBCASE("operator!=")
+    {
+        sc2d::vec<double> v({1.1, 2.2, 3.3, 4.4, 5.5});
+        sc2d::vec<double> vv({1.1, 2.2, 3.3, 4.4, 5.6});
+        CHECK(vv != v);
+    }
+
+    SUBCASE("operator<")
+    {
+        sc2d::vec<double> v({1.1, 2.2, 3.3, 4.4, 5.5});
+        sc2d::vec<double> vv({1.1, 2.2, 3.3, 4.4, 5.6});
+        CHECK(v < vv);
+    }
+
+    SUBCASE("operator<=")
+    {
+        sc2d::vec<double> v({1.1, 2.2, 3.3, 4.4, 5.5});
+        sc2d::vec<double> vv({1.1, 2.2, 3.3, 4.4, 5.5});
+        CHECK(v <= vv);
+    }
+
+    SUBCASE("operator>")
+    {
+        sc2d::vec<double> v({1.1, 2.2, 3.3, 4.4, 5.5});
+        sc2d::vec<double> vv({1.1, 2.2, 3.3, 4.4, 5.6});
+        CHECK(vv > v);
+    }
+
+    SUBCASE("operator>=")
+    {
+        sc2d::vec<double> v({1.1, 2.2, 3.3, 4.4, 5.5});
+        sc2d::vec<double> vv({1.1, 2.2, 3.3, 4.4, 5.5});
+        CHECK(vv >= v);
     }
 }
