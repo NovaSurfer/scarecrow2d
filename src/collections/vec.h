@@ -204,6 +204,8 @@ namespace sc2d
 
         for(size_t i = 0; i < other.pool_alloc->num_of_initialized; ++i)
             array[i] = other[i];
+
+        return *this;
     }
 
     template <typename T>
@@ -217,6 +219,8 @@ namespace sc2d
 
         for(size_t i = 0; i < other.initial_size; ++i)
             array[i] = std::move(other[i]);
+
+        return *this;
     }
 
     template <typename T>
@@ -231,6 +235,8 @@ namespace sc2d
         for(auto j = ilist.begin(); j != ilist.end(); ++j, ++i) {
             array[i] = *j;
         }
+
+        return *this;
     }
 
     template <typename T>
