@@ -3,8 +3,9 @@
 //
 
 #include "pool_allocator.h"
-#include "memory.h"
 #include "core/log2.h"
+#include "memory.h"
+#include <cstring>
 
 //Pool allocator reference: http://www.thinkmind.org/download.php?articleid=computation_tools_2012_1_10_80006
 
@@ -15,8 +16,9 @@ namespace sc2d::memory
     {
         size_of_block = block_size;
         num_of_blocks = blocks_numb;
+        this->alignment = alignment;
         p_start = reinterpret_cast<unsigned char*>(
-            malloc_aligned(block_size * blocks_numb, alignment));
+            malloc_aligned(block_size * blocks_numb, this->alignment));
         p_next = p_start;
     }
 
@@ -43,7 +45,7 @@ namespace sc2d::memory
             resize(num_of_blocks << 1u);
             result.resized = is_resized::YES;
             result.ptr = addr_from_index(num_of_initialized);
-            num_of_initialized++;
+            ++num_of_initialized;
             p_next = addr_from_index(num_of_initialized);
         }
 
@@ -52,13 +54,22 @@ namespace sc2d::memory
 
     void pool_allocator::resize(size_t new_size)
     {
-        num_of_blocks = new_size;
-        //TODO: Fix realloc breaks alignment
-        if(void* p_new_start = std::realloc(p_start, size_of_block * num_of_blocks))
+#if COMPILER_GCC || COMPILER_CLANG
+        if(auto* p_new_start = reinterpret_cast<unsigned char*>(
+               malloc_aligned(size_of_block * new_size, alignment))) {
+            if(!(p_start = reinterpret_cast<unsigned char*>(
+                     memcpy(p_new_start, p_start, size_of_block * num_of_blocks)))) {
+                // TODO: throw error;
+            }
+        }
+#elif COMPILER_MVC
+        if(void* p_new_start = realloc_aligned(p_start, size_of_block * new_size, alignment))
             p_start = reinterpret_cast<unsigned char*>(p_new_start);
+#endif
         else {
             // TODO: Error handling.
         }
+        num_of_blocks = new_size;
     }
 
     void pool_allocator::deallocate(void* ptr)
@@ -70,7 +81,7 @@ namespace sc2d::memory
             (*(size_t*)ptr) = num_of_blocks;
             p_next = (unsigned char*)ptr;
         }
-        num_of_initialized--;
+        --num_of_initialized;
     }
 
     unsigned char* pool_allocator::addr_from_index(size_t index) const

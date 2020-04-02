@@ -12,6 +12,7 @@
 #include <type_traits>
 
 // TODO:  ------------------- Write tests and benchmarks -------------------
+// TODO: Support for non-POD types
 
 namespace sc2d
 {
