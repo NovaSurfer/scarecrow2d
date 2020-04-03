@@ -125,6 +125,9 @@ namespace sc2d
     void vec<T>::allocate()
     {
         pool_alloc->create(sizeof(T), initial_size << 1u, alignof(T*));
+//        if constexpr(!IS_T_TRIVIAL::value) {
+//            array = new(pool_alloc->p_start) T();
+//        }
         update_array_address();
     }
 
@@ -189,6 +192,9 @@ namespace sc2d
     template <typename T>
     vec<T>::~vec()
     {
+//        if constexpr(!IS_T_TRIVIAL::value) {
+//            array->~T();
+//        }
         pool_alloc->destroy();
         pool_alloc.reset();
         array = nullptr;
@@ -345,6 +351,7 @@ namespace sc2d
             if(new_size > pool_alloc->num_of_blocks) {
                 //                pool_alloc->num_of_free_blocks = new_size - pool_alloc->num_of_initialized;
                 pool_alloc->resize(new_size);
+                update_array_address();
             }
         } else {
             //  Reduce size to its first count elements

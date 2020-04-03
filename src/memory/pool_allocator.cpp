@@ -55,12 +55,12 @@ namespace sc2d::memory
     void pool_allocator::resize(size_t new_size)
     {
 #if COMPILER_GCC || COMPILER_CLANG
-        if(auto* p_new_start = reinterpret_cast<unsigned char*>(
-               malloc_aligned(size_of_block * new_size, alignment))) {
-            if(!(p_start = reinterpret_cast<unsigned char*>(
-                     memcpy(p_new_start, p_start, size_of_block * num_of_blocks)))) {
+        if(void* p_new_start = malloc_aligned(size_of_block * new_size, alignment)) {
+            if(!(memcpy(p_new_start, p_start, size_of_block * num_of_blocks))) {
                 // TODO: throw error;
             }
+            free_aligned(p_start);
+            p_start = reinterpret_cast<unsigned char*>(p_new_start);
         }
 #elif COMPILER_MVC
         if(void* p_new_start = realloc_aligned(p_start, size_of_block * new_size, alignment))
