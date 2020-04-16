@@ -5,7 +5,6 @@
 #ifndef INC_2D_GAME_VEC_H
 #define INC_2D_GAME_VEC_H
 
-#include "core/log2.h"
 #include "memory/pool_allocator.h"
 #include <cstring>
 #include <iterator>
@@ -92,10 +91,10 @@ namespace sc2d
         iterator emplace(const_iterator c_iter, Args&&...);
         iterator insert(const_iterator c_iter, const T& cref_type);
         iterator insert(const_iterator c_iter, T&& uref_type);
-        iterator insert(const_iterator pos, size_type count, const T& value);
+        iterator insert(const_iterator c_iter, size_type count, const T& value);
         template <typename InputIter>
-        iterator insert(const_iterator pos, InputIter first, InputIter last);
-        iterator insert(const_iterator pos, std::initializer_list<T> ilist);
+        iterator insert(const_iterator c_iter, InputIter first, InputIter last);
+        iterator insert(const_iterator c_iter, std::initializer_list<T> ilist);
         iterator erase(const_iterator it);
         iterator erase(const_iterator fist, const_iterator last);
         void swap(vec<T>& other);
@@ -125,9 +124,9 @@ namespace sc2d
     void vec<T>::allocate()
     {
         pool_alloc->create(sizeof(T), initial_size << 1u, alignof(T*));
-//        if constexpr(!IS_T_TRIVIAL::value) {
-//            array = new(pool_alloc->p_start) T();
-//        }
+        //        if constexpr(!IS_T_TRIVIAL::value) {
+        //            array = new(pool_alloc->p_start) T();
+        //        }
         update_array_address();
     }
 
@@ -192,9 +191,9 @@ namespace sc2d
     template <typename T>
     vec<T>::~vec()
     {
-//        if constexpr(!IS_T_TRIVIAL::value) {
-//            array->~T();
-//        }
+        //        if constexpr(!IS_T_TRIVIAL::value) {
+        //            array->~T();
+        //        }
         pool_alloc->destroy();
         pool_alloc.reset();
         array = nullptr;
@@ -370,6 +369,7 @@ namespace sc2d
         if(new_size > current_size) {
             if(new_size > pool_alloc->num_of_blocks) {
                 pool_alloc->resize(new_size);
+                update_array_address();
             }
 
             for(size_t i = current_size; i < new_size; ++i)
@@ -389,6 +389,7 @@ namespace sc2d
     {
         if(new_size > pool_alloc->num_of_blocks) {
             pool_alloc->resize(new_size);
+            update_array_address();
         }
     }
 
@@ -510,116 +511,145 @@ namespace sc2d
     template <typename... Args>
     typename vec<T>::iterator vec<T>::emplace(vec::const_iterator c_iter, Args&&... args)
     {
-        if((ptrdiff_t)(pool_alloc->num_of_blocks - pool_alloc->num_of_initialized) <= 0)
+        const ptrdiff_t pos = c_iter - array;
+        if((ptrdiff_t)(pool_alloc->num_of_blocks - pool_alloc->num_of_initialized) <= 0) {
             pool_alloc->resize(pool_alloc->num_of_blocks << 1u);
+            update_array_address();
+        }
 
-        iterator iter = &array[c_iter - array];
+        iterator iter = &array[pos];
         // Bug for non-POD types
-        size_t sz = (pool_alloc->num_of_initialized - (c_iter - array)) * sizeof(T);
-        if(sz > 0)
+        const size_t sz = (pool_alloc->num_of_initialized - pos) * sizeof(T);
+        if(sz > 0) {
             memmove(iter + 1, iter, sz);
-        (*iter) = std::move(T(std::forward<Args>(args)...));
-        pool_alloc->num_of_initialized++;
+        }
+        *iter = std::move(T(std::forward<Args>(args)...));
+        ++pool_alloc->num_of_initialized;
         return iter;
     }
 
     template <typename T>
     typename vec<T>::iterator vec<T>::insert(vec::const_iterator c_iter, const T& cref_type)
     {
-        if((ptrdiff_t)(pool_alloc->num_of_blocks - pool_alloc->num_of_initialized) <= 0)
+        const ptrdiff_t pos = c_iter - array;
+        if((ptrdiff_t)(pool_alloc->num_of_blocks - pool_alloc->num_of_initialized) <= 0) {
             pool_alloc->resize(pool_alloc->num_of_blocks << 1u);
+            update_array_address();
+        }
 
-        iterator iter = &array[c_iter - array];
+        iterator iter = &array[pos];
         // Bug for non-POD types
-        size_t sz = (pool_alloc->num_of_initialized - (c_iter - array)) * sizeof(T);
-        if(sz > 0)
+        const size_t sz = (pool_alloc->num_of_initialized - pos) * sizeof(T);
+        if(sz > 0) {
             memmove(iter + 1, iter, sz);
+        }
         *iter = cref_type;
-        pool_alloc->num_of_initialized++;
+        ++pool_alloc->num_of_initialized;
         return iter;
     }
 
     template <typename T>
     typename vec<T>::iterator vec<T>::insert(vec::const_iterator c_iter, T&& uref_type)
     {
-        if((ptrdiff_t)(pool_alloc->num_of_blocks - pool_alloc->num_of_initialized) <= 0)
-            pool_alloc->resize(pool_alloc->num_of_blocks << 1u);
+        const ptrdiff_t pos = c_iter - array;
+        if((ptrdiff_t)(pool_alloc->num_of_blocks - pool_alloc->num_of_initialized) <= 0) {
 
-        iterator iter = &array[c_iter - array];
+            pool_alloc->resize(pool_alloc->num_of_blocks << 1u);
+            update_array_address();
+        }
+
+        iterator iter = &array[pos];
         // Bug for non-POD types
-        size_t sz = (pool_alloc->num_of_initialized - (c_iter - array)) * sizeof(T);
-        if(sz > 0)
+        size_t sz = (pool_alloc->num_of_initialized - pos) * sizeof(T);
+        if(sz > 0) {
             memmove(iter + 1, iter, sz);
+        }
         *iter = std::move(uref_type);
-        pool_alloc->num_of_initialized++;
+        ++pool_alloc->num_of_initialized;
         return iter;
     }
 
     template <typename T>
-    typename vec<T>::iterator vec<T>::insert(vec::const_iterator pos, vec::size_type count,
+    typename vec<T>::iterator vec<T>::insert(vec::const_iterator c_iter, vec::size_type count,
                                              const T& value)
     {
-        iterator iter = &array[pos - array];
-        if(count <= 0)
-            return iter;
+        const ptrdiff_t pos = c_iter - array;
+        if(count <= 0) {
+            return &array[pos];
+        }
 
-        if((ptrdiff_t)(pool_alloc->num_of_blocks - pool_alloc->num_of_initialized - count) <= 0)
-            pool_alloc->resize((pool_alloc->num_of_blocks + count) << 1u);
+        if(pool_alloc->num_of_initialized + count > pool_alloc->num_of_blocks) {
+            pool_alloc->resize(pool_alloc->num_of_blocks << 1u);
+            update_array_address();
+        }
 
+        iterator iter = &array[pos];
         // Bug for non-POD types
-        size_t sz = (pool_alloc->num_of_initialized - (pos - array)) * sizeof(T);
-        if(sz > 0)
+        const size_t sz = (pool_alloc->num_of_initialized - pos) * sizeof(T);
+        if(sz > 0) {
             memmove(iter + count, iter, sz);
-        for(iterator i = iter; count--; ++i)
-            (*i) = value;
+        }
         pool_alloc->num_of_initialized += count;
+        for(iterator i = iter; count > 0; --count, ++i) {
+            *i = value;
+        }
         return iter;
     }
 
     template <typename T>
     template <typename InputIter>
-    typename vec<T>::iterator vec<T>::insert(vec::const_iterator pos, InputIter first,
+    typename vec<T>::iterator vec<T>::insert(vec::const_iterator c_iter, InputIter first,
                                              InputIter last)
     {
-        iterator iter = &array[pos - array];
-        ptrdiff_t count = last - first;
-        if(count <= 0)
-            return iter;
+        const ptrdiff_t pos = c_iter - array;
+        const ptrdiff_t count = last - first;
+        if(count <= 0) {
+            return &array[pos];
+        }
 
-        if((ptrdiff_t)(pool_alloc->num_of_blocks - pool_alloc->num_of_initialized - count) <= 0)
-            pool_alloc->resize((pool_alloc->num_of_blocks + count) << 1u);
+        if((ptrdiff_t)(pool_alloc->num_of_blocks - pool_alloc->num_of_initialized - count) <= 0) {
+            pool_alloc->resize(pool_alloc->num_of_blocks << 1u);
+            update_array_address();
+        }
 
+        iterator iter = &array[pos];
         // Bug for non-POD types
-        size_t sz = (pool_alloc->num_of_initialized - (pos - array)) * sizeof(T);
-        if(sz > 0)
+        const size_t sz = (pool_alloc->num_of_initialized - pos) * sizeof(T);
+        if(sz > 0) {
             memmove(iter + count, iter, sz);
+        }
         size_t j = 0;
-        for(iterator i = iter; first != last; ++i, ++first, ++j){
-            (*i) = (*first);
+        for(iterator i = iter; first != last; ++i, ++first, ++j) {
+            *i = *first;
         }
         pool_alloc->num_of_initialized += count;
-        return nullptr;
+        return iter;
     }
 
     template <typename T>
-    typename vec<T>::iterator vec<T>::insert(vec::const_iterator pos,
+    typename vec<T>::iterator vec<T>::insert(vec::const_iterator c_iter,
                                              std::initializer_list<T> ilist)
     {
-        size_t count = ilist.size();
-        iterator iter = &array[pos - array];
-        if(count <= 0)
-            return iter;
+        const size_t count = ilist.size();
+        const ptrdiff_t pos = c_iter - array;
+        if(count <= 0) {
+            return &array[pos];
+        }
 
-        if((ptrdiff_t)(pool_alloc->num_of_blocks - pool_alloc->num_of_initialized - count) <= 0)
-            pool_alloc->resize((pool_alloc->num_of_blocks + count) << 1u);
+        if((ptrdiff_t)(pool_alloc->num_of_blocks - pool_alloc->num_of_initialized - count) <= 0) {
+            pool_alloc->resize(pool_alloc->num_of_blocks << 1u);
+            update_array_address();
+        }
 
+        const iterator iter = &array[pos];
         // Bug for non-POD types
-        size_t sz = (pool_alloc->num_of_initialized - (pos - array)) * sizeof(T);
-        if(sz > 0)
+        const size_t sz = (pool_alloc->num_of_initialized - pos) * sizeof(T);
+        if(sz > 0) {
             memmove(iter + count, iter, sz);
+        }
         iterator i = iter;
         for(auto& item : ilist) {
-            (*i) = item;
+            *i = item;
             ++i;
         }
         pool_alloc->num_of_initialized += count;
@@ -651,8 +681,8 @@ namespace sc2d
             ++first;
         }
 
-//        memmove(iter, last, (pool_alloc->num_of_initialized - (last - array)) * sizeof(T));
-//        pool_alloc->num_of_initialized -= last - first;
+        //        memmove(iter, last, (pool_alloc->num_of_initialized - (last - array)) * sizeof(T));
+        //        pool_alloc->num_of_initialized -= last - first;
         //        pool_alloc->num_of_free_blocks -= last - first;
 
         return iter;
@@ -668,7 +698,7 @@ namespace sc2d
     template <typename T>
     void vec<T>::clear() noexcept
     {
-        while(pool_alloc->num_of_initialized){
+        while(pool_alloc->num_of_initialized) {
             pool_alloc->deallocate(&array[pool_alloc->num_of_initialized]);
         }
     }

@@ -69,8 +69,8 @@ namespace sc2d
             size_t size_of_block = 0;
             size_t num_of_initialized = 0;
             size_t alignment = 0;
-            unsigned char* p_start = nullptr;
-            unsigned char* p_next = nullptr;
+            unsigned char* p_start;
+            unsigned char* p_next;
         };
     }
 }
