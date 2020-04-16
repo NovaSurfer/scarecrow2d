@@ -2,7 +2,7 @@
 // Created by maksim.ruts on 26.7.19.
 //
 
-#include "debug_utils.h"
+#include "ogl_errors.h"
 #include <glad/glad.h>
 
 namespace sc2d::debug

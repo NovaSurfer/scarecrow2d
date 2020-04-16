@@ -5,7 +5,7 @@
 #ifndef INC_2D_GAME_SPRITE_SHEET_INST_H
 #define INC_2D_GAME_SPRITE_SHEET_INST_H
 
-#include "debug_utils.h"
+#include "core/dbg/ogl_errors.h"
 #include "math/size2d.h"
 #include "math/transform.h"
 #include "math/vector2.h"

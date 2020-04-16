@@ -3,7 +3,7 @@
 //
 
 #include "texture_atlas.h"
-#include "debug_utils.h"
+#include "core/dbg/ogl_errors.h"
 
 namespace sc2d
 {

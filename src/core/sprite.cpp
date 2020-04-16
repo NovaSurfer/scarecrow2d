@@ -3,8 +3,8 @@
 //
 
 #include "sprite.h"
+#include "core/dbg/ogl_errors.h"
 #include "core/log2.h"
-#include "debug_utils.h"
 #include "math/transform.h"
 #include "texture.h"
 

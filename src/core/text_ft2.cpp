@@ -3,7 +3,7 @@
 //
 
 #include "text_ft2.h"
-#include "debug_utils.h"
+#include "core/dbg/ogl_errors.h"
 #include "log2.h"
 #include "math/utils.h"
 #include <math/transform.h>

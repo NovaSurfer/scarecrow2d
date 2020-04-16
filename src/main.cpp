@@ -2,7 +2,7 @@
 // Created by Maksim Ruts on 28-Aug-18.
 //
 
-#include "core/debug_utils.h"
+#include "core/dbg/ogl_errors.h"
 #include "core/log2.h"
 #include "core/result.h"
 #include "core/sprite.h"
