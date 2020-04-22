@@ -3,7 +3,6 @@
 //
 
 #include "pool_allocator.h"
-//#include "core/log2.h"
 #include "memory.h"
 #include <cstring>
 

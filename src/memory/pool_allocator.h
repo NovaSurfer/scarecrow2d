@@ -5,9 +5,8 @@
 #ifndef INC_2D_GAME_POOL_ALLOCATOR_H
 #define INC_2D_GAME_POOL_ALLOCATOR_H
 
-//#include "allocator.h"
-//#include "aligned_allocator.h"
-#include <memory>
+#include <cstdlib>
+#include "core/compiler.h"
 
 namespace sc2d
 {
@@ -62,8 +61,8 @@ namespace sc2d
             }
 
         private:
-            inline unsigned char* addr_from_index(size_t index) const __attribute__((always_inline));
-            inline size_t index_from_addr(const unsigned char* ptr) const __attribute__((always_inline));
+            [[nodiscard]] forceinline unsigned char* addr_from_index(size_t index) const;
+            [[nodiscard]] forceinline size_t index_from_addr(const unsigned char* ptr) const;
 
             size_t num_of_blocks = 0;
             size_t size_of_block = 0;

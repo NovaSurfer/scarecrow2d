@@ -49,4 +49,18 @@
 #    define COMPILER_ARCH_x64_32 1
 #endif
 
+#ifdef COMPILER_MVC
+#    define forceinline __forceinline
+#elif defined(COMPILER_GCC)
+#    define forceinline inline __attribute__((__always_inline__))
+#elif defined(COMPILER_CLANG)
+#    if __has_attribute(__always_inline__)
+#        define forceinline inline __attribute__((__always_inline__))
+#    else
+#        define forceinline inline
+#    endif
+#else
+#    define forceinline inline
+#endif
+
 #endif //INC_2D_GAME_COMPILER_H
