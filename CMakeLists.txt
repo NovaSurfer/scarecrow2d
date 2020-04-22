@@ -18,11 +18,12 @@ if(MSVC)
 	add_compile_options("/W4" "$<$<CONFIG:RELEASE>:/O2>")
 	add_compile_options("/W4" "$<$<CONFIG:DEBUG>:/O0>")
 else()
-	add_compile_options("-Wall" "-Wextra" "-Wshadow" "-Wnon-virtual-dtor" "-pedantic" "$<$<CONFIG:RELEASE>:-O2>")
-	add_compile_options("-Wall" "-Wextra" "-Wshadow" "-Wnon-virtual-dtor" "-pedantic" "$<$<CONFIG:DEBUG>:-O0>")
+	add_compile_options("-Wall" "-Wextra" "-Wshadow" "-Wnon-virtual-dtor" "-pedantic" "-Wpadded" "$<$<CONFIG:RELEASE>:-O2>")
+	add_compile_options("-Wall" "-Wextra" "-Wshadow" "-Wnon-virtual-dtor" "-pedantic" "-Wpadded" "$<$<CONFIG:DEBUG>:-O0>")
 endif()
 
 	add_compile_options("-fno-exceptions")
+	add_compile_options("-fstack-usage")
 
 if(MINGW)
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static-libstdc++")
@@ -45,7 +46,9 @@ file(GLOB_RECURSE SOURCE_FILES CONFIGURE_DEPENDS
 		${SHADER_FILES}
 		${SRC_DIR}/*.h
 		${SRC_DIR}/*.cpp
-		${SRC_DIR}/*.inl
+		${SRC_DIR}/*.inl)
+
+file(GLOB_RECURSE DEPS_FILES CONFIGURE_DEPENDS
 		${LIB_DIR}/stb/stb_image.h	deps/stb/stb_image.c
 		${LIB_DIR}/nlohmann/json.hpp
 		${LIB_DIR}/miniz/miniz.c		deps/miniz/miniz.h
@@ -56,13 +59,13 @@ file(GLOB_RECURSE SHADER_FILES CONFIGURE_DEPENDS
 		${SRC_DIR}/shaders/*.vert)
 
 # Executable definition and properties
-add_executable(${PROJECT_NAME} ${SOURCE_FILES} src/filesystem/shader_files.h)
+add_executable(${PROJECT_NAME} ${SOURCE_FILES} ${DEPS_FILES})
 target_include_directories(${PROJECT_NAME} PRIVATE "${SRC_DIR}")
 set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 17)
 
 include(CTest)
-include(ParseAndAddCatchTests)
 add_subdirectory(tests)
+add_subdirectory(benchmarks)
 
 # GLFW
 set(GLFW_DIR "${LIB_DIR}/glfw")
