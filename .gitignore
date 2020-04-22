@@ -44,6 +44,7 @@ build/
 
 # CMake
 cmake-build-debug/
+cmake-build-release/
 bin/
 
 # Private assets
