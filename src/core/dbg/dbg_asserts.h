@@ -9,12 +9,22 @@
 
 #ifdef NDEBUG
 #    define DBG_FAIL_IF(expr, msg) static_cast<void>(0);
+#    define DBG_CONSTEXPR_FAIL_IF(expr, msg) static_cast<void>(0);
 #    define DBG_WARN_IF(expr, msg) static_cast<void>(0);
+#    define DBG_RETURN_IF(expr, msg) static_cast<void>(0);
 
-#else
+#else // DEBUG ON
 #    define DBG_FAIL_IF(expr, msg)                                                                 \
         {                                                                                          \
             if(static_cast<bool>(expr)) {                                                          \
+                log_err_cmd("%s, %s.", #expr, msg);                                                \
+                abort();                                                                           \
+            }                                                                                      \
+        }
+
+#    define DBG_CONSTEXPR_FAIL_IF(expr, msg)                                                       \
+        {                                                                                          \
+            if constexpr(static_cast<bool>(expr)) {                                                \
                 log_err_cmd("%s, %s.", #expr, msg);                                                \
                 abort();                                                                           \
             }                                                                                      \
@@ -26,6 +36,14 @@
                 log_warn_cmd("%s, %s.", #expr, msg);                                               \
             }                                                                                      \
         }
-#endif
+
+#    define DBG_RETURN_IF(expr, msg)                                                               \
+        {                                                                                          \
+            if(static_cast<bool>(expr)) {                                                          \
+                log_warn_cmd("%s, %s.", #expr, msg);                                               \
+                return;                                                                            \
+            }                                                                                      \
+        }
+#endif //NDEBUG
 
 #endif //SCARECROW2D_DBG_ASSERTS_H
