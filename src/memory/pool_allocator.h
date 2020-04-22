@@ -26,7 +26,7 @@ namespace sc2d
 
         struct alloc_result
         {
-            const void* ptr = nullptr;
+            const unsigned char* ptr = nullptr;
             is_resized resized = is_resized::NO;
         };
 
@@ -62,8 +62,8 @@ namespace sc2d
             }
 
         private:
-            unsigned char* addr_from_index(size_t index) const;
-            size_t index_from_addr(const unsigned char* ptr) const;
+            inline unsigned char* addr_from_index(size_t index) const __attribute__((always_inline));
+            inline size_t index_from_addr(const unsigned char* ptr) const __attribute__((always_inline));
 
             size_t num_of_blocks = 0;
             size_t size_of_block = 0;

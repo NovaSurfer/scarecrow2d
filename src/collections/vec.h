@@ -33,7 +33,7 @@ namespace sc2d
         using size_type = size_t;
         using IS_T_TRIVIAL = std::is_trivial<T>;
 
-        vec() noexcept;
+        vec() noexcept __attribute__((always_inline));
         explicit vec(size_type n);
         vec(size_type size, const T& data);
         //        vec(size_type size, const memory::allocator& alloc);
@@ -116,14 +116,14 @@ namespace sc2d
 
         size_type initial_size = 1;
         T* array;
-        std::unique_ptr<memory::pool_allocator> pool_alloc {
-            std::make_unique<memory::pool_allocator>()};
+        memory::pool_allocator* pool_alloc;
     };
 
     template <typename T>
     void vec<T>::allocate()
     {
-        pool_alloc->create(sizeof(T), initial_size << 1u, alignof(T*));
+        pool_alloc = new memory::pool_allocator;
+        pool_alloc->create(sizeof(T), initial_size << 1u, alignof(T));
         //        if constexpr(!IS_T_TRIVIAL::value) {
         //            array = new(pool_alloc->p_start) T();
         //        }
@@ -131,7 +131,7 @@ namespace sc2d
     }
 
     template <typename T>
-    vec<T>::vec() noexcept
+    inline vec<T>::vec() noexcept
     {
         allocate();
     }
@@ -195,7 +195,7 @@ namespace sc2d
         //            array->~T();
         //        }
         pool_alloc->destroy();
-        pool_alloc.reset();
+        delete pool_alloc;
         array = nullptr;
     }
 
@@ -424,7 +424,7 @@ namespace sc2d
     template <typename T>
     typename vec<T>::const_reference vec<T>::at(vec::size_type index) const
     {
-        if(index < pool_alloc->get_intialized_num())
+        if(index < pool_alloc->num_of_initialized)
             return array[index];
 
         // TODO: Deal with this exception
@@ -468,7 +468,7 @@ namespace sc2d
     }
 
     template <typename T>
-    void vec<T>::push_back(const T& cref_data)
+    inline void vec<T>::push_back(const T& cref_data)
     {
         const memory::alloc_result res = pool_alloc->allocate();
         T& item = *(T*)res.ptr;
@@ -692,7 +692,7 @@ namespace sc2d
     void vec<T>::swap(vec<T>& other)
     {
         std::swap(array, other.array);
-        pool_alloc.swap(other.pool_alloc);
+        std::swap(pool_alloc, other.pool_alloc);
     }
 
     template <typename T>

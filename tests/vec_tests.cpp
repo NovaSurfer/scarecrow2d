@@ -26,32 +26,6 @@
 
 TEST_CASE("vector-operations")
 {
-    struct trivial_type
-    {
-        int int_a = 9;
-        char char_a = 'z';
-        bool bool_a = false;
-    };
-
-    class non_trivial_type
-    {
-    public:
-        non_trivial_type()
-        {
-            int_a = 8;
-            char_a = 'm';
-            bool_a = true;
-        }
-
-    private:
-        int int_a;
-        char char_a;
-        bool bool_a;
-    };
-
-    trivial_type trivial_obj;
-    non_trivial_type non_trivial_obj;
-
     SUBCASE("default constructor")
     {
         sc2d::vec<double> v;
@@ -380,22 +354,22 @@ TEST_CASE("vector-operations")
     }
 
     // TODO: Fix errors from Valgrind
-//    SUBCASE("insert(first, last iterators)")
-//    {
-//        sc2d::vec<double> v({1.1, 2.2, 3.3});
-//        v.insert(v.cbegin(), v.begin(), v.begin() + 2);
-//        v.insert(v.end(), v.end() - 2, v.end());
-//
-//        CHECK(v.size() == 7);
-//        CHECK(v.capacity() == 12);
-//        CHECK(v[0] == 1.1);
-//        CHECK(v[1] == 2.2);
-//        CHECK(v[2] == 1.1);
-//        CHECK(v[3] == 2.2);
-//        CHECK(v[4] == 3.3);
-//        CHECK(v[5] == 2.2);
-//        CHECK(v[6] == 3.3);
-//    }
+    //    SUBCASE("insert(first, last iterators)")
+    //    {
+    //        sc2d::vec<double> v({1.1, 2.2, 3.3});
+    //        v.insert(v.cbegin(), v.begin(), v.begin() + 2);
+    //        v.insert(v.end(), v.end() - 2, v.end());
+    //
+    //        CHECK(v.size() == 7);
+    //        CHECK(v.capacity() == 12);
+    //        CHECK(v[0] == 1.1);
+    //        CHECK(v[1] == 2.2);
+    //        CHECK(v[2] == 1.1);
+    //        CHECK(v[3] == 2.2);
+    //        CHECK(v[4] == 3.3);
+    //        CHECK(v[5] == 2.2);
+    //        CHECK(v[6] == 3.3);
+    //    }
 
     SUBCASE("insert(std::initializer_list<T>)")
     {
@@ -529,4 +503,15 @@ TEST_CASE("vector-operations")
         sc2d::vec<double> vv({1.1, 2.2, 3.3, 4.4, 5.5});
         CHECK(vv >= v);
     }
+//
+//    SUBCASE("reserve & push")
+//    {
+//        sc2d::vec<double> v;
+//        v.reserve(10);
+//        std::initializer_list<int>s {1,2,3,4,5,6,7,8,9,10};
+//        for (auto _ : s)
+//        {
+//            v.push_back(rand());
+//        }
+//    }
 }

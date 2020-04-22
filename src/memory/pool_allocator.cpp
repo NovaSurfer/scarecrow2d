@@ -3,7 +3,7 @@
 //
 
 #include "pool_allocator.h"
-#include "core/log2.h"
+//#include "core/log2.h"
 #include "memory.h"
 #include <cstring>
 
@@ -37,7 +37,7 @@ namespace sc2d::memory
             *ptr = num_of_initialized + 1;
             ++num_of_initialized;
 
-            result.ptr = (void*)p_next;
+            result.ptr = p_next;
             if(num_of_blocks - num_of_initialized > 0) {
                 p_next = addr_from_index(*(size_t*)p_next);
             }
@@ -84,12 +84,12 @@ namespace sc2d::memory
         --num_of_initialized;
     }
 
-    unsigned char* pool_allocator::addr_from_index(size_t index) const
+    inline unsigned char* pool_allocator::addr_from_index(size_t index) const
     {
         return p_start + index * size_of_block;
     }
 
-    size_t pool_allocator::index_from_addr(const unsigned char* ptr) const
+    inline size_t pool_allocator::index_from_addr(const unsigned char* ptr) const
     {
         return ((size_t)(ptr - p_start) / size_of_block);
     }
