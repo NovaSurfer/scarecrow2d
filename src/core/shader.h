@@ -24,7 +24,7 @@ namespace sc2d
     class Shader
     {
     public:
-        const GLuint& get_program() const;
+        GLuint get_program() const;
         const Shader& run() const;
         void compile(const GLchar* vert_src, const GLchar* frag_src,
                      const GLchar* geom_src = nullptr);

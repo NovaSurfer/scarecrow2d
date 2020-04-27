@@ -15,7 +15,7 @@ namespace sc2d
 
     enum class EventType
     {
-        BUTTON_PRESSED
+        INP_TOGGLE_MENU
     };
 
     struct EventHeader
@@ -23,12 +23,14 @@ namespace sc2d
         EventType type;
         u32 size;
     };
+    constexpr const size_t SIZE_EVENT_HEADER = sizeof(EventHeader);
 
-    struct ButtonPressedEvent
-    {
-        u32 keycode;
-        double test_data;
-    };
+//    struct ButtonPressedEvent
+//    {
+//        u32 keycode;
+//        double test_data;
+//    };
+
 
     /**
      * [event_1_enum] [event_1_data] [event_2_enum] [event_2_data]

@@ -53,6 +53,5 @@ namespace sc2d::logging
     };
 
     void log(LogType log_type, LogLevel log_level, const char* file, int line, const char* fmt...);
-    const char* check_gl_error();
 }
 #endif //INC_2D_GAME_LOG2_H

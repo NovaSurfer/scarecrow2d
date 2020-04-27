@@ -11,7 +11,7 @@ namespace sc2d
         {ShaderType::FRAGMENT, GL_FRAGMENT_SHADER},
         {ShaderType::GEOMETRY, GL_GEOMETRY_SHADER}};
 
-    const GLuint& Shader::get_program() const
+    GLuint Shader::get_program() const
     {
         return program;
     }
