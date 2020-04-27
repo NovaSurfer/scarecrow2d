@@ -25,7 +25,14 @@ namespace sc2d
         TextureAtlas(unsigned char* img_data, GLuint width, GLuint height,
                      GLuint rows, GLuint columns, GLuint img_format);
         void bind() const;
-        [[nodiscard]]  GLuint get_obj_id() const;
+        const GLuint& get_obj_id() const
+        {
+            return obj_id;
+        }
+        operator int() const
+        {
+            return obj_id;
+        }
 
     private:
         unsigned char* data;

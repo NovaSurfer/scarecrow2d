@@ -29,11 +29,6 @@ namespace sc2d
         glBindTexture(GL_TEXTURE_2D_ARRAY, obj_id);
     }
 
-    GLuint TextureAtlas::get_obj_id() const
-    {
-        return obj_id;
-    }
-
     void TextureAtlas::generate()
     {
         const uint bytes_per_pixel = image_format == GL_RGB ? 3 : 4;

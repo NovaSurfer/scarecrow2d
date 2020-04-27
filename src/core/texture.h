@@ -17,7 +17,14 @@ namespace sc2d
         Texture2d(unsigned char* img_data, const GLuint width, const GLuint height,
                   const GLuint img_format);
         void bind() const;
-        const GLuint& get_obj_id() const;
+        const GLuint& get_obj_id() const
+        {
+            return obj_id;
+        }
+        operator int() const
+        {
+            return obj_id;
+        }
 
     private:
         GLuint obj_id;
