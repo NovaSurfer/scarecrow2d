@@ -18,12 +18,6 @@ namespace sc2d
         SPRITE_QUAD.tl,
     };
 
-    Sprite::Sprite(const Shader& shader)
-    {
-        this->shader = shader;
-        init_data();
-    }
-
     void Sprite::draw(const GLuint tex_id, const math::vec2& pos, const math::size2d& size,
                       const float rotate)
     {
@@ -41,8 +35,10 @@ namespace sc2d
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
     }
 
-    void Sprite::init_data()
+    void Sprite::init(const Shader& shader)
     {
+        this->shader = shader;
+
         GLuint vbo;
         GLuint ebo;
 
