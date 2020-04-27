@@ -55,10 +55,12 @@ namespace sc2d
 
     void ResourceHolder::clean()
     {
-        for(auto s : shaders)
-            glDeleteProgram(s.second.get_program());
-        for(auto t : textures)
-            glDeleteTextures(1, &t.second.get_obj_id());
+        for(auto [name, shader] : shaders)
+            glDeleteProgram(shader.get_program());
+        for(auto [name, texture] : textures)
+            glDeleteTextures(1, &texture.get_obj_id());
+        for(auto [name, tex_array] : texture_atlases)
+            glDeleteTextures(1, &tex_array.get_obj_id());
     }
 
     // TODO: remove C++ streams and exceptions
