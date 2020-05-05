@@ -21,7 +21,7 @@ namespace sc2d
         {
             return obj_id;
         }
-        operator int() const
+        operator GLuint() const
         {
             return obj_id;
         }

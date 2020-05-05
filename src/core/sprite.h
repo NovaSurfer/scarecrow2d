@@ -21,9 +21,7 @@ namespace sc2d
         void draw(const GLuint tex2d, const math::vec2& pos, const math::size2d& size,
                   const float rotate = 0.0);
     private:
-        static Vertex quad_vertices[VERTICES_PER_QUAD];
         Shader shader;
-
         GLuint quad_vao;
     };
 }

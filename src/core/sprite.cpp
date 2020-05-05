@@ -11,13 +11,6 @@
 namespace sc2d
 {
 
-    Vertex Sprite::quad_vertices[VERTICES_PER_QUAD] {
-        SPRITE_QUAD.tr,
-        SPRITE_QUAD.br,
-        SPRITE_QUAD.bl,
-        SPRITE_QUAD.tl,
-    };
-
     void Sprite::draw(const GLuint tex_id, const math::vec2& pos, const math::size2d& size,
                       const float rotate)
     {
@@ -48,7 +41,7 @@ namespace sc2d
         glGenBuffers(1, &ebo);
 
         glBindBuffer(GL_ARRAY_BUFFER, vbo);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * VERTICES_PER_QUAD, quad_vertices,
+        glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * VERTICES_PER_QUAD, QUAD_VERTICES,
                      GL_STATIC_DRAW);
         glBindVertexArray(quad_vao);
 

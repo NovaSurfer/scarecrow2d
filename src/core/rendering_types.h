@@ -13,7 +13,7 @@ namespace sc2d
     constexpr float DEFAULT_Z_NEAR = -1.0f;
     constexpr float DEFAULT_Z_FAR = 1.0f;
     constexpr int VERTICES_PER_QUAD = 4;
-    constexpr int QUAD_INDICES[]{
+    constexpr int QUAD_INDICES[] {
         0, 1, 3, // First triangle
         1, 2, 3 // Second triangle
     };
@@ -23,10 +23,10 @@ namespace sc2d
         Color() = default;
 
         Color(float r, float g, float b, float a)
-            : r{r}
-            , g{g}
-            , b{b}
-            , a{b} {};
+            : r {r}
+            , g {g}
+            , b {b}
+            , a {b} {};
         float r, g, b, a;
     };
 
@@ -49,12 +49,19 @@ namespace sc2d
         Vertex tl;
     };
 
-    const Quad SPRITE_QUAD{
+    constexpr Quad SPRITE_QUAD {
         //positions      //tex coords  //colors (RGBA)
         {{0.5f, 0.5f}, {1.0f, 1.0f}, /*{1.0f, 0.0f, 0.0f, 1.0}*/}, // top right
         {{0.5f, -0.5f}, {1.0f, 0.0f}, /*{0.0f, 1.0f, 0.0f, 1.0}*/}, // bottom right
         {{-0.5f, -0.5f}, {0.0f, 0.0f}, /*{0.0f, 0.0f, 1.0f, 1.0}*/}, // bottom left
         {{-0.5f, 0.5f}, {0.0f, 1.0f}, /*{1.0f, 1.0f, 0.0f, 1.0}*/}, // top left
+    };
+
+    constexpr Vertex QUAD_VERTICES[VERTICES_PER_QUAD] {
+        SPRITE_QUAD.tr,
+        SPRITE_QUAD.br,
+        SPRITE_QUAD.bl,
+        SPRITE_QUAD.tl,
     };
 }
 
