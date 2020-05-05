@@ -28,11 +28,12 @@ namespace sc2d
 
     class Shader
     {
+        friend class ShaderUtil;
     public:
         GLuint get_program() const;
         const Shader& run() const;
-        void compile(const GLchar* vert_src, const GLchar* frag_src,
-                     const GLchar* geom_src = nullptr);
+//        void compile(const GLchar* vert_src, const GLchar* frag_src,
+//                     const GLchar* geom_src = nullptr);
 
         void set_mat4(const GLchar* name, const math::mat4& matrix) const;
         void set_vec3(const GLchar* name, const math::vec3& value) const;
@@ -40,12 +41,27 @@ namespace sc2d
         void set_int(const GLchar* name, GLint value) const;
         void set_uint(const GLchar* name, GLuint value) const;
 
+        operator GLuint() const
+        {
+            return program;
+        }
+
     private:
         GLuint program;
 
-        void error_checking(GLuint object, shader_t shader_type) const;
-        void make_shader(const GLchar* shader_src, GLuint& shader_obj,
-                         shader_t shader_type) const;
+//        void error_checking(GLuint object, shader_t shader_type) const;
+//        void make_shader(const GLchar* shader_src, GLuint& shader_obj, shader_t shader_type) const;
+    };
+
+    struct ShaderUtil
+    {
+        static void compile(Shader& shader, const GLchar* vert_src, const GLchar* frag_src,
+                            const GLchar* geom_src);
+
+    private:
+        static void error_checking(GLuint object, shader_t shader_type);
+        static void make_shader(const GLchar* shader_src, GLuint& shader_obj, shader_t shader_type);
+
     };
 }
 #endif //INC_2D_GAME_SHADER_H

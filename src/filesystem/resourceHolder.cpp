@@ -18,17 +18,17 @@ namespace sc2d
                                              const GLchar* vert_file, const GLchar* frag_file,
                                              const GLchar* geom_file)
     {
-        Shader shader {};
+        Shader shader;
         if(shader_source == ShaderSource::FILE) {
             std::string v_shader, f_shader, g_shader;
             v_shader = load_shader(vert_file);
             f_shader = load_shader(frag_file);
             if(geom_file != nullptr)
                 g_shader = load_shader(geom_file);
-            shader.compile(v_shader.c_str(), f_shader.c_str(),
+            ShaderUtil::compile(shader, v_shader.c_str(), f_shader.c_str(),
                            geom_file != nullptr ? g_shader.c_str() : nullptr);
         } else {
-            shader.compile(vert_file, frag_file, geom_file != nullptr ? geom_file : nullptr);
+            ShaderUtil::compile(shader, vert_file, frag_file, geom_file != nullptr ? geom_file : nullptr);
         }
         shaders.insert({name, shader});
     }
