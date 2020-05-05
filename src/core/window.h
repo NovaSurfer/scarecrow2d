@@ -5,25 +5,29 @@
 #ifndef INC_2D_GAME_WINDOW_H
 #define INC_2D_GAME_WINDOW_H
 
-#include <GLFW/glfw3.h>
-#include <memory>
-#include <string>
-
 struct GLFWwindow;
 
 namespace sc2d
 {
+
+    using Window_resize_callback = void (*)(GLFWwindow*, int, int);
+    using Kbkey_callback = void (*)(GLFWwindow*, int, int, int, int);
+
+    struct WindowSize
+    {
+        int width;
+        int height;
+    };
 
     struct WindowData
     {
         int context_version_min;
         int context_version_max;
         int opengl_profile;
-        int screen_width;
-        int screen_height;
+        WindowSize size;
         const char* window_name;
-        GLFWframebuffersizefun frame_buffer_size_callback;
-        GLFWkeyfun key_callback;
+        Window_resize_callback frame_buffer_size_callback;
+        Kbkey_callback key_callback;
     };
 
     class Window

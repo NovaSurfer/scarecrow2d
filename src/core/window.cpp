@@ -4,6 +4,7 @@
 
 #include "window.h"
 #include "compiler.h"
+#include <GLFW/glfw3.h>
 
 namespace sc2d
 {
@@ -17,7 +18,7 @@ namespace sc2d
 #if COMPILER_OS_APPLE
         glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, true);
 #endif
-        window = glfwCreateWindow(window_data.screen_width, window_data.screen_height,
+        window = glfwCreateWindow(window_data.size.width, window_data.size.height,
                                   window_data.window_name, nullptr, nullptr);
         glfwSetFramebufferSizeCallback(window, window_data.frame_buffer_size_callback);
         glfwSetKeyCallback(window, window_data.key_callback);

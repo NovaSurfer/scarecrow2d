@@ -3,16 +3,17 @@
 //
 
 #include "core/dbg/ogl_errors.h"
-#include "core/log2.h"
-#include "core/result.h"
 #include "core/input.h"
+#include "core/log2.h"
 #include "core/resources.h"
+#include "core/result.h"
 #include "core/window.h"
 #include "editor/editor_main.h"
 #include "game/game_main.h"
 #include "math/transform.h"
 #include <GLFW/glfw3.h>
 #include <glad/glad.h>
+#include <memory>
 
 enum class MainMode
 {
@@ -26,8 +27,8 @@ std::unique_ptr<sc2d::Window> window;
 constexpr const sc2d::WindowData window_data {3,
                                               3,
                                               GLFW_OPENGL_CORE_PROFILE,
-                                              800,
-                                              600,
+                                              {800,
+                                              600},
                                               "scarecrow2d",
                                               framebuffer_size_callback,
                                               sc2d::Input::read};
@@ -43,7 +44,7 @@ sc2d::ResultBool renderer_init()
         return sc2d::ResultBool::throw_err(sc2d::Err::FAILED_TO_INIT_GLAD);
     }
 
-    glViewport(0, 0, window_data.screen_width, window_data.screen_height);
+    glViewport(0, 0, window_data.size.width, window_data.size.height);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glEnable(GL_CULL_FACE);
     glEnable(GL_BLEND);
@@ -68,11 +69,7 @@ int main(int argc, char* argv[])
     sc2d::Resources::load_all();
 
     Game game;
-    math::mat4 proj =
-        math::ortho(0.0f, static_cast<GLfloat>(window_data.screen_width),
-                    static_cast<GLfloat>(window_data.screen_height), 0.0f, -1.0f, 1.0f);
-
-    game.init(GameMode::SCENE, proj);
+    game.init(GameMode::SCENE, window_data.size);
     glfwSetWindowUserPointer(window->get_window(), &game);
 
 

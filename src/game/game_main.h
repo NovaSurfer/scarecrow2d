@@ -18,9 +18,14 @@ enum class GameMode
     SCENE
 };
 
+namespace sc2d
+{
+    class WindowSize;
+}
+
 struct Game
 {
-    sc2d::ResultBool init(GameMode start_mode, const math::mat4& proj);
+    sc2d::ResultBool init(GameMode start_mode, const sc2d::WindowSize& size);
     void draw();
     void destroy();
     void read_input(int key, int action);
