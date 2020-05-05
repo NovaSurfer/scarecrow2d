@@ -26,6 +26,13 @@ namespace sc2d
     // Instantiating anonymous enum
     using shader_t = decltype(ShaderType::NONE);
 
+    namespace shader_const
+    {
+        constexpr char* IMG {"img"};
+        constexpr char* IMG_COLOR {"img_color"};
+        constexpr char* MODEL {"model"};
+    }
+
     class Shader
     {
         friend class ShaderUtil;

@@ -6,9 +6,14 @@
 #define INC_2D_GAME_TYPES_H
 
 #include "math/vector2.h"
+#include "math/vector3.h"
+#include "math/vector4.h"
 
 namespace sc2d
 {
+    using size2d = math::vec2;
+    using colorRGB = math::vec3;
+    using colorRGBA = math::vec4;
 
     constexpr float DEFAULT_Z_NEAR = -1.0f;
     constexpr float DEFAULT_Z_FAR = 1.0f;
@@ -18,17 +23,10 @@ namespace sc2d
         1, 2, 3 // Second triangle
     };
 
-    struct Color
+    namespace Color
     {
-        Color() = default;
-
-        Color(float r, float g, float b, float a)
-            : r {r}
-            , g {g}
-            , b {b}
-            , a {b} {};
-        float r, g, b, a;
-    };
+        constexpr math::vec3 WHITE {1.0f, 1.0f, 1.0f};
+    }
 
     struct Vertex
     {
