@@ -5,23 +5,17 @@
 #ifndef INC_2D_GAME_SPRITE_H
 #define INC_2D_GAME_SPRITE_H
 
-#include "math/size2d.h"
-#include "math/vector2.h"
-#include "rendering_types.h"
-#include "shader.h"
+#include "renderable.h"
 
 namespace sc2d
 {
-    class Texture2d;
 
-    class Sprite
+    class Sprite : public obj2d
     {
     public:
         void init(const Shader& shader);
-        void draw(const GLuint tex2d, const math::vec2& pos, const math::size2d& size,
-                  const float rotate = 0.0);
+        void draw();
     private:
-        Shader shader;
         GLuint quad_vao;
     };
 }

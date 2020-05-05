@@ -23,10 +23,14 @@ sc2d::ResultBool Game::init(GameMode start_mode, const sc2d::WindowSize& window_
     // REGULAR SPRITE
     const sc2d::Shader& sprite_shader = sc2d::ResourceHolder::get_shader("sprite_default");
     logo_texture = sc2d::ResourceHolder::get_texture("logo");
+
+    // TODO: send MVP matrix at start, remove this set_projection.
     sprite_shader.run();
-    sprite_shader.set_int("image", logo_texture);
     sprite_shader.set_mat4("projection", camera.get_proj());
     sprite.init(sprite_shader);
+    sprite.set_color(sc2d::Color::WHITE);
+    sprite.set_texture(logo_texture);
+    sprite.set_transfdata(math::vec2(0, 0), math::vec2(111, 148), 0);
 
     // SPRITE_SHEEEEEEEEEEET
     const sc2d::Shader& sprite_sheet_shader = sc2d::ResourceHolder::get_shader("spritesheet");
@@ -57,7 +61,7 @@ void Game::draw()
         menu.draw();
     } else {
         tiled_map.draw_map(tex_atlas.get_obj_id());
-        sprite.draw(logo_texture.get_obj_id(), math::vec2(0, 0), math::size2d(111, 148), 0);
+        sprite.draw();
         text_ft2.draw();
         //    spritesheet->draw(sc2d::ResourceHolder::get_texture_atlas("tilemap"), math::vec2(0, 0),
         //                     math::size2d(16, 16), 0);

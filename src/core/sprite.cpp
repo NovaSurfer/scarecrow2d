@@ -11,19 +11,11 @@
 namespace sc2d
 {
 
-    void Sprite::draw(const GLuint tex_id, const math::vec2& pos, const math::size2d& size,
-                      const float rotate)
+    void Sprite::draw()
     {
         shader.run();
-        math::mat4 model = math::transform(
-            math::vec3(size.width, size.height, 1.0f), math::vec3(0.0f, 0.0f, 1.0f), rotate,
-            math::vec3(0.5f * size.width + pos.x, 0.5f * size.height + pos.y, 0.0f));
-
-        shader.set_mat4("model", model);
-        shader.set_vec3("spriteColor", math::vec3(1.0f, 1.0f, 1.0f));
-
-        glActiveTexture(GL_TEXTURE0 + tex_id);
-        glBindTexture(GL_TEXTURE_2D, tex_id);
+        glActiveTexture(GL_TEXTURE0 + texid);
+        glBindTexture(GL_TEXTURE_2D, texid);
         glBindVertexArray(quad_vao);
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
     }
