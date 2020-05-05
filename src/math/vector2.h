@@ -14,9 +14,9 @@ namespace math {
     struct vec2 {
         float x, y;
 
-        vec2() : x(0), y(0) {};
+        constexpr vec2() : x(0), y(0) {};
 
-        vec2(float x, float y) : x(x), y(y) {}
+        constexpr vec2(float x, float y) : x(x), y(y) {}
 
         /**
          * Gets element as array

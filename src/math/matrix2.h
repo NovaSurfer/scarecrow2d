@@ -13,14 +13,14 @@ namespace math {
     struct mat2 {
         float n[2][2];
 
-        mat2() : n{0, 0, 0, 0} {};
+        constexpr mat2() : n{0, 0, 0, 0} {};
 
-        mat2(float _11, float _12,
+        constexpr mat2(float _11, float _12,
              float _21, float _22)
              : n{_11, _12,
                  _21, _22} {};
 
-        mat2(const vec2 &a,
+        constexpr mat2(const vec2 &a,
              const vec2 &b)
              : n{a.x, a.y,
                  b.x, b.y} {};

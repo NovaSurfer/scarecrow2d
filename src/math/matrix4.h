@@ -14,9 +14,9 @@ namespace math {
     struct mat4 {
         float n[4][4];
 
-        mat4() : n{{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}} {};
+        constexpr mat4() : n{{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}} {};
 
-        mat4(float _11, float _12, float _13, float _14,
+        constexpr mat4(float _11, float _12, float _13, float _14,
              float _21, float _22, float _23, float _24,
              float _31, float _32, float _33, float _34,
              float _41, float _42, float _43, float _44)
@@ -25,7 +25,7 @@ namespace math {
                  {_31, _32, _33, _34},
                  {_41, _42, _43, _44}} {};
 
-        mat4(const vec4 &a,
+        constexpr mat4(const vec4 &a,
              const vec4 &b,
              const vec4 &c,
              const vec4 &d)

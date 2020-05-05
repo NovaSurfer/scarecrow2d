@@ -13,16 +13,16 @@ namespace math {
     struct mat3 {
         float n[3][3];
 
-        mat3() : n{{0, 0, 0}, {0, 0, 0}, {0, 0, 0}} {};
+        constexpr mat3() : n{{0, 0, 0}, {0, 0, 0}, {0, 0, 0}} {};
 
-        mat3(float _11, float _12, float _13,
+        constexpr mat3(float _11, float _12, float _13,
              float _21, float _22, float _23,
              float _31, float _32, float _33)
              : n{{_11, _12, _13},
                  {_21, _22, _23},
                  {_31, _32, _33}} {};
 
-        mat3(const vec3 &a,
+        constexpr mat3(const vec3 &a,
              const vec3 &b,
              const vec3 &c)
              : n{{a.x, a.y, a.z},
