@@ -6,20 +6,25 @@
 #define INC_2D_GAME_SHADER_H
 
 #include "math/matrix4.h"
-#include "math/vector3.h"
 #include "math/vector2.h"
+#include "math/vector3.h"
 #include <glad/glad.h>
-#include <map>
 
 namespace sc2d
 {
-    enum class ShaderType
+    struct ShaderType
     {
-        VERTEX,
-        FRAGMENT,
-        GEOMETRY,
-        NONE
+        enum
+        {
+            NONE = -1,
+            VERTEX = GL_VERTEX_SHADER,
+            FRAGMENT = GL_FRAGMENT_SHADER,
+            GEOMETRY = GL_GEOMETRY_SHADER
+        };
     };
+
+    // Instantiating anonymous enum
+    using shader_t = decltype(ShaderType::NONE);
 
     class Shader
     {
@@ -36,12 +41,11 @@ namespace sc2d
         void set_uint(const GLchar* name, GLuint value) const;
 
     private:
-        static const std::map<ShaderType, GLenum> shader_types;
         GLuint program;
 
-        void error_checking(GLuint object, ShaderType shader_type = ShaderType::NONE) const;
+        void error_checking(GLuint object, shader_t shader_type) const;
         void make_shader(const GLchar* shader_src, GLuint& shader_obj,
-                         ShaderType shader_type) const;
+                         shader_t shader_type) const;
     };
 }
 #endif //INC_2D_GAME_SHADER_H
