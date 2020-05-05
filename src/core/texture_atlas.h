@@ -6,9 +6,6 @@
 #define INC_2D_GAME_TEXTURE_ATLAS_H
 
 #include <glad/glad.h>
-#include <string>
-
-#include "math/size2d.h"
 
 // For now Texture Atlas class looks almost the same as Texture2d,
 // but in future Texture2d or TextureAtlas may use additional rendering techniques.

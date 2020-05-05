@@ -6,7 +6,6 @@
 #define INC_2D_GAME_SPRITE_SHEET_INST_H
 
 #include "core/dbg/ogl_errors.h"
-#include "math/size2d.h"
 #include "math/transform.h"
 #include "math/vector2.h"
 #include "rendering_types.h"
@@ -44,7 +43,7 @@ namespace sc2d
          * @param spr_count number of sprites
          * @param sid reference to sprite sheet instance data
          */
-        void init_data(const sc2d::Shader& spr_shader, const math::size2d& spr_size,
+        void init_data(const Shader& spr_shader, const math::vec2& spr_size,
                        const size_t spr_count, const SpriteSheetInstData& sid);
         /**
          * @param tex_id texture id (name)

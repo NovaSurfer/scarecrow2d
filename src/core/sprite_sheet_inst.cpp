@@ -11,7 +11,7 @@ namespace sc2d
                                                                    SPRITE_QUAD.bl, SPRITE_QUAD.tl};
 
     void SpriteSheetInstanced::init_data(const sc2d::Shader& spr_shader,
-                                         const math::size2d& spr_size, const size_t spr_count,
+                                         const math::vec2& spr_size, const size_t spr_count,
                                          const SpriteSheetInstData& sid)
     {
         shader = &spr_shader;
@@ -55,9 +55,9 @@ namespace sc2d
         math::mat4 model_matrices[spr_count];
         for(size_t i = 0; i < spr_count; ++i) {
             model_matrices[i] = math::transform(
-            math::vec3(spr_size.width, spr_size.height, 1.0f), math::vec3(0.0f, 0.0f, 1.0f), 0,
-            math::vec3(0.5f * spr_size.width + sid.pos[i].x,
-            0.5f * spr_size.height + sid.pos[i].y, 0.0f));
+            math::vec3(spr_size.x, spr_size.y, 1.0f), math::vec3(0.0f, 0.0f, 1.0f), 0,
+            math::vec3(0.5f * spr_size.x + sid.pos[i].x,
+            0.5f * spr_size.y + sid.pos[i].y, 0.0f));
         }
         glBindBuffer(GL_ARRAY_BUFFER, model_vbo);
         glBufferData(GL_ARRAY_BUFFER, sizeof(math::mat4) * spr_count, &model_matrices[0],

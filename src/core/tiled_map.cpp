@@ -6,7 +6,6 @@
 #include "../../deps/base64/base64.h"
 #include "../../deps/miniz/miniz.h"
 #include "log2.h"
-#include "math/size2d.h"
 
 namespace sc2d::tiled
 {
@@ -73,7 +72,7 @@ namespace sc2d::tiled
 
             SpriteSheetInstData sids(data_gids, data_pos);
             sprite_sheet.init_data(
-                shader, math::size2d(tiled_data.tile_width, tiled_data.tile_height),
+                shader, math::vec2(tiled_data.tile_width, tiled_data.tile_height),
                 tiled_data.content_count, sids);
             log_info_cmd("VECSIZE: %d", map_gids.size());
         }
