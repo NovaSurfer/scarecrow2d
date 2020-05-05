@@ -9,7 +9,7 @@
 #include "math/size2d.h"
 #include "math/transform.h"
 #include "math/vector2.h"
-#include "sc2dTypes.h"
+#include "rendering_types.h"
 #include "shader.h"
 #include <vector>
 

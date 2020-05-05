@@ -7,7 +7,7 @@
 
 #include "math/vector2.h"
 #include "math/vector3.h"
-#include "sc2dTypes.h"
+#include "rendering_types.h"
 #include "shader.h"
 #include <freetype2/ft2build.h>
 #include <map>
