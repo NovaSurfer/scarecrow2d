@@ -7,15 +7,13 @@
 
 namespace sc2d
 {
-    Vertex SpriteSheetInstanced::quad_vertices[VERTICES_PER_QUAD] {SPRITE_QUAD.tr, SPRITE_QUAD.br,
-                                                                   SPRITE_QUAD.bl, SPRITE_QUAD.tl};
 
-    void SpriteSheetInstanced::init_data(const sc2d::Shader& spr_shader,
-                                         const math::vec2& spr_size, const size_t spr_count,
-                                         const SpriteSheetInstData& sid)
+    void SpriteSheetInstanced::init(const Shader& spr_shader, const math::vec2& spr_size,
+                                    const size_t spr_count, const SpriteSheetInstData& sid)
     {
-        shader = &spr_shader;
-        sprites_count = spr_count;
+        shader = spr_shader;
+        instaces_count = spr_count;
+        this->size = spr_size;
 
         GLuint vbo;
         GLuint model_vbo;
@@ -37,8 +35,8 @@ namespace sc2d
         glVertexAttribDivisor(0, 1);
 
         glBindBuffer(GL_ARRAY_BUFFER, vbo);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * VERTICES_PER_QUAD, quad_vertices,
-        GL_STATIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * VERTICES_PER_QUAD, QUAD_VERTICES,
+                     GL_STATIC_DRAW);
 
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(QUAD_INDICES), QUAD_INDICES, GL_STATIC_DRAW);
@@ -47,7 +45,7 @@ namespace sc2d
         glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*)nullptr);
         // texture coord attribute
         glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex),
-        (GLvoid*)(sizeof(math::vec2)));
+                              (GLvoid*)(sizeof(math::vec2)));
         glEnableVertexAttribArray(1);
         glEnableVertexAttribArray(2);
 
@@ -55,23 +53,22 @@ namespace sc2d
         math::mat4 model_matrices[spr_count];
         for(size_t i = 0; i < spr_count; ++i) {
             model_matrices[i] = math::transform(
-            math::vec3(spr_size.x, spr_size.y, 1.0f), math::vec3(0.0f, 0.0f, 1.0f), 0,
-            math::vec3(0.5f * spr_size.x + sid.pos[i].x,
-            0.5f * spr_size.y + sid.pos[i].y, 0.0f));
+                math::vec3(size.x, size.y, 1.0f), math::vec3(0.0f, 0.0f, 1.0f), 0,
+                math::vec3(0.5f * size.x + sid.pos[i].x, 0.5f * size.y + sid.pos[i].y, 0.0f));
         }
         glBindBuffer(GL_ARRAY_BUFFER, model_vbo);
         glBufferData(GL_ARRAY_BUFFER, sizeof(math::mat4) * spr_count, &model_matrices[0],
-        GL_STATIC_DRAW);
+                     GL_STATIC_DRAW);
 
         size_t matrow_size = sizeof(float) * 4;
         for(size_t i = 0; i < spr_count; ++i) {
             glVertexAttribPointer(3, 4, GL_FLOAT, GL_FALSE, 4 * matrow_size, (GLvoid*)nullptr);
             glVertexAttribPointer(4, 4, GL_FLOAT, GL_FALSE, 4 * matrow_size,
-            (GLvoid*)(matrow_size));
+                                  (GLvoid*)(matrow_size));
             glVertexAttribPointer(5, 4, GL_FLOAT, GL_FALSE, 4 * matrow_size,
-            (GLvoid*)(2 * matrow_size));
+                                  (GLvoid*)(2 * matrow_size));
             glVertexAttribPointer(6, 4, GL_FLOAT, GL_FALSE, 4 * matrow_size,
-            (GLvoid*)(3 * matrow_size));
+                                  (GLvoid*)(3 * matrow_size));
 
             glEnableVertexAttribArray(3);
             glEnableVertexAttribArray(4);
@@ -84,17 +81,15 @@ namespace sc2d
             glVertexAttribDivisor(6, 1);
         }
 
-
         log_gl_error_cmd();
     }
 
-    void SpriteSheetInstanced::draw(const GLuint tex_id) const
+    void SpriteSheetInstanced::draw() const
     {
-        shader->run();
-        shader->set_vec3("spriteColor", math::vec3(1.0f, 1.0f, 1.0f));
-        glActiveTexture(GL_TEXTURE0 + tex_id);
-        glBindTexture(GL_TEXTURE_2D_ARRAY, tex_id);
+        shader.run();
+        glActiveTexture(GL_TEXTURE0 + texid);
+        glBindTexture(GL_TEXTURE_2D_ARRAY, texid);
         glBindVertexArray(quad_vao);
-        glDrawElementsInstanced(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr, sprites_count);
+        glDrawElementsInstanced(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr, instaces_count);
     }
 }

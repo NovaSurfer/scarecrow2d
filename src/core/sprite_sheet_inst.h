@@ -8,8 +8,10 @@
 #include "core/dbg/ogl_errors.h"
 #include "math/transform.h"
 #include "math/vector2.h"
+#include "renderable.h"
 #include "rendering_types.h"
 #include "shader.h"
+#include "types.h"
 #include <vector>
 
 namespace sc2d
@@ -23,18 +25,17 @@ namespace sc2d
          * @param gids array of global map IDs
          * @param positions array of positions
          */
-        SpriteSheetInstData(const uint32_t* const gids, const math::vec2* const positions)
+        SpriteSheetInstData(const u32* const gids, const math::vec2* const positions)
             : gid {gids}
             , pos {positions}
-        {}
+        { }
 
-        const uint32_t* const gid = nullptr;
+        const u32* const gid = nullptr;
         const math::vec2* const pos = nullptr;
     };
 
-    class SpriteSheetInstanced
+    struct SpriteSheetInstanced : obj2d_instatiable
     {
-    public:
         SpriteSheetInstanced() = default;
         /**
          * Initialize data
@@ -43,18 +44,9 @@ namespace sc2d
          * @param spr_count number of sprites
          * @param sid reference to sprite sheet instance data
          */
-        void init_data(const Shader& spr_shader, const math::vec2& spr_size,
-                       const size_t spr_count, const SpriteSheetInstData& sid);
-        /**
-         * @param tex_id texture id (name)
-         */
-        void draw(const GLuint tex_id) const;
-
-    private:
-        static Vertex quad_vertices[VERTICES_PER_QUAD];
-        GLuint quad_vao;
-        const Shader* shader;
-        size_t sprites_count;
+        void init(const Shader& spr_shader, const math::vec2& size, const size_t spr_count,
+                  const SpriteSheetInstData& sid);
+        void draw() const;
     };
 }
 
