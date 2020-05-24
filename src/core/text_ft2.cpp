@@ -3,28 +3,24 @@
 //
 
 #include "text_ft2.h"
-#include "core/dbg/ogl_errors.h"
+#include "core/dbg/dbg_asserts.h"
 #include "log2.h"
 #include "math/utils.h"
 #include <math/transform.h>
 
 namespace sc2d
 {
-    Vertex TextFt2::quad_vertices[VERTICES_PER_QUAD] {SPRITE_QUAD.tr, SPRITE_QUAD.br,
-                                                      SPRITE_QUAD.bl, SPRITE_QUAD.tl};
 
     void Ft2Font::init(const char* font_path, uint32_t font_size, uint32_t chars_table_size)
     {
         height = font_size;
         chars_table_lenght = chars_table_size;
 
-        if(FT_Init_FreeType(&ft))
-            log_err_cmd("CAN NOT INIT FREETYPE.");
+        DBG_RETURN_IF(FT_Init_FreeType(&ft), "can't init FreeType");
 
         FT_Face face;
 
-        if(FT_New_Face(ft, font_path, 0, &face))
-            log_info_cmd("FAILED TO LOAD FONT.");
+        DBG_RETURN_IF(FT_New_Face(ft, font_path, 0, &face), "failed to load font");
 
         FT_Set_Pixel_Sizes(face, 0, font_size);
 
@@ -73,11 +69,11 @@ namespace sc2d
 
     void TextFt2::init(const Shader& txt_shader, const Ft2Font& fnt)
     {
-        shader = &txt_shader;
+        shader = txt_shader;
         font = &fnt;
 
-        glGenTextures(1, &obj_id);
-        glBindTexture(GL_TEXTURE_2D_ARRAY, obj_id);
+        glGenTextures(1, &texid);
+        glBindTexture(GL_TEXTURE_2D_ARRAY, texid);
 
         glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
         glPixelStorei(GL_UNPACK_ROW_LENGTH, font->texture_width);
@@ -85,7 +81,6 @@ namespace sc2d
 
         glTexImage3D(GL_TEXTURE_2D_ARRAY, 0, GL_RED, font->height, font->height,
                      font->chars_table_lenght, 0, GL_RED, GL_UNSIGNED_BYTE, nullptr);
-//        log_gl_error_cmd();
 
         for(uint8_t i = 0; i < font->chars_table_lenght; ++i) {
             uint32_t char_w = font->glyph[i].x1 - font->glyph[i].x0;
@@ -93,8 +88,6 @@ namespace sc2d
             glTexSubImage3D(
                 GL_TEXTURE_2D_ARRAY, 0, 0, 0, i, char_w, char_h, 1, GL_RED, GL_UNSIGNED_BYTE,
                 &font->pixels[font->glyph[i].y0 * font->texture_width + font->glyph[i].x0]);
-
-//            log_gl_error_cmd();
         }
 
         glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_BASE_LEVEL, 0);
@@ -103,8 +96,6 @@ namespace sc2d
         glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
         glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
         glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-
-//        log_gl_error_cmd();
 
         // Setting up buffers and attributes
         GLuint vbo;
@@ -116,7 +107,7 @@ namespace sc2d
         glBindVertexArray(quad_vao);
 
         glBindBuffer(GL_ARRAY_BUFFER, vbo);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * VERTICES_PER_QUAD, quad_vertices,
+        glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * VERTICES_PER_QUAD, QUAD_VERTICES,
                      GL_STATIC_DRAW);
 
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
@@ -131,7 +122,6 @@ namespace sc2d
         glEnableVertexAttribArray(0);
         glEnableVertexAttribArray(1);
 
-//        log_gl_error_cmd();
     }
 
     void TextFt2::set_text(const char* txt)
@@ -165,7 +155,7 @@ namespace sc2d
         float prev_x = pos.x;
         char_indices[0] = *txt_chars;
         // (Xpos + glyph_advance_x + glyph_bearing_x ; Ypos - glyph_bearing_y + font_face_ascender)
-        poss[0] = {pos.x, pos.y - font->glyph[*txt_chars].bearing_y + font->ascender, 0.f};
+        poss[0] = math::vec3(pos.x, pos.y - font->glyph[*txt_chars].bearing_y + font->ascender, 0.f);
         model_matrices[0] = math::transform(math::vec3(48, 48, 1.0f), math::vec3(0.f, 0.f, 1.0f),
                                             rotation, poss[0]);
 
@@ -219,15 +209,13 @@ namespace sc2d
             glVertexAttribDivisor(5, 1);
             glVertexAttribDivisor(6, 1);
         }
-
-//        log_gl_error_cmd();
     }
 
     void TextFt2::draw()
     {
-        shader->run();
-        glActiveTexture(GL_TEXTURE0 + obj_id);
-        glBindTexture(GL_TEXTURE_2D_ARRAY, obj_id);
+        shader.run();
+        glActiveTexture(GL_TEXTURE0 + texid);
+        glBindTexture(GL_TEXTURE_2D_ARRAY, texid);
         glBindVertexArray(quad_vao);
         glDrawElementsInstanced(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr, lenght);
     }

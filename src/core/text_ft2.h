@@ -9,6 +9,7 @@
 #include "math/vector3.h"
 #include "rendering_types.h"
 #include "shader.h"
+#include "renderable.h"
 #include <freetype2/ft2build.h>
 #include <map>
 #include <string>
@@ -16,8 +17,8 @@
 
 namespace sc2d
 {
-    static const size_t ASCII_TABLE_SIZE = 128;
-    static const size_t ASCII_EXTENDED_TABLE_SIZE = 256;
+    static constexpr size_t ASCII_TABLE_SIZE = 128;
+    static constexpr size_t ASCII_EXTENDED_TABLE_SIZE = 256;
 
     /**
      * Glyph data
@@ -35,7 +36,7 @@ namespace sc2d
     };
 
     /**
-     *
+     * Contains font data
      */
     class Ft2Font
     {
@@ -61,12 +62,12 @@ namespace sc2d
     /*
      *
      */
-    class TextFt2
+    class TextFt2 : public text2d
     {
     public:
         void init(const Shader& txt_shader, const Ft2Font& font);
         void set_text(const char* text);
-        [[nodiscard]] const std::string& get_text() const
+        const std::string& get_text() const
         {
             return text;
         }
@@ -74,15 +75,11 @@ namespace sc2d
         void draw();
         void destroy() const
         {
-            glDeleteTextures(1, &obj_id);
+            glDeleteTextures(1, &texid);
         };
 
     private:
-        static Vertex quad_vertices[VERTICES_PER_QUAD];
         uint32_t lenght = 0;
-        GLuint obj_id;
-        GLuint quad_vao;
-        const Shader* shader;
         const Ft2Font* font;
         std::string text;
     };
