@@ -4,6 +4,7 @@
 
 #include "shader.h"
 #include "log2.h"
+
 namespace sc2d
 {
 
@@ -18,7 +19,8 @@ namespace sc2d
         return *this;
     }
 
-    void ShaderUtil::compile(Shader& shader, const GLchar* vert_src, const GLchar* frag_src, const GLchar* geom_src)
+    void ShaderUtil::compile(Shader& shader, const GLchar* vert_src, const GLchar* frag_src,
+                             const GLchar* geom_src)
     {
         GLuint vert_obj;
         GLuint frag_obj;
@@ -26,16 +28,18 @@ namespace sc2d
 
         make_shader(vert_src, vert_obj, shader_t::VERTEX);
         make_shader(frag_src, frag_obj, shader_t::FRAGMENT);
-        if(geom_src != nullptr)
+        if(geom_src != nullptr) {
             make_shader(geom_src, geom_obj, shader_t::GEOMETRY);
+        }
 
         // creating new shader program & attaching shaders to it
         shader.program = glCreateProgram();
 
         glAttachShader(shader.program, vert_obj);
         glAttachShader(shader.program, frag_obj);
-        if(geom_src != nullptr)
+        if(geom_src != nullptr) {
             glAttachShader(shader.program, geom_obj);
+        }
 
         // Link program & check for linkage errors
         glLinkProgram(shader.program);
@@ -44,15 +48,16 @@ namespace sc2d
         // After linking we dont need our shaders anymore
         glDetachShader(shader.program, vert_obj);
         glDetachShader(shader.program, frag_obj);
-        if(geom_src != nullptr)
+
+        if(geom_src != nullptr) {
             glDetachShader(shader.program, geom_obj);
+            glDeleteShader(geom_obj);
+        }
         glDeleteShader(vert_obj);
         glDeleteShader(frag_obj);
-        glDeleteShader(geom_obj);
     }
 
-    void ShaderUtil::make_shader(const GLchar* shader_src, GLuint& shader_obj,
-                             shader_t shader_type)
+    void ShaderUtil::make_shader(const GLchar* shader_src, GLuint& shader_obj, shader_t shader_type)
     {
         shader_obj = glCreateShader(shader_type);
         glShaderSource(shader_obj, 1, &shader_src, nullptr);
@@ -84,14 +89,12 @@ namespace sc2d
 
     void Shader::set_mat4(const GLchar* name, const math::mat4& matrix) const
     {
-//        log_warn_cmd("%d", glGetUniformLocation(program, name));
         glUniformMatrix4fv(glGetUniformLocation(program, name), 1, GL_FALSE,
                            (GLfloat*)&matrix.n[0][0]);
     }
 
     void Shader::set_vec3(const GLchar* name, const math::vec3& value) const
     {
-//        log_warn_cmd("%d", glGetUniformLocation(program, name));
         glUniform3f(glGetUniformLocation(program, name), value.x, value.y, value.z);
     }
 

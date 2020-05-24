@@ -29,6 +29,7 @@ namespace sc2d
     namespace shader_const
     {
         constexpr char* IMG {"img"};
+        constexpr char* IMG_ARRAY {"img_array"};
         constexpr char* IMG_COLOR {"img_color"};
         constexpr char* MODEL {"model"};
     }
@@ -39,8 +40,6 @@ namespace sc2d
     public:
         GLuint get_program() const;
         const Shader& run() const;
-//        void compile(const GLchar* vert_src, const GLchar* frag_src,
-//                     const GLchar* geom_src = nullptr);
 
         void set_mat4(const GLchar* name, const math::mat4& matrix) const;
         void set_vec3(const GLchar* name, const math::vec3& value) const;
@@ -55,9 +54,6 @@ namespace sc2d
 
     private:
         GLuint program;
-
-//        void error_checking(GLuint object, shader_t shader_type) const;
-//        void make_shader(const GLchar* shader_src, GLuint& shader_obj, shader_t shader_type) const;
     };
 
     struct ShaderUtil
