@@ -26,6 +26,8 @@ namespace sc2d
     namespace Color
     {
         constexpr math::vec3 WHITE {1.0f, 1.0f, 1.0f};
+        constexpr math::vec3 MAGENTA {1.0f, 0.0f, 1.0f};
+        constexpr math::vec3 CYAN {0.0f, 1.0f, 1.0f};
     }
 
     struct Vertex
