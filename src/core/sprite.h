@@ -10,13 +10,10 @@
 namespace sc2d
 {
 
-    class Sprite : public obj2d
+    struct Sprite : public obj2d
     {
-    public:
         void init(const Shader& shader);
         void draw();
-    private:
-        GLuint quad_vao;
     };
 }
 
