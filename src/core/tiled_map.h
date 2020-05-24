@@ -8,6 +8,7 @@
 #include "shader.h"
 #include "sprite_sheet_inst.h"
 #include "texture_atlas.h"
+#include "types.h"
 #include <string>
 #include <vector>
 
@@ -101,14 +102,15 @@ namespace sc2d::tiled
     public:
         Map() = default;
         explicit Map(const Data& tiled_data);
-        void init(const sc2d::Shader& map_shader);
-        void draw_map(GLuint texatlas_id) const;
+        void init(const Shader& map_shader);
+        void set_sheet_texture(GLuint texid);
+        void draw_map() const;
 
     private:
         Data tiled_data;
-        sc2d::Shader shader;
-        std::vector<uint32_t> map_gids;
-        sc2d::SpriteSheetInstanced sprite_sheet;
+        Shader shader;
+        std::vector<u32> map_gids;
+        SpriteSheetInstanced sprite_sheet;
 
         void crack_layer_data();
     };

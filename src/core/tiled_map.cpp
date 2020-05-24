@@ -12,7 +12,7 @@ namespace sc2d::tiled
 
     Map::Map(const Data& tiled_data)
         : tiled_data {tiled_data}
-    {}
+    { }
 
     void Map::init(const sc2d::Shader& map_shader)
     {
@@ -37,14 +37,14 @@ namespace sc2d::tiled
             free(out);
         } else {
             map_gids.reserve(tiled_data.width * tiled_data.height);
-            uint32_t data_gids[tiled_data.content_count];
+            u32 data_gids[tiled_data.content_count];
             math::vec2 data_pos[tiled_data.content_count];
-            uint32_t sid_idx = 0;
+            u32 sid_idx = 0;
 
             for(int x = 0; x < tiled_data.width; ++x) {
                 for(int y = 0; y < tiled_data.height; ++y) {
-                    uint32_t gid = out[y * tiled_data.width + x];
-                    uint32_t tileset_index = gid;
+                    u32 gid = out[y * tiled_data.width + x];
+                    u32 tileset_index = gid;
 
                     // Get tileset index
                     tileset_index &= ~(FLIPPED_HORIZONTALLY_FLAG | FLIPPED_VERTICALLY_FLAG |
@@ -71,16 +71,22 @@ namespace sc2d::tiled
             }
 
             SpriteSheetInstData sids(data_gids, data_pos);
-            sprite_sheet.init_data(
-                shader, math::vec2(tiled_data.tile_width, tiled_data.tile_height),
-                tiled_data.content_count, sids);
+            log_gl_error_cmd();
+            sprite_sheet.init(shader, math::vec2(tiled_data.tile_width, tiled_data.tile_height),
+                              tiled_data.content_count, sids);
+//            sprite_sheet.set_size(math::vec2(tiled_data.tile_width, tiled_data.tile_height));
+            sprite_sheet.set_color(Color::WHITE);
             log_info_cmd("VECSIZE: %d", map_gids.size());
         }
         free(out);
     }
-
-    void Map::draw_map(const GLuint texatlas_id) const
+    void Map::set_sheet_texture(GLuint texid)
     {
-        sprite_sheet.draw(texatlas_id);
+        sprite_sheet.set_texture(texid);
+    }
+
+    void Map::draw_map() const
+    {
+        sprite_sheet.draw();
     }
 }
