@@ -56,11 +56,12 @@ namespace sc2d
 
     template <typename T>
     void default_transformable_2d<T>::set_transfdata(const math::vec2& pos, const math::vec2& size,
-                                                     const float rot)
+                                                     const float rot, const math::mat4& projection)
     {
         this->pos = pos;
         this->size = size;
         this->rot = rot;
+        this->projection = projection;
         update_transform();
     }
 
@@ -69,7 +70,15 @@ namespace sc2d
     {
         this->transform = transform;
         this->shader.run();
-        this->shader.set_mat4(shader_const::MODEL, transform);
+        this->shader.set_mat4(shader_const::MVP, transform * projection);
+    }
+
+    template <typename T>
+    void default_transformable_2d<T>::set_projection(const math::mat4& projection)
+    {
+        this->projection = projection;
+        this->shader.run();
+        this->shader.set_mat4(shader_const::MVP, transform * projection);
     }
 
     template <typename T>
@@ -80,6 +89,6 @@ namespace sc2d
                             math::vec3(0.5f * size.x + pos.x, 0.5f * size.y + pos.y, 0.0f));
 
         this->shader.run();
-        this->shader.set_mat4(shader_const::MODEL, transform);
+        this->shader.set_mat4(shader_const::MVP, transform * projection);
     }
 }
