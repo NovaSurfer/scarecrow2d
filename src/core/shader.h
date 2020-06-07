@@ -32,6 +32,7 @@ namespace sc2d
         constexpr char* IMG_ARRAY {"img_array"};
         constexpr char* IMG_COLOR {"img_color"};
         constexpr char* MODEL {"model"};
+        constexpr char* MVP {"mvp"};
     }
 
     class Shader

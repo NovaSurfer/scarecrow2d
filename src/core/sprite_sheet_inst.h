@@ -45,7 +45,7 @@ namespace sc2d
          * @param sid reference to sprite sheet instance data
          */
         void init(const Shader& spr_shader, const math::vec2& size, const size_t spr_count,
-                  const SpriteSheetInstData& sid);
+                  const math::mat4& projection, const SpriteSheetInstData& sid);
         void draw() const;
     };
 }
