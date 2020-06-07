@@ -68,6 +68,6 @@ namespace sc2d
         // unbind texture
         glBindTexture(GL_TEXTURE_2D_ARRAY, 0);
 
-        log_gl_error_cmd();
+//        log_gl_error_cmd();
     }
 }
