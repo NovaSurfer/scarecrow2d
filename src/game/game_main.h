@@ -8,7 +8,6 @@
 #include "core/text_ft2.h"
 #include "core/tiled_map.h"
 #include <core/sprite.h>
-#include "core/result.h"
 #include "menu.h"
 
 enum class GameMode
@@ -24,7 +23,7 @@ namespace sc2d
 
 struct Game
 {
-    sc2d::ResultBool init(GameMode start_mode, const sc2d::WindowSize& size);
+    void init(GameMode start_mode, const sc2d::WindowSize& size);
     void draw();
     void destroy();
     void read_input(int key, int action);

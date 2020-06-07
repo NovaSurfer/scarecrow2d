@@ -102,7 +102,7 @@ namespace sc2d::tiled
     public:
         Map() = default;
         explicit Map(const Data& tiled_data);
-        void init(const Shader& map_shader);
+        void init(const Shader& map_shader, const math::mat4& projection);
         void set_sheet_texture(GLuint texid);
         void draw_map() const;
 
@@ -111,8 +111,6 @@ namespace sc2d::tiled
         Shader shader;
         std::vector<u32> map_gids;
         SpriteSheetInstanced sprite_sheet;
-
-        void crack_layer_data();
     };
 }
 

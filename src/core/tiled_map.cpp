@@ -14,15 +14,12 @@ namespace sc2d::tiled
         : tiled_data {tiled_data}
     { }
 
-    void Map::init(const sc2d::Shader& map_shader)
+    void Map::init(const sc2d::Shader& map_shader, const math::mat4& projection)
     {
         shader = map_shader;
-        crack_layer_data();
-    }
 
-    // TODO: Move zlib / miniz stuff to another class and wrap it for C++
-    void Map::crack_layer_data()
-    {
+        // cracking layer data
+        // TODO: Move zlib / miniz stuff to another class and wrap it for C++
         const std::string decoded_data = base64_decode(tiled_data.layers[0].get_data());
         log_info_cmd("DECODED_DATA: %s", decoded_data.c_str());
         unsigned* out = nullptr;
@@ -71,15 +68,16 @@ namespace sc2d::tiled
             }
 
             SpriteSheetInstData sids(data_gids, data_pos);
-            log_gl_error_cmd();
+//            log_gl_error_cmd();
             sprite_sheet.init(shader, math::vec2(tiled_data.tile_width, tiled_data.tile_height),
-                              tiled_data.content_count, sids);
+                              tiled_data.content_count, projection, sids);
 //            sprite_sheet.set_size(math::vec2(tiled_data.tile_width, tiled_data.tile_height));
             sprite_sheet.set_color(Color::WHITE);
             log_info_cmd("VECSIZE: %d", map_gids.size());
         }
         free(out);
     }
+
     void Map::set_sheet_texture(GLuint texid)
     {
         sprite_sheet.set_texture(texid);

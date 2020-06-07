@@ -10,10 +10,11 @@
 #include "core/window.h"
 #include "filesystem/resourceHolder.h"
 #include "menu.h"
+#include <core/dbg/dbg_asserts.h>
 
 GameMode Game::mode;
 
-sc2d::ResultBool Game::init(GameMode start_mode, const sc2d::WindowSize& window_size)
+void Game::init(GameMode start_mode, const sc2d::WindowSize& window_size)
 {
     mode = start_mode;
 
@@ -23,24 +24,19 @@ sc2d::ResultBool Game::init(GameMode start_mode, const sc2d::WindowSize& window_
                              sc2d::DEFAULT_Z_FAR);
 
     // REGULAR SPRITE
-    const sc2d::Shader& sprite_shader = sc2d::ResourceHolder::get_shader("sprite_default");
+    const sc2d::Shader sprite_shader = sc2d::ResourceHolder::get_shader("sprite_default");
     const sc2d::Texture2d logo_texture = sc2d::ResourceHolder::get_texture("logo");
 
-    // TODO: send MVP matrix at start, remove this set_projection.
-    sprite_shader.run();
-    sprite_shader.set_mat4("projection", camera.get_proj());
     sprite.init(sprite_shader);
     sprite.set_color(sc2d::Color::WHITE);
     sprite.set_texture(logo_texture);
-    sprite.set_transfdata(math::vec2(0, 0), math::vec2(111, 148), 0);
+    sprite.set_transfdata(math::vec2(0, 0), math::vec2(111, 148), 0, camera.get_proj());
 
     // SPRITE_SHEEEEEEEEEEET
     const sc2d::Shader& sprite_sheet_shader = sc2d::ResourceHolder::get_shader("spritesheet");
     const sc2d::TextureAtlas tex_atlas = sc2d::ResourceHolder::get_texture_atlas("tilemap");
-    sprite_sheet_shader.run();
-    sprite_sheet_shader.set_mat4("projection", camera.get_proj());
     tiled_map = sc2d::ResourceHolder::get_tiled_map("wasd");
-    tiled_map.init(sprite_sheet_shader);
+    tiled_map.init(sprite_sheet_shader, camera.get_proj());
     tiled_map.set_sheet_texture(tex_atlas);
 
     const sc2d::Shader& font_shader = sc2d::ResourceHolder::get_shader("text_ft2");
@@ -53,9 +49,7 @@ sc2d::ResultBool Game::init(GameMode start_mode, const sc2d::WindowSize& window_
     text_ft2.set_pos({100.f, 100.f}, 0);
     text_ft2.set_color(sc2d::Color::CYAN);
 
-    log_gl_error_cmd();
-
-    return !glGetError() ? (true) : sc2d::ResultBool::throw_err(sc2d::Err::ENGINE_INIT_FAIL);
+    DBG_WARN_ON_RENDER_ERR
 }
 
 void Game::draw()

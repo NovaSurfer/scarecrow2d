@@ -50,7 +50,7 @@ sc2d::ResultBool renderer_init()
     glEnable(GL_BLEND);
     glDisable(GL_DEPTH_TEST);
     glDisable(GL_SCISSOR_TEST);
-    log_gl_error_cmd();
+//    log_gl_error_cmd();
 
     return !glGetError() ? (true) : sc2d::ResultBool::throw_err(sc2d::Err::ENGINE_INIT_FAIL);
 }
