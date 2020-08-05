@@ -5,6 +5,7 @@
 #ifndef INC_2D_GAME_TYPES_H
 #define INC_2D_GAME_TYPES_H
 
+#include "limits.h"
 #include "math/vector2.h"
 #include "math/vector3.h"
 #include "math/vector4.h"
@@ -34,7 +35,13 @@ namespace sc2d
     {
         math::vec2 pos;
         math::vec2 uv;
-        //        Color color;
+    };
+
+    struct VertexColored
+    {
+        math::vec2 pos;
+        math::vec2 uv;
+        colorRGBA color;
     };
 
     struct Quad
@@ -49,12 +56,37 @@ namespace sc2d
         Vertex tl;
     };
 
+    struct QuadColored
+    {
+        // Top right
+        VertexColored tr;
+        // Bottom right
+        VertexColored br;
+        // Bottom left
+        VertexColored bl;
+        // Top left
+        VertexColored tl;
+    };
+
+
+    class SpriteBatch;
+
+    class QuadBuffer
+    {
+        friend SpriteBatch;
+    public:
+        void add(const math::vec2& pos, const math::vec2& size, const colorRGBA& color);
+        QuadColored data[limits::DRAWCALL_QUADS];
+    private:
+        size_t index;
+    };
+
     constexpr Quad SPRITE_QUAD {
-        //positions      //tex coords  //colors (RGBA)
-        {{0.5f, 0.5f}, {1.0f, 1.0f}, /*{1.0f, 0.0f, 0.0f, 1.0}*/}, // top right
-        {{0.5f, -0.5f}, {1.0f, 0.0f}, /*{0.0f, 1.0f, 0.0f, 1.0}*/}, // bottom right
-        {{-0.5f, -0.5f}, {0.0f, 0.0f}, /*{0.0f, 0.0f, 1.0f, 1.0}*/}, // bottom left
-        {{-0.5f, 0.5f}, {0.0f, 1.0f}, /*{1.0f, 1.0f, 0.0f, 1.0}*/}, // top left
+        //positions    //tex coords
+        {{0.5f, 0.5f}, {1.0f, 1.0f}}, // top right
+        {{0.5f, -0.5f}, {1.0f, 0.0f}}, // bottom right
+        {{-0.5f, -0.5f}, {0.0f, 0.0f}}, // bottom left
+        {{-0.5f, 0.5f}, {0.0f, 1.0f}}, // top left
     };
 
     constexpr Vertex QUAD_VERTICES[VERTICES_PER_QUAD] {

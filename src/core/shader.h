@@ -26,12 +26,14 @@ namespace sc2d
     // Instantiating anonymous enum
     using shader_t = decltype(ShaderType::NONE);
 
+    // TODO: add prefix
     namespace shader_const
     {
         constexpr char* IMG {"img"};
         constexpr char* IMG_ARRAY {"img_array"};
         constexpr char* IMG_COLOR {"img_color"};
         constexpr char* MODEL {"model"};
+        constexpr char* PROJ {"proj"};
         constexpr char* MVP {"mvp"};
     }
 

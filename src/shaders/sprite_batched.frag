@@ -7,10 +7,10 @@ flat in uint TileIndex;
 
 layout(location = 0) out vec4 color;
 
-uniform sampler2D img[32];
+uniform sampler2D img;
 
 void main()
 {
-    color = TexColor; //texture(img[TileIndex], TexCoords);
+    color = TexColor * texture(img, TexCoords);
 }
 )"

@@ -7,13 +7,6 @@
 
 namespace sc2d
 {
-
-    template class default_renderable_2d<obj2d>;
-    template class default_renderable_2d<obj2d_instatiable>;
-    template class default_renderable_2d<text2d>;
-    template class default_transformable_2d<obj2d>;
-    template class default_transformable_2d<obj2d_instatiable>;
-
     template <typename T>
     void default_renderable_2d<T>::set_texture(GLuint texid)
     {
@@ -91,4 +84,10 @@ namespace sc2d
         this->shader.run();
         this->shader.set_mat4(shader_const::MVP, transform * projection);
     }
+
+    template class default_renderable_2d<obj2d>;
+    template class default_renderable_2d<obj2d_instatiable>;
+    template class default_renderable_2d<text2d>;
+    template class default_transformable_2d<obj2d>;
+    template class default_transformable_2d<obj2d_instatiable>;
 }

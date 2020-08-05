@@ -35,6 +35,14 @@ namespace sc2d::cshaders
 #include "shaders/text_ft2.frag"
         ;
 
+    constexpr const char* VS_SPRITE_BATCHED =
+#include "shaders/sprite_batched.vert"
+        ;
+
+    constexpr const char* FS_SPRITE_BATCHED =
+#include "shaders/sprite_batched.frag"
+        ;
+
     struct ShadersArray
     {
         const char* vs_src;
@@ -45,6 +53,7 @@ namespace sc2d::cshaders
     constexpr const ShadersArray SHADERS_ARRAY[] {
         {VS_SPRITESHEET, FS_SPRITESHEET, "spritesheet"},
         {VS_SPRITE_DEFAULT, FS_SPRITE_DEFAULT, "sprite_default"},
-        {VS_TEXT_FT2, FS_TEXT_FT2, "text_ft2"}};
+        {VS_TEXT_FT2, FS_TEXT_FT2, "text_ft2"},
+        {VS_SPRITE_BATCHED, FS_SPRITE_BATCHED, "sprite_batched"}};
 };
 #endif //SCARECROW2D_SHADER_FILES_H
