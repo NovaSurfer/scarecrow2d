@@ -6,7 +6,6 @@
 #define INC_2D_GAME_TEXTURE_H
 
 #include <glad/glad.h>
-#include <string>
 
 namespace sc2d
 {

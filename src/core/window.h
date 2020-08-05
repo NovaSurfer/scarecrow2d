@@ -21,8 +21,8 @@ namespace sc2d
 
     struct WindowData
     {
+        int context_version_maj;
         int context_version_min;
-        int context_version_max;
         int opengl_profile;
         WindowSize size;
         const char* window_name;

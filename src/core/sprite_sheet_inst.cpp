@@ -61,7 +61,7 @@ namespace sc2d
         glBufferData(GL_ARRAY_BUFFER, sizeof(math::mat4) * spr_count, &model_matrices[0],
                      GL_STATIC_DRAW);
 
-        size_t matrow_size = sizeof(float) * 4;
+        constexpr size_t matrow_size = sizeof(float) * 4;
         for(size_t i = 0; i < spr_count; ++i) {
             glVertexAttribPointer(3, 4, GL_FLOAT, GL_FALSE, 4 * matrow_size, (GLvoid*)nullptr);
             glVertexAttribPointer(4, 4, GL_FLOAT, GL_FALSE, 4 * matrow_size,
