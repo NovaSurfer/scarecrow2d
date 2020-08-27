@@ -5,40 +5,14 @@
 #ifndef INC_2D_GAME_TEXTURE_H
 #define INC_2D_GAME_TEXTURE_H
 
-#include <glad/glad.h>
+#include "textureobject.h"
 
 namespace sc2d
 {
-    class Texture2d
+    class Texture2d : public default_tex2d
     {
     public:
-        Texture2d() = default;
-        Texture2d(unsigned char* img_data, const GLuint width, const GLuint height,
-                  const GLuint img_format);
-        void bind() const;
-        const GLuint& get_obj_id() const
-        {
-            return obj_id;
-        }
-        operator GLuint() const
-        {
-            return obj_id;
-        }
-
-    private:
-        GLuint obj_id;
-        GLuint width;
-        GLuint height;
-        GLuint internal_format;
-        GLuint image_format;
-        GLuint wrap_s;
-        GLuint wrap_t;
-        GLuint filter_min;
-        GLuint filter_max;
-
-        unsigned char* data;
-
-        void generate();
+        using default_tex2d::default_tex2d;
     };
 }
 #endif //INC_2D_GAME_TEXTURE_H

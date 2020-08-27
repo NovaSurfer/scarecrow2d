@@ -26,9 +26,10 @@ namespace sc2d
             if(geom_file != nullptr)
                 g_shader = load_shader(geom_file);
             ShaderUtil::compile(shader, v_shader.c_str(), f_shader.c_str(),
-                           geom_file != nullptr ? g_shader.c_str() : nullptr);
+                                geom_file != nullptr ? g_shader.c_str() : nullptr);
         } else {
-            ShaderUtil::compile(shader, vert_file, frag_file, geom_file != nullptr ? geom_file : nullptr);
+            ShaderUtil::compile(shader, vert_file, frag_file,
+                                geom_file != nullptr ? geom_file : nullptr);
         }
         shaders.insert({name, shader});
     }
@@ -42,10 +43,22 @@ namespace sc2d
                                       const std::string& name)
     {
         int width, height, nr_channels;
+        GLuint internal_format;
+        GLuint image_format;
+
         unsigned char* image =
             stbi_load(img_file.c_str(), &width, &height, &nr_channels, STBI_rgb_alpha);
 
-        textures[name] = Texture2d(image, width, height, alpha ? GL_RGBA : GL_RGB);
+        if(alpha) {
+            internal_format = GL_RGBA8;
+            image_format = GL_RGBA;
+        } else {
+            internal_format = GL_RGB8;
+            image_format = GL_RGB;
+        }
+
+        textures[name] = Texture2d(width, height, internal_format, image_format, GL_REPEAT,
+                                   GL_REPEAT, GL_LINEAR, GL_LINEAR, image);
     }
 
     const Texture2d& ResourceHolder::get_texture(const std::string& texture_name)
@@ -93,11 +106,23 @@ namespace sc2d
                                             const uint columns, bool alpha, const std::string& name)
     {
         int width, height, nr_channels;
+        GLuint internal_format;
+        GLuint image_format;
+
         unsigned char* image =
             stbi_load(img_file.c_str(), &width, &height, &nr_channels, STBI_rgb_alpha);
 
+        if(alpha) {
+            internal_format = GL_RGBA8;
+            image_format = GL_RGBA;
+        } else {
+            internal_format = GL_RGB8;
+            image_format = GL_RGB;
+        }
+
         texture_atlases[name] =
-            TextureAtlas(image, width, height, rows, columns, alpha ? GL_RGBA : GL_RGB);
+            TextureAtlas(width, height, internal_format, image_format, GL_REPEAT, GL_REPEAT,
+                         GL_LINEAR, GL_LINEAR, image, rows, columns);
     }
     const TextureAtlas& ResourceHolder::get_texture_atlas(const std::string& name)
     {
