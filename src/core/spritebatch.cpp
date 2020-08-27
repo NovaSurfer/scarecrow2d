@@ -51,7 +51,7 @@ namespace sc2d
         glEnableVertexAttribArray(2);
 
         // Generating texture
-        u32 white = 0xffffffff;
+        const u32 white = 0xffffffff;
         glGenTextures(1, &texid);
         glBindTexture(GL_TEXTURE_2D, texid);
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, 1, 1, 0, GL_RGBA, GL_UNSIGNED_BYTE, &white);
@@ -69,19 +69,20 @@ namespace sc2d
 
     void SpriteBatch::draw(const math::vec2& pos, const math::vec2& size, const colorRGBA& color)
     {
-        DBG_RETURN_IF(indices_count >= limits::DRAWCALL_INDICES,
-                      "max indices per draw call is reached")
+        // If max indices per draw call reached we should split draw calls
+        if(indices_count >= limits::DRAWCALL_INDICES) {
+            flush();
+        }
         quadbuff.add(pos, size, color);
         indices_count += 6;
 
         DBG_WARN_ON_RENDER_ERR
     }
-
     void SpriteBatch::flush()
     {
         shader.run();
         // num_of_objects * sizeof(Vertex) * 4_indices_per_quad
-        GLsizei vertices_size = quadbuff.index * sizeof(VertexColored) * 4;
+        const GLsizei vertices_size = quadbuff.index * sizeof(VertexColored) * 4;
         glBindBuffer(GL_ARRAY_BUFFER, vbo);
         glBufferSubData(GL_ARRAY_BUFFER, 0, vertices_size, quadbuff.data);
         glActiveTexture(GL_TEXTURE0 + texid);
