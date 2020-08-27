@@ -1,4 +1,3 @@
-# cmake ../ -DCMAKE_SH="CMAKE_SH-NOT_FOUND" -DCMAKE_BUILD_TYPE="Debug" -G "MinGW Makefiles"
 cmake_minimum_required(VERSION 3.8 FATAL_ERROR)
 project(scarecrow2d)
 
@@ -23,7 +22,6 @@ else()
 endif()
 
 	add_compile_options("-fno-exceptions")
-	add_compile_options("-fstack-usage")
 
 if(MINGW)
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static-libstdc++")

@@ -5,11 +5,11 @@
 #ifndef SCARECROW2D_GAME_MAIN_H
 #define SCARECROW2D_GAME_MAIN_H
 
-#include "core/text_ft2.h"
-#include "core/tiled_map.h"
+#include "core/rendering/scene/text_ft2.h"
+#include "core/rendering/scene/tiled_map.h"
 #include "menu.h"
-#include <core/sprite.h>
-#include <core/spritebatch.h>
+#include <core/rendering/scene/sprite.h>
+#include <core/rendering/scene/spritebatch.h>
 
 enum class GameMode
 {

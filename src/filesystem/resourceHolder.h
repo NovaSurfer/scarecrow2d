@@ -10,10 +10,10 @@
 #include <string>
 #include <unordered_map>
 
-#include "core/shader.h"
-#include "core/texture.h"
-#include "core/texture_atlas.h"
-#include "core/tiled_map.h"
+#include "core/rendering/scene/tiled_map.h"
+#include "core/rendering/shader.h"
+#include "core/rendering/texture.h"
+#include "core/rendering/texture_atlas.h"
 
 namespace sc2d
 {

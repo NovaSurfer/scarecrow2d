@@ -6,7 +6,7 @@
 #include "core/camera.h"
 #include "core/input_types.h"
 #include "core/log2.h"
-#include "core/texture.h"
+#include "core/rendering/texture.h"
 #include "core/window.h"
 #include "filesystem/resourceHolder.h"
 #include "menu.h"

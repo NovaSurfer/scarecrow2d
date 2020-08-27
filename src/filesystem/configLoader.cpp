@@ -4,7 +4,7 @@
 
 #include "configLoader.h"
 #include "core/log2.h"
-#include "core/tiled_map.h"
+#include "core/rendering/scene/tiled_map.h"
 #include "filesystem/shader_files.h"
 #include "fs_constants.h"
 #include "resourceHolder.h"
