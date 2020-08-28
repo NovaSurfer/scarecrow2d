@@ -52,3 +52,5 @@ data/sprites/private
 
 # OS generated files
 .DS_Store
+
+.clangd/
