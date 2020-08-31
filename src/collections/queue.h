@@ -5,7 +5,8 @@
 #ifndef SCARECROW2D_QUEUE_H
 #define SCARECROW2D_QUEUE_H
 
-#include "core/types.h"
+#include "../core/types.h"
+#include <memory/pool_allocator.h>
 
 // WIP
 // TODO:  ------------------- Write tests and benchmarks -------------------
@@ -19,17 +20,16 @@ namespace sc2d
     class queue
     {
     public:
-        queue() = default;
 
         T push(const T& t);
-        T pop();
+        T& front() const {return head->data;}
+        void pop();
         bool empty();
     private:
-
         struct node;
+        u32 length;
         node* head;
         node* tail;
-        u32 length;
     };
 
     template<typename T>
@@ -40,20 +40,20 @@ namespace sc2d
         T data;
         node* next;
     };
-
     template<typename T>
     T queue<T>::push(const T& t)
     {
         node* n = new node(t);
         n->next = head;
         head = n;
-        if(!n)
+        if(length == 0)
             tail = n;
         ++length;
         return t;
     }
+
     template <typename T>
-    T queue<T>::pop()
+    void queue<T>::pop()
     {
         if(length == 0)
             return;
@@ -63,7 +63,6 @@ namespace sc2d
         delete n;
         if(--length == 0)
             tail == nullptr;
-        return t;
     }
 
     template <typename T>

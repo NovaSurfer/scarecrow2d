@@ -9,7 +9,9 @@ set(TEST_SOURCES
         test_data_types.h
         math_tests.cpp
         vec_tests.cpp
-        arr_tests.cpp test_data_types.h)
+        arr_tests.cpp
+        queue_tests.cpp
+        test_data_types.h)
 
 add_executable(game_test ${TEST_SOURCES})
 target_include_directories(game_test PUBLIC ${CMAKE_SOURCE_DIR}/src)
