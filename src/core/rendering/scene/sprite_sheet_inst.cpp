@@ -13,7 +13,7 @@ namespace sc2d
                                     const SpriteSheetInstData& sid)
     {
         shader = spr_shader;
-        instaces_count = spr_count;
+        instances_count = spr_count;
         this->size = spr_size;
 
         GLuint vbo;
@@ -91,6 +91,6 @@ namespace sc2d
         glActiveTexture(GL_TEXTURE0 + texid);
         glBindTexture(GL_TEXTURE_2D_ARRAY, texid);
         glBindVertexArray(quad_vao);
-        glDrawElementsInstanced(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr, instaces_count);
+        glDrawElementsInstanced(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr, instances_count);
     }
 }

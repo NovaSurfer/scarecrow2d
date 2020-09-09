@@ -11,15 +11,19 @@
 namespace sc2d
 {
 
-    template <typename T>
-    struct default_renderable_2d
+    struct rend_data2d
     {
-        void set_texture(const GLuint texid);
-        void set_color(const colorRGB& color);
-
         Shader shader;
         GLuint texid;
         GLuint quad_vao;
+        u32 layer;
+    };
+
+    template <typename T>
+    struct default_renderable_2d : rend_data2d
+    {
+        void set_texture(const GLuint texid);
+        void set_color(const colorRGB& color);
     };
 
     template <typename T>
@@ -45,11 +49,9 @@ namespace sc2d
 
     struct obj2d_instatiable : default_transformable_2d<obj2d_instatiable>
     {
-        size_t instaces_count;
+        size_t instances_count;
     };
 
-    struct text2d : default_renderable_2d<text2d>
-    { };
 }
 
 #endif //SCARECROW2D_RENDERABLE_H

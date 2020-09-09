@@ -12,7 +12,7 @@ namespace sc2d
     {
         this->texid = texid;
         shader.run();
-        if constexpr(std::is_same<T, obj2d>::value || std::is_same<T, text2d>::value) {
+        if constexpr(std::is_same<T, obj2d>::value) {
             shader.set_int(shader_const::IMG, texid);
         } else {
             shader.set_int(shader_const::IMG_ARRAY, texid);
@@ -87,7 +87,7 @@ namespace sc2d
 
     template class default_renderable_2d<obj2d>;
     template class default_renderable_2d<obj2d_instatiable>;
-    template class default_renderable_2d<text2d>;
+//    template class default_renderable_2d<text2d>;
     template class default_transformable_2d<obj2d>;
     template class default_transformable_2d<obj2d_instatiable>;
 }

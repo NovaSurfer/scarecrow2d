@@ -132,20 +132,20 @@ namespace sc2d
             return;
         }
 
-        lenght = chars_num;
+        instances_count = chars_num;
         text = txt;
     }
 
     void TextFt2::set_pos(const math::vec2& pos, const float rotation)
     {
-        if(!lenght) {
+        if(!instances_count) {
             log_warn_cmd("Setting position to an empty text!");
             return;
         }
 
-        uint32_t char_indices[lenght];
-        math::mat4 model_matrices[lenght];
-        math::vec3 poss[lenght];
+        uint32_t char_indices[instances_count];
+        math::mat4 model_matrices[instances_count];
+        math::vec3 poss[instances_count];
         GLuint glyph_vbo;
         GLuint model_vbo;
         size_t i = 1;
@@ -160,7 +160,7 @@ namespace sc2d
                                             rotation, poss[0]);
 
         // Setting up position for the rest characters.
-        for(const auto* ch = txt_chars + 1; i < lenght; ++ch, ++i) {
+        for(const auto* ch = txt_chars + 1; i < instances_count; ++ch, ++i) {
             uint32_t curr_char = *ch;
             uint32_t prev_char = *(ch - 1);
             uint32_t ascender = font->ascender;
@@ -178,7 +178,7 @@ namespace sc2d
         // setting 'l_glyphid' attribute located in 'glyph_vbo' buffer
         glGenBuffers(1, &glyph_vbo);
         glBindBuffer(GL_ARRAY_BUFFER, glyph_vbo);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(uint32_t) * lenght, char_indices, GL_STATIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(uint32_t) * instances_count, char_indices, GL_STATIC_DRAW);
         glVertexAttribIPointer(2, 1, GL_UNSIGNED_INT, sizeof(uint32_t), (GLvoid*)nullptr);
         glEnableVertexAttribArray(2);
         glVertexAttribDivisor(2, 1);
@@ -186,11 +186,11 @@ namespace sc2d
         // setting 'l_model' attribute, located in 'model_vbo' buffer
         glGenBuffers(1, &model_vbo);
         glBindBuffer(GL_ARRAY_BUFFER, model_vbo);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(math::mat4) * lenght, model_matrices, GL_STATIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(math::mat4) * instances_count, model_matrices, GL_STATIC_DRAW);
 
         // FIXME: copied from "sprite_sheet_inst.cpp : 67"
         size_t matrow_size = sizeof(float) * 4;
-        for(size_t j = 0; j < lenght; ++j) {
+        for(size_t j = 0; j < instances_count; ++j) {
             glVertexAttribPointer(3, 4, GL_FLOAT, GL_FALSE, 4 * matrow_size, (GLvoid*)nullptr);
             glVertexAttribPointer(4, 4, GL_FLOAT, GL_FALSE, 4 * matrow_size,
                                   (GLvoid*)(matrow_size));
@@ -217,6 +217,6 @@ namespace sc2d
         glActiveTexture(GL_TEXTURE0 + texid);
         glBindTexture(GL_TEXTURE_2D_ARRAY, texid);
         glBindVertexArray(quad_vao);
-        glDrawElementsInstanced(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr, lenght);
+        glDrawElementsInstanced(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr, instances_count);
     }
 }

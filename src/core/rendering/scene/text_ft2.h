@@ -5,7 +5,7 @@
 #ifndef SCARECROW2D_TEXT_FT2_H
 #define SCARECROW2D_TEXT_FT2_H
 
-#include "../../../../deps/freetype2/include/ft2build.h"
+#include <freetype2/ft2build.h>
 #include "core/rendering/renderable.h"
 #include "core/rendering/rendering_types.h"
 #include "core/rendering/shader.h"
@@ -62,7 +62,7 @@ namespace sc2d
     /*
      *
      */
-    class TextFt2 : public text2d
+    class TextFt2 : public obj2d_instatiable
     {
     public:
         void init(const Shader& txt_shader, const Ft2Font& font);
@@ -79,7 +79,6 @@ namespace sc2d
         };
 
     private:
-        uint32_t lenght = 0;
         const Ft2Font* font;
         std::string text;
     };
