@@ -11,6 +11,7 @@
 #include "filesystem/resourceHolder.h"
 #include "menu.h"
 #include <core/dbg/dbg_asserts.h>
+#include "core/rendering/renderqueue.h"
 
 GameMode Game::mode;
 
@@ -51,6 +52,10 @@ void Game::init(GameMode start_mode, const sc2d::WindowSize& window_size)
     const sc2d::Shader& batched_shader = sc2d::ResourceHolder::get_shader("sprite_batched");
     sprite_batch.init(batched_shader, camera.get_proj());
 
+
+    render_queue.push(sprite);
+    render_queue.push(text_ft2);
+
     DBG_WARN_ON_RENDER_ERR
 }
 
@@ -60,8 +65,9 @@ void Game::draw()
         menu.draw();
     } else {
         tiled_map.draw_map();
-        sprite.draw();
-        text_ft2.draw();
+        render_queue.draw();
+//        sprite.draw();
+//        text_ft2.draw();
 
         sprite_batch.draw({5,5}, {100, 10}, {1.0, .0f, .0f, 1.0f});
         sprite_batch.draw({100,100}, {100, 100}, {1.0, .0f, 1.0f, 1.0f});

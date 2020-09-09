@@ -8,6 +8,7 @@
 #include "core/rendering/scene/text_ft2.h"
 #include "core/rendering/scene/tiled_map.h"
 #include "menu.h"
+#include <core/rendering/renderqueue.h>
 #include <core/rendering/scene/sprite.h>
 #include <core/rendering/scene/spritebatch.h>
 
@@ -37,6 +38,7 @@ private:
     sc2d::SpriteBatch sprite_batch;
     sc2d::tiled::Map tiled_map;
     sc2d::TextFt2 text_ft2;
+    sc2d::RenderQueue render_queue;
 };
 
 #endif //SCARECROW2D_GAME_MAIN_H
