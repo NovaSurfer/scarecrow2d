@@ -9,7 +9,6 @@
 #include "core/limits.h"
 #include "core/types.h"
 #include "memory/memory.h"
-#include "vec.h"
 #include <type_traits>
 
 namespace sc2d
@@ -37,7 +36,6 @@ namespace sc2d
     template <typename T, size_t SIZE>
     inline arr<T, SIZE>::arr()
     {
-        DBG_CONSTEXPR_FAIL_IF(SIZE >= limits::MAX_STACK_ARR_SIZE, "too huge for stack array");
         DBG_CONSTEXPR_FAIL_IF(!IS_T_TRIVIAL::value, "non-POD array is not supported");
     }
 
