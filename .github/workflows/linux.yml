@@ -19,6 +19,11 @@ jobs:
       with:
         submodules: true
 
+    - name: Install packages
+      run: |
+        sudo apt-get update -m && sudo apt-get install libevent-dev xorg-dev libglu1-mesa-dev doxygen &&
+        sudo apt-get install python3-sphinx && pip install sphinx_rtd_theme && pip install breathe
+
     - name: Create Build Environment
       # Some projects don't allow in-source building, so create a separate build directory
       # We'll use this as our working directory for all subsequent commands
