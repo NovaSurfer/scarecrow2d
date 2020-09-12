@@ -22,6 +22,7 @@ jobs:
     - name: Install packages
       run: |
         sudo apt-get update -m && sudo apt-get install libevent-dev xorg-dev libglu1-mesa-dev doxygen &&
+        sudo python3 -m pip uninstall pip && sudo apt install python3-pip --reinstall &&
         sudo apt-get install python3-sphinx && pip3 install sphinx_rtd_theme && pip3 install breathe
 
     - name: Create Build Environment
