@@ -1,7 +1,7 @@
 <img src="https://svgshare.com/i/Ayv.svg" width="100" height="100" alt="image description"></image>  
 # Scarecrow2D  
 
-![Build Status - Linux](https://github.com/NovaSurfer/scarecrow2d/workflows/CMake/badge.svg?branch=master)
+![Build Status - Linux](https://github.com/NovaSurfer/scarecrow2d/workflows/CMake/badge.svg?branch=master)  
 2D game / sandbox project made using C++ and OpenGL
 
 # Compiling
