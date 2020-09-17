@@ -5,11 +5,11 @@
 #ifndef SCARECROW2D_TEXT_FT2_H
 #define SCARECROW2D_TEXT_FT2_H
 
-#include <freetype2/ft2build.h>
+#include <ft2build.h>
+#include FT_FREETYPE_H
 #include "core/rendering/renderable.h"
 #include "core/rendering/rendering_types.h"
 #include "core/rendering/shader.h"
-#include FT_FREETYPE_H "freetype/freetype.h"
 #include "math/vector2.h"
 #include "math/vector3.h"
 #include <map>
