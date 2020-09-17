@@ -61,9 +61,6 @@ add_executable(${PROJECT_NAME} ${SOURCE_FILES} ${DEPS_FILES})
 target_include_directories(${PROJECT_NAME} PRIVATE "${SRC_DIR}")
 set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 17)
 
-include(CTest)
-add_subdirectory(tests)
-add_subdirectory(benchmarks)
 
 # GLFW
 set(GLFW_DIR "${LIB_DIR}/glfw")
@@ -90,9 +87,15 @@ target_link_libraries(${PROJECT_NAME} "glad" "${CMAKE_DL_LIBS}")
 target_compile_definitions(glad PUBLIC GLAD_GLAPI_EXPORT PRIVATE GLAD_GLAPI_EXPORT_BUILD)
 
 # FREETYPE
-set(FREETYPE_DIR "${LIB_DIR}/freetype2")
-set(FREETYPE_INCLUDE_DIRS "${FREETYPE_DIR}")
-find_package(Freetype REQUIRED)
+if(MSVC)
+	set(FREETYPE_DIR "${LIB_DIR}/freetype2")
+	set(FREETYPE_INCLUDE_DIRS "${FREETYPE_DIR}/include")
+	set(FREETYPE_LIBRARIES "${FREETYPE_DIR}/objs/freetype.lib")
+else()
+	set(FREETYPE_DIR "${LIB_DIR}/freetype2")
+	set(FREETYPE_INCLUDE_DIRS "${FREETYPE_DIR}")
+	find_package(Freetype REQUIRED)
+endif()
 target_link_libraries(${PROJECT_NAME} ${FREETYPE_LIBRARIES})
 target_include_directories(${PROJECT_NAME} PRIVATE ${FREETYPE_INCLUDE_DIRS})
 
@@ -110,11 +113,15 @@ configure_file(${CMAKE_SOURCE_DIR}/cfg/resources.json ${CMAKE_BINARY_DIR} COPYON
 
 # copy game data folder to output path
 add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy_directory
-        ${CMAKE_SOURCE_DIR}/data/
-        ${CMAKE_BINARY_DIR}/data/)
+		COMMAND ${CMAKE_COMMAND} -E copy_directory
+		${CMAKE_SOURCE_DIR}/data/
+		${CMAKE_BINARY_DIR}/data/)
 
 
 #Docs
 add_subdirectory ("docs")
 
+#Tests & benchmarks
+include(CTest)
+add_subdirectory(tests)
+add_subdirectory(benchmarks)
