@@ -6,6 +6,8 @@ set(TEST_SOURCES
         ../src/memory/pool_allocator.cpp
         ../src/memory/memory.h
         ../src/collections/arr.h
+        ../src/collections/arrstack.h
+        ../src/collections/arrheap.h
         test_data_types.h
         math_tests.cpp
         vec_tests.cpp
