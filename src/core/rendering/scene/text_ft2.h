@@ -7,12 +7,12 @@
 
 #include <ft2build.h>
 #include FT_FREETYPE_H
+#include "core/types.h"
 #include "core/rendering/renderable.h"
 #include "core/rendering/rendering_types.h"
 #include "core/rendering/shader.h"
 #include "math/vector2.h"
 #include "math/vector3.h"
-#include <map>
 #include <string>
 
 namespace sc2d
@@ -26,34 +26,32 @@ namespace sc2d
     struct GlyphInfo
     {
         // coords of glyph in texture atlas
-        uint32_t x0;
-        uint32_t y0;
-        uint32_t x1;
-        uint32_t y1;
-        uint32_t advance_x;
-        uint32_t bearing_x;
-        uint32_t bearing_y;
+        u32 x0;
+        u32 y0;
+        u32 x1;
+        u32 y1;
+        u32 advance_x;
+        u32 bearing_x;
+        u32 bearing_y;
     };
 
     /**
      * Contains font data
      */
-    class Ft2Font
+    class Ft2Font128
     {
     public:
-        void init(const char* font_path, uint32_t font_size, uint32_t chars_table_size);
+        void init(const char* font_path, u32 font_size);
         void destroy() const
         {
             FT_Done_FreeType(ft);
         }
 
-        uint32_t chars_table_lenght;
-        uint32_t texture_width;
-        uint32_t height; // font height (size)
-        uint32_t ascender;
+        u32 texture_width;
+        u32 height; // font height (size)
+        u32 ascender;
         unsigned char* pixels;
-        // TODO: chars_table_size
-        GlyphInfo glyph[128];
+        GlyphInfo glyph[ASCII_TABLE_SIZE];
 
     private:
         FT_Library ft;
@@ -65,13 +63,13 @@ namespace sc2d
     class TextFt2 : public obj2d_instatiable
     {
     public:
-        void init(const Shader& txt_shader, const Ft2Font& font);
+        void init(const Shader& txt_shader, const Ft2Font128& font);
         void set_text(const char* text);
         const std::string& get_text() const
         {
             return text;
         }
-        void set_pos(const math::vec2& pos, const float rotation);
+        void set_pos(const math::vec2& pos, float rotation);
         void draw();
         void destroy() const
         {
@@ -79,7 +77,7 @@ namespace sc2d
         };
 
     private:
-        const Ft2Font* font;
+        const Ft2Font128* font;
         std::string text;
     };
 }

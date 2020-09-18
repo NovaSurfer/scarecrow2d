@@ -7,14 +7,14 @@
 #include "core/log2.h"
 #include "math/utils.h"
 #include <math/transform.h>
+#include "collections/vec.h"
 
 namespace sc2d
 {
 
-    void Ft2Font::init(const char* font_path, uint32_t font_size, uint32_t chars_table_size)
+    void Ft2Font128::init(const char* font_path, u32 font_size)
     {
         height = font_size;
-        chars_table_lenght = chars_table_size;
 
         DBG_RETURN_IF(FT_Init_FreeType(&ft), "can't init FreeType");
 
@@ -26,17 +26,17 @@ namespace sc2d
 
         // quick and dirty max texture size estimate
         texture_width = 1;
-        uint32_t max_dim = (1 + (face->size->metrics.height >> 6)) * ceilf(sqrtf(chars_table_lenght));
+        u32 max_dim = (1 + (face->size->metrics.height >> 6)) * ceilf(sqrtf(ASCII_TABLE_SIZE));
         while(texture_width < max_dim)
             texture_width <<= 1;
-        uint32_t tex_height = texture_width;
+        u32 tex_height = texture_width;
 
         // render glyphs to atlas
         pixels = (unsigned char*)calloc(texture_width * tex_height, 1);
         ascender = face->ascender >> 5;
-        uint32_t pen_x = 0, pen_y = 0;
+        u32 pen_x = 0, pen_y = 0;
 
-        for(size_t i = 32; i < chars_table_lenght; ++i) {
+        for(size_t i = 32; i < ASCII_TABLE_SIZE; ++i) {
             // Maybe its better to use FL_LOAD_TARGET_LIGHT for regular, non-pixelart fonts.
             FT_Load_Char(face, i, FT_LOAD_RENDER);
             FT_Bitmap* bmp = &face->glyph->bitmap;
@@ -46,10 +46,10 @@ namespace sc2d
                 pen_y += ((face->size->metrics.height >> 6) + 1);
             }
 
-            for(uint32_t row = 0; row < bmp->rows; ++row) {
-                for(uint32_t col = 0; col < bmp->width; ++col) {
-                    uint32_t x = pen_x + col;
-                    uint32_t y = pen_y + row;
+            for(u32 row = 0; row < bmp->rows; ++row) {
+                for(u32 col = 0; col < bmp->width; ++col) {
+                    u32 x = pen_x + col;
+                    u32 y = pen_y + row;
                     pixels[y * texture_width + x] = bmp->buffer[row * bmp->pitch + col];
                 }
             }
@@ -67,7 +67,7 @@ namespace sc2d
         }
     }
 
-    void TextFt2::init(const Shader& txt_shader, const Ft2Font& fnt)
+    void TextFt2::init(const Shader& txt_shader, const Ft2Font128& fnt)
     {
         shader = txt_shader;
         font = &fnt;
@@ -80,11 +80,11 @@ namespace sc2d
         glPixelStorei(GL_UNPACK_IMAGE_HEIGHT, font->texture_width);
 
         glTexImage3D(GL_TEXTURE_2D_ARRAY, 0, GL_RED, font->height, font->height,
-                     font->chars_table_lenght, 0, GL_RED, GL_UNSIGNED_BYTE, nullptr);
+                     ASCII_TABLE_SIZE, 0, GL_RED, GL_UNSIGNED_BYTE, nullptr);
 
-        for(uint8_t i = 0; i < font->chars_table_lenght; ++i) {
-            uint32_t char_w = font->glyph[i].x1 - font->glyph[i].x0;
-            uint32_t char_h = font->glyph[i].y1 - font->glyph[i].y0;
+        for(u8 i = 0; i < ASCII_TABLE_SIZE; ++i) {
+            u32 char_w = font->glyph[i].x1 - font->glyph[i].x0;
+            u32 char_h = font->glyph[i].y1 - font->glyph[i].y0;
             glTexSubImage3D(
                 GL_TEXTURE_2D_ARRAY, 0, 0, 0, i, char_w, char_h, 1, GL_RED, GL_UNSIGNED_BYTE,
                 &font->pixels[font->glyph[i].y0 * font->texture_width + font->glyph[i].x0]);
@@ -143,13 +143,13 @@ namespace sc2d
             return;
         }
 
-        uint32_t char_indices[instances_count];
-        math::mat4 model_matrices[instances_count];
-        math::vec3 poss[instances_count];
+        vec<u32> char_indices(instances_count);
+        vec<math::mat4> model_matrices(instances_count);
+        vec<math::vec3> poss(instances_count);
         GLuint glyph_vbo;
         GLuint model_vbo;
         size_t i = 1;
-        const auto* txt_chars = (const uint8_t*)text.c_str();
+        const auto* txt_chars = (const u8*)text.c_str();
 
         // Setting up position for the first character in text.
         float prev_x = pos.x;
@@ -161,12 +161,12 @@ namespace sc2d
 
         // Setting up position for the rest characters.
         for(const auto* ch = txt_chars + 1; i < instances_count; ++ch, ++i) {
-            uint32_t curr_char = *ch;
-            uint32_t prev_char = *(ch - 1);
-            uint32_t ascender = font->ascender;
-            uint32_t advance_x = font->glyph[prev_char].advance_x;
-            uint32_t bearing_x = font->glyph[prev_char].bearing_x;
-            uint32_t bearing_y = font->glyph[curr_char].bearing_y;
+            u32 curr_char = *ch;
+            u32 prev_char = *(ch - 1);
+            u32 ascender = font->ascender;
+            u32 advance_x = font->glyph[prev_char].advance_x;
+            u32 bearing_x = font->glyph[prev_char].bearing_x;
+            u32 bearing_y = font->glyph[curr_char].bearing_y;
 
             char_indices[i] = curr_char;
             poss[i] = math::vec3(prev_x + advance_x + bearing_x, pos.y - bearing_y + ascender, 0.f);
@@ -178,15 +178,15 @@ namespace sc2d
         // setting 'l_glyphid' attribute located in 'glyph_vbo' buffer
         glGenBuffers(1, &glyph_vbo);
         glBindBuffer(GL_ARRAY_BUFFER, glyph_vbo);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(uint32_t) * instances_count, char_indices, GL_STATIC_DRAW);
-        glVertexAttribIPointer(2, 1, GL_UNSIGNED_INT, sizeof(uint32_t), (GLvoid*)nullptr);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(u32) * instances_count, char_indices.data(), GL_STATIC_DRAW);
+        glVertexAttribIPointer(2, 1, GL_UNSIGNED_INT, sizeof(u32), (GLvoid*)nullptr);
         glEnableVertexAttribArray(2);
         glVertexAttribDivisor(2, 1);
 
         // setting 'l_model' attribute, located in 'model_vbo' buffer
         glGenBuffers(1, &model_vbo);
         glBindBuffer(GL_ARRAY_BUFFER, model_vbo);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(math::mat4) * instances_count, model_matrices, GL_STATIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(math::mat4) * instances_count, model_matrices.data(), GL_STATIC_DRAW);
 
         // FIXME: copied from "sprite_sheet_inst.cpp : 67"
         size_t matrow_size = sizeof(float) * 4;

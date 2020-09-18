@@ -15,6 +15,7 @@ namespace sc2d::limits
     constexpr u32 DRAWCALL_QUADS = 1024;
     constexpr u32 DRAWCALL_VERTICES = DRAWCALL_QUADS * 4;
     constexpr u32 DRAWCALL_INDICES = DRAWCALL_QUADS * 6;
+    constexpr u32 SPRITE_INSTANCES = 2048;
 }
 
 #endif //SCARECROW2D_LIMITS_H

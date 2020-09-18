@@ -13,6 +13,7 @@
 #include "math/transform.h"
 #include "math/vector2.h"
 #include <vector>
+#include "collections/arr.h"
 
 namespace sc2d
 {
@@ -21,17 +22,8 @@ namespace sc2d
      */
     struct SpriteSheetInstData
     {
-        /**
-         * @param gids array of global map IDs
-         * @param positions array of positions
-         */
-        SpriteSheetInstData(const u32* const gids, const math::vec2* const positions)
-            : gid {gids}
-            , pos {positions}
-        { }
-
-        const u32* const gid = nullptr;
-        const math::vec2* const pos = nullptr;
+        arr<u32, limits::SPRITE_INSTANCES> gid;
+        arr<math::vec2, limits::SPRITE_INSTANCES> pos;
     };
 
     struct SpriteSheetInstanced : obj2d_instatiable

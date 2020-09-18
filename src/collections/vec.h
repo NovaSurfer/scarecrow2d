@@ -33,14 +33,14 @@ namespace sc2d
         using size_type = size_t;
         using IS_T_TRIVIAL = std::is_trivial<T>;
 
-        vec() noexcept __attribute__((always_inline));
-        explicit vec(size_type n);
-        vec(size_type size, const T& data);
+        constexpr vec() noexcept;
+        constexpr explicit vec(size_type n);
+        constexpr vec(size_type size, const T& data);
         //        vec(size_type size, const memory::allocator& alloc);
-        vec(typename vec<T>::iterator first, typename vec<T>::iterator last);
-        vec(std::initializer_list<T> ilist);
-        vec(const vec<T>& v);
-        vec(vec<T>&&) noexcept;
+        constexpr vec(typename vec<T>::iterator first, typename vec<T>::iterator last);
+        constexpr vec(std::initializer_list<T> ilist);
+        constexpr vec(const vec<T>& v);
+        constexpr vec(vec<T>&&) noexcept;
         ~vec();
 
         vec<T>& operator=(const vec<T>& v);
@@ -108,8 +108,8 @@ namespace sc2d
         bool operator>=(const vec<T>&) const;
 
     private:
-        inline void allocate();
-        inline void update_array_address()
+        void allocate();
+        forceinline void update_array_address()
         {
             array = (T*)pool_alloc->p_start;
         }
@@ -120,7 +120,7 @@ namespace sc2d
     };
 
     template <typename T>
-    void vec<T>::allocate()
+    forceinline void vec<T>::allocate()
     {
         pool_alloc = new memory::pool_allocator;
         pool_alloc->create(sizeof(T), initial_size << 1u, alignof(T));
@@ -131,20 +131,20 @@ namespace sc2d
     }
 
     template <typename T>
-    inline vec<T>::vec() noexcept
+    constexpr vec<T>::vec() noexcept
     {
         allocate();
     }
 
     template <typename T>
-    vec<T>::vec(vec::size_type size)
+    constexpr vec<T>::vec(vec::size_type size)
         : initial_size(size)
     {
         allocate();
     }
 
     template <typename T>
-    vec<T>::vec(vec::size_type size, const T& data)
+    constexpr vec<T>::vec(vec::size_type size, const T& data)
         : initial_size(size)
     {
         allocate();
@@ -153,7 +153,7 @@ namespace sc2d
     }
 
     template <typename T>
-    vec<T>::vec(typename vec<T>::iterator first, typename vec<T>::iterator last)
+    constexpr vec<T>::vec(typename vec<T>::iterator first, typename vec<T>::iterator last)
         : initial_size((last - first) >> 1u)
     {
         allocate();
@@ -162,7 +162,7 @@ namespace sc2d
     }
 
     template <typename T>
-    vec<T>::vec(std::initializer_list<T> ilist)
+    constexpr vec<T>::vec(std::initializer_list<T> ilist)
         : initial_size(ilist.size())
     {
         allocate();
@@ -171,7 +171,7 @@ namespace sc2d
     }
 
     template <typename T>
-    vec<T>::vec(const vec<T>& v)
+    constexpr vec<T>::vec(const vec<T>& v)
         : initial_size(v.capacity() >> 1u)
     {
         allocate();
@@ -180,7 +180,7 @@ namespace sc2d
     }
 
     template <typename T>
-    vec<T>::vec(vec<T>&& v) noexcept
+    constexpr vec<T>::vec(vec<T>&& v) noexcept
         : initial_size(v.capacity() >> 1u)
     {
         allocate();
@@ -468,7 +468,7 @@ namespace sc2d
     }
 
     template <typename T>
-    inline void vec<T>::push_back(const T& cref_data)
+    forceinline void vec<T>::push_back(const T& cref_data)
     {
         const memory::alloc_result res = pool_alloc->allocate();
         T& item = *(T*)res.ptr;

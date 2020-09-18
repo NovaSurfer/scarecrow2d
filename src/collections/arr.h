@@ -13,14 +13,12 @@
 
 namespace sc2d
 {
-    //Stack based Array for POD types
     template <typename T, size_t SIZE>
     class arr
     {
         using IS_T_TRIVIAL = std::is_trivial<T>;
 
     public:
-        inline arr();
         constexpr size_t size() const
         {
             return SIZE;
@@ -28,35 +26,44 @@ namespace sc2d
         T& operator[](size_t index);
         const T& operator[](size_t index) const;
         void insert_at(const T* item, size_t index, size_t size);
+        T* get();
+        const T* get() const;
+
 
     private:
         T data[SIZE];
     };
 
     template <typename T, size_t SIZE>
-    inline arr<T, SIZE>::arr()
-    {
-        DBG_CONSTEXPR_FAIL_IF(!IS_T_TRIVIAL::value, "non-POD array is not supported");
-    }
-
-    template <typename T, size_t SIZE>
-    inline T& arr<T, SIZE>::operator[](size_t index)
+    forceinline T& arr<T, SIZE>::operator[](size_t index)
     {
         return data[index];
     }
 
     template <typename T, size_t SIZE>
-    inline const T& arr<T, SIZE>::operator[](size_t index) const
+    forceinline const T& arr<T, SIZE>::operator[](size_t index) const
     {
         return data[index];
     }
 
     template <typename T, size_t SIZE>
-    inline void arr<T, SIZE>::insert_at(const T* item, size_t index, size_t size)
+    forceinline void arr<T, SIZE>::insert_at(const T* item, size_t index, size_t size)
     {
+        DBG_CONSTEXPR_FAIL_IF(!IS_T_TRIVIAL::value, "insert_at for non-POD array is not supported");
         memcpy(&data[index], item, sizeof(T) * size);
     }
 
+    template <typename T, size_t SIZE>
+    forceinline const T* arr<T, SIZE>::get() const
+    {
+        return data;
+    }
+
+    template <typename T, size_t SIZE>
+    forceinline T* arr<T, SIZE>::get()
+    {
+        return data;
+    }
 }
 
 #endif //SCARECROW2D_ARR_H

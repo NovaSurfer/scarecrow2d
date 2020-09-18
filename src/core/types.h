@@ -6,6 +6,7 @@
 #define SCARECROW2D_TYPES_H
 
 #include <cstdint>
+#include <cstddef>
 
 namespace sc2d
 {
@@ -19,6 +20,7 @@ namespace sc2d
     using u64 = uint64_t;
     using f32 = float;
     using f64 = double;
+    using size_t = std::size_t;
 }
 
 #endif //SCARECROW2D_TYPES_H

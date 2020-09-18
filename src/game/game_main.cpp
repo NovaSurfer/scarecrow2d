@@ -42,8 +42,8 @@ void Game::init(GameMode start_mode, const sc2d::WindowSize& window_size)
     const sc2d::Shader& font_shader = sc2d::ResourceHolder::get_shader("text_ft2");
     font_shader.run();
     font_shader.set_mat4("projection", camera.get_proj());
-    sc2d::Ft2Font fnt_04b_03;
-    fnt_04b_03.init("data/fonts/04B_03__.TTF", 48, sc2d::ASCII_TABLE_SIZE);
+    sc2d::Ft2Font128 fnt_04b_03;
+    fnt_04b_03.init("data/fonts/04B_03__.TTF", 48);
     text_ft2.init(font_shader, fnt_04b_03);
     text_ft2.set_text("hello. I'm Max.");
     text_ft2.set_pos({100.f, 100.f}, 0);

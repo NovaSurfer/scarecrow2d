@@ -6,6 +6,7 @@
 #include "../../../../deps/base64/base64.h"
 #include "../../../../deps/miniz/miniz.h"
 #include "core/log2.h"
+#include "collections/arr.h"
 
 namespace sc2d::tiled
 {
@@ -33,9 +34,8 @@ namespace sc2d::tiled
             log_err_cmd("ERROR!");
             free(out);
         } else {
-            map_gids.reserve(tiled_data.width * tiled_data.height);
-            u32 data_gids[tiled_data.content_count];
-            math::vec2 data_pos[tiled_data.content_count];
+            map_gids.resize(tiled_data.width * tiled_data.height);
+            SpriteSheetInstData sids;
             u32 sid_idx = 0;
 
             for(int x = 0; x < tiled_data.width; ++x) {
@@ -57,17 +57,15 @@ namespace sc2d::tiled
                     if(tileset_index != -1) {
                         map_gids[y * tiled_data.width + x] = gid;
                         if(gid > 0) {
-                            data_pos[sid_idx].x = x * tiled_data.tile_width;
-                            data_pos[sid_idx].y = y * tiled_data.tile_height;
-                            data_gids[sid_idx] = gid - 1;
+                            sids.pos[sid_idx].x = x * tiled_data.tile_width;
+                            sids.pos[sid_idx].y = y * tiled_data.tile_height;
+                            sids.gid[sid_idx] = gid - 1;
                             ++sid_idx;
                         }
                         log_info_cmd("GID: %d", gid);
                     }
                 }
             }
-
-            SpriteSheetInstData sids(data_gids, data_pos);
 //            log_gl_error_cmd();
             sprite_sheet.init(shader, math::vec2(tiled_data.tile_width, tiled_data.tile_height),
                               tiled_data.content_count, projection, sids);

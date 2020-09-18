@@ -18,8 +18,8 @@ namespace sc2d
 
     constexpr float DEFAULT_Z_NEAR = -1.0f;
     constexpr float DEFAULT_Z_FAR = 1.0f;
-    constexpr int VERTICES_PER_QUAD = 4;
-    constexpr int QUAD_INDICES[] {
+    constexpr u32 VERTICES_PER_QUAD = 4;
+    constexpr u32 QUAD_INDICES[] {
         0, 1, 3, // First triangle
         1, 2, 3 // Second triangle
     };

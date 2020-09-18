@@ -24,9 +24,15 @@
  */
 
 #include "stacktrace.h"
-#include <cxxabi.h> // for __cxa_demangle
-#include <dlfcn.h> // for dladdr
-#include <execinfo.h> // for backtrace
+#include "core/compiler.h"
+
+#if defined(COMPILER_CLANG) || defined(COMPILER_GCC)
+#    include <cxxabi.h> // for __cxa_demangle
+#    include <dlfcn.h> // for dladdr
+#    include <execinfo.h> // for backtrace
+#elif defined(COMPILER_MVC)
+//#include <DbgHelp.h>
+#endif
 
 #include <cstdio>
 #include <cstdlib>
@@ -36,6 +42,7 @@
 // This function produces a stack backtrace with demangled function & method names.
 const char* Backtrace(int skip = 1)
 {
+#if defined(COMPILER_CLANG) || defined(COMPILER_GCC)
     void* callstack[128];
     const int nMaxFrames = sizeof(callstack) / sizeof(callstack[0]);
     char buf[1024];
@@ -54,7 +61,9 @@ const char* Backtrace(int skip = 1)
                 demangled = abi::__cxa_demangle(info.dli_sname, nullptr, nullptr, &status);
             snprintf(buf, sizeof(buf), "%-3d %*p %s + %zd\n", i, int(2 + sizeof(void*) * 2),
                      callstack[i],
-                     status == 0 ? demangled : info.dli_sname == nullptr ? symbols[i] : info.dli_sname,
+                     status == 0                 ? demangled
+                     : info.dli_sname == nullptr ? symbols[i]
+                                                 : info.dli_sname,
                      (char*)callstack[i] - (char*)info.dli_saddr);
             free(demangled);
         } else {
@@ -67,4 +76,7 @@ const char* Backtrace(int skip = 1)
     free(symbols);
 
     return trace_buf.str().c_str();
+#elif defined(COMPILER_MVC)
+    return nullptr;
+#endif
 }

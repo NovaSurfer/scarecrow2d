@@ -8,62 +8,63 @@
 #include "core/compiler.h"
 #include <glad/glad.h>
 
-struct texgen
+namespace sc2d
 {
-    template<typename T>
-    static void generate(T* texdata);
-};
 
-class default_tex2d
-{
-    friend texgen;
-
-public:
-    default_tex2d() = default;
-    default_tex2d(const GLuint width, const GLuint height, const GLuint internal_format,
-                  const GLuint image_format, const GLuint wrap_s, const GLuint wrap_t,
-                  const GLuint filter_min, const GLuint filter_max, unsigned char* img_data);
-
-    forceinline const GLuint& get_obj_id() const
+    struct texgen
     {
-        return obj_id;
-    }
+        template <typename T>
+        static void generate(T* texdata);
+    };
 
-    forceinline operator GLuint() const
+    class default_tex2d
     {
-        return obj_id;
-    }
+        friend texgen;
 
-protected:
-    GLuint obj_id;
-    GLuint width;
-    GLuint height;
-    GLuint internal_format;
-    GLuint image_format;
-    GLuint wrap_s;
-    GLuint wrap_t;
-    GLuint filter_min;
-    GLuint filter_max;
-    unsigned char* data;
-};
+    public:
+        default_tex2d() = default;
+        default_tex2d(const GLuint width, const GLuint height, const GLuint internal_format,
+                      const GLuint image_format, const GLuint wrap_s, const GLuint wrap_t,
+                      const GLuint filter_min, const GLuint filter_max, unsigned char* img_data);
 
-class default_tex2darr : public default_tex2d
-{
-    friend texgen;
+        forceinline const GLuint& get_obj_id() const
+        {
+            return obj_id;
+        }
 
-public:
-    using default_tex2d::default_tex2d;
-    default_tex2darr(const GLuint width, const GLuint height, const GLuint internal_format,
-                     const GLuint image_format, const GLuint wrap_s, const GLuint wrap_t,
-                     const GLuint filter_min, const GLuint filter_max, unsigned char* img_data,
-                     GLuint rows, GLuint columns);
+        forceinline operator GLuint() const
+        {
+            return obj_id;
+        }
 
-protected:
-    GLuint rows;
-    GLuint columns;
-};
+    protected:
+        GLuint obj_id;
+        GLuint width;
+        GLuint height;
+        GLuint internal_format;
+        GLuint image_format;
+        GLuint wrap_s;
+        GLuint wrap_t;
+        GLuint filter_min;
+        GLuint filter_max;
+        unsigned char* data;
+    };
 
+    class default_tex2darr : public default_tex2d
+    {
+        friend texgen;
 
+    public:
+        using default_tex2d::default_tex2d;
+        default_tex2darr(const GLuint width, const GLuint height, const GLuint internal_format,
+                         const GLuint image_format, const GLuint wrap_s, const GLuint wrap_t,
+                         const GLuint filter_min, const GLuint filter_max, unsigned char* img_data,
+                         GLuint rows, GLuint columns);
 
+    protected:
+        GLuint rows;
+        GLuint columns;
+    };
+}
 
 #endif //SCARECROW2D_TEXTUREOBJECT_H
