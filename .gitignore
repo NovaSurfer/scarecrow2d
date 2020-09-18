@@ -54,3 +54,6 @@ data/sprites/private
 .DS_Store
 
 .clangd/
+
+# Python
+venv/
