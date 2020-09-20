@@ -14,26 +14,20 @@ namespace sc2d
 
     class RenderQueue
     {
-        struct rendq_item
-        {
-            rend_data2d* renddata;
-            size_t instances_count;
-        };
 
         struct rendqitem_compare
         {
             // Priority: layer > shader_id > tex_id
-            bool operator()(const rendq_item& first, const rendq_item& second)
+            bool operator()(const rend_data2d* first, const rend_data2d* second)
             {
-                const auto f_ls = first.renddata->layer + first.renddata->shader;
-                const auto s_ls = second.renddata->layer + second.renddata->shader;
+                const auto f_ls = first->layer + first->shader;
+                const auto s_ls = second->layer + second->shader;
 
-                if(first.renddata->layer > second.renddata->layer) {
+                if(first->layer > second->layer) {
                     return true;
-                } else if(first.renddata->shader > second.renddata->shader &&
-                          first.renddata->layer >= second.renddata->layer) {
+                } else if(first->shader > second->shader && first->layer >= second->layer) {
                     return true;
-                } else if(first.renddata->texid > second.renddata->texid && f_ls >= s_ls) {
+                } else if(first->texid > second->texid && f_ls >= s_ls) {
                     return true;
                 }
                 return false;
@@ -44,20 +38,9 @@ namespace sc2d
         void draw();
         void pop();
 
-        template <typename T>
-        void push(T& item)
+        void push(const rend_data2d& item)
         {
-            rendq_item rendqitem;
-
-            if constexpr(std::is_base_of_v<obj2d, T>) {
-                rendqitem.renddata = static_cast<rend_data2d*>(&item);
-                rendqitem.instances_count = 0;
-            } else if constexpr(std::is_base_of_v<obj2d_instatiable, T>) {
-                rendqitem.renddata = static_cast<rend_data2d*>(&item);
-                rendqitem.instances_count = item.instances_count;
-            }
-
-            rendq.emplace_back(rendqitem);
+            rendq.emplace_back(&item);
             if(rendq.size() > 1) {
                 sort();
             }
@@ -65,7 +48,7 @@ namespace sc2d
 
     private:
         void sort();
-        std::vector<rendq_item> rendq;
+        std::vector<const rend_data2d*> rendq;
     };
 }
 #endif //SCARECROW2D_RENDERQUEUE_H

@@ -26,9 +26,8 @@ namespace sc2d
         arr<math::vec2, limits::SPRITE_INSTANCES> pos;
     };
 
-    struct SpriteSheetInstanced : obj2d_instatiable
+    struct SpriteSheetInstanced : obj2d
     {
-        SpriteSheetInstanced() = default;
         /**
          * Initialize data
          * @param spr_shader shader

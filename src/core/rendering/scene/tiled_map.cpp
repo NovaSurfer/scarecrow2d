@@ -78,7 +78,7 @@ namespace sc2d::tiled
 
     void Map::set_sheet_texture(GLuint texid)
     {
-        sprite_sheet.set_texture(texid);
+        sprite_sheet.set_texture_array(texid);
     }
 
     void Map::draw_map() const

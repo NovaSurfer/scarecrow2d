@@ -7,48 +7,45 @@
 
 namespace sc2d
 {
-    template <typename T>
-    void default_renderable_2d<T>::set_texture(GLuint texid)
+    void renderable_2d::set_texture(GLuint texid)
     {
         this->texid = texid;
         shader.run();
-        if constexpr(std::is_same<T, obj2d>::value) {
-            shader.set_int(shader_const::IMG, texid);
-        } else {
-            shader.set_int(shader_const::IMG_ARRAY, texid);
-        }
+        shader.set_int(shader_const::IMG, texid);
     }
 
-    template <typename T>
-    void default_renderable_2d<T>::set_color(const colorRGB& color)
+    void renderable_2d::set_texture_array(const GLuint texid)
+    {
+        this->texid = texid;
+        shader.run();
+        shader.set_int(shader_const::IMG_ARRAY, texid);
+    }
+
+    void renderable_2d::set_color(const colorRGB& color)
     {
         shader.run();
         shader.set_vec3(shader_const::IMG_COLOR, color);
     }
 
-    template <typename T>
-    void default_transformable_2d<T>::set_pos(const math::vec2& pos)
+    void transformable_2d::set_pos(const math::vec2& pos)
     {
         this->pos = pos;
         update_transform();
     }
 
-    template <typename T>
-    void default_transformable_2d<T>::set_size(const math::vec2& size)
+    void transformable_2d::set_size(const math::vec2& size)
     {
         this->size = size;
         update_transform();
     }
 
-    template <typename T>
-    void default_transformable_2d<T>::set_rot(const float rot)
+    void transformable_2d::set_rot(const float rot)
     {
         this->rot = rot;
         update_transform();
     }
 
-    template <typename T>
-    void default_transformable_2d<T>::set_transfdata(const math::vec2& pos, const math::vec2& size,
+    void transformable_2d::set_transfdata(const math::vec2& pos, const math::vec2& size,
                                                      const float rot, const math::mat4& projection)
     {
         this->pos = pos;
@@ -58,24 +55,21 @@ namespace sc2d
         update_transform();
     }
 
-    template <typename T>
-    void default_transformable_2d<T>::set_transform(const math::mat4& transform)
+    void transformable_2d::set_transform(const math::mat4& transform)
     {
         this->transform = transform;
         this->shader.run();
         this->shader.set_mat4(shader_const::MVP, transform * projection);
     }
 
-    template <typename T>
-    void default_transformable_2d<T>::set_projection(const math::mat4& projection)
+    void transformable_2d::set_projection(const math::mat4& projection)
     {
         this->projection = projection;
         this->shader.run();
         this->shader.set_mat4(shader_const::MVP, transform * projection);
     }
 
-    template <typename T>
-    void default_transformable_2d<T>::update_transform()
+    void transformable_2d::update_transform()
     {
         transform =
             math::transform(math::vec3(size.x, size.y, 1.0f), math::vec3(0.0f, 0.0f, 1.0f), rot,
@@ -84,10 +78,4 @@ namespace sc2d
         this->shader.run();
         this->shader.set_mat4(shader_const::MVP, transform * projection);
     }
-
-    template class default_renderable_2d<obj2d>;
-    template class default_renderable_2d<obj2d_instatiable>;
-//    template class default_renderable_2d<text2d>;
-    template class default_transformable_2d<obj2d>;
-    template class default_transformable_2d<obj2d_instatiable>;
 }

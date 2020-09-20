@@ -17,17 +17,17 @@ namespace sc2d
         GLuint texid;
         GLuint quad_vao;
         u32 layer;
+        u32 instances_count;
     };
 
-    template <typename T>
-    struct default_renderable_2d : rend_data2d
+    struct renderable_2d : rend_data2d
     {
-        void set_texture(const GLuint texid);
         void set_color(const colorRGB& color);
+        void set_texture(const GLuint texid);
+        void set_texture_array(const GLuint texid);
     };
 
-    template <typename T>
-    struct default_transformable_2d : default_renderable_2d<T>
+    struct transformable_2d : renderable_2d
     {
         void set_pos(const math::vec2& pos);
         void set_size(const math::vec2& size);
@@ -44,13 +44,8 @@ namespace sc2d
         math::mat4 projection;
     };
 
-    struct obj2d : default_transformable_2d<obj2d>
+    struct obj2d : transformable_2d
     { };
-
-    struct obj2d_instatiable : default_transformable_2d<obj2d_instatiable>
-    {
-        size_t instances_count;
-    };
 
 }
 

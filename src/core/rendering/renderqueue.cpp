@@ -20,17 +20,17 @@ namespace sc2d
     // TODO: check for the same shader & texture ids
     void sc2d::RenderQueue::draw()
     {
-        for(const rendq_item& i : rendq) {
-            i.renddata->shader.run();
-            glActiveTexture(GL_TEXTURE0 + i.renddata->texid);
-            glBindVertexArray(i.renddata->quad_vao);
-            if(i.instances_count == 0) {
-                glBindTexture(GL_TEXTURE_2D, i.renddata->texid);
+        for(const rend_data2d* i : rendq) {
+            i->shader.run();
+            glActiveTexture(GL_TEXTURE0 + i->texid);
+            glBindVertexArray(i->quad_vao);
+            if(i->instances_count == 0) {
+                glBindTexture(GL_TEXTURE_2D, i->texid);
                 glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
             } else {
-                glBindTexture(GL_TEXTURE_2D_ARRAY, i.renddata->texid);
+                glBindTexture(GL_TEXTURE_2D_ARRAY, i->texid);
                 glDrawElementsInstanced(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr,
-                                        i.instances_count);
+                                        i->instances_count);
             }
         }
     }

@@ -60,7 +60,7 @@ namespace sc2d
     /*
      *
      */
-    class TextFt2 : public obj2d_instatiable
+    class TextFt2 : public obj2d
     {
     public:
         void init(const Shader& txt_shader, const Ft2Font128& font);
