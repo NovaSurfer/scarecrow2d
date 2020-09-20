@@ -20,7 +20,7 @@ enum class GameMode
 
 namespace sc2d
 {
-    class WindowSize;
+    struct WindowSize;
 }
 
 struct Game

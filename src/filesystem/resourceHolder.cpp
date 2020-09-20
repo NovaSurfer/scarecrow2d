@@ -102,8 +102,8 @@ namespace sc2d
     {
         return tilemaps[map_name];
     }
-    void ResourceHolder::load_texture_atlas(const std::string& img_file, const uint rows,
-                                            const uint columns, bool alpha, const std::string& name)
+    void ResourceHolder::load_texture_atlas(const std::string& img_file, const u32 rows,
+                                            const u32 columns, bool alpha, const std::string& name)
     {
         int width, height, nr_channels;
         GLuint internal_format;

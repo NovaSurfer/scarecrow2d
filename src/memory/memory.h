@@ -18,7 +18,7 @@ namespace sc2d
 #    include <malloc.h>
 #    define malloc_aligned(bytes, alignment) _aligned_malloc(bytes, alignment)
 #    define free_aligned(ptr) _aligned_free(ptr)
-#    define realloc_aligned(ptr, bytes, alignment) _aligned_realloc(ptr, byte, alignment)
+#    define realloc_aligned(ptr, bytes, alignment) _aligned_realloc(ptr, bytes, alignment)
 #endif
 }
 

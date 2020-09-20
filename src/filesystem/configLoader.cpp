@@ -51,8 +51,8 @@ namespace sc2d
             if(!s_atlas)
                 ResourceHolder::load_texture(s_path, s_alpha, s_name);
             else {
-                const uint rows = sprite["rows"].get<uint>();
-                const uint columns = sprite["columns"].get<uint>();
+                const u32 rows = sprite["rows"].get<u32>();
+                const u32 columns = sprite["columns"].get<u32>();
                 ResourceHolder::load_texture_atlas(s_path, rows, columns, s_alpha, s_name);
             }
         }

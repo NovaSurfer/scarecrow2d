@@ -14,6 +14,7 @@
 #include "core/rendering/shader.h"
 #include "core/rendering/texture.h"
 #include "core/rendering/texture_atlas.h"
+#include "core/types.h"
 
 namespace sc2d
 {
@@ -36,8 +37,8 @@ namespace sc2d
         static void load_tiled_map(const std::string& name, const tiled::Data& tiled_data);
         static const tiled::Map& get_tiled_map(const std::string& map_name);
         static const TextureAtlas& get_texture_atlas(const std::string& name);
-        static void load_texture_atlas(const std::string& img_file, const uint rows,
-                                       const uint columns, bool alpha, const std::string& name);
+        static void load_texture_atlas(const std::string& img_file, const u32 rows,
+                                       const u32 columns, bool alpha, const std::string& name);
 
         static void clean();
 
