@@ -28,7 +28,7 @@ namespace sc2d
         using iterator = T*;
         using const_iterator = const T*;
         using reverse_iterator = std::reverse_iterator<iterator>;
-        using const_reverse_iterator = const std::reverse_iterator<iterator>;
+        using const_reverse_iterator = std::reverse_iterator<const_iterator>;
         using difference_type = ptrdiff_t;
         using size_type = size_t;
         using IS_T_TRIVIAL = std::is_trivial<T>;
@@ -312,13 +312,13 @@ namespace sc2d
     template <typename T>
     typename vec<T>::const_reverse_iterator vec<T>::crbegin() const noexcept
     {
-        return reverse_iterator(array + pool_alloc->num_of_initialized);
+        return const_reverse_iterator(array + pool_alloc->num_of_initialized);
     }
 
     template <typename T>
     typename vec<T>::const_reverse_iterator vec<T>::crend() const noexcept
     {
-        return reverse_iterator(array);
+        return const_reverse_iterator(array);
     }
 
     template <typename T>
