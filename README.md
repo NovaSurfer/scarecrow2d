@@ -1,7 +1,7 @@
 <img src="https://svgshare.com/i/Ayv.svg" width="100" height="100" alt="image description"></image>  
 # Scarecrow2D  
 
-![Linux - GCC](https://github.com/NovaSurfer/scarecrow2d/workflows/Linux%20-%20GCC/badge.svg)  ![Windows - MSVC](https://github.com/NovaSurfer/scarecrow2d/workflows/Windows%20-%20MSVC/badge.svg)
+![Linux - GCC](https://github.com/NovaSurfer/scarecrow2d/workflows/Linux%20-%20GCC/badge.svg)  ![Windows - MSVC](https://github.com/NovaSurfer/scarecrow2d/workflows/Windows%20-%20MSVC/badge.svg)  
 2D game / sandbox project made using C++ and OpenGL
 
 # Compiling
