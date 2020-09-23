@@ -11,35 +11,35 @@
 namespace sc2d::cshaders
 {
 
-    constexpr const char* VS_SPRITESHEET =
+    constexpr const char* VS_SPRITESHEET = ""
 #include "shaders/spritesheet.vert"
         ;
 
-    constexpr const char* FS_SPRITESHEET =
+    constexpr const char* FS_SPRITESHEET = ""
 #include "shaders/spritesheet.frag"
         ;
 
-    constexpr const char* VS_SPRITE_DEFAULT =
+    constexpr const char* VS_SPRITE_DEFAULT = ""
 #include "shaders/sprite_default.vert"
         ;
 
-    constexpr const char* FS_SPRITE_DEFAULT =
+    constexpr const char* FS_SPRITE_DEFAULT = ""
 #include "shaders/sprite_default.frag"
         ;
 
-    constexpr const char* VS_TEXT_FT2 =
+    constexpr const char* VS_TEXT_FT2 = ""
 #include "shaders/text_ft2.vert"
         ;
 
-    constexpr const char* FS_TEXT_FT2 =
+    constexpr const char* FS_TEXT_FT2 = ""
 #include "shaders/text_ft2.frag"
         ;
 
-    constexpr const char* VS_SPRITE_BATCHED =
+    constexpr const char* VS_SPRITE_BATCHED = ""
 #include "shaders/sprite_batched.vert"
         ;
 
-    constexpr const char* FS_SPRITE_BATCHED =
+    constexpr const char* FS_SPRITE_BATCHED = ""
 #include "shaders/sprite_batched.frag"
         ;
 
