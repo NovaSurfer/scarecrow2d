@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 3.8 FATAL_ERROR)
 project(scarecrow2d)
 
+option(SC2D_BUILD_DOCS "Enables documentation build" OFF)
+option(SC2D_BUILD_TESTS "Enables tests build" OFF)
+option(SC2D_BUILD_BENCH "Enables benchmark build" OFF)
+
 set(CMAKE_CXX_STANDARD 17)
 
 # Set output directories
@@ -81,23 +85,19 @@ set(GLAD_API "gl=3.3")
 set(GLAD_EXTENSIONS "GL_ARB_instanced_arrays, GL_ARB_bindless_texture, GL_ARB_buffer_storage")
 set(GLAD_SPEC "gl")
 add_subdirectory("${GLAD_DIR}")
-target_include_directories("glad" PRIVATE "${GLAD_DIR}/include")
-target_include_directories(${PROJECT_NAME} PRIVATE "${GLAD_DIR}/include")
-target_link_libraries(${PROJECT_NAME} "glad" "${CMAKE_DL_LIBS}")
+target_include_directories(glad PRIVATE "${GLAD_DIR}/include")
+target_link_libraries(${PROJECT_NAME} glad "${CMAKE_DL_LIBS}")
 target_compile_definitions(glad PUBLIC GLAD_GLAPI_EXPORT PRIVATE GLAD_GLAPI_EXPORT_BUILD)
 
 # FREETYPE
-if(MSVC)
-	set(FREETYPE_DIR "${LIB_DIR}/freetype2")
-	set(FREETYPE_INCLUDE_DIRS "${FREETYPE_DIR}/include")
-	set(FREETYPE_LIBRARIES "${FREETYPE_DIR}/objs/freetype.lib")
-else()
-	set(FREETYPE_DIR "${LIB_DIR}/freetype2")
-	set(FREETYPE_INCLUDE_DIRS "${FREETYPE_DIR}")
+set(FREETYPE_DIR "${LIB_DIR}/freetype2")
+set(FREETYPE_INCLUDE_DIRS "${FREETYPE_DIR}/include")
+if(!MSVC)
 	find_package(Freetype REQUIRED)
 endif()
-target_link_libraries(${PROJECT_NAME} ${FREETYPE_LIBRARIES})
-target_include_directories(${PROJECT_NAME} PRIVATE ${FREETYPE_INCLUDE_DIRS})
+add_subdirectory("${FREETYPE_DIR}")
+target_include_directories(freetype PRIVATE ${FREETYPE_INCLUDE_DIRS})
+target_link_libraries(${PROJECT_NAME} freetype ${CMAKE_DL_LIBS})
 
 install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION "/")
 
@@ -118,10 +118,13 @@ add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD
 		${CMAKE_BINARY_DIR}/data/)
 
 
-#Docs
-add_subdirectory ("docs")
-
-#Tests & benchmarks
-include(CTest)
-add_subdirectory(tests)
-add_subdirectory(benchmarks)
+# docs, tests, benches,
+if(SC2D_BUILD_DOCS)
+	add_subdirectory (docs)
+endif()
+if(SC2D_BUILD_TESTS)
+	add_subdirectory(tests)
+endif()
+if(SC2D_BUILD_BENCH)
+	add_subdirectory(benchmarks)
+endif()
