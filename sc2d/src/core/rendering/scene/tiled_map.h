@@ -10,7 +10,6 @@
 #include "core/rendering/texture_atlas.h"
 #include "core/types.h"
 #include <string>
-#include "collections/vec.h"
 
 namespace sc2d::tiled
 {
@@ -109,7 +108,7 @@ namespace sc2d::tiled
     private:
         Data tiled_data;
         Shader shader;
-        vec<u32> map_gids;
+        std::vector<u32> map_gids;
         SpriteSheetInstanced sprite_sheet;
     };
 }

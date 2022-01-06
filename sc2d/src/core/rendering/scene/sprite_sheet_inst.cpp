@@ -4,7 +4,6 @@
 
 #include "sprite_sheet_inst.h"
 #include "core/rendering/texture_atlas.h"
-#include "collections/arr.h"
 
 namespace sc2d
 {

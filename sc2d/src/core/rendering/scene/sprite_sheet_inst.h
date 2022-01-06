@@ -13,7 +13,7 @@
 #include "math/transform.h"
 #include "math/vector2.h"
 #include <vector>
-#include "collections/arr.h"
+#include "core/arr.h"
 
 namespace sc2d
 {

@@ -7,7 +7,7 @@
 #include "core/log2.h"
 #include "math/utils.h"
 #include <math/transform.h>
-#include "collections/vec.h"
+#include <vector>
 
 namespace sc2d
 {
@@ -143,9 +143,9 @@ namespace sc2d
             return;
         }
 
-        vec<u32> char_indices(instances_count);
-        vec<math::mat4> model_matrices(instances_count);
-        vec<math::vec3> poss(instances_count);
+        std::vector<u32> char_indices(instances_count);
+        std::vector<math::mat4> model_matrices(instances_count);
+        std::vector<math::vec3> poss(instances_count);
         GLuint glyph_vbo;
         GLuint model_vbo;
         size_t i = 1;
