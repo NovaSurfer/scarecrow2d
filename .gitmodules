@@ -1,0 +1,3 @@
+[submodule "sc2d/src/base"]
+	path = sc2d/src/base
+	url = git@github.com:NovaSurfer/scarecrow_base.git
