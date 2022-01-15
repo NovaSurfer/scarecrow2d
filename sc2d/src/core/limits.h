@@ -5,7 +5,7 @@
 #ifndef SCARECROW2D_LIMITS_H
 #define SCARECROW2D_LIMITS_H
 
-#include "types.h"
+#include "base/types.h"
 #include <cstddef>
 
 namespace sc2d::limits

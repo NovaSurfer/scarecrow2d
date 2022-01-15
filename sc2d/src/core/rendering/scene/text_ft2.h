@@ -7,7 +7,7 @@
 
 #include <ft2build.h>
 #include FT_FREETYPE_H
-#include "core/types.h"
+#include "base/types.h"
 #include "core/rendering/renderable.h"
 #include "core/rendering/rendering_types.h"
 #include "core/rendering/shader.h"

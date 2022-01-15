@@ -8,7 +8,7 @@
 #include "core/rendering/scene/sprite_sheet_inst.h"
 #include "core/rendering/shader.h"
 #include "core/rendering/texture_atlas.h"
-#include "core/types.h"
+#include "base/types.h"
 #include <string>
 
 namespace sc2d::tiled

@@ -3,7 +3,7 @@
 //
 
 #include "textureobject.h"
-#include "core/types.h"
+#include "base/types.h"
 #include <type_traits>
 
 namespace sc2d

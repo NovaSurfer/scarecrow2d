@@ -5,7 +5,7 @@
 #ifndef SCARECROW2D_CAMERA_H
 #define SCARECROW2D_CAMERA_H
 
-#include "core/types.h"
+#include "base/types.h"
 #include "math/matrix4.h"
 
 namespace sc2d

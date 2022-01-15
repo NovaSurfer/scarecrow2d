@@ -4,6 +4,7 @@
 
 #include "sprite_sheet_inst.h"
 #include "core/rendering/texture_atlas.h"
+#include "core/dbg/dbg_asserts.h"
 
 namespace sc2d
 {
@@ -52,7 +53,7 @@ namespace sc2d
 
         // instance 'model' attribute, located in 'model_vbo' buffer
         DBG_FAIL_IF(spr_count > limits::SPRITE_INSTANCES, "sprite sheet contains to many sprites")
-        arr<math::mat4, limits::SPRITE_INSTANCES> model_matrices;
+        sc::arr<math::mat4, limits::SPRITE_INSTANCES> model_matrices;
         for(size_t i = 0; i < spr_count; ++i) {
             model_matrices[i] = math::transform(
                 math::vec3(size.x, size.y, 1.0f), math::vec3(0.0f, 0.0f, 1.0f), 0,

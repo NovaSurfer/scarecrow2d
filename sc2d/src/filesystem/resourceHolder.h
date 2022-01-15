@@ -14,7 +14,7 @@
 #include "core/rendering/shader.h"
 #include "core/rendering/texture.h"
 #include "core/rendering/texture_atlas.h"
-#include "core/types.h"
+#include "base/types.h"
 
 namespace sc2d
 {

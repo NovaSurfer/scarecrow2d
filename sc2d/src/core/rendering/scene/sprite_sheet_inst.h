@@ -9,11 +9,11 @@
 #include "core/rendering/renderable.h"
 #include "core/rendering/rendering_types.h"
 #include "core/rendering/shader.h"
-#include "core/types.h"
+#include "base/types.h"
 #include "math/transform.h"
 #include "math/vector2.h"
 #include <vector>
-#include "core/arr.h"
+#include "base/arr.h"
 
 namespace sc2d
 {
@@ -22,8 +22,8 @@ namespace sc2d
      */
     struct SpriteSheetInstData
     {
-        arr<u32, limits::SPRITE_INSTANCES> gid;
-        arr<math::vec2, limits::SPRITE_INSTANCES> pos;
+        sc::arr<u32, limits::SPRITE_INSTANCES> gid;
+        sc::arr<math::vec2, limits::SPRITE_INSTANCES> pos;
     };
 
     struct SpriteSheetInstanced : obj2d
