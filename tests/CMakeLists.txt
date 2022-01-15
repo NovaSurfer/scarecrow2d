@@ -1,3 +1,7 @@
+cmake_minimum_required(VERSION 3.19 FATAL_ERROR)
+
+project(sc2d_test)
+
 set(TEST_SOURCES
         unit.cpp
         doctest/doctest.h
@@ -7,9 +11,9 @@ set(TEST_SOURCES
         ../sc2d/src/core/compiler.h
         test_data_types.h
         math_tests.cpp
-        test_data_types.h)
+        )
 
 add_executable(sc2d_test ${TEST_SOURCES})
-target_include_directories(sc2d_test PUBLIC ${CMAKE_SOURCE_DIR}/src)
+target_include_directories(sc2d_test PUBLIC ../sc2d/src/)
 
 #ParseAndAddCatchTests(game_test)

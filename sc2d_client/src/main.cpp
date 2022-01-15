@@ -66,7 +66,6 @@ int main()
         begin_ticks = end_ticks;
     }
     //game->read_input();
-    game->draw();
     game->destroy();
     delete game;
     return 0;
