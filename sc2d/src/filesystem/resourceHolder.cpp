@@ -92,6 +92,7 @@ namespace sc2d
         //        return {};
     }
 
+
     void ResourceHolder::load_tiled_map(const std::string& name, const tiled::Data& tiled_data)
     {
         tiled::Map tiled_map {tiled_data};
@@ -127,5 +128,13 @@ namespace sc2d
     const TextureAtlas& ResourceHolder::get_texture_atlas(const std::string& name)
     {
         return texture_atlases[name];
+    }
+
+    void ResourceHolder::update_shaders_proj(const math::mat4& proj)
+    {
+        for(const auto& [name, shader] : shaders)
+        {
+            shader.set_mat4(shader_const::PROJ, proj);
+        }
     }
 }
