@@ -4,22 +4,23 @@
 
 #include "game_main.h"
 #include "core/camera.h"
-#include "core/glfw_base/window.h"
+//#include "core/glfw_base/window.h"
 #include "core/input_types.h"
 #include "core/log2.h"
 #include "core/rendering/renderqueue.h"
 #include "core/rendering/texture.h"
 #include "filesystem/resourceHolder.h"
-#include "menu.h"
+//#include "menu.h"
+#include <base/heap_alloc.h>
 #include <core/dbg/dbg_asserts.h>
 
-GameMode Game::mode;
-
-void Game::init(GameMode start_mode, const sc2d::WindowSize& window_size)
+void Game::init(const sc2d::Window& window, const sc2d::WindowSize& window_size)
 {
-    mode = start_mode;
-
     ///------------- INIT TEST SCENE / LEVEL
+    sc::heap_alloc halloc;
+    input = reinterpret_cast<sc2d::Input*>(halloc.allocate(sizeof(sc2d::Input), 8));
+    new (input)sc2d::Input(window);
+
     sc2d::Camera camera;
     camera.make_orthographic(window_size.width, window_size.height, sc2d::DEFAULT_Z_NEAR,
                              sc2d::DEFAULT_Z_FAR);
@@ -52,7 +53,6 @@ void Game::init(GameMode start_mode, const sc2d::WindowSize& window_size)
     const sc2d::Shader& batched_shader = sc2d::ResourceHolder::get_shader("sprite_batched");
     sprite_batch.init(batched_shader, camera.get_proj());
 
-
     render_queue.push(sprite);
     render_queue.push(text_ft2);
 
@@ -61,30 +61,30 @@ void Game::init(GameMode start_mode, const sc2d::WindowSize& window_size)
 
 void Game::draw()
 {
-    if(mode == GameMode::MENU) {
-        menu.draw();
-    } else {
-        tiled_map.draw_map();
-        render_queue.draw();
-//        sprite.draw();
-//        text_ft2.draw();
 
-        sprite_batch.draw({5,5}, {100, 10}, {1.0, .0f, .0f, 1.0f});
-        sprite_batch.draw({100,100}, {100, 100}, {1.0, .0f, 1.0f, 1.0f});
-        sprite_batch.draw({50,65}, {10, 10}, {1.0, 1.0f, .0f, 1.0f});
-        sprite_batch.draw({500,256}, {50, 50}, {0.0, 0.0f, .0f, 1.0f});
-        sprite_batch.flush();
-        //    spritesheet->draw(sc2d::ResourceHolder::get_texture_atlas("tilemap"), math::vec2(0, 0),
-        //                     math::size2d(16, 16), 0);
-    }
+    tiled_map.draw_map();
+    render_queue.draw();
+    //        sprite.draw();
+    //        text_ft2.draw();
+
+    sprite_batch.draw({5, 5}, {100, 10}, {1.0, .0f, .0f, 1.0f});
+    sprite_batch.draw({100, 100}, {100, 100}, {1.0, .0f, 1.0f, 1.0f});
+    sprite_batch.draw({50, 65}, {10, 10}, {1.0, 1.0f, .0f, 1.0f});
+    sprite_batch.draw({500, 256}, {50, 50}, {0.0, 0.0f, .0f, 1.0f});
+    sprite_batch.flush();
+    //    spritesheet->draw(sc2d::ResourceHolder::get_texture_atlas("tilemap"), math::vec2(0, 0),
+    //                     math::size2d(16, 16), 0);
 }
+
 void Game::destroy()
 {
-//    text_ft2.destroy();
+    //    text_ft2.destroy();
+    // TODO: delete input
 }
-void Game::read_input(int key, int action)
+
+void Game::update(double dt)
 {
-    if(key == Key::ESCAPE && action == KeyAction::PRESS) {
-        menu.toggle();
+    if(input->get_key_down(Key::ESCAPE)) {
+        log_info_cmd("ESCAPE PRESSED");
     }
 }

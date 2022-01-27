@@ -34,8 +34,7 @@ int main()
     opengl_render.create(&window_data.size);
     sc2d::Resources::load_all();
     Game* game = new Game();
-    GameMode game_mode = GameMode::SCENE;
-    game->init(game_mode, window_data.size);
+    game->init(*window, window_data.size);
 
     // TODO:
     //glfwSetWindowUserPointer(window->get_window(), &game);
@@ -49,6 +48,7 @@ int main()
     // Game loop
     while(!window->should_close()) {
         window->poll_events();
+        game->update(delta_time);
         glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         game->draw();
