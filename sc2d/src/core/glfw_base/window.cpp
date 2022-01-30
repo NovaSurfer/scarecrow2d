@@ -20,6 +20,8 @@ namespace sc2d
                                   window_data.window_name, nullptr, nullptr);
         glfwSetFramebufferSizeCallback(window, window_data.frame_buffer_size_callback);
         glfwSetKeyCallback(window, window_data.key_callback);
+        glfwSetCursorPosCallback(window, window_data.cursor_pos_callback);
+        glfwSetMouseButtonCallback(window, window_data.mouse_button_callback);
         if(isCurrentContext)
             glfwMakeContextCurrent(window);
     }

@@ -142,13 +142,32 @@ struct Key
     };
 };
 
-struct KeyAction
+struct InputAction
 {
     enum Code
     {
         RELEASE = GLFW_RELEASE, // The key or mouse button was released.
         PRESS = GLFW_PRESS,     // The key or mouse button was pressed.
-        REPEAT = GLFW_REPEAT,   //The key was held down until it repeated.
+        REPEAT = GLFW_REPEAT    //The key was held down until it repeated.
+    };
+};
+
+struct MouseBtn
+{
+    enum Code
+    {
+        BTN1 = GLFW_MOUSE_BUTTON_1,
+        BTN2 = GLFW_MOUSE_BUTTON_2,
+        BTN3 = GLFW_MOUSE_BUTTON_3,
+        BTN4 = GLFW_MOUSE_BUTTON_4,
+        BTN5 = GLFW_MOUSE_BUTTON_5,
+        BTN6 = GLFW_MOUSE_BUTTON_6,
+        BTN7 = GLFW_MOUSE_BUTTON_7,
+        BTN8 = GLFW_MOUSE_BUTTON_8,
+        BTN_LAST = BTN8,
+        BTN_LEFT = BTN1,
+        BTN_RIGHT = BTN2,
+        BTN_MIDDLE = BTN3
     };
 };
 

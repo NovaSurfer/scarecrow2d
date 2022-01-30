@@ -12,6 +12,8 @@ namespace sc2d
 
     using Window_resize_callback = void (*)(GLFWwindow*, int, int);
     using Kbkey_callback = void (*)(GLFWwindow*, int, int, int, int);
+    using CursorPos_callback = void (*)(GLFWwindow*, double, double);
+    using MouseButton_callback = void (*)(GLFWwindow*, int, int, int);
 
     struct WindowSize
     {
@@ -21,13 +23,15 @@ namespace sc2d
 
     struct WindowData
     {
-        int context_version_maj;
-        int context_version_min;
-        int opengl_profile;
-        WindowSize size;
         const char* window_name;
         Window_resize_callback frame_buffer_size_callback;
         Kbkey_callback key_callback;
+        CursorPos_callback cursor_pos_callback;
+        MouseButton_callback mouse_button_callback;
+        WindowSize size;
+        int context_version_maj;
+        int context_version_min;
+        int opengl_profile;
     };
 
     class Window

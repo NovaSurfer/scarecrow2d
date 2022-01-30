@@ -4,22 +4,23 @@
 #include "core/glfw_base/glfwbase.h"
 #include "core/glfw_base/sctime.h"
 #include "core/glfw_base/window.h"
+#include "core/rendering/render.h"
 #include "game_main.h"
 #include <core/input.h>
 #include <core/resources.h>
 #include <core/result.h>
-#include "core/rendering/render.h"
 #include <memory>
 
 std::unique_ptr<sc2d::Window> window;
-constexpr const sc2d::WindowData window_data {3,
-                                              3,
-                                              static_cast<int>(sc2d::GlProfile::CORE),
-                                              {800,
-                                               600},
-                                              "scarecrow2d",
+constexpr const sc2d::WindowData window_data {"scarecrow2d",
                                               sc2d::GlfwWindowUtils::GL_frambuffer_resize,
-                                              sc2d::Input::read};
+                                              sc2d::Input::read_kb_key,
+                                              sc2d::Input::read_cursor_pos,
+                                              sc2d::Input::read_mouse_button,
+                                              {800, 600},
+                                              3,
+                                              3,
+                                              static_cast<int>(sc2d::GlProfile::CORE)};
 
 // Glad loads OpenGL functions pointers
 //    if(!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
@@ -38,7 +39,6 @@ int main()
 
     // TODO:
     //glfwSetWindowUserPointer(window->get_window(), &game);
-
 
     // TODO: Make class for time management
     double begin_ticks = sc2d::Time::get_time();

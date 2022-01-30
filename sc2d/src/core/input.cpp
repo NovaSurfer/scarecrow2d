@@ -3,7 +3,6 @@
 //
 #include "input.h"
 #include "glfw_base/window.h"
-#include <GLFW/glfw3.h>
 
 namespace sc2d
 {
@@ -13,7 +12,7 @@ namespace sc2d
         glfwSetWindowUserPointer(window.get_window(), reinterpret_cast<void*>(this));
     }
 
-    void Input::read(GLFWwindow* window, int key, int scancode, int action, int mode)
+    void Input::read_kb_key(GLFWwindow* window, int key, int scancode, int action, int mode)
     {
         Input* input = reinterpret_cast<Input*>(glfwGetWindowUserPointer(window));
 
@@ -23,26 +22,79 @@ namespace sc2d
         }
     }
 
+    void Input::read_cursor_pos(GLFWwindow* window, double xpos, double ypos)
+    {
+        Input* input = reinterpret_cast<Input*>(glfwGetWindowUserPointer(window));
+
+        if(input)
+        {
+            input->set_cursor_pos(xpos, ypos);
+        }
+    }
+
+    void Input::read_mouse_button(GLFWwindow* window, int button, int action, int mods)
+    {
+        Input* input = reinterpret_cast<Input*>(glfwGetWindowUserPointer(window));
+
+        if(input)
+        {
+            input->set_mouse_button(button, action, mods);
+        }
+    }
+
+    bool Input::get_key(Key::Code key) const
+    {
+        return keyboard_key.key == key;
+    }
+
+    bool Input::get_key_down(Key::Code key) const
+    {
+        return keyboard_key.key == key && keyboard_key.action == InputAction::PRESS;
+    }
+
+    bool Input::get_key_up(Key::Code key) const
+    {
+        return keyboard_key.key == key && keyboard_key.action == InputAction::RELEASE;
+    }
+
+    bool Input::mouse_btn(MouseBtn::Code button) const
+    {
+        return mouse_button.button == button;
+    }
+
+    bool Input::mouse_btn_down(MouseBtn::Code button) const
+    {
+        return mouse_button.button == button && mouse_button.action == InputAction::PRESS;
+    }
+
+    bool Input::mouse_btn_up(MouseBtn::Code button) const
+    {
+        return mouse_button.button == button && mouse_button.action == InputAction::RELEASE;
+    }
+
+    const CursorPos& Input::get_cursor_pos() const
+    {
+        return cursor_pos;
+    }
+
     void Input::set_key_input(int key, int scancode, int action, int mode)
     {
-        this->key = key;
-        this->scancode = scancode;
-        this->action = action;
-        this->mode = mode;
+        keyboard_key.key = key;
+        keyboard_key.scancode = scancode;
+        keyboard_key.action = action;
+        keyboard_key.mode = mode;
     }
 
-    bool Input::get_key(int key)
+    void Input::set_cursor_pos(double xpos, double ypos)
     {
-        return this->key == key;
+        cursor_pos.x_pos = xpos;
+        cursor_pos.y_pos = ypos;
     }
 
-    bool Input::get_key_down(int key)
+    void Input::set_mouse_button(int button, int action, int mods)
     {
-        return this->key == key && action == GLFW_PRESS;
-    }
-
-    bool Input::get_key_up(int key)
-    {
-        return this->key == key && action == GLFW_RELEASE;
+        mouse_button.button = button;
+        mouse_button.action = action;
+        mouse_button.mods = mods;
     }
 }
