@@ -6,12 +6,10 @@ set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules/)
 
 set(HEADERS
         "src/game_main.h"
-        "src/menu.h"
         )
 
 set(SOURCES
         "src/game_main.cpp"
-        "src/menu.cpp"
         "src/main.cpp"
         )
 
