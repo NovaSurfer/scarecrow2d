@@ -42,11 +42,11 @@ namespace math
 
         circle()
             : radius(1.0f)
-        {}
+        { }
         circle(const point2d& pos, const float radius)
             : position(pos)
             , radius(radius)
-        {}
+        { }
     };
 
     struct rect2d
@@ -56,11 +56,11 @@ namespace math
 
         rect2d()
             : size(1.0f, 1.0f)
-        {}
+        { }
         rect2d(const point2d& origin, const vec2& size)
             : origin(origin)
             , size(size)
-        {}
+        { }
 
         static vec2 get_min(const rect2d rect)
         {
@@ -93,17 +93,17 @@ namespace math
         orrect2d()
             : half_extends(vec2(0, 0))
             , rotation(0)
-        {}
+        { }
         orrect2d(const point2d& positon, const vec2& half_extends)
             : position(positon)
             , half_extends(half_extends)
             , rotation(0)
-        {}
+        { }
         orrect2d(const point2d& positon, const vec2& half_extends, float rotation)
             : position(positon)
             , half_extends(half_extends)
             , rotation(rotation)
-        {}
+        { }
     };
 
     struct interval2d
@@ -392,5 +392,22 @@ namespace math
 
         return false;
     }
+
+    struct ray2d
+    {
+        point2d origin;
+        vec2 direction;
+
+        ray2d()
+            : direction({0.0f, 0.0f})
+        { }
+
+        ray2d(const point2d& point, const vec2& dir)
+            : origin(point)
+            , direction(dir)
+        {
+            math::normalize(direction);
+        }
+    };
 }
 #endif //INC_2D_GAME_GEOMETRY2D_H
