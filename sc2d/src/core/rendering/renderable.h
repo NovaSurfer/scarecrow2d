@@ -45,7 +45,9 @@ namespace sc2d
     };
 
     struct obj2d : transformable_2d
-    { };
+    {
+        obj2d* parent;
+    };
 
 }
 
