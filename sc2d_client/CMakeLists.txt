@@ -1,6 +1,11 @@
 cmake_minimum_required(VERSION 3.8 FATAL_ERROR)
 project(sc2d_client)
 
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules/)
 #add_subdirectory(../sc2d/ ${CMAKE_CURRENT_BINARY_DIR}/sc2d/)
 

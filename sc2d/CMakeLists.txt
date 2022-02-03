@@ -2,6 +2,11 @@ cmake_minimum_required(VERSION 3.19 FATAL_ERROR)
 
 project(sc2d_base)
 
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 hunter_add_package(aglet)
 find_package(aglet CONFIG REQUIRED)
 
