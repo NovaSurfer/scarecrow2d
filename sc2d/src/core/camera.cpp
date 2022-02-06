@@ -12,8 +12,8 @@ namespace sc2d
     {
         this->width = width;
         this->height = height;
-        this->near = near;
-        this->far = far;
+        this->Near = near;
+        this->Far = far;
         proj = math::ortho(0.0, width, height, 0.0, near, far);
     }
 }

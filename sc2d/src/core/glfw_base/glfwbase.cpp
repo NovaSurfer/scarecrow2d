@@ -3,8 +3,8 @@
 //
 
 #include "glfwbase.h"
-#include <GLFW/glfw3.h>
 #include <filesystem/resourceHolder.h>
+#include <GLFW/glfw3.h>
 
 namespace sc2d
 {

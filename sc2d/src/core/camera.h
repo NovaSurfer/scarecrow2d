@@ -23,8 +23,8 @@ namespace sc2d
     private:
         f32 width;
         f32 height;
-        f32 near;
-        f32 far;
+        f32 Near;
+        f32 Far;
         f32 aspect;
         math::mat4 proj;
     };

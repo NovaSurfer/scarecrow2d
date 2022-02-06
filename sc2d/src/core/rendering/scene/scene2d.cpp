@@ -72,11 +72,12 @@ namespace sc2d
 
     std::vector<obj2d*> Scene2d::query(const math::circle& circle)
     {
-
+        return std::vector<obj2d*>();
     }
 
     std::vector<obj2d*> Scene2d::query(const math::rect2d rect)
     {
+        return std::vector<obj2d*>();
     }
 
 }
