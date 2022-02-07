@@ -56,14 +56,14 @@ jobs:
       # The CMake binaries on the Github Actions machines are (as of this writing) 3.12
       run: cmake -D SC2D_BUILD_TESTS=ON -G "Visual Studio 16 2019" ../
 
-    - name: Build
+    - name: Build All
       working-directory: ${{runner.workspace}}\scarecrow2d\build
       shell: cmd 
       # Execute the build.  You can specify a specific target with "--target <NAME>"
       run: devenv scarecrow2d.sln /build Debug
 
-    - name: Test
-      working-directory: ${{runner.workspace}}\scarecrow2d\build\Debug
+    - name: Run sc2d tests
+      working-directory: ${{runner.workspace}}\scarecrow2d\build\tests\Debug
       shell: cmd
       # Execute tests defined by the CMake configuration.  
       # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
