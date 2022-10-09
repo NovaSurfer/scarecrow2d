@@ -29,12 +29,12 @@ namespace sc2d
     // TODO: add prefix
     namespace shader_const
     {
-        constexpr char* IMG {"img"};
-        constexpr char* IMG_ARRAY {"img_array"};
-        constexpr char* IMG_COLOR {"img_color"};
-        constexpr char* MODEL {"model"};
-        constexpr char* PROJ {"proj"};
-        constexpr char* MVP {"mvp"};
+        constexpr char IMG[] {"img"};
+        constexpr char IMG_ARRAY[] {"img_array"};
+        constexpr char IMG_COLOR[] {"img_color"};
+        constexpr char MODEL[] {"model"};
+        constexpr char PROJ[] {"proj"};
+        constexpr char MVP[] {"mvp"};
     }
 
     class Shader
